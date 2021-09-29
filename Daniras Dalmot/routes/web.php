@@ -13,5 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Home
-Route::view('/', 'index');
+//Home Page
+Route::view('/', 'index')->name('homepage');
+
+//About page
+Route::view('/about', 'about')->name('aboutpage');
+
+//Team page
+Route::view('/team', 'team')->name('teampage');
+
+//Product Page
+Route::prefix('products')->group(
+    function () {
+        Route::view('/', 'product')->name('productpage');
+    }
+);
+
+
+//Contact Page
+Route::prefix('/contact')->group(
+    function (){
+        Route::view('/', 'contact')->name('contactpage');
+    }
+);
