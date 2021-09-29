@@ -42,10 +42,10 @@
       /></a>
       <nav>
         <ul class="nav__links">
-          <li><a href="./index.html">Home</a></li>
-          <li><a href="./products.html">Products</a></li>
-          <li><a href="./team.html">Team</a></li>
-          <li><a href="./about.html">About</a></li>
+          <li><a href="{{route('homepage')}}">Home</a></li>
+          <li><a href="{{route('productpage')}}">Products</a></li>
+          <li><a href="{{route('teampage')}}">Team</a></li>
+          <li><a href="{{route('aboutpage')}}">About</a></li>
         </ul>
       </nav>
       <a class="cta" href="./contact.html">Contact</a>
@@ -54,10 +54,10 @@
     <div id="mobile__menu" class="overlay">
       <a class="close">&times;</a>
       <div class="overlay__content">
-        <a href="./index.html">Home</a>
-        <a href="./products.html">Products</a>
-        <a href="./team.html">Team</a>
-        <a href="./about.html">About</a>
+        <a href="{{route('homepage')}}">Home</a>
+        <a href="{{route('productpage')}}">Products</a>
+        <a href="{{route('teampage')}}">Team</a>
+        <a href="{{route('aboutpage')}}">About</a>
         <a href="./contact.html">Contact</a>
       </div>
     </div>
@@ -98,7 +98,7 @@
             <div class="banner-content">
               <h1 class="heading">Love At First Bite</h1>
 
-              <a class="buttons" href="./products.html">Order Now!</a>
+              <a class="buttons" href="{{route('productpage')}}">Order Now!</a>
             </div>
           </div>
           <div class="carousel-item">
@@ -111,7 +111,7 @@
             <div class="banner-content">
               <h1 class="heading">Free Delivery All Over Valley</h1>
 
-              <a class="buttons" href="./products.html">Order Now!</a>
+              <a class="buttons" href="{{route('productpage')}}">Order Now!</a>
             </div>
           </div>
           <div class="carousel-item">
@@ -126,7 +126,7 @@
                 Jhurum Jhurum Furandana Kham Dashain Manam
               </h1>
 
-              <a class="buttons" href="./products.html">Order Now!</a>
+              <a class="buttons" href="{{route('productpage')}}">Order Now!</a>
             </div>
           </div>
         </div>
