@@ -52,7 +52,7 @@
       <li><a href="{{route('aboutpage')}}">About</a></li>
     </ul>
   </nav>
-  <a class="cta" href="./contact.html">Contact</a>
+  <a class="cta" href="{{route('contactpage')}}">Contact</a>
   <p class="menu cta">Menu</p>
 </header>
 <div id="mobile__menu" class="overlay">
@@ -62,7 +62,7 @@
     <a href="{{route('productpage')}}">Products</a>
     <a href="{{route('teampage')}}">Team</a>
     <a href="{{route('aboutpage')}}">About</a>
-    <a href="./contact.html">Contact</a>
+    <a href="{{route('contactpage')}}">Contact</a>
   </div>
 </div>
 <!-- END HEADER -->
