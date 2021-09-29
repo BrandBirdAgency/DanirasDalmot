@@ -31,10 +31,10 @@
     /></a>
     <nav>
       <ul class="nav__links">
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="./products.html">Products</a></li>
-        <li><a href="./team.html">Team</a></li>
-        <li><a href="./about.html">About</a></li>
+        <li><a href="{{route('homepage')}}">Home</a></li>
+        <li><a href="{{route('productpage')}}">Products</a></li>
+        <li><a href="{{route('teampage')}}">Team</a></li>
+        <li><a href="{{route('aboutpage')}}">About</a></li>
       </ul>
     </nav>
     <a class="cta" href="./contact.html">Contact</a>
@@ -43,10 +43,10 @@
   <div id="mobile__menu" class="overlay">
     <a class="close">&times;</a>
     <div class="overlay__content">
-      <a href="./index.html">Home</a>
-      <a href="./products.html">Products</a>
-      <a href="./team.html">Team</a>
-      <a href="./about.html">About</a>
+      <a href="{{route('homepage')}}">Home</a>
+      <a href="{{route('productpage')}}">Products</a>
+      <a href="{{route('teampage')}}">Team</a>
+      <a href="{{route('aboutpage')}}">About</a>
       <a href="./contact.html">Contact</a>
     </div>
   </div>
@@ -68,9 +68,9 @@
         </div>
         <div class="bannernav">
           <li><i class="fas fa-home"></i></li>
-          <li><a href="./index.html">HOME</a></li>
+          <li><a href="{{route('homepage')}}">HOME</a></li>
           <li><i class="fas fa-caret-right"></i></li>
-          <li><a href="./about.html">ABOUT</a></li>
+          <li><a href="{{route('aboutpage')}}">ABOUT</a></li>
         </div>
       </div>
     </div>
@@ -198,7 +198,7 @@
       <div class="text">
         <p class="top">Discover Your Taste</p>
         <h2>We believe good food offer great smile</h2>
-        <a href="./products.html">Explore Products</a>
+        <a href="{{route('productpage')}}">Explore Products</a>
       </div>
     </div>
 
@@ -213,7 +213,7 @@
       <ul class="list-inline">
         <li class="list-inline-item"><a href="#">Home</a></li>
         <li class="list-inline-item"><a href="#">Products</a></li>
-        <li class="list-inline-item"><a href="./team.html">Team</a></li>
+        <li class="list-inline-item"><a href="{{route('teampage')}}">Team</a></li>
         <li class="list-inline-item"><a href="#">About</a></li>
         <li class="list-inline-item"><a href="#">Contact</a></li>
       </ul>
