@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Home Page
-Route::view('/', 'index')->name('homepage');
+Route::view('/index', 'index')->name('homepage');
 
 //About page
 Route::view('/about', 'about')->name('aboutpage');
@@ -36,3 +36,12 @@ Route::prefix('/contact')->group(
         Route::view('/', 'contact')->name('contactpage');
     }
 );
+
+// Authentication
+Route::view('/', 'auth.login');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+
