@@ -107,7 +107,9 @@
                       id="contactForm"
                       name="contactForm"
                       class="contactForm"
+                      action={{route('contactadmin')}}
                     >
+                    @csrf
                       <div class="row">
                         <div class="col-md-12">
                           <div class="form-group">
@@ -117,7 +119,11 @@
                               name="name"
                               id="name"
                               placeholder="Name"
+                              value={{old('name')}}
                             />
+                            @error('name')
+                                {{$message}}
+                            @enderror
                           </div>
                         </div>
                         <div class="col-md-12">
@@ -128,8 +134,12 @@
                               name="email"
                               id="email"
                               placeholder="Email"
+                              value={{old('email')}}
                             />
                           </div>
+                          @error('email')
+                                {{$message}}
+                            @enderror
                         </div>
                         <div class="col-md-12">
                           <div class="form-group">
@@ -139,8 +149,12 @@
                               name="subject"
                               id="subject"
                               placeholder="Subject"
+                              value={{old('subject')}}
                             />
                           </div>
+                          @error('subject')
+                                {{$message}}
+                            @enderror
                         </div>
                         <div class="col-md-12">
                           <div class="form-group">
@@ -151,8 +165,12 @@
                               cols="30"
                               rows="6"
                               placeholder="Message"
+                              value={{old('message')}}
                             ></textarea>
                           </div>
+                          @error('message')
+                            {{$message}}
+                          @enderror
                         </div>
                         <div class="col-md-12">
                           <div class="form-group">

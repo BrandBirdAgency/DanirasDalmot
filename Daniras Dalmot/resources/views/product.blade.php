@@ -160,10 +160,10 @@
                   &times;
                 </button>
               </div>
-
               <!-- Modal body -->
               <div class="modal-body">
-                <form action="">
+                <form action={{route('productorder')}} method="POST">
+                    @csrf
                   <div class="form-group">
                     <label for="usr">Full Name:</label>
                     <input
@@ -172,6 +172,9 @@
                       id="usr"
                       name="username"
                     />
+                    @error('username')
+                        {{$message}}
+                    @enderror
                   </div>
                   <div class="form-group">
                     <label for="Address">Address:</label>
@@ -181,6 +184,9 @@
                       id="Address"
                       name="Address"
                     />
+                    @error('Address')
+                        {{$message}}
+                    @enderror
                   </div>
                   <div class="form-group">
                     <label for="Phone">Phone Number:</label>
@@ -190,6 +196,9 @@
                       id="Phone"
                       name="Phone"
                     />
+                    @error('Phone')
+                        {{$message}}
+                    @enderror
                   </div>
                   <button type="submit" class="submit-btn">Proceed</button>
                 </form>

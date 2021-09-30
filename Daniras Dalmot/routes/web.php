@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,7 @@ Route::view('/team', 'team')->name('teampage');
 Route::prefix('products')->group(
     function () {
         Route::view('/', 'product')->name('productpage');
+        Route::post('/order',[MailController::class,'productmail'])->name('productorder');
     }
 );
 
@@ -34,6 +36,7 @@ Route::prefix('products')->group(
 Route::prefix('/contact')->group(
     function (){
         Route::view('/', 'contact')->name('contactpage');
+        Route::post('/contactadmin',[MailController::class,'contactmail'])->name('contactadmin');
     }
 );
 
