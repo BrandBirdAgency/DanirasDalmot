@@ -3,7 +3,28 @@
 @section('title','Contact')
 
 @section('contents')
-
+<!-- MAIN BANNER -->
+<div class="teambanner">
+  <div class="contain">
+    <div class="image">
+      <img src="./assets/images/bg.jpg" alt="" />
+    </div>
+    <div class="image-overlay"></div>
+    <div class="text">
+      <div class="headings">
+        <h1 class="">CONTACT</h1>
+        <div class="bannerline"></div>
+      </div>
+      <div class="bannernav">
+        <li><i class="fas fa-home"></i></li>
+        <li><a href="{{route('homepage')}}">HOME</a></li>
+        <li><i class="fas fa-caret-right"></i></li>
+        <li><a href="{{route('aboutpage')}}">CONTACT</a></li>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END MAIN BANNER -->
 <section class="ftco-section">
   <div class="container">
     <div class="row justify-content-center">
