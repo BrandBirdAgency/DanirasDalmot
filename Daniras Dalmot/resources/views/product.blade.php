@@ -164,6 +164,9 @@
               <div class="modal-body">
                 <form action={{route('productorder')}} method="POST">
                     @csrf
+                    <div class="from-group">
+                        <input type="hidden" value='0' id='quantity' name="quantity">
+                    </div>
                   <div class="form-group">
                     <label for="usr">Full Name:</label>
                     <input
