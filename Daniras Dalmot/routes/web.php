@@ -38,7 +38,7 @@ Route::prefix('/contact')->group(
 );
 
 // Authentication
-Route::view('/', 'auth.login');
+Route::view('/adminlogin', 'auth.login');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
