@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Home Page
-Route::view('/index', 'index')->name('homepage');
+Route::view('/', 'layouts.app')->name('homepage');
 
 //About page
 Route::view('/about', 'about')->name('aboutpage');
@@ -32,7 +32,7 @@ Route::prefix('products')->group(
 
 //Contact Page
 Route::prefix('/contact')->group(
-    function (){
+    function () {
         Route::view('/', 'contact')->name('contactpage');
     }
 );
@@ -43,5 +43,4 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
-
+require __DIR__ . '/auth.php';

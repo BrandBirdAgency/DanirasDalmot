@@ -1,0 +1,13 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="{{asset('vendor/js/jquery-3.6.0.min.js')}}"></script>
+<script src="{{asset('assets/js/main.js')}}"></script>
+<script src="{{asset('vendor/js/aos.js')}}"></script>
+<script src="{{asset('vendor/js/jquery.waypoints.j')}}s"></script>
+<script src="{{asset('vendor/js/jquery.counterup.js')}}"></script>
+<script src="{{asset('vendor/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('vendor/js/bootstrap.bundle.js')}}"></script>
+<script src="{{asset('vendor/js/popper.min.js')}}"></script>
+<script src="{{asset('js/jquery.min.js')}}"></script>
+<script src="{{asset('js/popper.js')}}"></script>
+<script src="{{asset('js/jquery.validate.min.js')}}"></script>
+<script src="{{asset('js/contact.js')}}"></script>
