@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::view('/', 'layouts.app');
 
 //Home Page
 Route::view('/index', 'index')->name('homepage');
@@ -34,7 +35,7 @@ Route::prefix('products')->group(
 
 //Contact Page
 Route::prefix('/contact')->group(
-    function (){
+    function () {
         Route::view('/', 'contact')->name('contactpage');
         Route::post('/contactadmin',[MailController::class,'contactmail'])->name('contactadmin');
     }
