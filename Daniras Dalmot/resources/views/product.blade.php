@@ -1,86 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home | Danira's</title>
-    <!-- BOOTSTRAP -->
-    <link rel="stylesheet" type="text/css" href="vendor/css/bootstrap.css" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="vendor/css/bootstrap.min.css"
-    />
+@extends('layouts.app')
+@section('title','Products')
 
-    <!-- GOOGLE FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Swiper Js -->
+@section('css')
+<!-- Swiper Js -->
     <link
       rel="stylesheet"
       href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
     />
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+@endsection
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- FONTAWESOME -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
-      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"
-    />
-    <!-- CSS -->
-    <link rel="stylesheet" href="./assets/css/style.css" />
-  </head>
-  <body>
-    <!-- HEADER -->
-    <header>
-      <a class="logo" href="/"
-        ><img src="./assets/images/logo.jpg" alt="logo"
-      /></a>
-      <nav>
-        <ul class="nav__links">
-          <li><a href="{{route('homepage')}}">Home</a></li>
-          <li><a href="{{route('productpage')}}">Products</a></li>
-          <li><a href="{{route('teampage')}}">Team</a></li>
-          <li><a href="{{route('aboutpage')}}">About</a></li>
-        </ul>
-      </nav>
-      <a class="cta" href="{{route('contactpage')}}">Contact</a>
-      <p class="menu cta">Menu</p>
-    </header>
-    <div id="mobile__menu" class="overlay">
-      <a class="close">&times;</a>
-      <div class="overlay__content">
-        <a href="{{route('homepage')}}">Home</a>
-        <a href="{{route('productpage')}}">Products</a>
-        <a href="{{route('teampage')}}">Team</a>
-        <a href="{{route('aboutpage')}}">About</a>
-        <a href="{{route('contactpage')}}">Contact</a>
-      </div>
-    </div>
-    <!-- END HEADER -->
-
-    <!-- MAIN BANNER -->
-
-  <!-- MAIN BANNER -->
+@section('content')
+   <!-- MAIN BANNER -->
   <div class="teambanner">
     <div class="contain">
       <div class="image">
@@ -94,9 +25,9 @@
         </div>
         <div class="bannernav">
           <li><i class="fas fa-home"></i></li>
-          <li><a href="{{route('homepage')}}">HOME</a></li>
+          <li><a href="./index.html">HOME</a></li>
           <li><i class="fas fa-caret-right"></i></li>
-          <li><a href="{{route('aboutpage')}}">PRODCUTS</a></li>
+          <li><a href="./about.html">PRODCUTS</a></li>
         </div>
       </div>
     </div>
@@ -163,7 +94,9 @@
 
               <!-- Modal body -->
               <div class="modal-body">
-                <form action="">
+                <form action= {{route('productorder')}} method="POST">
+                    @csrf
+                    <input type="hidden" name="quantity" id="quantity">
                   <div class="form-group">
                     <label for="usr">Full Name:</label>
                     <input
@@ -172,6 +105,9 @@
                       id="usr"
                       name="username"
                     />
+                    @error('username')
+                        {{$message}}
+                    @enderror
                   </div>
                   <div class="form-group">
                     <label for="Address">Address:</label>
@@ -181,6 +117,9 @@
                       id="Address"
                       name="Address"
                     />
+                    @error('Address')
+                        {{$message}}
+                    @enderror
                   </div>
                   <div class="form-group">
                     <label for="Phone">Phone Number:</label>
@@ -190,6 +129,9 @@
                       id="Phone"
                       name="Phone"
                     />
+                    @error('Phone')
+                        {{$message}}
+                    @enderror
                   </div>
                   <button type="submit" class="submit-btn">Proceed</button>
                 </form>
@@ -259,41 +201,4 @@
         </div>
       </div>
     </section>
-
-    <!-- FOOTER -->
-
-    <div class="footer-basic">
-      <footer>
-        <div class="social">
-          <a href="#"><i class="icon ion-social-instagram"></i></a
-          ><a href="#"><i class="icon ion-social-snapchat"></i></a
-          ><a href="#"><i class="icon ion-social-twitter"></i></a
-          ><a href="#"><i class="icon ion-social-facebook"></i></a>
-        </div>
-        <ul class="list-inline">
-          <li class="list-inline-item"><a href="#">Home</a></li>
-          <li class="list-inline-item"><a href="#">Products</a></li>
-          <li class="list-inline-item"><a href="#">Team</a></li>
-          <li class="list-inline-item"><a href="#">About</a></li>
-          <li class="list-inline-item"><a href="#">Contact</a></li>
-        </ul>
-        <p class="copyright">Company Name © 2018</p>
-      </footer>
-    </div>
-
-    <!-- FOOTER END -->
-
-    <!-- Script Source Files -->
-    <script src="vendor/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="vendor/js/jquery-3.6.0.min.js"></script>
-    <script src="./assets/js/main.js"></script>
-    <script src="./vendor/js/aos.js"></script>
-    <script src="vendor/js/jquery.waypoints.js"></script>
-    <script src="vendor/js/jquery.counterup.js"></script>
-    <script src="vendor/js/bootstrap.bundle.js"></script>
-    <script src="vendor/js/popper.min.js"></script>
-    <script src="assets/js/tilt.jquery.js"></script>
-  </body>
-</html>
+@endsection

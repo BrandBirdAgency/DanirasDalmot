@@ -1,56 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home | Danira's</title>
-    <!-- BOOTSTRAP -->
-    <link rel="stylesheet" type="text/css" href="vendor/css/bootstrap.css" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="vendor/css/bootstrap.min.css"
-    />
+@extends('layouts.app')
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- FONTAWESOME -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
-      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"
-    />
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
-  </head>
-  <body id="hello">
-    <!-- HEADER -->
-    <header>
-      <a class="logo" href="/"
-        ><img src="./assets/images/logo.jpg" alt="logo"
-      /></a>
-      <nav>
-        <ul class="nav__links">
-          <li><a href="{{route('homepage')}}">Home</a></li>
-          <li><a href="{{route('productpage')}}">Products</a></li>
-          <li><a href="{{route('teampage')}}">Team</a></li>
-          <li><a href="{{route('aboutpage')}}">About</a></li>
-        </ul>
-      </nav>
-      <a class="cta" href="{{route('contactpage')}}">Contact</a>
-      <p class="menu cta">Menu</p>
-    </header>
+@section('title','Home')
+@section('content')
     <div id="mobile__menu" class="overlay">
       <a class="close">&times;</a>
       <div class="overlay__content">
@@ -301,49 +252,5 @@
         </div>
       </div>
     </section>
+@endsection
 
-    <!-- FOOTER -->
-
-    <div class="footer-basic">
-      <footer>
-        <div class="social">
-          <a href="#"><i class="icon ion-social-instagram"></i></a
-          ><a href="#"><i class="icon ion-social-snapchat"></i></a
-          ><a href="#"><i class="icon ion-social-twitter"></i></a
-          ><a href="#"><i class="icon ion-social-facebook"></i></a>
-        </div>
-        <ul class="list-inline">
-          <li class="list-inline-item"><a href="#">Home</a></li>
-          <li class="list-inline-item"><a href="#">Products</a></li>
-          <li class="list-inline-item"><a href="#">Team</a></li>
-          <li class="list-inline-item"><a href="#">About</a></li>
-          <li class="list-inline-item"><a href="#">Contact</a></li>
-        </ul>
-        <p class="copyright">Company Name © 2018</p>
-      </footer>
-    </div>
-
-    <!-- END FOOTER -->
-
-    <!-- Script Source Files -->
-    <script>
-      const banner = document.querySelectorAll("#home .carousel-inner img");
-      const header = document.querySelector("header");
-      banner.forEach((item) => {
-        item.addEventListener("load", () => {
-          item.style.height =
-            window.innerHeight - (header.offsetHeight - 8) + "px";
-        });
-      });
-    </script>
-    <script src="vendor/js/jquery-3.6.0.min.js"></script>
-    <script src="./assets/js/main.js"></script>
-    <script src="./vendor/js/aos.js"></script>
-    <script src="vendor/js/jquery.waypoints.js"></script>
-    <script src="vendor/js/jquery.counterup.js"></script>
-    <script src="vendor/js/bootstrap.min.js"></script>
-    <script src="vendor/js/bootstrap.bundle.js"></script>
-    <script src="vendor/js/popper.min.js"></script>
-    <script src="assets/js/tilt.jquery.js"></script>
-  </body>
-</html>

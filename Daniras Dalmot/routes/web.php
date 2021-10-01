@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::view('/', 'layouts.app');
 
 //Home Page
 Route::view('/index', 'index')->name('homepage');
@@ -26,14 +28,16 @@ Route::view('/team', 'team')->name('teampage');
 Route::prefix('products')->group(
     function () {
         Route::view('/', 'product')->name('productpage');
+        Route::post('/order',[MailController::class,'productmail'])->name('productorder');
     }
 );
 
 
 //Contact Page
 Route::prefix('/contact')->group(
-    function (){
+    function () {
         Route::view('/', 'contact')->name('contactpage');
+        Route::post('/contactadmin',[MailController::class,'contactmail'])->name('contactadmin');
     }
 );
 
