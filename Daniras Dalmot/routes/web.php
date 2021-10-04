@@ -13,10 +13,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::view('/', 'layouts.app');
 
 //Home Page
-Route::view('/index', 'index')->name('homepage');
+Route::view('/', 'index')->name('homepage');
 
 //About page
 Route::view('/about', 'about')->name('aboutpage');
@@ -28,7 +27,7 @@ Route::view('/team', 'team')->name('teampage');
 Route::prefix('products')->group(
     function () {
         Route::view('/', 'product')->name('productpage');
-        Route::post('/order',[MailController::class,'productmail'])->name('productorder');
+        Route::post('/order', [MailController::class, 'productmail'])->name('productorder');
     }
 );
 
@@ -37,7 +36,7 @@ Route::prefix('products')->group(
 Route::prefix('/contact')->group(
     function () {
         Route::view('/', 'contact')->name('contactpage');
-        Route::post('/contactadmin',[MailController::class,'contactmail'])->name('contactadmin');
+        Route::post('/contactadmin', [MailController::class, 'contactmail'])->name('contactadmin');
     }
 );
 
@@ -47,5 +46,4 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
-
+require __DIR__ . '/auth.php';
