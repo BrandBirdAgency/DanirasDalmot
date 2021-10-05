@@ -38,6 +38,6 @@ class MailController extends Controller
             $m->to('testmail9779@gmail.com', 'Test');
             $m->subject("New Order Recieved");
         });
-        return redirect('products');
+        return redirect()->route('ordersucess');
     }
 }

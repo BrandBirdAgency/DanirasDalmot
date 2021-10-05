@@ -95,7 +95,9 @@
 
               <!-- Modal body -->
               <div class="modal-body">
-                <form action="">
+                <form action={{ route('productorder') }} method="POST">
+                    @csrf
+                    <input type="number" name="quantity" id="quantity">
                   <div class="form-group">
                     <label for="usr">Full Name:</label>
                     <input
@@ -104,6 +106,9 @@
                       id="usr"
                       name="username"
                     />
+                    @error('username')
+                        {{$message}}
+                    @enderror
                   </div>
                   <div class="form-group">
                     <label for="Address">Address:</label>
@@ -113,6 +118,9 @@
                       id="Address"
                       name="Address"
                     />
+                        @error('Address ')
+                            {{$message}}
+                        @enderror
                   </div>
                   <div class="form-group">
                     <label for="Phone">Phone Number:</label>
@@ -122,6 +130,9 @@
                       id="Phone"
                       name="Phone"
                     />
+                    @error('Phone')
+                    {{$message}}
+                    @enderror
                   </div>
                   <button type="submit" class="submit-btn">Proceed</button>
                 </form>
@@ -337,19 +348,23 @@
     let count = document.querySelector(".count");
     let minus = document.querySelector(".minus");
     let plus = document.querySelector(".plus");
+    let quantity = document.querySelector("#quantity");
     let counter = 1;
+    quantity.value = 1;
 
     minus.addEventListener("click", () => {
-      if (counter <= 0) count.innerHTML = 0;
+      if (counter <= 0){ count.innerHTML = 0;}
       else {
         counter--;
         count.innerHTML = counter;
+        quantity.value = counter;
       }
     });
 
     plus.addEventListener("click", () => {
       counter++;
       count.innerHTML = counter;
+      quantity.value = counter;
     });
 
     var swiper = new Swiper("#more-products .swiper", {
