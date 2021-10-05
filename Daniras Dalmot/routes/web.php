@@ -31,6 +31,7 @@ Route::prefix('products')->group(
     }
 );
 
+Route::view('ordersucess', 'ordersucess')->name('ordersucess');
 
 //Contact Page
 Route::prefix('/contact')->group(
@@ -40,10 +41,13 @@ Route::prefix('/contact')->group(
     }
 );
 
-// Authentication
-Route::view('/adminlogin', 'auth.login');
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Admin
+Route::view('/admin', 'auth.login');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    });
+    Route::view('/product-add','admin.add-product')->name('addproduct');
+});
 
 require __DIR__ . '/auth.php';
