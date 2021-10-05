@@ -15,9 +15,9 @@ class CreateAddproductTable extends Migration
     {
         Schema::create('addproduct', function (Blueprint $table) {
             $table->id();
-            $table->string('p_name');
-            $table->string('b_name');
-            $table->float('r_price');
+            $table->string('product_name');
+            $table->string('brand_name');
+            $table->float('retail_price');
             $table->float('discount');
             $table->integer('price');
             $table->timestamps();
