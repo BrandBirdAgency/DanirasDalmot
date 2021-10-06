@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,28 +16,29 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Home Page
-Route::view('/', 'index')->name('homepage');
+Route::get('/', [PublicController::class, 'index'])->name('homepage');
 
 //About page
-Route::view('/about', 'about')->name('aboutpage');
+Route::get('/about', [PublicController::class, 'about'])->name('aboutpage');
 
 //Team page
-Route::view('/team', 'team')->name('teampage');
+Route::get('/team', [PublicController::class, 'team'])->name('teampage');
 
 //Product Page
 Route::prefix('products')->group(
     function () {
-        Route::view('/', 'product')->name('productpage');
+        Route::get('/', [PublicController::class, 'product'])->name('productpage');
         Route::post('/order', [MailController::class, 'productmail'])->name('productorder');
     }
 );
 
-Route::view('ordersucess', 'ordersucess')->name('ordersucess');
+//Order Success
+Route::get('/ordersuccess', [PublicController::class, 'orderSuccess'])->name('ordersucess');
 
 //Contact Page
 Route::prefix('/contact')->group(
     function () {
-        Route::view('/', 'contact')->name('contactpage');
+        Route::get('/', [PublicController::class, 'contact'])->name('contactpage');
         Route::post('/contactadmin', [MailController::class, 'contactmail'])->name('contactadmin');
     }
 );
@@ -47,7 +49,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
     });
-    Route::view('/product-add','admin.add-product')->name('addproduct');
+    Route::view('/product-add', 'admin.add-product')->name('addproduct');
 });
 
 require __DIR__ . '/auth.php';
