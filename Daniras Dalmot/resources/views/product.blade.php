@@ -97,7 +97,9 @@
               <div class="modal-body">
                 <form action={{ route('productorder') }} method="POST">
                     @csrf
-                    <input type="number" name="quantity" id="quantity">
+                    <input type="hidden" name="product_id">
+                    <input type="hidden" name="quantity" id="quantity">
+                    <input type="hidden" name="price">
                   <div class="form-group">
                     <label for="usr">Full Name:</label>
                     <input
@@ -116,9 +118,9 @@
                       type="text"
                       class="form-control"
                       id="Address"
-                      name="Address"
+                      name="address"
                     />
-                        @error('Address ')
+                        @error('address ')
                             {{$message}}
                         @enderror
                   </div>
@@ -128,9 +130,9 @@
                       type="text"
                       class="form-control"
                       id="Phone"
-                      name="Phone"
+                      name="phone"
                     />
-                    @error('Phone')
+                    @error('phone')
                     {{$message}}
                     @enderror
                   </div>
