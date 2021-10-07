@@ -1,7 +1,9 @@
 @extends('layouts.app')
 @section('title','Contact')
 @section('css')
- <link rel="stylesheet" href="./assets/css/contact.css">
+    <link rel="stylesheet" href="./assets/css/contact.css">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
 @endsection
 @section('content')
 

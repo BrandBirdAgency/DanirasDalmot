@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @section('title','Order Sucessfull')
+@section('css')
+    <link rel="stylesheet" href="./assets/css/style.css" />
+@endsection
 @section('content')
 <section id="online-payment">
   <div class="payementsuccess col-12">

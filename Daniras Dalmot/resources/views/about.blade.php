@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('title', 'About')
-
+@section('css')
+<link rel="stylesheet" href="./assets/css/style.css" />
+@endsection
 @section('content')
   <!-- ABOUT BEGIN -->
 

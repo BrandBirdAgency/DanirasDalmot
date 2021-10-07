@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,7 +47,7 @@ Route::prefix('/contact')->group(
 
 
 // Admin
-Route::view('/admin', 'auth.login');
+Route::view('/admin-login', 'auth.login');
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard']);
     Route::view('/product-add', 'admin.add-product')->name('addproduct');
@@ -54,5 +55,4 @@ Route::middleware(['auth'])->group(function () {
     // Company Info
     Route::post('/companyInfoEdit', [AdminController::class, 'companyInfoEdit'])->name('companyInfoEdit');
 });
-
 require __DIR__ . '/auth.php';

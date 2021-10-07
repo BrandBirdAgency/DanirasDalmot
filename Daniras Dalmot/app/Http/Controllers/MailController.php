@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Mail;
 
 class MailController extends Controller
 {
-    public function contactmail(Request $res)
+    public function contactMail(Request $res)
     {
         $res->validate(
             [
@@ -25,7 +25,7 @@ class MailController extends Controller
         });
         return redirect('contact');
     }
-    public function productmail(Request $res)
+    public function productMail(Request $res)
     {
         $res->validate(
             [
