@@ -21,7 +21,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('addProduct');
+        return view('admin.addProduct');
     }
 
     /**
@@ -33,21 +33,18 @@ class ProductController extends Controller
         $req->validate(
             [
                 'name' => 'string|required',
-                'description' => 'text | required',
-                'photo' => 'mimes:jpeg,jpg,png,gif|max:1024|required',
-                'in_stock' => 'required',
-                'retail_price' => 'number|required',
-                'discount' => 'number|required',
-                'price' => 'number|required',
-                'category' => 'required',
-                'brand_name'=>'text|required',
-                'size'=>'text|required'
+                'description' => 'string|required',
+                'photo' => 'required|max:1024',
+                'retail_price' => 'required',
+                'discount' => 'required',
+                'price' => 'required',
+                'brand_name'=>'string|required',
+                'size'=>'required'
             ]
             );
         $product = new Product();
         $product -> name = $req -> name;
-        $image = $req -> file('image');
-        $product->image = $image -> storeAs('public/images/products',$req->name);
+        $product->photo = 'storage/'.$req -> file('photo')-> storeAs('public/images/products',$req->name);
         $product-> description = $req-> description;
         $product -> in_stock = $req -> in_stock;
         $product -> retail_price = $req -> retail_price;

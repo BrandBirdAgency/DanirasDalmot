@@ -1,144 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add Product</title>
+    <title>Document</title>
     <!-- BOOTSTRAP -->
-    <link rel="stylesheet" type="text/css" href="vendor/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="vendor/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./vendor/css/bootstrap.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./vendor/css/bootstrap.min.css"
+    />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- FONTAWESOME -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
-        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
-        crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"
+    />
     <!-- CSS -->
     <!-- Add icon library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./assets/css/admin.css" />
-</head>
-
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./assets/css/admin.css"
+    />
+  </head>
+  <body>
     <!-- HEADER -->
     <header>
-        <a class="logo" href="/"><img src="./assets/images/logo.jpg" alt="logo" /></a>
-        <nav>
-            <ul class="nav__links">
-                <li><a href="{{ route('homepage') }}">Home</a></li>
-                <li><a href="{{ route('products.index') }}">Products</a></li>
-                <li><a href="{{ route('teampage') }}">Team</a></li>
-                <li><a href="{{ route('aboutpage') }}">About</a></li>
-            </ul>
-        </nav>
-        <a class="cta" href="{{ route('contactpage') }}">Contact</a>
-        <p class="menu cta">Menu</p>
+      <a class="logo" href="/"
+        ><img
+          src="./assets/images/logo.jpg"
+          alt="logo"
+      /></a>
+      <nav>
+        <ul class="nav__links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../products.html">Products</a></li>
+          <li><a href="../team.html">Team</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </nav>
+      <a class="cta" href="./contact.html">Contact</a>
+      <p class="menu cta">Menu</p>
     </header>
     <div id="mobile__menu" class="overlay">
-        <a class="close">&times;</a>
-        <div class="overlay__content">
-            <a href="{{ route('homepage') }}">Home</a>
-            <a href="{{ route('products.index') }}">Products</a>
-            <a href="{{ route('teampage') }}">Team</a>
-            <a href="{{ route('aboutpage') }}">About</a>
-            <a href="{{ route('contactpage') }}">Contact</a>
-        </div>
+      <a class="close">&times;</a>
+      <div class="overlay__content">
+        <a href="../index.html">Home</a>
+        <a href="../products.html">Products</a>
+        <a href="../team.html">Team</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+      </div>
     </div>
     <!-- END HEADER -->
     <!-- Add product -->
-    <div class="container" id="add-products">
-        <h2 class="add">Add product</h2>
-        <form class="add-product">
+    <div class="container" id="add-product-container">
+      <div class="card" id="add-product-card">
+        <div class="text-center add-product-heading">
+          <h3>Add Product</h3>
+          <div class="line"></div>
+        </div>
+        <form class="card-body add-product-body" method="POST" action={{route('product-store')}} enctype="multipart/form-data">
             @csrf
-            <div class="form-group row">
-                <label for="inputLocation" class="col-sm-2 col-form-label">Location</label>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" id="inputLocarion" value="Nepal">
-                </div>
-                <label for="inputCategory" class="col-sm-2 col-form-label">Category</label>
-                <div class="col-sm-4">
-                    <select class="form-control" id="inputCategory">
-                        <option selected>Choose..</option>
-                        <option value="1">Lorem</option>
-                        <option value="2">Lorem-1</option>
-                        <option value="3">Lorem-2</option>
-                        <option value="4">Lorem-3</option>
-                    </select>
-                </div>
+          <div class="row">
+            <div class="col-md-4 col-12">
+              <div class="form-group">
+                <label for="inp" class=""> Product Name </label>
+
+                <input
+                  type="text"
+                  id="inp"
+                  class="form-control form-control-sm"
+                  name="name"
+                />
+                @error('name')
+                    {{$message}}
+                @enderror
+              </div>
+
+
+              <div class="form-group">
+                <label for="inouttextarea"> Product Description</label>
+                <textarea
+                  class="form-control"
+                  id="inputtextarea"
+                  rows="3"
+                  name="description"
+                ></textarea>
+                @error('description')
+                {{$message}}
+            @enderror
+              </div>
+              <div class="form-group">
+                <label for="inouttextarea">Category</label>
+                <select
+                  id="inp"
+                  class="form-control form-control-sm"
+                  name="category"
+                  >
+                  <option >1</option>
+                  <option >2</option>
+                  <option >3</option>
+                  <option >4</option>
+
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="inouttextarea">Size</label>
+                <input
+                  type="number"
+                  id="inp"
+                  class="form-control form-control-sm"
+                  name="size"
+                />
+                @error('size')
+                {{$message}}
+            @enderror
+              </div>
+
+
             </div>
-            <div class="form-group row">
-                <label for="inputproductname" class="col-sm-2 col-form-label">Product Name</label>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" id="inputproductname" placeholder="Enter Product Name" name='name'>
-                </div>
-                <label for="inputbrandname" class="col-sm-2 col-form-label">Enter Brand Name</label>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" id="inputbrandname" placeholder="Lorem" name='brand_name'>
-                </div>
+            <div class="col-md-4 col-12">
+              <div class="form-group">
+                <label for="inp" class="">Brand Name</label>
+
+                <input
+                  type="text"
+                  id="inp"
+                  class="form-control form-control-sm"
+                  name="brand_name"
+                />
+                @error('brand_name')
+                {{$message}}
+            @enderror
+              </div>
+              <div class="form-group">
+                <label for="inp" class="">Retail Price</label>
+
+                <input
+                  type="number"
+                  id="inp"
+                  class="form-control form-control-sm"
+                  name="retail_price"
+                />
+                @error('retail_price')
+                {{$message}}
+            @enderror
+              </div>
+              <div class="form-group">
+                <label for="inouttextarea">Price</label>
+                <input
+                  type="number"
+                  id="inp"
+                  class="form-control form-control-sm"
+                  name="price"
+                />
+                @error('price')
+                {{$message}}
+            @enderror
+              </div>
+
+              <div class="form-group">
+                <label for="inouttextarea">Discount</label>
+                <input
+                  type="number"
+                  id="inp"
+                  class="form-control form-control-sm"
+                  name="discount"
+                />
+                @error('discount')
+                {{$message}}
+            @enderror
+              </div>
             </div>
-            <div class="form-group row">
-                <label for="inputprice" class="col-sm-2 col-form-label">Size</label>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" id="inputprice" placeholder="Product Variance(size)">
+
+            <div class="col-md-4 col-12 text-left">
+              <div class="form-group">
+                <label for="inputfile" class="">Product Image </label>
+                <div class="upload">
+                  <input type="file" name='photo' accept="image/*" id="real-file" hidden="hidden" />
+                  <button type="button" id="custom-button" class="btn">
+                    Choose an image
+                  </button>
+                  <p id="custom-text">No file chosen, yet.</p>
                 </div>
-                <label for="inputmarkedprice" class="col-sm-2 col-form-label">Maximum retail price</label>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" id="inputprice" placeholder="">
+                @error('image')
+                  {{$message}}
+                  @enderror
+              </div>
+              <div class="form-group">
+                <label for="inputfile" class="">Bar Code </label>
+                <div class="upload">
+                  <input type="file"  id="real-file" hidden="hidden" />
+                  <button type="button" id="custom-button" class="btn">
+                    Choose an image
+                  </button>
+                  <p id="custom-text">No file chosen, yet.</p>
+
                 </div>
+              </div>
+              <div class="form-group">
+                <label for="inputfile" class="">Qr Code </label>
+                <div class="upload">
+                  <input type="file" id="real-file" hidden="hidden" />
+                  <button type="button" id="custom-button" class="btn">
+                    Choose an image
+                  </button>
+                  <p id="custom-text">No file chosen, yet.</p>
+                </div>
+              </div>
             </div>
-            <div class="form-group row">
-                <label for="inputdiscount" class="col-sm-2 col-form-label">Discount %</label>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" id="inputdiscount" placeholder="10">
-                </div>
-                <label for="inputsp" class="col-sm-2 col-form-label">Price</label>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" id="inputsp" placeholder="180">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="inputstatus" class="col-sm-2 col-form-label">Status</label>
-                <div class="col-sm-4">
-                    <select class="form-control" id="inputCategory">
-                        <option selected>Available</option>
-                        <option value="1">Hide</option>
-                    </select>
-                </div>
-                <label for="inputproductdescription" class="col-sm-2  col-form-label">Product Description</label>
-                <div class="col-sm-4">
-                    <textarea id="inputproductdescription" class="form-control" rows="4"></textarea>
-                </div>
-            </div>
-            <button type="button" class="upload">Upload</button>
+          </div>
+
+          <div class="submitbtn">
+            <button type="submit" class="btn upload">
+              <small> ADD</small>
+            </button>
+          </div>
         </form>
+      </div>
     </div>
     <!-- Add product -end-->
 
-
-
-
-
-
-
-
     <!-- Script Source Files -->
-    <script src="add-product.js"></script>
-    <script src="vendor/js/jquery-3.6.0.min.js"></script>
-    <script src="./vendor/js/aos.js"></script>
-    <script src="vendor/js/jquery.waypoints.js"></script>
-    <script src="vendor/js/jquery.counterup.js"></script>
-    <script src="vendor/js/bootstrap.min.js"></script>
-    <script src="vendor/js/bootstrap.bundle.js"></script>
-    <script src="vendor/js/popper.min.js"></script>
+
+    <script src="..//vendor/js/jquery-3.6.0.min.js"></script>
+
+    <script src="..//vendor/js/bootstrap.min.js"></script>
+    <script src="..//vendor/js/bootstrap.bundle.js"></script>
+    <script src="..//vendor/js/popper.min.js"></script>
     <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
 
+    <script>
+      const realFileBtn = document.getElementById("real-file");
+      const customBtn = document.getElementById("custom-button");
+      const customTxt = document.getElementById("custom-text");
 
-</body>
+      customBtn.addEventListener("click", function () {
+        realFileBtn.click();
+      });
 
+      realFileBtn.addEventListener("change", function () {
+        if (realFileBtn.value) {
+          customTxt.innerHTML = realFileBtn.value.match(
+            /[\/\\]([\w\d\s\.\-\(\)]+)$/
+          )[1];
+        } else {
+          customTxt.innerHTML = "No file choosen, yet.";
+        }
+      });
+    </script>
+  </body>
 </html>

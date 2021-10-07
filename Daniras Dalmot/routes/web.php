@@ -50,5 +50,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
     });
+    Route::get('/createproduct',[ProductController::class,'create'])->name('admin-add-product');
+    Route::post('/addproduct',[ProductController::class,'store'])->name('product-store');
 });
 require __DIR__ . '/auth.php';

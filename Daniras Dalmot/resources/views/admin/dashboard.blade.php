@@ -1,6 +1,11 @@
 @extends('layouts.app')
 @section('title','Dashboard')
 @section('css')
+   <!-- Add icon library -->
+   <link
+   rel="stylesheet"
+   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+ />
 <link rel="stylesheet" href="./assets/css/admin.css" />
 @endsection
 @section('content')
@@ -30,8 +35,15 @@
                 </div>
             </div>
         </div>
+            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>
     </section>
+
 @endsection
-{{-- @section('js')
+@section('js')
+<script src="script.js"></script>
 <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
-@endsection --}}
+@endsection
