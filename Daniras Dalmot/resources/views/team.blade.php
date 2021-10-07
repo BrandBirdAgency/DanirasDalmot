@@ -134,6 +134,69 @@
 
         <!-- END MESSAGE FROM CHAIRMAN -->
 
+        <button data-toggle="modal" data-target="#myModal">Add Team</button>
+        <!-- The Modal -->
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Delivery Information</h4>
+                  <button type="button" class="close" data-dismiss="modal">
+                    &times;
+                  </button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                  <form action={{ route('productorder') }} method="POST">
+                      @csrf
+                      <input type="hidden" name="product_id">
+                      <input type="hidden" name="quantity" id="quantity">
+                      <input type="hidden" name="price">
+                    <div class="form-group">
+                      <label for="usr">Full Name:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="usr"
+                        name="username"
+                      />
+                      @error('username')
+                          {{$message}}
+                      @enderror
+                    </div>
+                    <div class="form-group">
+                      <label for="Address">Address:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="Address"
+                        name="address"
+                      />
+                          @error('address ')
+                              {{$message}}
+                          @enderror
+                    </div>
+                    <div class="form-group">
+                      <label for="Phone">Phone Number:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="Phone"
+                        name="phone"
+                      />
+                      @error('phone')
+                      {{$message}}
+                      @enderror
+                    </div>
+                    <button type="submit" class="submit-btn">Proceed</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
         <!-- TEAMS -->
         <section class="teams normalsec">
           <div class="heading text-center">
