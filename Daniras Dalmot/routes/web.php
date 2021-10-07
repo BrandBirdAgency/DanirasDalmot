@@ -3,6 +3,7 @@
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,12 +45,10 @@ Route::prefix('/contact')->group(
 );
 
 // Admin
-Route::view('/admin', 'auth.login');
+Route::view('/admin-login', 'auth.login');
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
     });
-    Route::view('/product-add', 'admin.add-product')->name('addproduct');
 });
-
 require __DIR__ . '/auth.php';
