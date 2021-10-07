@@ -24,7 +24,7 @@ class PublicController extends Controller
 
     public function product()
     {
-        return view('product');
+        return view('products');
     }
 
     public function orderSuccess()
