@@ -134,14 +134,14 @@
 
         <!-- END MESSAGE FROM CHAIRMAN -->
 
-        <button data-toggle="modal" data-target="#myModal">Add Team</button>
+        <button data-toggle="modal" data-target="#myModal">Add Team Record</button>
         <!-- The Modal -->
         <div class="modal fade" id="myModal">
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <!-- Modal Header -->
                 <div class="modal-header">
-                  <h4 class="modal-title">Delivery Information</h4>
+                  <h4 class="modal-title">Create Team Record</h4>
                   <button type="button" class="close" data-dismiss="modal">
                     &times;
                   </button>
@@ -149,7 +149,7 @@
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                  <form action={{ route('productorder') }} method="POST">
+                  <form action={{ route('addrecord')}} method="POST">
                       @csrf
                       <input type="hidden" name="product_id">
                       <input type="hidden" name="quantity" id="quantity">
@@ -160,28 +160,28 @@
                         type="text"
                         class="form-control"
                         id="usr"
-                        name="username"
+                        name="name"
                       />
-                      @error('username')
+                      @error('name')
                           {{$message}}
                       @enderror
                     </div>
                     <div class="form-group">
-                      <label for="Address">Address:</label>
+                      <label for="Address">Position:</label>
                       <input
                         type="text"
                         class="form-control"
                         id="Address"
-                        name="address"
+                        name="position"
                       />
-                          @error('address ')
+                          @error('position')
                               {{$message}}
                           @enderror
                     </div>
                     <div class="form-group">
                       <label for="Phone">Phone Number:</label>
                       <input
-                        type="text"
+                        type="number"
                         class="form-control"
                         id="Phone"
                         name="phone"
@@ -190,7 +190,50 @@
                       {{$message}}
                       @enderror
                     </div>
-                    <button type="submit" class="submit-btn">Proceed</button>
+                    <div class="form-group">
+                        <label for="Phone">Address:</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="Phone"
+                          name="address"
+                        />
+                        @error('address')
+                        {{$message}}
+                        @enderror
+                      </div>
+                      <div class="form-group">
+                        <label for="Phone">Facebook:</label>
+                        <input
+                          type="url"
+                          class="form-control"
+                          id="Phone"
+                          name="facebook"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="Phone">Instagram:</label>
+                        <input
+                          type="url"
+                          class="form-control"
+                          id="Phone"
+                          name="instagram"
+                        />
+                        <div class="form-group">
+                            <label for="Phone">Photo:</label>
+                            <input
+                              type="file"
+                              class="form-control"
+                              id="Phone"
+                              name="photo"
+                              accept="image/*"
+                            />
+                            @error('photo')
+                            {{$message}}
+                            @enderror
+                          </div>
+                      </div>
+                    <button type="submit" class="submit-btn">Add</button>
                   </form>
                 </div>
               </div>
