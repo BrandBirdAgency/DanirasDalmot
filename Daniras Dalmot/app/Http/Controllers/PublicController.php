@@ -9,8 +9,7 @@ class PublicController extends Controller
 {
     public function index()
     {
-        $services = Service::all();
-        return view('index', compact('services'));
+        return view('index');
     }
 
     public function about()
