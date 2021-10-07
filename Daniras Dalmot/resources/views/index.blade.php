@@ -183,37 +183,49 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                @forelse ($services as $service)
+                <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12 mb-5">
+                    <div class="single_feature h-100">
+                        <div class="feature_icon"><i class="fas fa-truck"></i></div>
+                            <h3>Home Delivery</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Cras.</p>
+                        </div>
+                    </div><!-- END COL-->
+                    <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12 mb-5">
+                    <div class="single_feature h-100">
+                        <div class="feature_icon"><i class="fa fa-magic"></i></div>
+                        <h3>Quality Food</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Cras.</p>
+                            </div>
+                    </div><!-- END COL-->
                     <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12 mb-5">
                         <div class="single_feature h-100">
-                            <div class="feature_icon">
-                                @switch($loop->index)
-                                    @case(0)
-                                        <i class="fas fa-truck"></i>
-                                        @break
-                                    @case(1)
-                                        <i class="fa fa-magic"></i>
-                                        @break
-                                    @case(2)
-                                        <i class="fas fa-sms"></i>
-                                        @break
-                                    @case(3)
-                                        <i class="far fa-money-bill-alt"></i>
-                                        @break
-                                    @case(4)
-                                        <i class="fas fa-mail-bulk"></i>
-                                        @break
-                                    @default
-                                        <i class="fas fa-users"></i>
-                                @endswitch
-                            </div>
-                            <h3>{{$service->title}}</h3>
-                            <p>{{$service->description}}</p>
-                        </div>
+                        <div class="feature_icon"><i class="fas fa-sms"></i></div>
+                      <h3>Send Messages</h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Cras.</p>
                     </div>
-                @empty
-                    <h1>No Services</h1>
-                @endforelse
+                  </div><!-- END COL-->
+                  <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12 mb-5">
+                    <div class="single_feature h-100">
+                      <div class="feature_icon"><i class="far fa-money-bill-alt"></i></div>
+                      <h3>Reasonable Price</h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Cras.</p>
+                    </div>
+                  </div><!-- END COL-->
+                  <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12 mb-5">
+                    <div class="single_feature h-100">
+                      <div class="feature_icon"><i class="fas fa-mail-bulk"></i></div>
+                      <h3>Bulk Order</h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Cras.</p>
+                    </div>
+                  </div><!-- END COL-->
+                  <div class="col-lg-4 col-md-6 col-sm-10 col-xs-12 mb-5">
+                    <div class="single_feature h-100">
+                      <div class="feature_icon"><i class="fas fa-users"></i></div>
+                      <h3>Responsive Team</h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Cras.</p>
+                    </div>
+                  </div><!-- END COL-->
+                </div><!--- END ROW -->
             </div><!--- END ROW -->
         </div><!--- END CONTAINER -->
     </section>

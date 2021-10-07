@@ -41,9 +41,12 @@
                 </label>
             </div>
 
+            <div class="block mt-4">
+                {!! NoCaptcha::renderJs() !!}
+                {!! NoCaptcha::display() !!}
+            </div>
+
             <div class="flex items-center justify-end mt-4">
-
-
                 <x-button class="ml-3">
                     {{ __('Log in') }}
                 </x-button>
