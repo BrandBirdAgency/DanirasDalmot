@@ -30,34 +30,35 @@
           </div>
           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus assumenda fuga fugit totam itaque quo eius architecto earum quisquam nesciunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis maiores quos voluptatum exercitationem commodi minima magnam vitae iure itaque impedit.</p>
 
-          <div class="fea">
-
+            <div class="fea">
                 <div class="con">
-                  <div class="img">
-                      <img src="./assets/images/like.png" alt="" class="img-1">
-                  </div>
-                  <div class="de">
-                  <h3>Tasty Food</h3><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt natus maiores voluptatum! </p></div>
-                  </div>
+                    <div class="img">
+                        <img src="./assets/images/like.png" alt="" class="img-1">
+                    </div>
+                    <div class="de">
+                        <h3>Tasty Food</h3><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt natus maiores voluptatum! </p>
+                    </div>
+                </div>
                 <div class="con">
-                  <div class="img">
-                      <img src="./assets/images/oil.png" alt="" class="img-2">
-                  </div>
-                  <div class="de">
-                  <h3>Best Quality Oil</h3><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt natus maiores voluptatum! </p></div>
-                  </div>
-                  <div class="con">
-                  <div class="img">
-                      <img src="./assets/images/delivery.png" alt="" class="img-3">
-                  </div>
-                  <div class="de">
-                  <h3>On Time Deliveries</h3><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt natus maiores voluptatum! </p></div>
-                  </div>
-
-          </div>
-      </div>
+                    <div class="img">
+                        <img src="./assets/images/oil.png" alt="" class="img-2">
+                    </div>
+                    <div class="de">
+                        <h3>Best Quality Oil</h3><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt natus maiores voluptatum! </p>
+                    </div>
+                </div>
+                <div class="con">
+                    <div class="img">
+                        <img src="./assets/images/delivery.png" alt="" class="img-3">
+                    </div>
+                    <div class="de">
+                        <h3>On Time Deliveries</h3><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt natus maiores voluptatum! </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
+</section>
   <!-- END INTRO -->
 
 
@@ -173,60 +174,61 @@
           </section>
   <!-- END MESSAGE FROM CHAIRMAN -->
 
-  <section class="amazing_feature">
-    <div class="container">
-          <div class="row">
-              <div class="col-md-12 text-center heading-main">
-                  <h2 class="heading">Our Services</h2>
-                  <div class="separator"><i class="fa fa-home below-line-about-icon"></i></div>
-              </div>
-          </div>
-      <div class="row justify-content-center">
-        <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12 mb-5">
-          <div class="single_feature h-100">
-            <div class="feature_icon"><i class="fas fa-truck"></i></div>
-            <h3>Home Delivery</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Cras.</p>
-          </div>
-        </div><!-- END COL-->
-        <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12 mb-5">
-          <div class="single_feature h-100">
-            <div class="feature_icon"><i class="fa fa-magic"></i></div>
-            <h3>Quality Food</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Cras.</p>
-          </div>
-        </div><!-- END COL-->
-        <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12 mb-5">
-          <div class="single_feature h-100">
-            <div class="feature_icon"><i class="fas fa-sms"></i></div>
-            <h3>Send Messages</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Cras.</p>
-          </div>
-        </div><!-- END COL-->
-        <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12 mb-5">
-          <div class="single_feature h-100">
-            <div class="feature_icon"><i class="far fa-money-bill-alt"></i></div>
-            <h3>Reasonable Price</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Cras.</p>
-          </div>
-        </div><!-- END COL-->
-        <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12 mb-5">
-          <div class="single_feature h-100">
-            <div class="feature_icon"><i class="fas fa-mail-bulk"></i></div>
-            <h3>Bulk Order</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Cras.</p>
-          </div>
-        </div><!-- END COL-->
-        <div class="col-lg-4 col-md-6 col-sm-10 col-xs-12 mb-5">
-          <div class="single_feature h-100">
-            <div class="feature_icon"><i class="fas fa-users"></i></div>
-            <h3>Responsive Team</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Cras.</p>
-          </div>
-        </div><!-- END COL-->
-      </div><!--- END ROW -->
-    </div><!--- END CONTAINER -->
-  </section>
+    <section class="amazing_feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center heading-main">
+                    <h2 class="heading">Our Services</h2>
+                    <div class="separator"><i class="fa fa-home below-line-about-icon"></i></div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12 mb-5">
+                    <div class="single_feature h-100">
+                        <div class="feature_icon"><i class="fas fa-truck"></i></div>
+                            <h3>Home Delivery</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Cras.</p>
+                        </div>
+                    </div><!-- END COL-->
+                    <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12 mb-5">
+                    <div class="single_feature h-100">
+                        <div class="feature_icon"><i class="fa fa-magic"></i></div>
+                        <h3>Quality Food</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Cras.</p>
+                            </div>
+                    </div><!-- END COL-->
+                    <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12 mb-5">
+                        <div class="single_feature h-100">
+                        <div class="feature_icon"><i class="fas fa-sms"></i></div>
+                      <h3>Send Messages</h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Cras.</p>
+                    </div>
+                  </div><!-- END COL-->
+                  <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12 mb-5">
+                    <div class="single_feature h-100">
+                      <div class="feature_icon"><i class="far fa-money-bill-alt"></i></div>
+                      <h3>Reasonable Price</h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Cras.</p>
+                    </div>
+                  </div><!-- END COL-->
+                  <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12 mb-5">
+                    <div class="single_feature h-100">
+                      <div class="feature_icon"><i class="fas fa-mail-bulk"></i></div>
+                      <h3>Bulk Order</h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Cras.</p>
+                    </div>
+                  </div><!-- END COL-->
+                  <div class="col-lg-4 col-md-6 col-sm-10 col-xs-12 mb-5">
+                    <div class="single_feature h-100">
+                      <div class="feature_icon"><i class="fas fa-users"></i></div>
+                      <h3>Responsive Team</h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Cras.</p>
+                    </div>
+                  </div><!-- END COL-->
+                </div><!--- END ROW -->
+            </div><!--- END ROW -->
+        </div><!--- END CONTAINER -->
+    </section>
 
   <!-- Manufacturing Process -->
 
