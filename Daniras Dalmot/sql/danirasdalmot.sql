@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 07, 2021 at 08:32 AM
+-- Generation Time: Oct 07, 2021 at 08:39 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -52,7 +52,7 @@ CREATE TABLE `abouts` (
 --
 
 INSERT INTO `abouts` (`id`, `name`, `address`, `phone`, `email`, `website`, `facebook`, `instagram`, `twitter`, `ceo_name`, `ceo_msg`, `ceo_photo`, `chairman_name`, `chairman_msg`, `chairman_photo`, `created_at`, `updated_at`) VALUES
-(1, 'Daniras Dalmoth', 'Parwanipur-5, Bara, Nepal', '+977 9845999137', 'infodanirasdalmoth@gmail.com', 'danirasdalmoth.com', '', '', '', 'Rahul Kalwar', '', '', 'Nirmal Pd Gupta', '', '', '2021-10-07 06:14:42', '2021-10-07 06:14:42');
+(1, 'Daniras Dalmoth', 'Parwanipur-5, Bara, Nepal', '+977 9845999137', 'infodanirasdalmoth@gmail.com', 'danirasdalmoth.com', 'www.facebook.com/danirasdalmoth', 'www.instagram.com/danirasdalmoth', '', 'Rahul Kalwar', 'In this kingdom of a rapid changing world, survival in business must never be taken for granted. Our vision of the future must be to let new opportunities.  Our business is guided by ethics and transparency, and we aim to further win and maintain our customers by preparing packaged product that validate price, quality and of course the taste.  Danira\'s has been selected with thoughtful precision and utmost care to provide the best meal options. Our product comes from extensive research and stricktly choosen top ingredients from around the world. And I would like to thank our customers for supporting us helping us in our growth. We appreciate your love, support and trust.                       ', '', 'Nirmal Pd Gupta', 'With the pride and experience of leading the domestic food industry, we are everyday discovering and exploring so as to progress with our customers and partners.  Our main goal is to make our customers happy for which we are committed to give them the best product and services. Thank you all for your patience and help while our organization is constructing and internal management is in process. We appreciate your efforts and loyalty.', '', '2021-10-07 06:14:42', '2021-10-07 06:14:42');
 
 -- --------------------------------------------------------
 
