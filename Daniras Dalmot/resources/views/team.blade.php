@@ -149,11 +149,9 @@
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                  <form action={{ route('addrecord')}} method="POST">
+                  <form action={{route('addrecord')}} method="POST">
                       @csrf
-                      <input type="hidden" name="product_id">
-                      <input type="hidden" name="quantity" id="quantity">
-                      <input type="hidden" name="price">
+                      <input type="hidden" name="id">
                     <div class="form-group">
                       <label for="usr">Full Name:</label>
                       <input
