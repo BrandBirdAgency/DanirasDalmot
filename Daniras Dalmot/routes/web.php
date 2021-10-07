@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
@@ -43,13 +44,15 @@ Route::prefix('/contact')->group(
     }
 );
 
+
 // Admin
 Route::view('/admin', 'auth.login');
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    });
+    Route::get('/dashboard', [AdminController::class, 'dashboard']);
     Route::view('/product-add', 'admin.add-product')->name('addproduct');
+
+    // Company Info
+    Route::post('/companyInfoEdit', [AdminController::class, 'companyInfoEdit'])->name('companyInfoEdit');
 });
 
 require __DIR__ . '/auth.php';

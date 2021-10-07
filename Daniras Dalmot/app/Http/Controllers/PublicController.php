@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\Service;
 use Illuminate\Http\Request;
 
@@ -34,6 +35,7 @@ class PublicController extends Controller
 
     public function contact()
     {
-        return view('contact');
+        $about = About::first();
+        return view('contact', compact('about'));
     }
 }
