@@ -157,9 +157,7 @@
                     <h3>Message From Chairman</h3>
                     <div class="line"></div>
                   </div>
-                  <p>
-                    {{$about->chairman_msg}}
-                  </p>
+                  <p>{!!nl2br(e($about->chairman_msg))!!}</p>
                   <div class="name">
                     <span>Mr. {{$about->chairman_name}}</span><br />
                     Chairman, Pushpanjali Spices & Food Products
