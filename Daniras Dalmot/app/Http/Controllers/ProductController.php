@@ -34,7 +34,7 @@ class ProductController extends Controller
             [
                 'name' => 'string|required',
                 'description' => 'string|required',
-                'photo' => 'required|max:1024',
+                'photo' => 'required|max:5120',
                 'retail_price' => 'required',
                 'discount' => 'required',
                 'price' => 'required',
@@ -44,7 +44,7 @@ class ProductController extends Controller
             );
         $product = new Product();
         $product -> name = $req -> name;
-        $product->photo = 'storage/'.$req -> file('photo')-> storeAs('public/images/products',$req->name);
+        $product->photo = $req -> file('photo')-> storeAs('public/images/products',$req->name);
         $product-> description = $req-> description;
         $product -> in_stock = $req -> in_stock;
         $product -> retail_price = $req -> retail_price;
@@ -54,6 +54,7 @@ class ProductController extends Controller
         $product -> brand_name = $req -> brand_name;
         $product -> size = $req -> size;
         $product -> save();
+        return redirect()->route('product.index');
     }
 
     /**
@@ -69,7 +70,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.editProduct');
+        $product = Product::find($id);
+        return view('admin.editProduct',compact('product'));
     }
 
     /**
@@ -80,21 +82,22 @@ class ProductController extends Controller
         $req->validate(
             [
                 'name' => 'string|required',
-                'description' => 'text | required',
-                'photo' => 'mimes:jpeg,jpg,png,gif|max:1024|required',
-                'in_stock' => 'required',
-                'retail_price' => 'number|required',
-                'discount' => 'number|required',
-                'price' => 'number|required',
-                'category' => 'required',
-                'brand_name'=>'text|required',
-                'size'=>'text|required'
+                'description' => 'string|required',
+                'photo' => 'max:5120',
+                'retail_price' => 'required',
+                'discount' => 'required',
+                'price' => 'required',
+                'brand_name'=>'string|required',
+                'size'=>'required'
             ]
             );
+
         $product = Product::find($id);
         $product -> name = $req -> name;
-        $image = $req -> file('image');
-        $product->image = $image -> storeAs('public/images/products',$req->name);
+        if($req->photo != null)
+        {
+        $product->photo = $req -> file('photo')-> storeAs('public/images/products',$req->name);
+        }
         $product-> description = $req-> description;
         $product -> in_stock = $req -> in_stock;
         $product -> retail_price = $req -> retail_price;
@@ -104,6 +107,7 @@ class ProductController extends Controller
         $product -> brand_name = $req -> brand_name;
         $product -> size = $req -> size;
         $product -> save();
+        return redirect()->route('product.index');
     }
 
     /**

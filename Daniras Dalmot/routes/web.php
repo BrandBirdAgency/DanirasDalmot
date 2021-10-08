@@ -5,6 +5,7 @@ use App\Http\Controllers\MailController;
 use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,7 @@ Route::get('/team', [PublicController::class, 'team'])->name('teampage');
 Route::prefix('products')->group(
     function () {
         Route::get('/', [PublicController::class, 'product'])->name('productpage');
-        Route::post('/order', [MailController::class, 'productmail'])->name('productorder');
+        Route::post('/order', [MailController::class, 'productMail'])->name('productorder');
     }
 );
 
@@ -41,7 +42,7 @@ Route::get('/ordersuccess', [PublicController::class, 'orderSuccess'])->name('or
 Route::prefix('/contact')->group(
     function () {
         Route::get('/', [PublicController::class, 'contact'])->name('contactpage');
-        Route::post('/contactadmin', [MailController::class, 'contactmail'])->name('contactadmin');
+        Route::post('/contactadmin', [MailController::class, 'contactMail'])->name('contactadmin');
     }
 );
 
@@ -50,9 +51,13 @@ Route::prefix('/contact')->group(
 Route::view('/admin-login', 'auth.login');
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard']);
-    Route::view('/product-add', 'admin.addProduct')->name('addproduct');
-    Route::post('product/store',[ProductController::class,'store'])->name('product-store');
 
+    //Products
+    Route::get('/product-index', [AdminController::class,'product'])->name('product.index');
+    Route::get('/product-add', [AdminController::class,'productAdd'])->name('addproduct');
+    Route::post('product/store',[ProductController::class,'store'])->name('product.store');
+    Route::get('/product-edit{id}',[ProductController::class,'edit'])->name('product.edit');
+    Route::post('product-update/{id}',[ProductController::class,'update'])->name('product.update');
     // Company Info
     Route::post('/companyInfoEdit', [AdminController::class, 'companyInfoEdit'])->name('companyInfoEdit');
 });

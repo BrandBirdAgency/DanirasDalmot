@@ -29,6 +29,7 @@
                 </div>
                 <div class="col-md-3 col-12 col-sm-6 d-flex justify-content-center justify-content-sm-start mb-4">
                     <div class="admin-box">
+                        <a href={{route('product.index')}}></a>
                         <img src="./assets/images/box.png" alt="">
                         <p>Products </p>
                     </div>
