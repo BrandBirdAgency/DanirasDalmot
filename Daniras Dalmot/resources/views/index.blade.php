@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('title','Home')
+@section('css')
+<link rel="stylesheet" href="./assets/css/style.css" />
+@endsection
 @section('content')
 <!-- Main Parallex -->
 

@@ -9,12 +9,12 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="../DanirasDalmot(Front-End)/vendor/css/bootstrap.css"
+      href="./vendor/css/bootstrap.css"
     />
     <link
       rel="stylesheet"
       type="text/css"
-      href="../DanirasDalmot(Front-End)/vendor/css/bootstrap.min.css"
+      href="./vendor/css/bootstrap.min.css"
     />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -43,7 +43,7 @@
     />
     <link
       rel="stylesheet"
-      href="../DanirasDalmot(Front-End)/assets/css/admin.css"
+      href="./assets/css/admin.css"
     />
   </head>
   <body>
@@ -51,7 +51,7 @@
     <header>
       <a class="logo" href="/"
         ><img
-          src="../DanirasDalmot(Front-End)/assets/images/logo.jpg"
+          src="./assets/images/logo.jpg"
           alt="logo"
       /></a>
       <nav>
@@ -83,7 +83,8 @@
           <h3>Add Product</h3>
           <div class="line"></div>
         </div>
-        <form class="card-body add-product-body">
+        <form class="card-body add-product-body" method="POST" action={{route('product-store')}} enctype="multipart/form-data">
+            @csrf
           <div class="row">
             <div class="col-md-4 col-12">
               <div class="form-group">
@@ -93,16 +94,13 @@
                   type="text"
                   id="inp"
                   class="form-control form-control-sm"
+                  name="name"
                 />
+                @error('name')
+                    {{$message}}
+                @enderror
               </div>
-              <div class="form-group">
-                <label for="inouttextarea">No of items</label>
-                <input
-                  type="number"
-                  id="inp"
-                  class="form-control form-control-sm"
-                />
-              </div>
+
 
               <div class="form-group">
                 <label for="inouttextarea"> Product Description</label>
@@ -110,21 +108,40 @@
                   class="form-control"
                   id="inputtextarea"
                   rows="3"
+                  name="description"
                 ></textarea>
+                @error('description')
+                {{$message}}
+            @enderror
+              </div>
+              <div class="form-group">
+                <label for="inouttextarea">Category</label>
+                <select
+                  id="inp"
+                  class="form-control form-control-sm"
+                  name="category"
+                  >
+                  <option >1</option>
+                  <option >2</option>
+                  <option >3</option>
+                  <option >4</option>
+
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="inouttextarea">Size</label>
+                <input
+                  type="number"
+                  id="inp"
+                  class="form-control form-control-sm"
+                  name="size"
+                />
+                @error('size')
+                {{$message}}
+            @enderror
               </div>
 
-              <div class="form-group">
-                <div class="form-check px-0">
-                  <label class="form-check-label" for="inputcheck">
-                    In stock*
-                  </label>
-                  <input
-                    class="form-check-input form-check-input-sm ml-2"
-                    type="checkbox"
-                    id="inputcheck"
-                  />
-                </div>
-              </div>
+
             </div>
             <div class="col-md-4 col-12">
               <div class="form-group">
@@ -134,7 +151,11 @@
                   type="text"
                   id="inp"
                   class="form-control form-control-sm"
+                  name="brand_name"
                 />
+                @error('brand_name')
+                {{$message}}
+            @enderror
               </div>
               <div class="form-group">
                 <label for="inp" class="">Retail Price</label>
@@ -143,7 +164,11 @@
                   type="number"
                   id="inp"
                   class="form-control form-control-sm"
+                  name="retail_price"
                 />
+                @error('retail_price')
+                {{$message}}
+            @enderror
               </div>
               <div class="form-group">
                 <label for="inouttextarea">Price</label>
@@ -151,7 +176,11 @@
                   type="number"
                   id="inp"
                   class="form-control form-control-sm"
+                  name="price"
                 />
+                @error('price')
+                {{$message}}
+            @enderror
               </div>
 
               <div class="form-group">
@@ -160,7 +189,11 @@
                   type="number"
                   id="inp"
                   class="form-control form-control-sm"
+                  name="discount"
                 />
+                @error('discount')
+                {{$message}}
+            @enderror
               </div>
             </div>
 
@@ -168,21 +201,25 @@
               <div class="form-group">
                 <label for="inputfile" class="">Product Image </label>
                 <div class="upload">
-                  <input type="file" id="real-file" hidden="hidden" />
+                  <input type="file" name='photo' accept="image/*" id="real-file" hidden="hidden" />
                   <button type="button" id="custom-button" class="btn">
                     Choose an image
                   </button>
                   <p id="custom-text">No file chosen, yet.</p>
                 </div>
+                @error('image')
+                  {{$message}}
+                  @enderror
               </div>
               <div class="form-group">
                 <label for="inputfile" class="">Bar Code </label>
                 <div class="upload">
-                  <input type="file" id="real-file" hidden="hidden" />
+                  <input type="file"  id="real-file" hidden="hidden" />
                   <button type="button" id="custom-button" class="btn">
                     Choose an image
                   </button>
                   <p id="custom-text">No file chosen, yet.</p>
+
                 </div>
               </div>
               <div class="form-group">
@@ -210,11 +247,11 @@
 
     <!-- Script Source Files -->
 
-    <script src="../DanirasDalmot(Front-End)/vendor/js/jquery-3.6.0.min.js"></script>
+    <script src="..//vendor/js/jquery-3.6.0.min.js"></script>
 
-    <script src="../DanirasDalmot(Front-End)/vendor/js/bootstrap.min.js"></script>
-    <script src="../DanirasDalmot(Front-End)/vendor/js/bootstrap.bundle.js"></script>
-    <script src="../DanirasDalmot(Front-End)/vendor/js/popper.min.js"></script>
+    <script src="..//vendor/js/bootstrap.min.js"></script>
+    <script src="..//vendor/js/bootstrap.bundle.js"></script>
+    <script src="..//vendor/js/popper.min.js"></script>
     <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
 
     <script>
