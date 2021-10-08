@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -11,7 +12,15 @@ class AdminController extends Controller
     {
         return view('admin.dashboard');
     }
-
+    public function product()
+    {
+        $products = Product::paginate(9);
+        return view('admin.product',compact('products'));
+    }
+    public function productadd()
+    {
+        return view('admin.addProduct');
+    }
     public function companyInfoEdit(Request $req)
     {
         $this->validate($req, [
