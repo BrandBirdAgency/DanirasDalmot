@@ -29,7 +29,7 @@ Route::get('/team', [PublicController::class, 'team'])->name('teampage');
 //Product Page
 Route::prefix('products')->group(
     function () {
-        Route::get('/', [PublicController::class, 'product'])->name('productpage');
+        Route::get('/{id?}', [PublicController::class, 'product'])->name('productpage');
         Route::post('/order', [MailController::class, 'productMail'])->name('productorder');
     }
 );

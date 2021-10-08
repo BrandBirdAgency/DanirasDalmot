@@ -8,7 +8,7 @@
       href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
     />
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href={{asset('assets/css/style.css')}} />
 @endsection
 
 @section('content')
@@ -16,7 +16,7 @@
 <div class="teambanner">
     <div class="contain">
       <div class="image">
-        <img src="./assets/images/bg.jpg" alt="" />
+        <img src={{asset("assets/images/bg.jpg")}} alt="" />
       </div>
       <div class="image-overlay"></div>
       <div class="text">
@@ -36,16 +36,17 @@
   <!-- END MAIN BANNER -->
 
   <!-- PRODUCT DETAILS -->
-
   <div class="maindiv">
     <section id="display-product">
+        @foreach($products as $p)
+        @if($p->id==$id)
       <div class="product-main">
         <div class="product-image" data-tilt>
-          <img src="./assets/images/0.png" alt="" />
+          <img src={{Storage::url($p->photo)}} alt="" />
         </div>
         <div class="product-details">
           <div class="product-name">
-            <p>Mixture Dalmot (In Stock)</p>
+            <p>{{$p->name}}</p>
             <div class="status"></div>
           </div>
           <div class="product-rating">
@@ -57,9 +58,7 @@
           </div>
           <div class="product-info">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque,
-              tenetur? Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Magni, adipisci!
+              {{$p->description}}
             </p>
           </div>
           <div class="product-count">
@@ -98,9 +97,9 @@
               <div class="modal-body">
                 <form action={{ route('productorder') }} method="POST">
                     @csrf
-                    <input type="hidden" name="product_id">
+                    <input type="hidden" name="product_id" value={{$p->id}}>
                     <input type="hidden" name="quantity" id="quantity">
-                    <input type="hidden" name="price">
+                    <input type="hidden" name="price" value={{$p->price}}>
                   <div class="form-group">
                     <label for="usr">Full Name:</label>
                     <input
@@ -145,10 +144,12 @@
         </div>
       </div>
     </section>
-
+    @endif
+    @endforeach
     <!-- More Products -->
 
     <section id="more-products" class="normalsec">
+
       <div class="main">
         <div class="title">
           <h3>More Products</h3>
@@ -159,69 +160,26 @@
           <!-- Additional required wrapper -->
           <div class="swiper-wrapper">
             <!-- Slides -->
+            @forelse ($products as $p)
             <div class="swiper-slide">
               <div class="image">
                 <img
-                  src="./assets/images/0.png"
+                  src={{Storage::url($p->photo)}}
                   alt=""
                   class="slider-image"
                 />
                 <div class="overlay-image">
-                  <button class="view">View</button>
+                 <a href={{route('productpage',['id'=>$p->id])}}> <button class="view">View</button><a>
                 </div>
               </div>
             </div>
-            <div class="swiper-slide">
-              <div class="image">
-                <img
-                  src="./assets/images/1.png"
-                  alt=""
-                  class="slider-image"
-                />
-                <div class="overlay-image">
-                  <button class="view">View</button>
-                </div>
-              </div>
+            @empty
+            {{ "Product not available" }}
+        @endforelse
             </div>
-            <div class="swiper-slide">
-              <div class="image">
-                <img
-                  src="./assets/images/2.png"
-                  alt=""
-                  class="slider-image"
-                />
-                <div class="overlay-image">
-                  <button class="view">View</button>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="image">
-                <img
-                  src="./assets/images/3.png"
-                  alt=""
-                  class="slider-image"
-                />
-                <div class="overlay-image">
-                  <button class="view">View</button>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="image">
-                <img
-                  src="./assets/images/4.png"
-                  alt=""
-                  class="slider-image"
-                />
-                <div class="overlay-image">
-                  <button class="view">View</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- If we need pagination -->
+              <!-- If we need pagination -->
           <div class="swiper-pagination"></div>
+          </div>
         </div>
       </div>
     </section>
