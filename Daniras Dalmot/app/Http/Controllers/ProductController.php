@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -38,22 +39,22 @@ class ProductController extends Controller
                 'retail_price' => 'required',
                 'discount' => 'required',
                 'price' => 'required',
-                'brand_name'=>'string|required',
-                'size'=>'required'
+                'brand_name' => 'string|required',
+                'size' => 'required'
             ]
-            );
+        );
         $product = new Product();
-        $product -> name = $req -> name;
-        $product->photo = $req -> file('photo')-> storeAs('public/images/products',$req->name);
-        $product-> description = $req-> description;
-        $product -> in_stock = $req -> in_stock;
-        $product -> retail_price = $req -> retail_price;
-        $product -> discount = $req -> discount;
-        $product -> price = $req -> price;
-        $product -> category = $req -> category;
-        $product -> brand_name = $req -> brand_name;
-        $product -> size = $req -> size;
-        $product -> save();
+        $product->name = $req->name;
+        $product->photo = $req->file('photo')->storeAs('public/images/products', $req->name);
+        $product->description = $req->description;
+        $product->in_stock = $req->in_stock;
+        $product->retail_price = $req->retail_price;
+        $product->discount = $req->discount;
+        $product->price = $req->price;
+        $product->category = $req->category;
+        $product->brand_name = $req->brand_name;
+        $product->size = $req->size;
+        $product->save();
         return redirect()->route('product.index');
     }
 
@@ -71,7 +72,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
-        return view('admin.editProduct',compact('product'));
+        return view('admin.editProduct', compact('product'));
     }
 
     /**
@@ -87,26 +88,25 @@ class ProductController extends Controller
                 'retail_price' => 'required',
                 'discount' => 'required',
                 'price' => 'required',
-                'brand_name'=>'string|required',
-                'size'=>'required'
+                'brand_name' => 'string|required',
+                'size' => 'required'
             ]
-            );
+        );
 
         $product = Product::find($id);
-        $product -> name = $req -> name;
-        if($req->photo != null)
-        {
-        $product->photo = $req -> file('photo')-> storeAs('public/images/products',$req->name);
+        $product->name = $req->name;
+        if ($req->photo != null) {
+            $product->photo = $req->file('photo')->storeAs('public/images/products', $req->name);
         }
-        $product-> description = $req-> description;
-        $product -> in_stock = $req -> in_stock;
-        $product -> retail_price = $req -> retail_price;
-        $product -> discount = $req -> discount;
-        $product -> price = $req -> price;
-        $product -> category = $req -> category;
-        $product -> brand_name = $req -> brand_name;
-        $product -> size = $req -> size;
-        $product -> save();
+        $product->description = $req->description;
+        $product->in_stock = $req->in_stock;
+        $product->retail_price = $req->retail_price;
+        $product->discount = $req->discount;
+        $product->price = $req->price;
+        $product->category = $req->category;
+        $product->brand_name = $req->brand_name;
+        $product->size = $req->size;
+        $product->save();
         return redirect()->route('product.index');
     }
 
