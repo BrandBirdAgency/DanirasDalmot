@@ -61,6 +61,8 @@ Route::middleware(['auth'])->group(function () {
 
     // Company Info
     Route::post('/companyInfoEdit', [AdminController::class, 'companyInfoEdit'])->name('companyInfoEdit');
+    // Message CEO/Chairman
+    Route::post('/msg', [AdminController::class, 'msg'])->name('msg');
 });
 
 require __DIR__ . '/auth.php';
