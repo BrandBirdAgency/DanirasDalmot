@@ -155,54 +155,61 @@
                                     <!-- Modal Header -->
                                     <div class="modal-header">
                                         <h4 class="modal-title">Company Information</h4>
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        @if (Auth::guard('web'))
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        @endif
                                     </div>
 
                                     <!-- Modal body -->
                                     <div class="modal-body">
                                         <form action="{{route('companyInfoEdit')}}" method="POST">
                                             @csrf
-                                            <div class="form-group">
-                                                <label for="name">Name:</label>
-                                                <input type="text" class="form-control" value="{{$about->name}}" id="name" name="name" />
-                                                @error('name') {{$message}} @enderror
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <label for="name">Name:</label>
+                                                        <input type="text" class="form-control" value="{{$about->name}}" id="name" name="name" />
+                                                        @error('name') {{$message}} @enderror
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="address">Address:</label>
+                                                        <input type="text" class="form-control" value="{{$about->address}}" id="address" name="address" />
+                                                        @error('address') {{$message}} @enderror
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="phone">Phone:</label>
+                                                        <input type="text" class="form-control" value="{{$about->phone}}" id="phone" name="phone" />
+                                                        @error('phone') {{$message}} @enderror
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="email">Email:</label>
+                                                        <input type="email" class="form-control" value="{{$about->email}}" id="email" name="email" />
+                                                        @error('email') {{$message}} @enderror
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <label for="website">Website:</label>
+                                                        <input type="text" class="form-control" value="{{$about->website}}" id="website" name="website" />
+                                                        @error('website') {{$message}} @enderror
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="facebook">Facebook:</label>
+                                                        <input type="text" class="form-control" value="{{$about->facebook}}" id="facebook" name="facebook" />
+                                                        @error('website') {{$message}} @enderror
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="instagram">Instagram:</label>
+                                                        <input type="text" class="form-control" value="{{$about->instagram}}" id="instagram" name="instagram" />
+                                                        @error('website') {{$message}} @enderror
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="twitter">Twitter:</label>
+                                                        <input type="text" class="form-control" value="{{$about->twitter}}" id="twitter" name="twitter" />
+                                                        @error('website') {{$message}} @enderror
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="address">Address:</label>
-                                                <input type="text" class="form-control" value="{{$about->address}}" id="address" name="address" />
-                                                @error('address') {{$message}} @enderror
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="phone">Phone:</label>
-                                                <input type="text" class="form-control" value="{{$about->phone}}" id="phone" name="phone" />
-                                                @error('phone') {{$message}} @enderror
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="email">Email:</label>
-                                                <input type="email" class="form-control" value="{{$about->email}}" id="email" name="email" />
-                                                @error('email') {{$message}} @enderror
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="website">Website:</label>
-                                                <input type="text" class="form-control" value="{{$about->website}}" id="website" name="website" />
-                                                @error('website') {{$message}} @enderror
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="facebook">Facebook:</label>
-                                                <input type="text" class="form-control" value="{{$about->facebook}}" id="facebook" name="facebook" />
-                                                @error('website') {{$message}} @enderror
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="instagram">Instagram:</label>
-                                                <input type="text" class="form-control" value="{{$about->instagram}}" id="instagram" name="instagram" />
-                                                @error('website') {{$message}} @enderror
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="twitter">Twitter:</label>
-                                                <input type="text" class="form-control" value="{{$about->twitter}}" id="twitter" name="twitter" />
-                                                @error('website') {{$message}} @enderror
-                                            </div>
-
                                             <button type="submit" class="submit-btn">Update</button>
                                         </form>
                                     </div>

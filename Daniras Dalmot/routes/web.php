@@ -5,7 +5,6 @@ use App\Http\Controllers\MailController;
 use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
-use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,13 +52,15 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard']);
 
     //Products
-    Route::get('/product-index', [AdminController::class,'product'])->name('product.index');
-    Route::get('/product-add', [AdminController::class,'productAdd'])->name('addproduct');
-    Route::post('product/store',[ProductController::class,'store'])->name('product.store');
-    Route::get('/product-edit{id}',[ProductController::class,'edit'])->name('product.edit');
-    Route::post('product-update/{id}',[ProductController::class,'update'])->name('product.update');
-    Route::get('product-delete/{id}', [ProductController::class,'destroy'])->name('product.delete');
+    Route::get('/product-index', [AdminController::class, 'product'])->name('product.index');
+    Route::get('/product-add', [AdminController::class, 'productAdd'])->name('addproduct');
+    Route::post('product/store', [ProductController::class, 'store'])->name('product.store');
+    Route::get('/product-edit{id}', [ProductController::class, 'edit'])->name('product.edit');
+    Route::post('product-update/{id}', [ProductController::class, 'update'])->name('product.update');
+    Route::get('product-delete/{id}', [ProductController::class, 'destroy'])->name('product.delete');
+
     // Company Info
     Route::post('/companyInfoEdit', [AdminController::class, 'companyInfoEdit'])->name('companyInfoEdit');
 });
+
 require __DIR__ . '/auth.php';
