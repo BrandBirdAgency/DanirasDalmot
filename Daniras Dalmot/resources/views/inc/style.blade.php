@@ -1,6 +1,6 @@
 <!-- BOOTSTRAP -->
-<link rel="stylesheet" type="text/css" href="vendor/css/bootstrap.css" />
-<link rel="stylesheet" type="text/css" href="vendor/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="{{asset('vendor/css/bootstrap.css')}}" />
+<link rel="stylesheet" type="text/css" href="{{asset('vendor/css/bootstrap.min.css')}}" />
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

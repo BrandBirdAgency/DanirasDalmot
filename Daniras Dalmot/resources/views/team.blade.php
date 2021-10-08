@@ -48,7 +48,7 @@
 
       <div id="team" class="maindiv">
         @if (Auth::guard('web')->check())
-           
+
             <!-- The Modal -->
             <div class="modal fade" id="ceo">
                 <div class="modal-dialog modal-dialog-centered">
@@ -147,9 +147,11 @@
                         <div class="line"></div>
                       </div>
                       <div class="edit-icon">
-                          <h3><a data-toggle="modal" data-target="#ceo"><i class="fas fa-pencil-alt"></i></a></h3>
+                        @if (Auth::guard('web')->check())
+                            <h3><a data-toggle="modal" data-target="#ceo"><i class="fas fa-pencil-alt"></i></a></h3>
+                        @endif
                       </div>
-</div>
+                    </div>
                       <p> {!!nl2br(e($about->ceo_msg))!!} </p>
                       <div class="name">
                         <span>Mr. {{$about->ceo_name}}</span><br />
@@ -181,7 +183,9 @@
                         <div class="line"></div>
                       </div>
                          <div class="edit-icon">
-                          <h3><a data-toggle="modal" data-target="#ceo"><i class="fas fa-pencil-alt"></i></a></h3>
+                            @if (Auth::guard('web')->check())
+                                <h3><a data-toggle="modal" data-target="#ceo"><i class="fas fa-pencil-alt"></i></a></h3>
+                            @endif
                       </div>
                       </div>
                       <p> {!!nl2br(e($about->chairman_msg))!!} </p>
@@ -387,7 +391,7 @@
 
       realFileBtn.addEventListener("change", function () {
         if (realFileBtn.value) {
-      
+
           customTxt.innerHTML = realFileBtn.value.match(
             /[\/\\]([\w\d\s\.\-\(\)]+)$/
           )[1];
@@ -400,7 +404,7 @@
       const customTxt2 = document.getElementById("custom-text2");
 
       customBtn2.addEventListener("click", function () {
-        
+
         realFileBtn2.click();
       });
 
