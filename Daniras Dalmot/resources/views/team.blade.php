@@ -149,7 +149,7 @@
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                  <form action={{route('addrecord')}} method="POST">
+                  <form action={{route('addrecord')}} method="POST" enctype="multipart/form-data">
                       @csrf
                       <input type="hidden" name="id">
                     <div class="form-group">
@@ -225,6 +225,7 @@
                               id="Phone"
                               name="photo"
                               accept="image/*"
+                              enctype="multipart/form-data"
                             />
                             @error('photo')
                             {{$message}}
@@ -288,7 +289,7 @@
                     </div>
                   </div>
                 </div>
-                <hr />
+                <hr/>
               </div>
               <div class="col-lg-4 col-md-6 col-12 member">
                 <div class="info">
