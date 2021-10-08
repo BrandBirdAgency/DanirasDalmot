@@ -10,7 +10,8 @@ class PublicController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $about = About::first();
+        return view('index', compact('about'));
     }
 
     public function about()
@@ -20,7 +21,8 @@ class PublicController extends Controller
 
     public function team()
     {
-        return view('team');
+        $about = About::first();
+        return view('team', compact('about'));
     }
 
     public function product()

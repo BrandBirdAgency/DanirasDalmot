@@ -3,13 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
     public function dashboard()
     {
         return view('admin.dashboard');
+    }
+
+    public function product()
+    {
+        $products = Product::paginate(9);
+        return view('admin.product', compact('products'));
+    }
+
+    public function productadd()
+    {
+        return view('admin.addProduct');
     }
 
     public function companyInfoEdit(Request $req)
@@ -34,5 +47,43 @@ class AdminController extends Controller
         $company->save();
 
         return redirect()->back()->with('success', 'Company Information Updated');
+    }
+
+    // Message from CEO/Chairman
+    public function msg(Request $req)
+    {
+        $this->validate($req, [
+            'ceoname' => 'string|required',
+            'ceomsg' => 'string|required',
+            'chairmanname' => 'string|required',
+            'chairmanmsg' => 'string|required',
+        ]);
+
+        $company = About::first();
+        $company->ceo_name = $req->ceoname;
+        $company->ceo_msg = $req->ceomsg;
+        if ($req->hasFile('ceoimg')) {
+            if (file_exists(ltrim($company->ceo_photo, '/'))) {
+                unlink(ltrim($company->ceo_photo, '/'));
+            }
+            $imageName = 'ceo.' . $req->file('ceoimg')->extension();
+            $req->file('ceoimg')->storeAs('public/images', $imageName);
+            $company->ceo_photo = '/storage/images/' . $imageName;
+        }
+
+        $company->chairman_name = $req->chairmanname;
+        $company->chairman_msg = $req->chairmanmsg;
+        if ($req->hasFile('chairmanimg')) {
+            if (file_exists(ltrim($company->chairman_photo, '/'))) {
+                unlink(ltrim($company->chairman_photo, '/'));
+            }
+            $imageName = 'chairman.' . $req->file('chairmanimg')->extension();
+            $req->file('chairmanimg')->storeAs('public/images', $imageName);
+            $company->chairman_photo = '/storage/images/' . $imageName;
+        }
+
+        $company->save();
+
+        return redirect()->back()->with('success', 'Messages Updated');
     }
 }

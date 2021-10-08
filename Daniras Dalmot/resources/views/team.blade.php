@@ -15,6 +15,24 @@
 
     <!-- MAIN BANNER -->
     <div class="teambanner">
+        <div class="container">
+            @if (Session::has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {!! Session::get('success') !!}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+            @if (Session::has('error'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {!! Session::get('error') !!}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+        </div>
         <div class="contain">
           <div class="image">
             <img src="./assets/images/bg.jpg" alt="" />
@@ -37,6 +55,70 @@
       <!-- END MAIN BANNER -->
 
       <div id="team" class="maindiv">
+        @if (Auth::guard('web')->check())
+            <h3 style="display:flex; justify-content:space-between;"><a style="cursor: pointer" data-toggle="modal" data-target="#ceo"><i class="fas fa-pencil-alt"></i></a></h3>
+            <!-- The Modal -->
+            <div class="modal fade" id="ceo">
+                <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                    <h4 class="modal-title">Message</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        &times;
+                    </button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                    <form action={{ route('msg') }} method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="ceoname">Ceo Name:</label>
+                                    <input type="text" class="form-control" value="{{$about->ceo_name}}" id="ceoname" name="ceoname" />
+                                    @error('ceoname') {{$message}} @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="ceomsg">Ceo Message:</label>
+                                    <textarea cols="30" rows="5" class="form-control" id="ceomsg" name="ceomsg">{{$about->ceo_msg}}</textarea>
+                                    @error('ceomsg') {{$message}} @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="ceoimg">Ceo Photo:</label>
+                                    <input type="file" class="form-control" id="ceoimg" name="ceoimg" accept=".jpg,.png"/>
+                                    @error('ceoimg') {{$message}} @enderror
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="chairmanname">Chairman Name:</label>
+                                    <input type="text" class="form-control" value="{{$about->chairman_name}}" id="chairmanname" name="chairmanname" />
+                                    @error('chairmanname') {{$message}} @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="chairmanmsg">Chairman Message:</label>
+                                    <textarea cols="30" rows="5" class="form-control" id="chairmanmsg" name="chairmanmsg">{{$about->chairman_msg}}</textarea>
+                                    @error('chairmanmsg') {{$message}} @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="chairmanimg">Chairman Photo:</label>
+                                    <input type="file" class="form-control" id="chairmanimg" name="chairmanimg" accept=".jpg,.png"/>
+                                    @error('chairmanimg') {{$message}} @enderror
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Update</button>
+                    </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+        @endif
+
         <!-- MESSAGE FROM CHAIRMAN -->
         <!-- Slider main container -->
         <div class="swiper mySwiper swiper1">
@@ -50,9 +132,9 @@
                     <div class="image-contain">
                       <div class="backbox"></div>
                       <img
-                        src="./assets/images/CEO.jpg"
+                        src="{{$about->ceo_photo}}"
                         class="img-fluid"
-                        alt=""
+                        alt="ceo"
                       />
                     </div>
                   </div>
@@ -62,23 +144,9 @@
                         <h3>Message From CEO</h3>
                         <div class="line"></div>
                       </div>
-                      <p>
-                        In this kingdom of a rapid changing world, survival in
-                        bussiness must never be taken for granted. Our vision of
-                        the future must be to let new opportunities.<br /><br />
-                        Our business is guided by ethics and transparency, and we
-                        aim to further win and maintain our customers by preparing
-                        packaged product that validate price, quality and of
-                        course the taste.<br /><br />
-                        Danira's has been selected with thoughtful precision and
-                        utmost care to provide the best meal options. Our product
-                        comes from extensive research and stricktly choosen top
-                        ingredients from around the world. And I would like to
-                        thank our customers for supporting us helping us in our
-                        growth. We appreciate your love, support and trust.
-                      </p>
+                      <p> {!!nl2br(e($about->ceo_msg))!!} </p>
                       <div class="name">
-                        <span>Mr. Rahul Kalwar</span><br />
+                        <span>Mr. {{$about->ceo_name}}</span><br />
                         CEO, Pushpanjali Spices & Food Products
                       </div>
                     </div>
@@ -93,9 +161,9 @@
                     <div class="image-contain">
                       <div class="backbox"></div>
                       <img
-                        src="./assets/images/Chairman.jpg"
+                        src="{{$about->chairman_photo}}"
                         class="img-fluid"
-                        alt=""
+                        alt="chairman"
                       />
                     </div>
                   </div>
@@ -105,18 +173,9 @@
                         <h3>Message From Chairman</h3>
                         <div class="line"></div>
                       </div>
-                      <p>
-                        With the pride and experience of leading the domestic food
-                        industry, we are everyday discovering and exploring so as
-                        to progress with our customers and partners.<br /><br />
-                        Our main goal is to make our customers happy for which we
-                        are committed to give them the best product and services.
-                        Thank you all for your patience and help while our
-                        organization is constructing and internal management is in
-                        process. We appreciate your efforts and loyalty.
-                      </p>
+                      <p> {!!nl2br(e($about->chairman_msg))!!} </p>
                       <div class="name">
-                        <span>Mr. Nirmal Pd Gupta</span><br />
+                        <span>Mr. {{$about->chairman_name}}</span><br />
                         Chairman, Pushpanjali Spices & Food Products
                       </div>
                     </div>
@@ -134,69 +193,6 @@
         </div>
 
         <!-- END MESSAGE FROM CHAIRMAN -->
-
-        <button data-toggle="modal" data-target="#myModal">Add Team</button>
-        <!-- The Modal -->
-        <div class="modal fade" id="myModal">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <!-- Modal Header -->
-                <div class="modal-header">
-                  <h4 class="modal-title">Delivery Information</h4>
-                  <button type="button" class="close" data-dismiss="modal">
-                    &times;
-                  </button>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                  <form action={{ route('productorder') }} method="POST">
-                      @csrf
-                      <input type="hidden" name="product_id">
-                      <input type="hidden" name="quantity" id="quantity">
-                      <input type="hidden" name="price">
-                    <div class="form-group">
-                      <label for="usr">Full Name:</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="usr"
-                        name="username"
-                      />
-                      @error('username')
-                          {{$message}}
-                      @enderror
-                    </div>
-                    <div class="form-group">
-                      <label for="Address">Address:</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="Address"
-                        name="address"
-                      />
-                          @error('address ')
-                              {{$message}}
-                          @enderror
-                    </div>
-                    <div class="form-group">
-                      <label for="Phone">Phone Number:</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="Phone"
-                        name="phone"
-                      />
-                      @error('phone')
-                      {{$message}}
-                      @enderror
-                    </div>
-                    <button type="submit" class="submit-btn">Proceed</button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
 
         <!-- TEAMS -->
         <section class="teams normalsec">

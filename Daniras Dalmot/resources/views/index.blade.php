@@ -145,7 +145,7 @@
                 <div class="image-contain">
                   <div class="backbox"></div>
                   <img
-                    src="./assets/images/Chairman.jpg"
+                    src="{{$about->chairman_photo}}"
                     class="img-fluid"
                     alt=""
                   />
@@ -157,18 +157,9 @@
                     <h3>Message From Chairman</h3>
                     <div class="line"></div>
                   </div>
-                  <p>
-                    With the pride and experience of leading the domestic food
-                    industry, we are everyday discovering and exploring so as
-                    to progress with our customers and partners.<br /><br />
-                    Our main goal is to make our customers happy for which we
-                    are committed to give them the best product and services.
-                    Thank you all for your patience and help while our
-                    organization is constructing and internal management is in
-                    process. We appreciate your efforts and loyalty.
-                  </p>
+                  <p>{!!nl2br(e($about->chairman_msg))!!}</p>
                   <div class="name">
-                    <span>Mr. Nirmal Pd Gupta</span><br />
+                    <span>Mr. {{$about->chairman_name}}</span><br />
                     Chairman, Pushpanjali Spices & Food Products
                   </div>
                 </div>
