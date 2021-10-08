@@ -84,6 +84,6 @@ class AdminController extends Controller
 
         $company->save();
 
-        return redirect()->back()->with('success', 'Messages Updated');
+        return redirect()->back()->with('success', 'Changes have been saved successfully!!');
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class ProductController extends Controller
 {
@@ -54,8 +55,25 @@ class ProductController extends Controller
         $product->category = $req->category;
         $product->brand_name = $req->brand_name;
         $product->size = $req->size;
+        $image = \QrCode::format('svg')
+            ->size(200)->errorCorrection('H')
+            ->generate('www.test.com');
+        $output_file = 'qrcodes/img-' . time() . '.svg';
+        Storage::disk('local')->put($output_file, $image);
+        
+        $product->qr_code=$image;
+        $product->qr_path=$output_file; 
+        // dd($product);
         $product->save();
+    
+        
         return redirect()->route('product.index');
+    }
+
+    public function qrDownload($id)
+    {
+        $p=Product::find($id);
+        return Storage::download( $p->qr_path);
     }
 
     /**

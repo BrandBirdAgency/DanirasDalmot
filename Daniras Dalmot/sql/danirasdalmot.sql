@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 07, 2021 at 08:39 AM
+-- Generation Time: Oct 08, 2021 at 08:03 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -34,9 +34,9 @@ CREATE TABLE `abouts` (
   `phone` text NOT NULL,
   `email` text NOT NULL,
   `website` text NOT NULL,
-  `facebook` text NOT NULL,
-  `instagram` text NOT NULL,
-  `twitter` text NOT NULL,
+  `facebook` text DEFAULT NULL,
+  `instagram` text DEFAULT NULL,
+  `twitter` text DEFAULT NULL,
   `ceo_name` text NOT NULL,
   `ceo_msg` text NOT NULL,
   `ceo_photo` text NOT NULL,
@@ -52,7 +52,7 @@ CREATE TABLE `abouts` (
 --
 
 INSERT INTO `abouts` (`id`, `name`, `address`, `phone`, `email`, `website`, `facebook`, `instagram`, `twitter`, `ceo_name`, `ceo_msg`, `ceo_photo`, `chairman_name`, `chairman_msg`, `chairman_photo`, `created_at`, `updated_at`) VALUES
-(1, 'Daniras Dalmoth', 'Parwanipur-5, Bara, Nepal', '+977 9845999137', 'infodanirasdalmoth@gmail.com', 'danirasdalmoth.com', 'www.facebook.com/danirasdalmoth', 'www.instagram.com/danirasdalmoth', '', 'Rahul Kalwar', 'In this kingdom of a rapid changing world, survival in business must never be taken for granted. Our vision of the future must be to let new opportunities.  Our business is guided by ethics and transparency, and we aim to further win and maintain our customers by preparing packaged product that validate price, quality and of course the taste.  Danira\'s has been selected with thoughtful precision and utmost care to provide the best meal options. Our product comes from extensive research and stricktly choosen top ingredients from around the world. And I would like to thank our customers for supporting us helping us in our growth. We appreciate your love, support and trust.                       ', '', 'Nirmal Pd Gupta', 'With the pride and experience of leading the domestic food industry, we are everyday discovering and exploring so as to progress with our customers and partners.  Our main goal is to make our customers happy for which we are committed to give them the best product and services. Thank you all for your patience and help while our organization is constructing and internal management is in process. We appreciate your efforts and loyalty.', '', '2021-10-07 06:14:42', '2021-10-07 06:14:42');
+(1, 'Daniras Dalmoth', 'Parwanipur-5, Bara, Nepal', '+977 9845999137', 'infodanirasdalmoth@gmail.com', 'danirasdalmoth.com', 'www.facebook.com/danirasdalmoth', 'www.instagram.com/danirasdalmoth', NULL, 'Rahul Kalwar', 'In this kingdom of a rapid changing world, survival in business must never be taken for granted. Our vision of the future must be to let new opportunities.\r\n\r\nOur business is guided by ethics and transparency, and we aim to further win and maintain our customers by preparing packaged product that validate price, quality and of course the taste.\r\n\r\nDanira\'s has been selected with thoughtful precision and utmost care to provide the best meal options. Our product comes from extensive research and stricktly choosen top ingredients from around the world. And I would like to thank our customers for supporting us helping us in our growth. We appreciate your love, support and trust.', '/storage/images/ceo.jpg', 'Nirmal Pd Gupta', 'With the pride and experience of leading the domestic food industry, we are everyday discovering and exploring so as to progress with our customers and partners.  \r\n\r\nOur main goal is to make our customers happy for which we are committed to give them the best product and services. Thank you all for your patience and help while our organization is constructing and internal management is in process. We appreciate your efforts and loyalty.', '/storage/images/chairman.png', '2021-10-07 06:14:42', '2021-10-08 08:55:55');
 
 -- --------------------------------------------------------
 
@@ -199,6 +199,13 @@ CREATE TABLE `teams` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `teams`
+--
+
+INSERT INTO `teams` (`id`, `name`, `position`, `phone`, `address`, `photo`, `facebook`, `instagram`, `created_at`, `updated_at`) VALUES
+(1, 'test', 'Sr. Programmer', '9856455673', 'nice', 'public/images/Xsbl450MT6i4jkYD89RhFcX4fhhfPj1S3t9VflJ4.jpg', 'https://example.com', 'https://example.com', '2021-10-07 12:11:56', '2021-10-07 12:11:56');
+
 -- --------------------------------------------------------
 
 --
@@ -341,7 +348,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `teams`
 --
 ALTER TABLE `teams`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
