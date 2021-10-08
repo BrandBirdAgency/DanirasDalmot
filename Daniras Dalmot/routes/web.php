@@ -52,13 +52,15 @@ Route::prefix('admin')->group(function () {
     Route::middleware(['auth'])->group(function () {
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
-        //Products
-        Route::get('/product', [AdminController::class, 'product'])->name('product.index');
-        Route::get('/product/add', [AdminController::class, 'productAdd'])->name('addproduct');
-        Route::post('product/store', [ProductController::class, 'store'])->name('product.store');
-        Route::get('/product/edit{id}', [ProductController::class, 'edit'])->name('product.edit');
-        Route::post('product/update/{id}', [ProductController::class, 'update'])->name('product.update');
-        Route::get('product/delete/{id}', [ProductController::class, 'destroy'])->name('product.delete');
+    //Products
+    Route::get('/product-index', [AdminController::class, 'product'])->name('product.index');
+    Route::get('/product-add', [AdminController::class, 'productAdd'])->name('addproduct');
+    Route::post('product/store', [ProductController::class, 'store'])->name('product.store');
+    Route::get('/product-edit{id}', [ProductController::class, 'edit'])->name('product.edit');
+    Route::post('product-update/{id}', [ProductController::class, 'update'])->name('product.update');
+    Route::get('product-delete/{id}', [ProductController::class, 'destroy'])->name('product.delete');
+    Route::get('/qr-download/{id}', [ProductController::class, 'qrDownload'])->name('qrcode.download');
+
 
         // Company Info
         Route::post('/companyInfoEdit', [AdminController::class, 'companyInfoEdit'])->name('companyInfoEdit');
