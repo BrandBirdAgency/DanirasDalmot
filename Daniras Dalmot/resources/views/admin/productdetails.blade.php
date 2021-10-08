@@ -8,7 +8,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <link rel="stylesheet" href="./assets/css/admin.css" />
+    <link rel="stylesheet" href="../assets/css/admin.css" />
 @endsection
 @section('content')
 
@@ -51,7 +51,7 @@
          <section id="display-product">
         <div class="product-main">
           <div class="product-image">
-            <img src="./assets/images/0.png" alt="" />
+            <img src="../assets/images/0.png" alt="" />
               
           </div>
           <div class="product-details">
@@ -101,11 +101,11 @@
             <div class="images codes">
                 <div class="bar-code">
                     <p class="det"><span>Bar-Code : </span></p>
-                <img src="./assets/images/team1.jpg" alt="">
+                <img src="../assets/images/team1.jpg" alt="">
 </div>
 <div class="qr-code">
     <p class="det"><span>Qr-Code : </span></p>
-                <img src="./assets/images/team1.jpg" alt="">
+                <img src="../assets/images/team1.jpg" alt="">
 </div>
             </div>
     
