@@ -25,11 +25,17 @@
           <div class="col sm-4 py-2">
             <div class="card">
               <img src={{Storage::url($p->photo)}} class="card-img-top img-1" />
+            
+             {{-- <a href="{{ route('qrcode.download', $p->id) }}" role="button"
+             class="btn text-decoration-none text-white mt-2 mt-md-0 mainButton">Download <span><i
+                     class="fas fa-cloud-download-alt ml-1"></i></span></a> --}}
+            
               <div class="card-body">
                 <h1 class="card-title">{{$p->name}}</h1>
                 <p class="card-text">
                   {{$p->description}}
                 </p>
+
                 <div class="card-footer">
                   <div class="btn-group">
                     <button class="edit"><i class="fa fa-edit"></i><a href={{route('product.edit',['id'=>$p->id])}} style="text-decoration: none; color:white">Edit</a></button>
