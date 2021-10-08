@@ -148,12 +148,12 @@
                                 <div class="modal-content">
                                     <!-- Modal Header -->
                                     <div class="modal-header">
-                                        <h4 class="modal-title">Company Information</h4>
+                                        <h4 class="modal-title">Contact Information</h4>
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     </div>
 
                                     <!-- Modal body -->
-                                    <div class="modal-body">
+                                    <div class="modal-body contact-edit">
                                         <form action="{{route('companyInfoEdit')}}" method="POST">
                                             @csrf
                                             <div class="row">
@@ -202,7 +202,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button type="submit" class="submit-btn">Update</button>
+                                            <div class="btn-wrapper">
+                                            <button type="submit" class="submit-btn btn">Update</button>
+</div>
                                         </form>
                                     </div>
                                 </div>
