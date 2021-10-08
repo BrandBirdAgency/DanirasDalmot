@@ -58,6 +58,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('product/store',[ProductController::class,'store'])->name('product.store');
     Route::get('/product-edit{id}',[ProductController::class,'edit'])->name('product.edit');
     Route::post('product-update/{id}',[ProductController::class,'update'])->name('product.update');
+    Route::get('product-delete/{id}', [ProductController::class,'destroy'])->name('product.delete');
     // Company Info
     Route::post('/companyInfoEdit', [AdminController::class, 'companyInfoEdit'])->name('companyInfoEdit');
 });

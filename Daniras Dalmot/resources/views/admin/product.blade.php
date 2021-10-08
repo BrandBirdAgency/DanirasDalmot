@@ -17,43 +17,7 @@
     >
     <!--Add Product button end-->
 
-    <!-- Modal for delete  -->
-    <div
-      class="modal fade"
-      id="delete"
-      aria-labelledby="Title"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-top">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="Title">
-              Do you want to delete this product?
-            </h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">...</div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Yes</button>
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Modal for delete ends  -->
+
     <!--Prouduct details-->
     <div class="container-fluid" id="product-fluid">
       <div class="row">
@@ -68,7 +32,7 @@
                 </p>
                 <div class="card-footer">
                   <div class="btn-group">
-                    <button class="edit"><i class="fa fa-edit"></i><a href={{route('product.edit',['id'=>$p->id])}}>Edit</a></button>
+                    <button class="edit"><i class="fa fa-edit"></i><a href={{route('product.edit',['id'=>$p->id])}} style="text-decoration: none; color:white">Edit</a></button>
                     <button
                       class="delete"
                       data-toggle="modal"
@@ -81,6 +45,43 @@
               </div>
             </div>
           </div>
+            <!-- Modal for delete  -->
+    <div
+    class="modal fade"
+    id="delete"
+    aria-labelledby="Title"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-top">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="Title">
+            Do you want to delete this product?
+          </h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">...</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary"><a href={{route('product.delete',['id'=>$p->id])}} style="text-decoration: none; color:white">Yes</a></button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal for delete ends  -->
           @empty
           {{"Add Some Products"}}
           @endforelse

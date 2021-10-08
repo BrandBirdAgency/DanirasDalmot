@@ -116,7 +116,8 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product = Product::find($id);
-        Storage::delete($product->image);
+        Storage::delete($product->photo);
         $product->delete();
+        return redirect()->route('product.index');
     }
 }
