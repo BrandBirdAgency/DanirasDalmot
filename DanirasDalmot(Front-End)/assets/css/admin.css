@@ -146,6 +146,49 @@
       display: initial;
     }
   }
+  /*admin form*/
+
+/* Orders */
+
+#orders .table {
+  box-shadow: 4px 6px 14px 0px rgb(122 113 113);
+}
+
+/* Admin Dashboard */
+
+#admin-dashboard,
+#orders {
+  min-height: 63.6vh;
+  background: #fbfbfb;
+  padding: 2rem 0;
+}
+#admin-dashboard h3 {
+  font-size: 24px;
+  color: #343a40;
+  font-weight: 700;
+}
+#admin-dashboard .admin-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 132px;
+  background-color: #343a40;
+  color: var(--white);
+  width: max-content;
+  padding: 18px 30px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 700;
+  cursor: pointer;
+}
+#admin-dashboard .admin-box img {
+  height: 64px;
+  width: 64px;
+}
+#admin-dashboard .admin-box p {
+  margin-top: 8px;
+}
+
 /*ADMIN-LOG-IN-START*/
 
 /* LOGIN & REGISTER FORM */
