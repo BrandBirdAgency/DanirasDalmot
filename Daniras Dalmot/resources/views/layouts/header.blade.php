@@ -7,10 +7,13 @@
             <li><a href="{{ route('productpage') }}">Products</a></li>
             <li><a href="{{ route('teampage') }}">Team</a></li>
             <li><a href="{{ route('aboutpage') }}">About</a></li>
+            <li><a href="{{ route('contactpage') }}">Contact</a></li>
         </ul>
     </nav>
-    <a class="cta" href="{{ route('contactpage') }}">Contact</a>
+    <a class="cta" href="{{ route('contactpage') }}">Login</a>
+    <!-- <a class="cta" href="{{ route('contactpage') }}">Logout</a> -->
     <p class="menu cta">Menu</p>
+    <a class="menu cta" href="{{ route('contactpage') }}">Login</a>
 </header>
 <div id="mobile__menu" class="overlay">
     <a class="close">&times;</a>

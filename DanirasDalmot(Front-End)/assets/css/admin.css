@@ -249,10 +249,44 @@ margin-top: 20px;
   .submitbtn {
     text-align: center;
   }
-  /*Product-umage*/
+}
+/*Add-product-end*/
+/*PRODUCT-ADMIN STARTS*/
 
-  #custom-text {
-    color: #aaa;
+.nav-btns {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
+.nav-btns a {
+  margin: 0 1rem;
+}
+a.add {
+  text-decoration: none;
+  margin-top: 2rem;
+  background-color: var(--orange);
+  font-weight: 600;
+  border: 1px solid var(--red);
+  color: var(--white);
+  padding: 12px 12px;
+}
+
+.plus {
+  /*add button icon*/
+  color: var(--white);
+  padding: 5px;
+}
+@media only screen and (max-width: 420px) {
+  a.add {
+    margin-top: 1rem;
+
+    font-weight: normal;
+
+    padding: 10px 8px;
+  }
+  .nav-btns a {
+    margin: 0 0.4rem;
   }
   .frm .upload {
     display: block;
@@ -266,214 +300,51 @@ margin-top: 20px;
   }
   /*Product-image-end*/
 
-  @media only screen and (max-width: 576px) {
-    /*add product -page responsive*/
+/*add product buttons ends*/
 
-    #add-product-container {
-      width: 100%;
-      overflow-x: hidden;
-    }
-  }
-  @media only screen and (max-width: 769px) {
-    /*add button responsive*/
+/*card */
 
-    #add-product-container {
-      width: 100%;
-    }
-  }
-  /*ADD-PRODUCT-ENDS*/
-
-
-
-    /*PRODUCT-ADMIN STARTS*/
-
-
-
-      .delete-button{              /*Model*/
-        float: right;
-      }
-  .cross{
-    color: black;
-  }
-
-    /*add product buttons*/
-    a.add{
-      text-decoration: none;
-      margin-top: 40px;
-      margin-left: 45%;
-      background-color: var(--orange);
-      opacity: 0.9;
-      font-weight:600;
-      border: 1px solid var(--red);
-      color: var(--white);
-      padding: 12px 16px;
-      box-shadow: 0 0px 10px var(--red);
-    }
-    a.add:hover{
-    background: linear-gradient(var(--black) 90%,var(--red) 10%);
-    transition: 2.6s;
-  }
-
-    .plus{                            /*add button icon*/
-      color: var(--white);
-      padding: 5px;
-    }
-
-    @media only screen and (max-width: 750px) {  /*add button responsive*/
-    a.add {
-        margin-left: 30%;
-      }
-    }
-
-    /*add product buttons ends*/
-
-
-  #card-container{              /*PRODUCT-AADMIN--CARD-START*/
-    margin-bottom: 10%;;
-    margin-top: 10px;
-  }
-  #product-card{
-    box-shadow: 0 0 1px   white;
-  }
-  #product-card:hover{
-    box-shadow: 0 8px 5px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-
-  }
-  .product-body{
-    border: 1px solid var(--white);
-    box-shadow: 0 0 10px #b3b2b2;
-    font-weight: 600;
-    line-height: 30px;
-    padding: 0 5% 0 5%;
-    font-family: "Josefin Sans", sans-serif;
-  }
-   .card-title{
-    color: red;
-    font-family:Brandon;
-    font-weight: 600;
-    text-align: center;
-  }
-   .card-footer{
-    box-shadow:inset 0 0 2px white;
-  }
-  .img-1 {          /* Card Image*/
-    width: 100%;
-    height:320px;
-    background-color: rgba(242, 241, 239, 1);
-
-
-    display:block;
-    overflow: hidden;
-    box-shadow: inset 0 0 15px rgba(232, 232, 232, 1);
- }
-
-  /* edit and delete buttons*/
-   .edit{
-    background-color:  #e83225;
-    border: 1px solid  #fff;
-    color: var(--white);
-    font-weight: bold;
-    font-weight: 500;
-    cursor: pointer;
-  }
-  .edit:hover{
-    background-color: var(--orange);
-  }
-
-  .delete {                        /* Delete button*/
-    background-color:#272822;
-    color:var(--white);
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-
-  }
-    .delete:hover {
-    background-color: #b3b2b2;
-  }
-
-    .fa-edit,.fa-trash{           /* trash and  edit icons end*/
-     padding: 0 5px;
-  }
-    /* edit and delete button end*/
-
-   .btns{
-    margin-left: 30px;
-    text-align: center;
-  }
-  .admn-img{
-      background-color:whitesmoke;
-      border: 1px solid silver;
-      border-radius: 30px 5px 5px 30px;
-  }
-  .admn-img::-webkit-file-upload-button{
-      box-shadow: 0 20px 10px rgba(0,0,0,0.2),0 6px 5px rgba(0,0,0,0.19);
-      cursor: pointer;
-      background-color: red;
-      color: var(--white);
-      border: 2px solid var(--white);
-      border-radius: 50px;
-    }
-
-
-
-  /*  Card reponsivee*/
-  @media only screen and (min-device-width: 571px) and (max-device-width: 1200px) and (orientation:landscape) {
-    .edit,.delete{margin: 10px;;
-
-    }
-
-    .edit,.delete{
-      font-size: 14px;
-    }
-  }
-
-
-    /*PRODUCT -ADMIN-ENDS*/
-
-    /* TEAM-ADMIN-STARTS */
-section.teamss.member{
-    margin-top: 2%;
+#card-container {
+  margin-bottom: 10%;
+  margin-top: 10px;
 }
-.teamss p.short-desc {
-  width: 400px;
-  margin: 0 auto;
+#product-card {
+  transition: all 0.3s ease-in-out;
+}
+#product-card:hover {
+  box-shadow: 0 8px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.product-body {
+  border: 1px solid var(--white);
+  text-align: left;
+  padding: 5% 5% 5% 5%;
+}
+.card-title {
+  color: red;
+  font-weight: 600;
   text-align: center;
   margin-top: 0.8rem;
 }
-.teamss .contains {
-  margin-top: 3rem;
-  margin-bottom: 4rem;
+.card-footers {
+  text-align: center;
+  padding-bottom: 1.3rem;
 }
-.teamss .contains .infoo {
-  display: flex;
-  justify-content: space-evenly;
+.card-footers .btn:hover {
+  color: var(--white);
 }
-.teamss .contains .infoo img {
-  border-radius: 50%;
-  width: 130px;
-  height: 130px;
-  object-fit: cover;
+.card img {
+  height: 220px;
+  object-fit: contain;
+  background: #f0f0f0;
 }
-.teamss .infoo .details {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-self: center;
+.fa-edit,
+.fa-trash {
+  /* trash and  edit icons end*/
+  padding: 0 5px;
 }
-.teamss .infoo .details p {
-  margin-bottom: 0.5rem;
-}
-.teamss .infoo .name {
-  color: var(--red);
-  font-weight: 700;
-}
-.teamss .infoo .post {
-  color: var(--grey);
-  font-weight: 600;
-  margin-top: -0.4rem;
-  width: 120px;
-}
+/* edit and delete button end*/
+
+/*PRODUCT ENDS*/
 
 .del-edit-button{
 display: flex;
