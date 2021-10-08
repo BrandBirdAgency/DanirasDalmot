@@ -516,12 +516,7 @@ nav ul {
 
 /* Our Services */
 
-.amazing_feature h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+.amazing_feature h3 {
     color: var(--red);
 }
 .amazing_feature a,
@@ -1909,6 +1904,16 @@ h4 {
     padding: 20px 10px;
     justify-content: center;
 }
+.message .cos {
+    display: flex;
+    flex-direction: row;
+}
+.message .cos .edit-icon {
+    margin-left: auto;
+}
+.message .cos .edit-icon a {
+    cursor: pointer;
+}
 .message h3 {
     font-family: "Josefin Sans", sans-serif;
 }
@@ -2415,3 +2420,22 @@ input.submit-btn:hover {
     height: 3px;
     margin-top: -0.4rem;
 }
+
+/* CONTACT PAGE */
+.contact-edit .form-control {
+    height: auto;
+    border: 1px solid #ced4da;
+    color: #495057 !important;
+}
+form .btn-wrapper {
+    text-align: right;
+}
+form .btn {
+    background: var(--red);
+    color: vaR(--white);
+    text-align: center;
+}
+form .btn:hover {
+    color: vaR(--white);
+}
+/* END CONTACT PAGE */
