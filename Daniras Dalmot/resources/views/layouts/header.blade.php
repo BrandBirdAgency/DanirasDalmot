@@ -1,17 +1,27 @@
 <!-- HEADER -->
 <header>
-    <a class="logo" href="/"><img src="./assets/images/logo.jpg" alt="logo" /></a>
+    <a class="logo" href="/"><img src="{{asset('/assets/images/logo.jpg')}}" alt="logo" /></a>
     <nav>
         <ul class="nav__links">
             <li><a href="{{ route('homepage') }}">Home</a></li>
             <li><a href="{{ route('productpage') }}">Products</a></li>
             <li><a href="{{ route('teampage') }}">Team</a></li>
             <li><a href="{{ route('aboutpage') }}">About</a></li>
+            <li><a href="{{ route('contactpage') }}">Contact</a></li>
         </ul>
     </nav>
-    <a class="cta" href="{{ route('contactpage') }}">Contact</a>
-    <p class="menu cta">Menu</p>
+    @if (Auth::guard('web')->check())
+        <a class="cta" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+    @else
+        <a class="cta" href="{{ route('adminLogin') }}">Login</a>
+        <p class="menu cta">Menu</p>
+        <a class="menu cta" href="{{ route('adminLogin') }}">Login</a>
+    @endif
 </header>
+
 <div id="mobile__menu" class="overlay">
     <a class="close">&times;</a>
     <div class="overlay__content">

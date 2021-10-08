@@ -47,9 +47,10 @@ Route::prefix('/contact')->group(
 
 
 // Admin
-Route::view('/admin-login', 'auth.login');
-Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [AdminController::class, 'dashboard']);
+Route::prefix('admin')->group(function () {
+    Route::view('/login', 'auth.login')->name('adminLogin');
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
     //Products
     Route::get('/product-index', [AdminController::class, 'product'])->name('product.index');
@@ -61,10 +62,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/qr-download/{id}', [ProductController::class, 'qrDownload'])->name('qrcode.download');
 
 
-    // Company Info
-    Route::post('/companyInfoEdit', [AdminController::class, 'companyInfoEdit'])->name('companyInfoEdit');
-    // Message CEO/Chairman
-    Route::post('/msg', [AdminController::class, 'msg'])->name('msg');
+        // Company Info
+        Route::post('/companyInfoEdit', [AdminController::class, 'companyInfoEdit'])->name('companyInfoEdit');
+
+        // Message CEO/Chairman
+        Route::post('/msg', [AdminController::class, 'msg'])->name('msg');
+    });
 });
 
 require __DIR__ . '/auth.php';

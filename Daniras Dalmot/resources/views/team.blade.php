@@ -15,25 +15,17 @@
 
     <!-- MAIN BANNER -->
     <div class="teambanner">
-        <div class="container">
-            @if (Session::has('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {!! Session::get('success') !!}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            @endif
-            @if (Session::has('error'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {!! Session::get('error') !!}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            @endif
-        </div>
         <div class="contain">
+            <div class="container">
+                @if (Session::has('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {!! Session::get('success') !!}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+            </div>
           <div class="image">
             <img src="./assets/images/bg.jpg" alt="" />
           </div>
@@ -56,14 +48,14 @@
 
       <div id="team" class="maindiv">
         @if (Auth::guard('web')->check())
-            <h3 style="display:flex; justify-content:space-between;"><a style="cursor: pointer" data-toggle="modal" data-target="#ceo"><i class="fas fa-pencil-alt"></i></a></h3>
+
             <!-- The Modal -->
             <div class="modal fade" id="ceo">
                 <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <!-- Modal Header -->
                     <div class="modal-header">
-                    <h4 class="modal-title">Message</h4>
+                    <h4 class="modal-title">Messages</h4>
                     <button type="button" class="close" data-dismiss="modal">
                         &times;
                     </button>
@@ -87,7 +79,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="ceoimg">Ceo Photo:</label>
-                                    <input type="file" class="form-control" id="ceoimg" name="ceoimg" accept=".jpg,.png"/>
+                                   <input type="file"  id="real-file1" hidden="hidden" />
+                    <button type="button" id="custom-button1" class="btn">
+                      Choose an image
+                    </button>
+                    <p id="custom-text1">No file chosen, yet.</p>
                                     @error('ceoimg') {{$message}} @enderror
                                 </div>
                             </div>
@@ -105,13 +101,18 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="chairmanimg">Chairman Photo:</label>
-                                    <input type="file" class="form-control" id="chairmanimg" name="chairmanimg" accept=".jpg,.png"/>
+                                 <input type="file"  id="real-file2" hidden="hidden" />
+                    <button type="button" id="custom-button2" class="btn">
+                      Choose an image
+                    </button>
+                    <p id="custom-text2">No file chosen, yet.</p>
                                     @error('chairmanimg') {{$message}} @enderror
                                 </div>
                             </div>
                         </div>
-
-                        <button type="submit" class="submit-btn">Update</button>
+        <div class="btn-wrapper">
+                        <button type="submit" class="submit-btn btn">Update</button>
+</div>
                     </form>
                     </div>
                 </div>
@@ -140,10 +141,17 @@
                   </div>
                   <div class="col-md-6 col-12">
                     <div class="message-contain">
+                      <div class="cos">
                       <div class="cus-heading">
                         <h3>Message From CEO</h3>
                         <div class="line"></div>
                       </div>
+                      <div class="edit-icon">
+                        @if (Auth::guard('web')->check())
+                            <h3><a data-toggle="modal" data-target="#ceo"><i class="fas fa-pencil-alt"></i></a></h3>
+                        @endif
+                      </div>
+                    </div>
                       <p> {!!nl2br(e($about->ceo_msg))!!} </p>
                       <div class="name">
                         <span>Mr. {{$about->ceo_name}}</span><br />
@@ -169,9 +177,16 @@
                   </div>
                   <div class="col-md-6 col-12">
                     <div class="message-contain">
+                         <div class="cos">
                       <div class="cus-heading">
                         <h3>Message From Chairman</h3>
                         <div class="line"></div>
+                      </div>
+                         <div class="edit-icon">
+                            @if (Auth::guard('web')->check())
+                                <h3><a data-toggle="modal" data-target="#ceo"><i class="fas fa-pencil-alt"></i></a></h3>
+                            @endif
+                      </div>
                       </div>
                       <p> {!!nl2br(e($about->chairman_msg))!!} </p>
                       <div class="name">
@@ -364,4 +379,44 @@
       },
     });
   </script>
+   <script>
+      const realFileBtn = document.getElementById("real-file1");
+      const customBtn = document.getElementById("custom-button1");
+      const customTxt = document.getElementById("custom-text1");
+
+      customBtn.addEventListener("click", function () {
+        console.log("shu");
+        realFileBtn.click();
+      });
+
+      realFileBtn.addEventListener("change", function () {
+        if (realFileBtn.value) {
+
+          customTxt.innerHTML = realFileBtn.value.match(
+            /[\/\\]([\w\d\s\.\-\(\)]+)$/
+          )[1];
+        } else {
+          customTxt.innerHTML = "No file choosen, yet.";
+        }
+      });
+       const realFileBtn2 = document.getElementById("real-file2");
+      const customBtn2 = document.getElementById("custom-button2");
+      const customTxt2 = document.getElementById("custom-text2");
+
+      customBtn2.addEventListener("click", function () {
+
+        realFileBtn2.click();
+      });
+
+      realFileBtn2.addEventListener("change", function () {
+        console.log("shu1");
+        if (realFileBtn2.value) {
+          customTxt2.innerHTML = realFileBtn2.value.match(
+            /[\/\\]([\w\d\s\.\-\(\)]+)$/
+          )[1];
+        } else {
+          customTxt2.innerHTML = "No file choosen, yet.";
+        }
+      });
+    </script>
 @endsection
