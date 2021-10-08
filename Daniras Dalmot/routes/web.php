@@ -50,7 +50,8 @@ Route::prefix('/contact')->group(
 Route::view('/admin-login', 'auth.login');
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard']);
-    Route::view('/product-add', 'admin.add-product')->name('addproduct');
+    Route::view('/product-add', 'admin.addProduct')->name('addproduct');
+    Route::post('product/store',[ProductController::class,'store'])->name('product-store');
 
     // Company Info
     Route::post('/companyInfoEdit', [AdminController::class, 'companyInfoEdit'])->name('companyInfoEdit');
