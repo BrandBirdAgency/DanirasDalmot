@@ -26,9 +26,9 @@
         </div>
         <div class="bannernav">
           <li><i class="fas fa-home"></i></li>
-          <li><a href="./index.html">HOME</a></li>
+          <li><a href={{route('homepage')}}>HOME</a></li>
           <li><i class="fas fa-caret-right"></i></li>
-          <li><a href="./about.html">PRODCUTS</a></li>
+          <li><a href={{route('productpage')}}>PRODCUTS</a></li>
         </div>
       </div>
     </div>
@@ -192,7 +192,7 @@
         </div>
         <div class="row det">
           <div class="col-md-6 col-12 d-md-block d-none">
-            <img src="./assets/images/infra1.jpg" alt="" class="img-fluid" />
+            <img src={{asset("assets/images/infra1.jpg")}} alt="" class="img-fluid" />
           </div>
           <div class="col-md-6 col-12">
             <div class="content">
@@ -215,7 +215,7 @@
             </div>
           </div>
           <div class="col-md-6 col-12 d-md-none">
-            <img src="./assets/images/infra1.jpg" alt="" class="img-fluid" />
+            <img src={{asset("assets/images/infra1.jpg")}} alt="" class="img-fluid" />
           </div>
         </div>
         <div class="row det">
@@ -241,12 +241,12 @@
             </div>
           </div>
           <div class="col-md-6 col-12">
-            <img src="./assets/images/infra2.jpg" alt="" class="img-fluid" />
+            <img src={{asset("assets/images/infra2.jpg")}} alt="" class="img-fluid" />
           </div>
         </div>
         <div class="row det">
           <div class="col-md-6 col-12 d-md-block d-none">
-            <img src="./assets/images/infra3.jpg" alt="" class="img-fluid" />
+            <img src={{asset("assets/images/infra3.jpg")}} alt="" class="img-fluid" />
           </div>
           <div class="col-md-6 col-12">
             <div class="content">
@@ -270,7 +270,7 @@
             </div>
           </div>
           <div class="col-md-6 col-12 d-md-none">
-            <img src="./assets/images/infra3.jpg" alt="" class="img-fluid" />
+            <img src={{asset("assets/images/infra3.jpg")}} alt="" class="img-fluid" />
           </div>
         </div>
         <div class="row det">
@@ -296,7 +296,7 @@
             </div>
           </div>
           <div class="col-md-6 col-12">
-            <img src="./assets/images/infra4.jpg" alt="" class="img-fluid" />
+            <img src={{asset("assets/images/infra4.jpg")}} alt="" class="img-fluid" />
           </div>
         </div>
       </div>
