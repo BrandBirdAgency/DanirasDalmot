@@ -12,7 +12,7 @@
     </nav>
     <a class="cta" href="{{ route('contactpage') }}">Login</a>
     <!-- <a class="cta" href="{{ route('contactpage') }}">Logout</a> -->
-    <p class="menu cta">Menu</p>
+    <p class="menu cta mb-0">Menu</p>
     <a class="menu cta" href="{{ route('contactpage') }}">Login</a>
 </header>
 <div id="mobile__menu" class="overlay">
