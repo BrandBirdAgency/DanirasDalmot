@@ -559,6 +559,24 @@ a.add {
     color: var(--red);
     background-color: var(--white);
 }
+#display-product button.download {
+    padding: 0.1rem 1rem;
+    border-radius: 0px;
+    margin-bottom: 0px;
+    background: none;
+    border: 0px solid var(--orange);
+    color: var(--orange);
+    font-weight: 100;
+}
+#display-product button.download:hover {
+    padding: 0.1rem 1rem;
+    border-radius: 0px;
+    margin-bottom: 0px;
+    background: none;
+    border: 0px solid var(--orange);
+    color: var(--orange);
+    font-weight: 100;
+}
 
 #display-product .product-details .product-name {
     display: flex;
