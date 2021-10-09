@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Add Product')
+@section('title','Product Details')
 @section('css')
 
   <!-- CSS -->
@@ -8,7 +8,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <link rel="stylesheet" href="../assets/css/admin.css" />
+    <link rel="stylesheet" href={{asset("assets/css/admin.css")}} />
 @endsection
 @section('content')
 
@@ -16,7 +16,7 @@
     <!-- Modal for delete  -->
     <div
       class="modal fade"
-      id="delete"
+      id="productdeletemodal"
       aria-labelledby="Title"
       aria-hidden="true"
     >
@@ -40,7 +40,7 @@
           </div>
           <div class="card-footer">
             <div class="delete-button">
-              <button type="button" class="btn">YES</button>
+              <a href={{route("product.delete",['id'=>$product->id])}} style="text-decoration: none;color:white;"><button type="button" class="btn">YES</button></a>
               <button type="button" class="btn" data-dismiss="modal">NO</button>
             </div>
           </div>
@@ -51,33 +51,33 @@
          <section id="display-product">
         <div class="product-main">
           <div class="product-image">
-            <img src="../assets/images/0.png" alt="" />
-              
+            <img src={{Storage::url($product->photo)}} alt="" />
+
           </div>
           <div class="product-details">
             <div class="product-name">
                 <div class="title">
-              <h4>Mixture Dalmot</h4>
+              <h4>{{$product->name}}</h4>
 </div>
             </div>
-   
-      
+
+
             <div class="product-desc">
               <p class="der">
-             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus inventore sed consequuntur nesciunt qui incidunt necessitatibus temporibus veniam eum harum.
+                {{$product->description}}
               </p>
 </div>
  <div class="line"></div>
 <div class="product-info">
      <p class="dets"><span>Product Details & Controls</span></p>
     <div class="row">
-       
+
         <div class="col-md-6">
-              <p class="det"><span>Category :</span> something</p>
-              <p class="det"><span>Size : </span>something</p>
-              <p class="det"><span>Brand Name : </span>something</p>
+              <p class="det"><span>Category :</span> {{$product->category}}</p>
+              <p class="det"><span>Size : </span>{{$product->size}}</p>
+              <p class="det"><span>Brand Name : </span>{{$product->brand_name}}</p>
             <p>In Stock :  <label class="switch ml-2">
-                
+
   <input type="checkbox" checked>
   <span class="slider round"></span>
 </label></p>
@@ -86,11 +86,11 @@
 
 </div>
 <div class="col-md-6">
-              <p class="det"><span>Retail Price :</span> 120</p>
-              <p class="det"><span>Price : </span>150</p>
-              <p class="det"><span>Discount :</span> 10%</p>
+              <p class="det"><span>Retail Price :</span> {{$product->retail_price}}</p>
+              <p class="det"><span>Price : </span>{{$product->price}}</p>
+              <p class="det"><span>Discount :</span> {{$product->discount}}%</p>
                             <p>Show In Home :  <label class="switch ml-2">
-                
+
   <input type="checkbox" checked>
   <span class="slider round"></span>
 </label></p>
@@ -108,18 +108,18 @@
                 <img src="../assets/images/team1.jpg" alt="">
 </div>
             </div>
-    
+
             <div class="buttons d-flex align-items-center">
-              <a href="#/" class="mr-2">Edit</a>
-            
+              <a href={{route('product.edit',['id'=>$product->id])}} class="mr-2">Edit</a>
+
               <button data-toggle="modal" data-target="#productdeletemodal">Delete</button>
             </div>
             <div class="line"></div>
-           
+
           </div>
 
-       
-          
+
+
         </div>
       </section>
 

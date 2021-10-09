@@ -109,7 +109,7 @@ class ProductController extends Controller
 
         
         $product->save();
-        
+
         return redirect()->route('product.index');
     }
 
@@ -124,7 +124,8 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        return view('admin.dashboard');
+        $product = Product::find($id);
+        return view('admin.productdetails',compact('product'));
     }
 
     /**
@@ -157,6 +158,7 @@ class ProductController extends Controller
         $product = Product::find($id);
         $product->name = $req->name;
         if ($req->photo != null) {
+            Storage::delete($product->photo);
             $product->photo = $req->file('photo')->storeAs('public/images/products', $req->name);
         }
         $product->description = $req->description;

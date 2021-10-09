@@ -57,72 +57,28 @@
     <!--Prouduct details-->
     <div class="containers allproduct" id="card-container">
       <div class="row">
+          @forelse ($products as $p)
         <div class="col-lg-3 col-md-4 col-6 py-3">
-          <a href="#/">
+          <a href={{route('product.show',['id'=>$p->id])}}>
           <div class="card card-text-center" id="product-card">
             <img
-              src="./assets/images/3.png"
+              src={{Storage::url($p->photo)}}
               class="card-img-top"
             />
             <div class="card-body product-body">
-              <p class="card-title">Furandana</p>
-       
-             
+              <p class="card-title">{{$p->name}}</p>
             </div>
           </div>
 </a>
         </div>
+        @empty
+            {{"Products Unavailable"}}
+        @endforelse
 
-
-        <div class="col-lg-3 col-md-4 col-6  py-3">
-           <a href="#/">
-          <div class="card card-text-center" id="product-card">
-            <img
-              src="./assets/images/2.png"
-              class="card-img-top img-1"
-            />
-            <div class="card-body product-body">
-              <p class="card-title">Furandana</p>
-       
-             
-            </div>
-          </div>
-          </a>
-        </div>
-        <div class="col-lg-3 col-md-4 col-6 py-3">
-           <a href="#/">
-          <div class="card card-text-center" id="product-card">
-            <img
-              src="./assets/images/0.png"
-              class="card-img-top img-1"
-            />
-            <div class="card-body product-body">
-              <p class="card-title">Furandana</p>
-        
-            
-            </div>
-          </div>
-          </a>
-        </div>
-          <div class="col-lg-3 col-md-4 col-6 py-3">
-             <a href="#/">
-          <div class="card card-text-center" id="product-card">
-            <img
-              src="./assets/images/0.png"
-              class="card-img-top img-1"
-            />
-            <div class="card-body product-body">
-              <p class="card-title">Furandana</p>
-        
-            
-            </div>
-          </div>
-          </a>
-        </div>
       </div>
     </div>
 
-    
+
     <!-- Product details ends  -->
 @endsection
 @section('js')
