@@ -259,7 +259,7 @@
                     </div>
                   </div>
                 </div>
-                <hr />
+                <hr/>
               </div>
               <div class="col-lg-4 col-md-6 col-12 member">
                 <div class="info">
