@@ -11,7 +11,9 @@
     <link rel="stylesheet" href={{asset("assets/css/admin.css")}} />
 @endsection
 @section('content')
-
+<div class="back-btn">
+  <a href="#/" class="btn ml-4 mb-3">Back</a>
+</div>
 
     <!-- Modal for delete  -->
     <div
@@ -80,7 +82,7 @@
 
   <input type="checkbox" checked>
   <span class="slider round"></span>
-</label></p>
+</label> </p>
 
 
 
@@ -100,11 +102,15 @@
  <div class="line"></div>
             <div class="images codes">
                 <div class="bar-code">
-                    <p class="det"><span>Bar-Code : </span></p>
+                    <p class="det"><span>Bar-Code : <button type="button" class="btn download" data-toggle="tooltip" data-placement="top" title="Download bar code">
+                      <i class="fas fa-download"></i>
+</button></span></p>
                 <img src="../assets/images/team1.jpg" alt="">
 </div>
 <div class="qr-code">
-    <p class="det"><span>Qr-Code : </span></p>
+    <p class="det"><span>Qr-Code :  <button type="button" class="btn download" data-toggle="tooltip" data-placement="top" title="Download qr code">
+                      <i class="fas fa-download"></i>
+</button></span></p>
                 <img src="../assets/images/team1.jpg" alt="">
 </div>
             </div>
@@ -128,4 +134,9 @@
         <!-- Script Source Files -->
         <script src="script.js"></script>
         <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
+        <script>
+          $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+        </script>
 @endsection

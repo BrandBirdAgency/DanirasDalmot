@@ -14,7 +14,9 @@
 
 <body>
     @include('layouts.header')
+    <div class="superdiv">
     @yield('content')
+</div>
     @include('layouts.footer')
     @include('inc.script')
     @yield('js')

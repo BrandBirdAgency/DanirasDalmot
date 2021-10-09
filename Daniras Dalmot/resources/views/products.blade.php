@@ -186,7 +186,9 @@
               </div>
             </div>
             @empty
-            {{ "Product not available" }}
+                    <div class="no-content">
+            <h4>{{"Products Unavailable"}}</h4>
+</div>
         @endforelse
             </div>
               <!-- If we need pagination -->

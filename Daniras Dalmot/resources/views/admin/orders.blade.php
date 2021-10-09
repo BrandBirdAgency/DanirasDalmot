@@ -13,7 +13,9 @@
     />
 @endsection
 @section('content')
-
+<div class="back-btn">
+  <a href="#/" class="btn ml-4 mb-3">Back</a>
+</div>
     <section id="orders">
         <div class="container">
             <div class="row justify-content-center">
