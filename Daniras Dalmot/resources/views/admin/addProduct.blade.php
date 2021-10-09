@@ -148,17 +148,7 @@
                     {{$message}}
                     @enderror
                 </div>
-                <div class="form-group">
-                  <label for="inputfile" class="">Bar Code </label>
-                  <div class="upload">
-                    <input type="file"  name="bar" id="real-file1" hidden="hidden" />
-                    <button type="button" id="custom-button1" class="btn">
-                      Choose an image
-                    </button>
-                    <p id="custom-text1">No file chosen, yet.</p>
 
-                  </div>
-                </div>
                 <div class="form-group">
                   <label for="inputfile" class="">Qr Code </label>
                   <div class="upload">
@@ -169,6 +159,31 @@
                     <p id="custom-text2">No file chosen, yet.</p>
                   </div>
                 </div>
+
+                <div class="form-group">
+                  <label for="inputfile" class="">Bar Code </label>
+                  <div class="upload">
+                    <input type="file" name="bar" id="real-file1" hidden="hidden" />
+                    <button type="button" id="custom-button1" class="btn">
+                      Choose an image
+                    </button>
+                    <p id="custom-text1">No file chosen, yet.</p>
+
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputtextarea">Bar Number</label>
+                  <input
+                    type="number"
+                    id="inp"
+                    class="form-control form-control-sm"
+                    name="b_num"
+                  />
+                  @error('price')
+                    {{$message}}
+                  @enderror
+                </div>
+
               </div>
             </div>
 
