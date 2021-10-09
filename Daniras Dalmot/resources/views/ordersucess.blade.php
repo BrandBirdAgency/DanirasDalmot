@@ -1,12 +1,15 @@
 @extends('layouts.app')
 @section('title','Order Sucessfull')
+@section('css')
+    <link rel="stylesheet" href={{asset("assets/css/style.css")}} />
+@endsection
 @section('content')
 <section id="online-payment">
   <div class="payementsuccess col-12">
         <div class="payicon">
             <h1>Thank You !</h1>
             <div class="image">
-                <img src="./assets/images/paymentsucess.png" alt="">
+                <img src={{asset("assets/images/paymentsucess.png")}} alt="">
             </div>
         </div>
         <h2 class="text-center">Your Order is Successful</h2>

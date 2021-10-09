@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@yield('title') | {{config('app.name','Daniras Dalmoth')}}</title>
     @include('inc.style')
-    @yield('css')
-    <link rel="stylesheet" href="./assets/css/style.css" />
     <!-- CSS -->
+    @yield('css')
+
 </head>
 
 <body>

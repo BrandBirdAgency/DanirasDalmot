@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <!-- BOOTSTRAP -->
-    <link rel="stylesheet" type="text/css" href="vendor/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../vendor/css/bootstrap.css" />
     <link
       rel="stylesheet"
       type="text/css"
-      href="vendor/css/bootstrap.min.css"
+      href="../vendor/css/bootstrap.min.css"
     />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -37,15 +37,13 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <link rel="stylesheet" href="./assets/css/admin.css" />
+    <link rel="stylesheet" href="../assets/css/admin.css" />
   </head>
   <body>
     <!-- HEADER -->
     <header>
       <a class="logo" href="/"
-        ><img
-          src="../DanirasDalmot(Front-End)/assets/images/logo.jpg"
-          alt="logo"
+        ><img src="../assets/images/logo.jpg" alt="logo"
       /></a>
       <nav>
         <ul class="nav__links">
@@ -76,6 +74,9 @@
       <a href="./add-product.html" type="button" class="add"
         ><i class="fa fa-plus plus"></i>Add product</a
       >
+      <a href="./edits.html" type="button" class="add"
+        ><i class="fa fa-plus plus"></i>Change Content</a
+      >
     </div>
     <!--Add Product button end-->
 
@@ -101,27 +102,85 @@
               <span class="cross" aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
-            Do you really want to delete the product?
+          <div class="modal-body bg-light">
+
           </div>
           <div class="card-footer">
             <div class="delete-button">
-              <button type="button" class="btn">YES</button>
-              <button type="button" class="btn" data-dismiss="modal">NO</button>
+              <button type="button " class="btn btn-danger">YES</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
             </div>
           </div>
         </div>
       </div>
     </div>
     <!-- Modal for delete ends  -->
+      <!-- EDIT-MODAL -->
+      <div
+        class="modal fade"
+        id="product-edt"
+        aria-labelledby="Title"
+        aria-hidden="true"
+      >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title text-danger">
+            Edit product
+          </h4>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span class="cross" aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body bg-light">
+          <form  action="">
+
+
+          <div class="form-group ">
+              <label for="inp" >Product Name: </label>
+
+              <input type="text" id="inp" class="form-control form-control-sm">
+
+
+            </div>
+            <div class="form-group frm">
+              <label for="inputfile" class=""
+                >Product Image:
+              </label>
+              <div class="upload">
+                <input type="file" id="real-file" hidden="hidden" />
+                <button type="button" id="custom-button" class="btnss">
+                Add Image
+                </button>
+                <p id="custom-text">No file chosen, yet.</p>
+              </div>
+            </div>
+            <div class="form-group ">
+              <label for="inouttextarea"> Product Description:</label>
+              <textarea class="form-control" id="inputtextarea" rows="3"></textarea>
+            </div>
+<button type="submit" class="btn btn-danger"> Edit</button>
+</div>
+</form>
+</div>
+  </div>
+      </div>
+    </div>
+  </div>
+  <!-- EDIT-MODAL -->
     <!--Prouduct details-->
     <div class="container" id="card-container">
       <div class="row">
         <div class="col-md-4 py-3">
           <div class="card card-text-center" id="product-card">
             <img
-              src="../DanirasDalmot(Front-End)/assets/images/3.png"
-              class="card-img-top py-4 px-5"
+              src="../assets/images/3.png"
+              class="card-img-top py-4 px-5 img-1"
             />
             <div class="card-body product-body">
               <h3 class="card-title">Dalmoth-A</h3>
@@ -132,7 +191,8 @@
               </p>
               <div class="card-footers">
                 <div class="btns">
-                  <button class="btn edit">
+                  <button class="btn edit"   data-toggle="modal"
+                    data-target="#product-edt">
                     <i class="fa fa-edit"></i>Edit
                   </button>
                   <button
@@ -150,7 +210,7 @@
         <div class="col-md-4 py-3">
           <div class="card card-text-center" id="product-card">
             <img
-              src="../DanirasDalmot(Front-End)/assets/images/0.png"
+              src="../assets/images/0.png"
               class="card-img-top py-4 px-5 img-1"
             />
             <div class="card-body product-body">
@@ -162,7 +222,8 @@
               </p>
               <div class="card-footers">
                 <div class="btns">
-                  <button class="btn edit">
+                  <button class="btn edit"   data-toggle="modal"
+                    data-target="#product-edt">
                     <i class="fa fa-edit"></i>Edit
                   </button>
                   <button
@@ -180,7 +241,7 @@
         <div class="col-md-4 py-3">
           <div class="card card-text-center" id="product-card">
             <img
-              src="../DanirasDalmot(Front-End)/assets/images/4.png"
+              src="../assets/images/4.png"
               class="card-img-top py-4 px-5 img-1"
             />
             <div class="card-body product-body">
@@ -192,7 +253,8 @@
               </p>
               <div class="card-footers">
                 <div class="btns">
-                  <button class="btn edit">
+                  <button class="btn edit"   data-toggle="modal"
+                    data-target="#product-edt">
                     <i class="fa fa-edit"></i>Edit
                   </button>
                   <button
@@ -211,17 +273,31 @@
     </div>
 
     <!-- FOOTER END -->
-
     <!-- Script Source Files -->
     <script src="script.js"></script>
-    <script src="vendor/js/jquery-3.6.0.min.js"></script>
-    <script src="./assets/js/main.js"></script>
-    <script src="./vendor/js/aos.js"></script>
-    <script src="vendor/js/jquery.waypoints.js"></script>
-    <script src="vendor/js/jquery.counterup.js"></script>
-    <script src="vendor/js/bootstrap.min.js"></script>
-    <script src="vendor/js/bootstrap.bundle.js"></script>
-    <script src="vendor/js/popper.min.js"></script>
-    <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
+    <script src="../vendor/js/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../vendor/js/bootstrap.min.js"></script>
+    <script src="../vendor/js/bootstrap.bundle.js"></script>
+    <script src="../vendor/js/popper.min.js"></script>
+    <script>
+      const realFileBtn = document.getElementById("real-file");
+      const customBtn = document.getElementById("custom-button");
+      const customTxt = document.getElementById("custom-text");
+
+      customBtn.addEventListener("click", function () {
+        realFileBtn.click();
+      });
+
+      realFileBtn.addEventListener("change", function () {
+        if (realFileBtn.value) {
+          customTxt.innerHTML = realFileBtn.value.match(
+            /[\/\\]([\w\d\s\.\-\(\)]+)$/
+          )[1];
+        } else {
+          customTxt.innerHTML = "No file choosen, yet.";
+        }
+      });
+    </script>
   </body>
 </html>

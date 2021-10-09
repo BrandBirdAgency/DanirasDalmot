@@ -138,7 +138,13 @@
                 <span class="plus"><i class="fas fa-plus"></i></span>
               </div>
             </div>
-            <button data-toggle="modal" data-target="#myModal">Buy</button>
+            <div class="buttons d-flex align-items-center">
+              <button class="mr-2" data-toggle="modal" data-target="#myModal">
+                Buy
+              </button>
+              <p class="mr-2">or</p>
+              <button data-toggle="modal" data-target="#myModal2">Scan</button>
+            </div>
             <div class="line"></div>
             <div class="share-product">
               <p>Share on</p>
@@ -194,6 +200,41 @@
                     </div>
                     <button type="submit" class="submit-btn">Proceed</button>
                   </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- The Modal -->
+          <div class="modal fade" id="myModal2">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Scan Product</h4>
+                  <button type="button" class="close" data-dismiss="modal">
+                    &times;
+                  </button>
+                </div>
+
+                <!-- Modal body -->
+                <div
+                  class="
+                    modal-body
+                    d-flex
+                    align-items-center
+                    px-4
+                    flex-column flex-sm-row
+                  "
+                >
+                  <div class="image text-center">
+                    <p>QR Code</p>
+                    <img src="./assets/images/Product_1000.png" alt="" />
+                  </div>
+                  <div class="image text-center">
+                    <p>Bar Code</p>
+                    <img src="./assets/images/Bar_code.png" alt="" />
+                  </div>
                 </div>
               </div>
             </div>

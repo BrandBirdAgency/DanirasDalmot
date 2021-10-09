@@ -1,16 +1,29 @@
 @extends('layouts.app')
 @section('title','Contact')
 @section('css')
- <link rel="stylesheet" href="./assets/css/contact.css">
+    <link rel="stylesheet" href={{asset("assets/css/contact.css")}}>
+    <link rel="stylesheet" href={{asset("assets/css/style.css")}} />
+
 @endsection
 @section('content')
 
     <!-- MAIN BANNER -->
     <div class="teambanner">
         <div class="contain">
-          <div class="image">
-            <img src="./assets/images/bg.jpg" alt="" />
-          </div>
+            <div class="container" style="z-index: 10">
+                @if (Session::has('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {!! Session::get('success') !!}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+            </div>
+
+            <div class="image">
+                <img src={{asset("assets/images/bg.jpg")}} alt="" />
+            </div>
           <div class="image-overlay"></div>
           <div class="text">
             <div class="headings">
@@ -19,9 +32,9 @@
             </div>
             <div class="bannernav">
               <li><i class="fas fa-home"></i></li>
-              <li><a href="./index.html">HOME</a></li>
+              <li><a href={{route('homepage')}}>HOME</a></li>
               <li><i class="fas fa-caret-right"></i></li>
-              <li><a href="./about.html">CONTACT</a></li>
+              <li><a href={{route('contactpage')}}>CONTACT</a></li>
             </div>
           </div>
         </div>
@@ -123,7 +136,80 @@
                   </div>
                   <div class="col-md-6 d-flex align-items-stretch">
                     <div class="info-wrap w-100 p-lg-5 p-4 img">
-                      <h3>Contact us</h3>
+                        <h3 style="display:flex; justify-content:space-between;">
+                            Contact us
+                            @if (Auth::guard('web')->check())
+                                <a style="cursor: pointer" data-toggle="modal" data-target="#myModal"><i class="fas fa-pencil-alt"></i></a>
+                            @endif
+                        </h3>
+                        <!-- The Modal -->
+                        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Contact Information</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <div class="modal-body contact-edit">
+                                        <form action="{{route('companyInfoEdit')}}" method="POST">
+                                            @csrf
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <label for="name">Name:</label>
+                                                        <input type="text" class="form-control" value="{{$about->name}}" id="name" name="name" />
+                                                        @error('name') {{$message}} @enderror
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="address">Address:</label>
+                                                        <input type="text" class="form-control" value="{{$about->address}}" id="address" name="address" />
+                                                        @error('address') {{$message}} @enderror
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="phone">Phone:</label>
+                                                        <input type="text" class="form-control" value="{{$about->phone}}" id="phone" name="phone" />
+                                                        @error('phone') {{$message}} @enderror
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="email">Email:</label>
+                                                        <input type="email" class="form-control" value="{{$about->email}}" id="email" name="email" />
+                                                        @error('email') {{$message}} @enderror
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <label for="website">Website:</label>
+                                                        <input type="text" class="form-control" value="{{$about->website}}" id="website" name="website" />
+                                                        @error('website') {{$message}} @enderror
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="facebook">Facebook:</label>
+                                                        <input type="text" class="form-control" value="{{$about->facebook}}" id="facebook" name="facebook" />
+                                                        @error('website') {{$message}} @enderror
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="instagram">Instagram:</label>
+                                                        <input type="text" class="form-control" value="{{$about->instagram}}" id="instagram" name="instagram" />
+                                                        @error('website') {{$message}} @enderror
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="twitter">Twitter:</label>
+                                                        <input type="text" class="form-control" value="{{$about->twitter}}" id="twitter" name="twitter" />
+                                                        @error('website') {{$message}} @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="btn-wrapper">
+                                            <button type="submit" class="submit-btn btn">Update</button>
+</div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                       <p class="mb-4">
                         We're open for any suggestion or just to have a chat
                       </p>
@@ -139,7 +225,7 @@
                           <span class="fa fa-map-marker"></span>
                         </div>
                         <div class="text pl-3">
-                          <p><span>Address:</span> Parwanipur-5, Bara, Nepal</p>
+                          <p><span>Address:</span> {{$about->address}}</p>
                         </div>
                       </div>
                       <div class="dbox w-100 d-flex align-items-center">
@@ -156,7 +242,7 @@
                         <div class="text pl-3">
                           <p>
                             <span>Phone:</span>
-                            <a href="tel://9845999137">+977 9845999137</a>
+                            <a href="tel://9845999137">{{$about->phone}}</a>
                           </p>
                         </div>
                       </div>
@@ -175,7 +261,7 @@
                           <p>
                             <span>Email:</span>
                             <a href="mailto:infodanirasdalmoth@gmail.com"
-                              >infodanirasdalmoth@gmail.com</a
+                              >{{$about->email}}</a
                             >
                           </p>
                         </div>
@@ -195,7 +281,7 @@
                           <p>
                             <span>Website</span>
                             <a href="www.danirasdalmoth.com"
-                              >danirasdalmoth.com</a
+                              >{{$about->website}}</a
                             >
                           </p>
                         </div>
@@ -221,8 +307,8 @@
       </div>
 @endsection
 @section('js')
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
-    <script src="js/contact.js"></script>
+    <script src={{asset("js/jquery.min.js")}}></script>
+    <script src={{asset("js/popper.js")}}></script>
+    <script src={{asset("js/jquery.validate.min.js")}}></script>
+    <script src={{asset("js/contact.js")}}></script>
 @endsection

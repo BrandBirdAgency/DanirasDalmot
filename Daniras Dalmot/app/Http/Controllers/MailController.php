@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Mail;
 
 class MailController extends Controller
 {
-    public function contactmail(Request $res)
+    public function contactMail(Request $res)
     {
         $res->validate(
             [
@@ -25,7 +25,7 @@ class MailController extends Controller
         });
         return redirect('contact');
     }
-    public function productmail(Request $res)
+    public function productMail(Request $res)
     {
         $res->validate(
             [
@@ -35,14 +35,14 @@ class MailController extends Controller
             ]
             );
          // Storing In DB
-         $data = new Order();
-         $data->name = $res->username;
-         $data->phone = $res->phone;
-         $data->address = $res ->address;
-         $data->product_id = $res -> product_id;
-         $data->quantity = $res -> quantity;
-         $data->price = $res -> price;
-         $data -> save();
+         $order = new Order();
+         $order->name = $res->username;
+         $order->phone = $res->phone;
+         $order->address = $res ->address;
+         $order->product_id = $res -> product_id;
+         $order->quantity = $res -> quantity;
+         $order->price = $res -> price;
+         $order -> save();
          //Sending Email
          Mail::send('email.ordermail',['data'=>$res], function ($m) use ($res) {
             $m->from('testmail9779@gmail.com', 'Tester');;

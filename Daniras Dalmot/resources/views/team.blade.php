@@ -7,6 +7,7 @@
     rel="stylesheet"
     href="https://unpkg.com/swiper/swiper-bundle.min.css"
     />
+    <link rel="stylesheet" href={{asset("assets/css/style.css")}} />
 @endsection
 
 @section('content')
@@ -15,8 +16,18 @@
     <!-- MAIN BANNER -->
     <div class="teambanner">
         <div class="contain">
+            <div class="container">
+                @if (Session::has('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {!! Session::get('success') !!}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+            </div>
           <div class="image">
-            <img src="./assets/images/bg.jpg" alt="" />
+            <img src={{asset("assets/images/bg.jpg")}} alt="" />
           </div>
           <div class="image-overlay"></div>
           <div class="text">
@@ -26,9 +37,9 @@
             </div>
             <div class="bannernav">
               <li><i class="fas fa-home"></i></li>
-              <li><a href="./index.html">HOME</a></li>
+              <li><a href={{route('homepage')}}>HOME</a></li>
               <li><i class="fas fa-caret-right"></i></li>
-              <li><a href="./team.html">TEAM</a></li>
+              <li><a href={{route('teampage')}}>TEAM</a></li>
             </div>
           </div>
         </div>
@@ -36,6 +47,79 @@
       <!-- END MAIN BANNER -->
 
       <div id="team" class="maindiv">
+        @if (Auth::guard('web')->check())
+
+            <!-- The Modal -->
+            <div class="modal fade" id="ceo">
+                <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                    <h4 class="modal-title">Messages</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        &times;
+                    </button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                    <form action={{ route('msg') }} method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="ceoname">Ceo Name:</label>
+                                    <input type="text" class="form-control" value="{{$about->ceo_name}}" id="ceoname" name="ceoname" />
+                                    @error('ceoname') {{$message}} @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="ceomsg">Ceo Message:</label>
+                                    <textarea cols="30" rows="5" class="form-control" id="ceomsg" name="ceomsg">{{$about->ceo_msg}}</textarea>
+                                    @error('ceomsg') {{$message}} @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="ceoimg">Ceo Photo:</label>
+                                   <input type="file"  id="real-file1" hidden="hidden" />
+                    <button type="button" id="custom-button1" class="btn">
+                      Choose an image
+                    </button>
+                    <p id="custom-text1">No file chosen, yet.</p>
+                                    @error('ceoimg') {{$message}} @enderror
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="chairmanname">Chairman Name:</label>
+                                    <input type="text" class="form-control" value="{{$about->chairman_name}}" id="chairmanname" name="chairmanname" />
+                                    @error('chairmanname') {{$message}} @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="chairmanmsg">Chairman Message:</label>
+                                    <textarea cols="30" rows="5" class="form-control" id="chairmanmsg" name="chairmanmsg">{{$about->chairman_msg}}</textarea>
+                                    @error('chairmanmsg') {{$message}} @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="chairmanimg">Chairman Photo:</label>
+                                 <input type="file"  id="real-file2" hidden="hidden" />
+                    <button type="button" id="custom-button2" class="btn">
+                      Choose an image
+                    </button>
+                    <p id="custom-text2">No file chosen, yet.</p>
+                                    @error('chairmanimg') {{$message}} @enderror
+                                </div>
+                            </div>
+                        </div>
+        <div class="btn-wrapper">
+                        <button type="submit" class="submit-btn btn">Update</button>
+</div>
+                    </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+        @endif
+
         <!-- MESSAGE FROM CHAIRMAN -->
         <!-- Slider main container -->
         <div class="swiper mySwiper swiper1">
@@ -49,35 +133,28 @@
                     <div class="image-contain">
                       <div class="backbox"></div>
                       <img
-                        src="./assets/images/CEO.jpg"
+                        src="{{$about->ceo_photo}}"
                         class="img-fluid"
-                        alt=""
+                        alt="ceo"
                       />
                     </div>
                   </div>
                   <div class="col-md-6 col-12">
                     <div class="message-contain">
+                      <div class="cos">
                       <div class="cus-heading">
                         <h3>Message From CEO</h3>
                         <div class="line"></div>
                       </div>
-                      <p>
-                        In this kingdom of a rapid changing world, survival in
-                        bussiness must never be taken for granted. Our vision of
-                        the future must be to let new opportunities.<br /><br />
-                        Our business is guided by ethics and transparency, and we
-                        aim to further win and maintain our customers by preparing
-                        packaged product that validate price, quality and of
-                        course the taste.<br /><br />
-                        Danira's has been selected with thoughtful precision and
-                        utmost care to provide the best meal options. Our product
-                        comes from extensive research and stricktly choosen top
-                        ingredients from around the world. And I would like to
-                        thank our customers for supporting us helping us in our
-                        growth. We appreciate your love, support and trust.
-                      </p>
+                      <div class="edit-icon">
+                        @if (Auth::guard('web')->check())
+                            <h3><a data-toggle="modal" data-target="#ceo"><i class="fas fa-pencil-alt"></i></a></h3>
+                        @endif
+                      </div>
+                    </div>
+                      <p> {!!nl2br(e($about->ceo_msg))!!} </p>
                       <div class="name">
-                        <span>Mr. Rahul Kalwar</span><br />
+                        <span>Mr. {{$about->ceo_name}}</span><br />
                         CEO, Pushpanjali Spices & Food Products
                       </div>
                     </div>
@@ -92,30 +169,28 @@
                     <div class="image-contain">
                       <div class="backbox"></div>
                       <img
-                        src="./assets/images/Chairman.jpg"
+                        src="{{$about->chairman_photo}}"
                         class="img-fluid"
-                        alt=""
+                        alt="chairman"
                       />
                     </div>
                   </div>
                   <div class="col-md-6 col-12">
                     <div class="message-contain">
+                         <div class="cos">
                       <div class="cus-heading">
                         <h3>Message From Chairman</h3>
                         <div class="line"></div>
                       </div>
-                      <p>
-                        With the pride and experience of leading the domestic food
-                        industry, we are everyday discovering and exploring so as
-                        to progress with our customers and partners.<br /><br />
-                        Our main goal is to make our customers happy for which we
-                        are committed to give them the best product and services.
-                        Thank you all for your patience and help while our
-                        organization is constructing and internal management is in
-                        process. We appreciate your efforts and loyalty.
-                      </p>
+                         <div class="edit-icon">
+                            @if (Auth::guard('web')->check())
+                                <h3><a data-toggle="modal" data-target="#ceo"><i class="fas fa-pencil-alt"></i></a></h3>
+                            @endif
+                      </div>
+                      </div>
+                      <p> {!!nl2br(e($about->chairman_msg))!!} </p>
                       <div class="name">
-                        <span>Mr. Nirmal Pd Gupta</span><br />
+                        <span>Mr. {{$about->chairman_name}}</span><br />
                         Chairman, Pushpanjali Spices & Food Products
                       </div>
                     </div>
@@ -133,111 +208,6 @@
         </div>
 
         <!-- END MESSAGE FROM CHAIRMAN -->
-
-        <button data-toggle="modal" data-target="#myModal">Add Team Record</button>
-        <!-- The Modal -->
-        <div class="modal fade" id="myModal">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <!-- Modal Header -->
-                <div class="modal-header">
-                  <h4 class="modal-title">Create Team Record</h4>
-                  <button type="button" class="close" data-dismiss="modal">
-                    &times;
-                  </button>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                  <form action={{route('addrecord')}} method="POST" enctype="multipart/form-data">
-                      @csrf
-                      <input type="hidden" name="id">
-                    <div class="form-group">
-                      <label for="usr">Full Name:</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="usr"
-                        name="name"
-                      />
-                      @error('name')
-                          {{$message}}
-                      @enderror
-                    </div>
-                    <div class="form-group">
-                      <label for="Address">Position:</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="Address"
-                        name="position"
-                      />
-                          @error('position')
-                              {{$message}}
-                          @enderror
-                    </div>
-                    <div class="form-group">
-                      <label for="Phone">Phone Number:</label>
-                      <input
-                        type="number"
-                        class="form-control"
-                        id="Phone"
-                        name="phone"
-                      />
-                      @error('phone')
-                      {{$message}}
-                      @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="Phone">Address:</label>
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="Phone"
-                          name="address"
-                        />
-                        @error('address')
-                        {{$message}}
-                        @enderror
-                      </div>
-                      <div class="form-group">
-                        <label for="Phone">Facebook:</label>
-                        <input
-                          type="url"
-                          class="form-control"
-                          id="Phone"
-                          name="facebook"
-                        />
-                      </div>
-                      <div class="form-group">
-                        <label for="Phone">Instagram:</label>
-                        <input
-                          type="url"
-                          class="form-control"
-                          id="Phone"
-                          name="instagram"
-                        />
-                        <div class="form-group">
-                            <label for="Phone">Photo:</label>
-                            <input
-                              type="file"
-                              class="form-control"
-                              id="Phone"
-                              name="photo"
-                              accept="image/*"
-                              enctype="multipart/form-data"
-                            />
-                            @error('photo')
-                            {{$message}}
-                            @enderror
-                          </div>
-                      </div>
-                    <button type="submit" class="submit-btn">Add</button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
 
         <!-- TEAMS -->
         <section class="teams normalsec">
@@ -409,4 +379,44 @@
       },
     });
   </script>
+   <script>
+      const realFileBtn = document.getElementById("real-file1");
+      const customBtn = document.getElementById("custom-button1");
+      const customTxt = document.getElementById("custom-text1");
+
+      customBtn.addEventListener("click", function () {
+        console.log("shu");
+        realFileBtn.click();
+      });
+
+      realFileBtn.addEventListener("change", function () {
+        if (realFileBtn.value) {
+
+          customTxt.innerHTML = realFileBtn.value.match(
+            /[\/\\]([\w\d\s\.\-\(\)]+)$/
+          )[1];
+        } else {
+          customTxt.innerHTML = "No file choosen, yet.";
+        }
+      });
+       const realFileBtn2 = document.getElementById("real-file2");
+      const customBtn2 = document.getElementById("custom-button2");
+      const customTxt2 = document.getElementById("custom-text2");
+
+      customBtn2.addEventListener("click", function () {
+
+        realFileBtn2.click();
+      });
+
+      realFileBtn2.addEventListener("change", function () {
+        console.log("shu1");
+        if (realFileBtn2.value) {
+          customTxt2.innerHTML = realFileBtn2.value.match(
+            /[\/\\]([\w\d\s\.\-\(\)]+)$/
+          )[1];
+        } else {
+          customTxt2.innerHTML = "No file choosen, yet.";
+        }
+      });
+    </script>
 @endsection

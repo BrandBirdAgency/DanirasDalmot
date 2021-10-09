@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team | Danira's</title>
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" type="text/css" href="vendor/css/bootstrap.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="vendor/css/bootstrap.min.css"
+    />
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <!-- FONTAWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/admin.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <a class="logo" href="/"
+        ><img src="./assets/images/logo.jpg" alt="logo"
+      /></a>
+      <nav>
+        <ul class="nav__links">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./products.html">Products</a></li>
+          <li><a href="./team.html">Team</a></li>
+          <li><a href="./about.html">About</a></li>
+        </ul>
+      </nav>
+      <a class="cta" href="./contact.html">Contact</a>
+      <p class="menu cta">Menu</p>
+    </header>
+    <div id="mobile__menu" class="overlay">
+      <a class="close">&times;</a>
+      <div class="overlay__content">
+        <a href="./index.html">Home</a>
+        <a href="./products.html">Products</a>
+        <a href="./team.html">Team</a>
+        <a href="./about.html">About</a>
+        <a href="./contact.html">Contact</a>
+      </div>
+    </div>
+    <!-- END HEADER -->
+
+    <!-- Modal for add-team  -->
+    <!-- add-member-model-->
+
+<div class="modal fade " id="add"  aria-labelledby="Title">
+    <div class="modal-dialog modal-dialog-centered" >
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title text-danger  text-center" id="Title">Add Member</h2>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span class="cross" aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body team-model-body">
+            <form action="">
+              <div class="form-group">
+                <label for="nme">Full Name:</label>
+                <input  type="text"class="form-control"id="nme" name="name"
+                />
+              </div>
+              <div class="form-group">
+                <label for="pst">Post:</label>
+                <input  type="text"class="form-control"id="pst" name="name"
+                />
+              </div>
+              <div class="form-group frm">
+                <label for="inputfile" class=""
+                  >Add Image:
+                </label>
+                <div class="upload">
+                  <input type="file" id="real-file" hidden="hidden" />
+                  <button type="button" id="custom-button" class="btnss">
+                  Choose File
+                  </button>
+                  <p id="custom-text">No file chosen, yet.</p>
+                </div>
+              </div>
+               <div class="form-group">
+                <label for="fburl">Facbook Url:</label>
+                <input type="text" class="form-control" id="fburl" name="Address" />
+              </div>
+              <div class="form-group">
+                <label for="instaurl">Instagram Url:</label>
+                <input type="text" class="form-control" id="instaurl" name="Phone" />
+              </div>
+              <button type="submit" class="member-submit-btn ">Add</button>
+            </form>
+          </div>
+
+      </div>
+    </div>
+  </div>
+  <!--  add-member-modal ends  -->
+   <!-- edit-model-->
+
+<div class="modal fade " id="edts"  aria-labelledby="Title" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title text-danger  text-center" id="Title">Edit Member</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span class="cross" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <div class="modal-body team-model-body">
+          <form action="">
+            <div class="form-group">
+              <label for="nme">Full Name:</label>
+              <input  type="text"class="form-control"id="nme" name="name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="pst">Post:</label>
+              <input  type="text"class="form-control"id="pst" name="name"
+              />
+            </div>
+            <div class="form-group frm">
+              <label for="inputfile" class=""
+                >Add Image:
+              </label>
+              <div class="upload">
+                <input type="file" id="real-file" hidden="hidden" />
+                <button type="button" id="custom-button" class="btnss">
+                  Choose File
+                </button>
+                <p id="custom-text">No file chosen, yet.</p>
+              </div>
+            </div>
+             <div class="form-group">
+              <label for="fburl">Facbook Url:</label>
+              <input type="text" class="form-control" id="fburl" name="Address" />
+            </div>
+            <div class="form-group">
+              <label for="instaurl">Instagram Url:</label>
+              <input type="text" class="form-control" id="instaurl" name="Phone" />
+            </div>
+            <button type="submit" class="member-submit-btn">Edit</button>
+          </form>
+        </div>
+
+    </div>
+  </div>
+</div>
+<!-- edit-modal ends  -->
+
+<!-- DELETE-model  -->
+<div class="modal fade" id="dlt"aria-labelledby="models" >
+  <div class="modal-dialog" >
+    <div class="modal-content ">
+      <div class="modal-header">
+        <h5 class="modal-title text-danger" id="models">Do you want to delete?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" >Yes</button>
+        <button type="button" class="btn btn-danger"data-dismiss="modal">No</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- delete-model-ends  -->
+
+   <!-- TEAMS -->
+   <section class="teamss member" id="tm">
+
+    <div class="add-member my-3">
+        <button class="add-member-btn"  data-toggle="modal" data-target="#add"><strong> Add Member</button>
+
+    </div>
+    <div class="contains">
+      <div class="row mx-0 px-0">
+        <div class="col-lg-4 col-md-6 col-12 member">
+          <div class="infoo">
+            <div class="images">
+              <img
+                src="./assets/images/team1.jpg"
+                alt=""
+                class="img-fluid"
+              />
+            </div>
+            <div class="details">
+                <div class="del-edit-button">
+                    <button class="deletes"data-toggle="modal" data-target="#dlt" ><i class="fas fa-trash"></i></button>
+                    <button class="edits" data-toggle="modal" data-target="#edts"><i class="fas fa-edit"></i></button>
+                 </div>
+              <p class="name">Nirmal Pd Gupta</p>
+              <p class="post">Chairman/Founder</p>
+            </div>
+
+
+          </div>
+
+          <hr/>
+        </div>
+        <div class="col-lg-4 col-md-6 col-12 member">
+          <div class="infoo">
+            <div class="images">
+              <img
+                src="./assets/images/team2.jpg"
+                alt=""
+                class="img-fluid"
+              />
+            </div>
+            <div class="details">
+              <div class="del-edit-button">
+                <button class="deletes"data-toggle="modal" data-target="#dlt" ><i class="fas fa-trash"></i></button>
+                <button class="edits" data-toggle="modal" data-target="#edts"><i class="fas fa-edit"></i></button>
+             </div>
+              <p class="name">Rahul Kalwar</p>
+              <p class="post">Chief Executive Office (CEO)</p>
+
+            </div>
+          </div>
+          <hr />
+        </div>
+        <div class="col-lg-4 col-md-6 col-12 member">
+          <div class="infoo">
+            <div class="images">
+              <img
+                src="./assets/images/team3.jpg"
+                alt=""
+                class="img-fluid"
+              />
+            </div>
+            <div class="details">
+              <div class="del-edit-button">
+                <button class="deletes"data-toggle="modal" data-target="#dlt" ><i class="fas fa-trash"></i></button>
+                <button class="edits" data-toggle="modal" data-target="#edts"><i class="fas fa-edit"></i></button>
+             </div>
+              <p class="name">Bhoomi Kalwar</p>
+              <p class="post">Chief Operating Officer (COO)</p>
+
+            </div>
+          </div>
+          <hr />
+        </div>
+        <div class="col-lg-4 col-md-6 col-12 member">
+          <div class="infoo">
+            <div class="images">
+              <img
+                src="./assets/images/team4.jpg"
+                alt=""
+                class="img-fluid"
+              />
+            </div>
+            <div class="details">
+              <div class="del-edit-button">
+                <button class="deletes"data-toggle="modal" data-target="#dlt" ><i class="fas fa-trash"></i></button>
+                <button class="edits" data-toggle="modal" data-target="#edts"><i class="fas fa-edit"></i></button>
+             </div>
+
+
+              <p class="name">Neha Kalwar</p>
+              <p class="post">Chief Financial Officer (CFO)</p>
+
+            </div>
+          </div>
+
+          <hr />
+        </div>
+        <div class="col-lg-4 col-md-6 col-12 member">
+          <div class="infoo">
+            <div class="images">
+              <img
+                src="./assets/images/team4.jpg"
+                alt=""
+                class="img-fluid"
+              />
+            </div>
+            <div class="details">
+              <div class="del-edit-button">
+                <button class="deletes"data-toggle="modal" data-target="#dlt" ><i class="fas fa-trash"></i></button>
+
+                <button class="edits" data-toggle="modal" data-target="#edts"><i class="fas fa-edit"></i></button>
+             </div>
+              <p class="name">Aditya Martin</p>
+              <p class="post">Chief Marketing Officer (CMO)</p>
+
+            </div>
+          </div>
+
+          <hr />
+        </div>
+        <div class="col-lg-4 col-md-6 col-12 member">
+          <div class="infoo">
+            <div class="images">
+              <img
+                src="./assets/images/team4.jpg"
+                alt=""
+                class="img-fluid"
+              />
+            </div>
+            <div class="details">
+              <div class="del-edit-button">
+                <button class="deletes"data-toggle="modal" data-target="#dlt"><i class="fas fa-trash"></i></button>
+
+                <button class="edits" data-toggle="modal" data-target="#edts"><i class="fas fa-edit"></i></button>
+             </div>
+              <p class="name">Bikash Gupta</p>
+              <p class="post">Chief Technology Officer (CTO)</p>
+
+            </div>
+          </div>
+
+          <hr />
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- END TEAMS -->
+</div>
+<!-- END TEAM  ENDSS-->
+
+    <!-- Script Source Files -->
+    <script src="script.js"></script>
+    <script src="vendor/js/jquery-3.6.0.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="./vendor/js/aos.js"></script>
+    <script src="vendor/js/jquery.waypoints.js"></script>
+    <script src="vendor/js/jquery.counterup.js"></script>
+    <script src="vendor/js/bootstrap.min.js"></script>
+    <script src="vendor/js/bootstrap.bundle.js"></script>
+    <script src="vendor/js/popper.min.js"></script>
+    <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
+    <script>
+      const realFileBtn = document.getElementById("real-file");
+      const customBtn = document.getElementById("custom-button");
+      const customTxt = document.getElementById("custom-text");
+
+      customBtn.addEventListener("click", function () {
+        realFileBtn.click();
+      });
+
+      realFileBtn.addEventListener("change", function () {
+        if (realFileBtn.value) {
+          customTxt.innerHTML = realFileBtn.value.match(
+            /[\/\\]([\w\d\s\.\-\(\)]+)$/
+          )[1];
+        } else {
+          customTxt.innerHTML = "No file choosen, yet.";
+        }
+      });
+    </script>
+  </body>
+</html>
