@@ -6,6 +6,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use Picqer;
 
 class ProductController extends Controller
 {
@@ -32,6 +33,8 @@ class ProductController extends Controller
      */
     public function store(Request $req)
     {
+
+
         $req->validate(
             [
                 'name' => 'string|required',
@@ -58,14 +61,20 @@ class ProductController extends Controller
         $image = \QrCode::format('svg')
             ->size(200)->errorCorrection('H')
             ->generate('www.test.com');
-        $output_file = 'qrcodes/img-' . time() . '.svg';
+        $output_file = 'qrcodes/Product_' . $req->code . '.svg';
         Storage::disk('local')->put($output_file, $image);
         
         $product->qr_code=$image;
         $product->qr_path=$output_file; 
         // dd($product);
+        // $product->save();
+        $redColor = [255, 0, 0];
+        $number='26724401'.$req->code;
+        $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
+        $product->bar_code= $generator->getBarcode('$number', $generator::TYPE_CODE_128);
+        $product->bar_number=$number;
+
         $product->save();
-    
         
         return redirect()->route('product.index');
     }
