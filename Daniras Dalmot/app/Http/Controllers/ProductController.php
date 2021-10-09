@@ -69,9 +69,12 @@ class ProductController extends Controller
         // dd($product);
         // $product->save();
         $redColor = [255, 0, 0];
-
+        $number='26724401'.$req->code;
         $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
-        return $generator->getBarcode('2724401', $generator::TYPE_CODE_128);
+        $product->bar_code= $generator->getBarcode('$number', $generator::TYPE_CODE_128);
+        $product->bar_number=$number;
+
+        $product->save();
         
         return redirect()->route('product.index');
     }
