@@ -2,7 +2,7 @@
 
 @section('title','Home')
 @section('css')
-<link rel="stylesheet" href="./assets/css/style.css" />
+<link rel="stylesheet" href={{asset("assets/css/style.css")}} />
 @endsection
 @section('content')
 <!-- Main Parallex -->
@@ -13,9 +13,9 @@
         <h3>Best in Town</h3>
       </div>
     </div>
-    <img src="./assets/images/banner1.jpg" alt="" class="banner-img">
-    <img src="./assets/images/3.png" alt="" class="product-1">
-    <img src="./assets/images/2.png" alt="" class="product-2">
+    <img src={{asset("assets/images/banner1.jpg")}} alt="" class="banner-img">
+    <img src={{asset("assets/images/3.png")}} alt="" class="product-1">
+    <img src={{asset("/assets/images/2.png")}} alt="" class="product-2">
   </section>
 
   <div class="maindiv">
@@ -24,7 +24,7 @@
   <section class="intro home normalsec">
     <div class="row mx-0 px-0">
       <div class="col-md-6 col-12 text-center d-block d-md-none d-lg-block">
-        <img src="./assets/images/3.png" alt="" class=" introimg">
+        <img src={{asset("/assets/images/3.png")}} alt="" class=" introimg">
       </div>
       <div class="col-md-12 col-lg-6 col-12 contents">
         <div class="heading">
@@ -36,7 +36,7 @@
             <div class="fea">
                 <div class="con">
                     <div class="img">
-                        <img src="./assets/images/like.png" alt="" class="img-1">
+                        <img src={{asset("/assets/images/like.png")}} alt="" class="img-1">
                     </div>
                     <div class="de">
                         <h3>Tasty Food</h3><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt natus maiores voluptatum! </p>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="con">
                     <div class="img">
-                        <img src="./assets/images/oil.png" alt="" class="img-2">
+                        <img src={{asset("assets/images/oil.png")}} alt="" class="img-2">
                     </div>
                     <div class="de">
                         <h3>Best Quality Oil</h3><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt natus maiores voluptatum! </p>
@@ -52,7 +52,7 @@
                 </div>
                 <div class="con">
                     <div class="img">
-                        <img src="./assets/images/delivery.png" alt="" class="img-3">
+                        <img src={{asset("assets/images/delivery.png")}} alt="" class="img-3">
                     </div>
                     <div class="de">
                         <h3>On Time Deliveries</h3><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt natus maiores voluptatum! </p>
@@ -79,7 +79,7 @@
           <div class="product-card " data-tilt data-tilt-max="7">
             <div class="badge">Hot</div>
             <div class="product-tumb ">
-              <img src="./assets/images/0.png" alt="" >
+              <img src={{asset("assets/images/0.png")}} alt="" >
             </div>
             <div class="product-details">
               <span class="product-catagory">Dalmoth</span>
@@ -99,7 +99,7 @@
           <div class="product-card" data-tilt data-tilt-max="7">
             <div class="badge">Hot</div>
             <div class="product-tumb">
-              <img src="./assets/images/2.png" alt="">
+              <img src={{asset("assets/images/2.png")}} alt="">
             </div>
             <div class="product-details">
               <span class="product-catagory">Dalmoth</span>
@@ -119,7 +119,7 @@
           <div class="product-card" data-tilt data-tilt-max="7">
             <div class="badge">Hot</div>
             <div class="product-tumb">
-              <img src="./assets/images/3.png" alt="">
+              <img src={{asset("assets/images/3.png")}} alt="">
             </div>
             <div class="product-details">
               <span class="product-catagory">Dalmoth</span>
@@ -145,7 +145,7 @@
                 <div class="image-contain">
                   <div class="backbox"></div>
                   <img
-                    src="./assets/images/Chairman.jpg"
+                    src="{{$about->chairman_photo}}"
                     class="img-fluid"
                     alt=""
                   />
@@ -157,18 +157,9 @@
                     <h3>Message From Chairman</h3>
                     <div class="line"></div>
                   </div>
-                  <p>
-                    With the pride and experience of leading the domestic food
-                    industry, we are everyday discovering and exploring so as
-                    to progress with our customers and partners.<br /><br />
-                    Our main goal is to make our customers happy for which we
-                    are committed to give them the best product and services.
-                    Thank you all for your patience and help while our
-                    organization is constructing and internal management is in
-                    process. We appreciate your efforts and loyalty.
-                  </p>
+                  <p>{!!nl2br(e($about->chairman_msg))!!}</p>
                   <div class="name">
-                    <span>Mr. Nirmal Pd Gupta</span><br />
+                    <span>Mr. {{$about->chairman_name}}</span><br />
                     Chairman, Pushpanjali Spices & Food Products
                   </div>
                 </div>

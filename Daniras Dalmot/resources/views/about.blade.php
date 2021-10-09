@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', 'About')
 @section('css')
-<link rel="stylesheet" href="./assets/css/style.css" />
+<link rel="stylesheet" href={{asset("assets/css/style.css")}} />
 @endsection
 @section('content')
   <!-- ABOUT BEGIN -->
@@ -10,7 +10,7 @@
   <div class="teambanner">
     <div class="contain">
       <div class="image">
-        <img src="./assets/images/bg.jpg" alt="" />
+        <img src={{asset("assets/images/bg.jpg")}} alt="" />
       </div>
       <div class="image-overlay"></div>
       <div class="text">
@@ -20,9 +20,9 @@
         </div>
         <div class="bannernav">
           <li><i class="fas fa-home"></i></li>
-          <li><a href="./index.html">HOME</a></li>
+          <li><a href={{route('homepage')}}>HOME</a></li>
           <li><i class="fas fa-caret-right"></i></li>
-          <li><a href="./about.html">ABOUT</a></li>
+          <li><a href={{route('aboutpage')}}>ABOUT</a></li>
         </div>
       </div>
     </div>
@@ -149,7 +149,7 @@
     <section class="why normalsec">
       <div class="row mx-0 px-0">
         <div class="col-md-6">
-          <img src="./assets/images/aboutparallax.jpg" alt="" class="img-fluid">
+          <img src={{asset("assets/images/aboutparallax.jpg")}} alt="" class="img-fluid">
         </div>
         <div class="col-md-6">
           <div class="whyus">
@@ -166,7 +166,7 @@
     <div class="main">
       <div class="contain">
         <div class="image">
-          <img src="./assets/images/aboutparallax.jpg" alt="">
+          <img src={{asset("assets/images/aboutparallax.jpg")}} alt="">
           <div class="overlay"></div>
         </div>
       </div>

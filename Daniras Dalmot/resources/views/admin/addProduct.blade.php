@@ -9,12 +9,16 @@
     />
     <link
       rel="stylesheet"
-      href="./assets/css/admin.css"
+      href="{{asset('/assets/css/admin.css')}}"
     />
 @endsection
 @section('content')
+    <div class="alert alert-success alert-dismissible in">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Success!</strong> Product edited !!
+    </div>
     <!-- Add product -->
-    <div class="container" id="add-product-container">
+    <div class="container mb-5" id="add-product-container">
         <div class="card" id="add-product-card">
           <div class="text-center add-product-heading">
             <h3>Add Product</h3>
@@ -138,11 +142,11 @@
                 <div class="form-group">
                   <label for="inputfile" class="">Product Image </label>
                   <div class="upload">
-                    <input type="file" name='photo' accept="image/*" id="real-file" hidden="hidden" />
-                    <button type="button" id="custom-button" class="btn">
+                    <input type="file" name='photo' accept="image/*" id="real-file0" hidden="hidden" />
+                    <button type="button" id="custom-button0" class="btn">
                       Choose an image
                     </button>
-                    <p id="custom-text">No file chosen, yet.</p>
+                    <p id="custom-text0">No file chosen, yet.</p>
                   </div>
                   @error('image')
                     {{$message}}
@@ -151,22 +155,22 @@
                 <div class="form-group">
                   <label for="inputfile" class="">Bar Code </label>
                   <div class="upload">
-                    <input type="file"  id="real-file" hidden="hidden" />
-                    <button type="button" id="custom-button" class="btn">
+                    <input type="file"  id="real-file1" hidden="hidden" />
+                    <button type="button" id="custom-button1" class="btn">
                       Choose an image
                     </button>
-                    <p id="custom-text">No file chosen, yet.</p>
+                    <p id="custom-text1">No file chosen, yet.</p>
 
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputfile" class="">Qr Code </label>
                   <div class="upload">
-                    <input type="file" id="real-file" hidden="hidden" />
-                    <button type="button" id="custom-button" class="btn">
+                    <input type="file" id="real-file2" hidden="hidden" />
+                    <button type="button" id="custom-button2" class="btn">
                       Choose an image
                     </button>
-                    <p id="custom-text">No file chosen, yet.</p>
+                    <p id="custom-text2">No file chosen, yet.</p>
                   </div>
                 </div>
               </div>
@@ -190,21 +194,56 @@
     <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
 
     <script>
-      const realFileBtn = document.getElementById("real-file");
-      const customBtn = document.getElementById("custom-button");
-      const customTxt = document.getElementById("custom-text");
+      const realFileBtn0 = document.getElementById("real-file0");
+      const customBtn0 = document.getElementById("custom-button0");
+      const customTxt0 = document.getElementById("custom-text0");
 
-      customBtn.addEventListener("click", function () {
-        realFileBtn.click();
+      customBtn0.addEventListener("click", function () {
+        console.log("shubha")
+        realFileBtn0.click();
       });
 
-      realFileBtn.addEventListener("change", function () {
-        if (realFileBtn.value) {
-          customTxt.innerHTML = realFileBtn.value.match(
+      realFileBtn0.addEventListener("change", function () {
+        if (realFileBtn0.value) {
+          customTxt0.innerHTML = realFileBtn0.value.match(
             /[\/\\]([\w\d\s\.\-\(\)]+)$/
           )[1];
         } else {
-          customTxt.innerHTML = "No file choosen, yet.";
+          customTxt0.innerHTML = "No file choosen, yet.";
+        }
+      });
+       const realFileBtn1 = document.getElementById("real-file1");
+      const customBtn1 = document.getElementById("custom-button1");
+      const customTxt1 = document.getElementById("custom-text1");
+
+      customBtn1.addEventListener("click", function () {
+        realFileBtn1.click();
+      });
+
+      realFileBtn1.addEventListener("change", function () {
+        if (realFileBtn1.value) {
+          customTxt1.innerHTML = realFileBtn1.value.match(
+            /[\/\\]([\w\d\s\.\-\(\)]+)$/
+          )[1];
+        } else {
+          customTxt1.innerHTML = "No file choosen, yet.";
+        }
+      });
+       const realFileBtn2 = document.getElementById("real-file2");
+      const customBtn2 = document.getElementById("custom-button2");
+      const customTxt2 = document.getElementById("custom-text2");
+
+      customBtn2.addEventListener("click", function () {
+        realFileBtn2.click();
+      });
+
+      realFileBtn2.addEventListener("change", function () {
+        if (realFileBtn2.value) {
+          customTxt2.innerHTML = realFileBtn2.value.match(
+            /[\/\\]([\w\d\s\.\-\(\)]+)$/
+          )[1];
+        } else {
+          customTxt2.innerHTML = "No file choosen, yet.";
         }
       });
     </script>
