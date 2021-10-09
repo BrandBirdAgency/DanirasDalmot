@@ -16,13 +16,21 @@
     <!-- MAIN BANNER -->
     <div class="teambanner">
         <div class="contain">
-            <div class="container">
+            {{-- <div class="container">
                 @if (Session::has('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         {!! Session::get('success') !!}
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
+                    </div>
+                @endif
+            </div> --}}
+            <div class="container">
+                @if (Session::has('success'))
+                    <div class="alert alert-success alert-dismissible in">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        {!! Session::get('success') !!}
                     </div>
                 @endif
             </div>
