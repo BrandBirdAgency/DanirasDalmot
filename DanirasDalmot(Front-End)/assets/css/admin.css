@@ -146,11 +146,8 @@
       display: initial;
     }
   }
-  /*admin form*/
-  .akk{
-    color: red;
-    background-color: green;
-  }
+
+
 
 /* Orders */
 
@@ -192,12 +189,14 @@
 #admin-dashboard .admin-box p {
   margin-top: 8px;
 }
+/*ADMIN-DASHBOARD-END*/
+
 
 /*ADMIN-LOG-IN-START*/
 
-/* LOGIN & REGISTER FORM */
+
 .admin{
-  border-bottom: 1px solid silver;
+  border-bottom: 1px solid silver;  /* LOGIN & REGISTER FORM */
   padding-bottom: 10px;
   color:  var(--orange);
 }
