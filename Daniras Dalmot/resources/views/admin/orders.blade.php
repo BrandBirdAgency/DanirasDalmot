@@ -14,7 +14,7 @@
 @endsection
 @section('content')
 <div class="back-btn">
-  <a href="#/" class="btn ml-4 mb-3">Back</a>
+  <a href="{{route('dashboard')}}" class="btn ml-4 mb-3">Back</a>
 </div>
     <section id="orders">
         <div class="container">
@@ -41,7 +41,7 @@
                         <td>122</td>
                         <td class="d-flex justify-content-center align-items-center">
                             <label class="form-check-label" for="check1">
-                                <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" checked> 
+                                <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" checked>
                             </label>
                         </td>
                         <td>Dalmot1</td>
@@ -57,7 +57,7 @@
                         <td>122</td>
                         <td class="d-flex justify-content-center align-items-center">
                             <label class="form-check-label" for="check1">
-                                <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" checked> 
+                                <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" checked>
                             </label>
                         </td>
                         <td>Dalmot1</td>
@@ -73,7 +73,7 @@
                         <td>122</td>
                         <td class="d-flex justify-content-center align-items-center">
                             <label class="form-check-label" for="check1">
-                                <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" checked> 
+                                <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" checked>
                             </label>
                         </td>
                         <td>Dalmot1</td>
@@ -89,7 +89,7 @@
                         <td>122</td>
                         <td class="d-flex justify-content-center align-items-center">
                             <label class="form-check-label" for="check1">
-                                <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" checked> 
+                                <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" checked>
                             </label>
                         </td>
                         <td>Dalmot1</td>

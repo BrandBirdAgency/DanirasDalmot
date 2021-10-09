@@ -11,9 +11,9 @@
 @endsection
 @section('content')
     <!--Add Product button-->
-<div class="back-btn">
-  <a href="#/" class="btn ml-4 mb-3">Back</a>
-</div>
+    <div class="back-btn">
+        <a href="{{route('dashboard')}}" class="btn ml-4 mb-3">Back</a>
+    </div>
     <div class="nav-btns">
       <a href={{route('addproduct')}}  type="button" class="add"
         ><i class="fa fa-plus plus"></i>Add product</a

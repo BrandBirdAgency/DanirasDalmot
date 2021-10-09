@@ -22,7 +22,7 @@
         </div>
     @endif
     <div class="back-btn">
-  <a href="#/" class="btn ml-4 mb-3">Back</a>
+  <a href="{{route('dashboard')}}" class="btn ml-4 mb-3">Back</a>
 </div>
 
    <!-- TEAMS -->
@@ -223,7 +223,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                            
+
                                                 <div class="row">
                                                     <div class="col">
                                                         <div class="form-group">
@@ -312,7 +312,7 @@
           customTxt1.innerHTML = "No file choosen, yet.";
         }
       });
-      
+
     </script>
 
 @endsection

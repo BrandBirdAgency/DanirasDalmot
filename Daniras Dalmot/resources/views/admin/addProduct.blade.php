@@ -13,14 +13,18 @@
     />
 @endsection
 @section('content')
-    <div class="alert alert-success alert-dismissible in">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      <strong>Success!</strong> Product edited !!
-    </div>
+
+    @if (Session::has('success'))
+        <div class="alert alert-success alert-dismissible in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            {!! Session::get('success') !!}
+        </div>
+    @endif
 
     <div class="back-btn">
-  <a href="#/" class="btn ml-4 mb-3">Back</a>
-</div>
+        <a href="{{route('product.index')}}" class="btn ml-4 mb-3">Back</a>
+    </div>
+
     <!-- Add product -->
     <div class="container mb-5" id="add-product-container">
         <div class="card" id="add-product-card">
@@ -33,7 +37,7 @@
             <div class="row">
               <div class="col-md-4 col-12">
 
-                
+
                 <div class="form-group">
                   <label for="inp" class=""> Product Code </label>
 
@@ -47,7 +51,7 @@
                       {{$message}}
                   @enderror
                 </div>
-                
+
                 <div class="form-group">
                   <label for="inp" class=""> Product Name </label>
 
@@ -91,7 +95,7 @@
 
                   </select>
                 </div>
-              
+
 
 
               </div>
@@ -108,7 +112,7 @@
                   {{$message}}
               @enderror
                 </div>
-                
+
                 <div class="form-group">
                   <label for="inp" class="">Brand Name</label>
 

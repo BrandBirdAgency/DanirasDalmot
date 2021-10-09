@@ -14,13 +14,15 @@
 @endsection
 @section('content')
 
-  <div class="alert alert-success alert-dismissible in">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      <strong>Success!</strong> Product edited !!
-    </div>
+@if (Session::has('success'))
+<div class="alert alert-success alert-dismissible in">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    {!! Session::get('success') !!}
+</div>
+@endif
 
     <div class="back-btn">
-  <a href="#/" class="btn ml-4 mb-3">Back</a>
+  <a href="{{route('product.show')}}" class="btn ml-4 mb-3">Back</a>
 </div>
     <!-- Add product -->
     <div class="container" id="add-product-container">
