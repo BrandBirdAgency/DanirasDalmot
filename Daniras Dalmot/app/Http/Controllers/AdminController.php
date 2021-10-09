@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\Product;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -31,7 +32,8 @@ class AdminController extends Controller
 
     public function teams()
     {
-        return view('admin.teams');
+        $teams = Team::all();
+        return view('admin.teams', compact('teams'));
     }
 
     public function companyInfoEdit(Request $req)

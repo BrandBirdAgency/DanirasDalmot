@@ -26,8 +26,6 @@ Route::get('/about', [PublicController::class, 'about'])->name('aboutpage');
 
 //Team page
 Route::get('/team', [PublicController::class, 'team'])->name('teampage');
-Route::post('/create',[TeamController::class,'createRecord'])->name('addrecord');
-Route::get('/delete',[TeamController::class,'deleteRecord'])->name('deleterecord');
 
 //Product Page
 Route::prefix('products')->group(
@@ -70,7 +68,9 @@ Route::prefix('admin')->group(function () {
 
         // Teams
         Route::get('/teams', [AdminController::class, 'teams'])->name('teams');
-
+        Route::post('/create', [TeamController::class, 'createRecord'])->name('addrecord');
+        Route::post('/edit/{id}', [TeamController::class, 'editRecord'])->name('editrecord');
+        Route::get('/delete/{id}', [TeamController::class, 'deleteRecord'])->name('deleterecord');
 
         // Company Info
         Route::post('/companyInfoEdit', [AdminController::class, 'companyInfoEdit'])->name('companyInfoEdit');
