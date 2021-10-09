@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\Product;
+use App\Models\Team;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -23,6 +23,17 @@ class AdminController extends Controller
     public function productadd()
     {
         return view('admin.addProduct');
+    }
+
+    public function orders()
+    {
+        return view('admin.orders');
+    }
+
+    public function teams()
+    {
+        $teams = Team::all();
+        return view('admin.teams', compact('teams'));
     }
 
     public function companyInfoEdit(Request $req)

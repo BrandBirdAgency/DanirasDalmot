@@ -18,11 +18,9 @@
         <div class="contain">
             <div class="container">
                 @if (Session::has('success'))
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <div class="alert alert-success alert-dismissible in">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                         {!! Session::get('success') !!}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
                     </div>
                 @endif
             </div>
@@ -219,135 +217,40 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quo,
             sequi sed asperiores recusandae veritatis
           </p>
-          <div class="contain">
-            <div class="row mx-0 px-0">
-              <div class="col-lg-4 col-md-6 col-12 member">
-                <div class="info">
-                  <div class="image">
-                    <img
-                      src="./assets/images/team1.jpg"
-                      alt=""
-                      class="img-fluid"
-                    />
-                  </div>
-                  <div class="detail">
-                    <p class="name">Nirmal Pd Gupta</p>
-                    <p class="post">Chairman/Founder</p>
-                    <div class="socials">
-                      <a href="#/"><i class="fab fa-instagram"></i></a>
-                      <a href="#/"><i class="fab fa-facebook-f"></i></a>
-                    </div>
-                  </div>
+            <div class="contain">
+                <div class="row mx-0 px-0">
+                    @forelse ($teams as $team)
+                        <div class="col-lg-4 col-md-6 col-12 member">
+                            <div class="info">
+                                <div class="image">
+                                    <img
+                                    src="{{$team->photo}}"
+                                    alt="team"
+                                    class="img-fluid"
+                                    />
+                                </div>
+                                <div class="detail">
+                                    <p class="name">{{$team->name}}</p>
+                                    <p class="post">{{$team->position}}</p>
+                                    <div class="socials">
+                                    <a href="{{$team->facebook}}"><i class="fab fa-instagram"></i></a>
+                                    <a href="{{$team->instagram}}"><i class="fab fa-facebook-f"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                        </div>
+                    @empty
+                        <div class="container">
+                            <h1>No Team</h1>
+                        </div>
+                    @endforelse
                 </div>
-                <hr />
-              </div>
-              <div class="col-lg-4 col-md-6 col-12 member">
-                <div class="info">
-                  <div class="image">
-                    <img
-                      src="./assets/images/team2.jpg"
-                      alt=""
-                      class="img-fluid"
-                    />
-                  </div>
-                  <div class="detail">
-                    <p class="name">Rahul Kalwar</p>
-                    <p class="post">Chief Executive Office (CEO)</p>
-                    <div class="socials">
-                      <a href="#/"><i class="fab fa-instagram"></i></a>
-                      <a href="#/"><i class="fab fa-facebook-f"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <hr />
-              </div>
-              <div class="col-lg-4 col-md-6 col-12 member">
-                <div class="info">
-                  <div class="image">
-                    <img
-                      src="./assets/images/team3.jpg"
-                      alt=""
-                      class="img-fluid"
-                    />
-                  </div>
-                  <div class="detail">
-                    <p class="name">Bhoomi Kalwar</p>
-                    <p class="post">Chief Operating Officer (COO)</p>
-                    <div class="socials">
-                      <a href="#/"><i class="fab fa-instagram"></i></a>
-                      <a href="#/"><i class="fab fa-facebook-f"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <hr />
-              </div>
-              <div class="col-lg-4 col-md-6 col-12 member">
-                <div class="info">
-                  <div class="image">
-                    <img
-                      src="./assets/images/team4.jpg"
-                      alt=""
-                      class="img-fluid"
-                    />
-                  </div>
-                  <div class="detail">
-                    <p class="name">Neha Kalwar</p>
-                    <p class="post">Chief Financial Officer (CFO)</p>
-                    <div class="socials">
-                      <a href="#/"><i class="fab fa-instagram"></i></a>
-                      <a href="#/"><i class="fab fa-facebook-f"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <hr />
-              </div>
-              <div class="col-lg-4 col-md-6 col-12 member">
-                <div class="info">
-                  <div class="image">
-                    <img
-                      src="./assets/images/team4.jpg"
-                      alt=""
-                      class="img-fluid"
-                    />
-                  </div>
-                  <div class="detail">
-                    <p class="name">Aditya Martin</p>
-                    <p class="post">Chief Marketing Officer (CMO)</p>
-                    <div class="socials">
-                      <a href="#/"><i class="fab fa-instagram"></i></a>
-                      <a href="#/"><i class="fab fa-facebook-f"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <hr />
-              </div>
-              <div class="col-lg-4 col-md-6 col-12 member">
-                <div class="info">
-                  <div class="image">
-                    <img
-                      src="./assets/images/team4.jpg"
-                      alt=""
-                      class="img-fluid"
-                    />
-                  </div>
-                  <div class="detail">
-                    <p class="name">Bikash Gupta</p>
-                    <p class="post">Chief Technology Officer (CTO)</p>
-                    <div class="socials">
-                      <a href="#/"><i class="fab fa-instagram"></i></a>
-                      <a href="#/"><i class="fab fa-facebook-f"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <hr />
-              </div>
             </div>
-          </div>
         </section>
         <!-- END TEAMS -->
       </div>
       <!-- END TEAM -->
-
 @endsection
 
 @section('js')

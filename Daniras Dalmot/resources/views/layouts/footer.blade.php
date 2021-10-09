@@ -14,7 +14,8 @@
             <li class="list-inline-item"><a href="{{ route('aboutpage') }}">About</a></li>
             <li class="list-inline-item"><a href="{{ route('contactpage') }}">Contact</a></li>
         </ul>
-        <p class="copyright">Daniras Dalmoth © {{ date('Y') }}</p>
+
+        <p class="copyright">{{App\Models\About::first()->name}} © {{ date('Y') }}</p>
     </footer>
 </div>
 
