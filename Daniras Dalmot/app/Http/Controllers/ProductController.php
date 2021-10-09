@@ -63,9 +63,9 @@ class ProductController extends Controller
             ->generate('www.test.com');
         $output_file = 'qrcodes/Product_' . $req->code . '.svg';
         Storage::disk('local')->put($output_file, $image);
-        
+
         $product->qr_code=$image;
-        $product->qr_path=$output_file; 
+        $product->qr_path=$output_file;
         // dd($product);
         // $product->save();
         $redColor = [255, 0, 0];
@@ -75,7 +75,7 @@ class ProductController extends Controller
         $product->bar_number=$number;
 
         $product->save();
-        
+
         return redirect()->route('product.index');
     }
 
@@ -90,7 +90,8 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        return view('admin.dashboard');
+        $product = Product::find($id);
+        return view('admin.productdetails',compact('product'));
     }
 
     /**
@@ -123,6 +124,7 @@ class ProductController extends Controller
         $product = Product::find($id);
         $product->name = $req->name;
         if ($req->photo != null) {
+            Storage::delete($product->photo);
             $product->photo = $req->file('photo')->storeAs('public/images/products', $req->name);
         }
         $product->description = $req->description;
