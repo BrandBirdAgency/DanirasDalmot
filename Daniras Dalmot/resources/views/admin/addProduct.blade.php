@@ -18,7 +18,8 @@
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
       <strong>Success!</strong> Product edited !!
     </div>
-@endif
+ @endif
+
     <div class="back-btn">
   <a href="#/" class="btn ml-4 mb-3">Back</a>
 </div>
