@@ -39,8 +39,116 @@
                 </div>
             </div>
         </div>
+    </div>
+    <!-- Product details ends  -->
+    <!-- Modal for adding team members -->
+    <button data-toggle="modal" data-target="#myModal">Add Team Record</button>
+        <!-- The Modal -->
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Create Team Record</h4>
+                  <button type="button" class="close" data-dismiss="modal">
+                    &times;
+                  </button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                  <form action={{route('addrecord')}} method="POST" enctype="multipart/form-data">
+                      @csrf
+                      <input type="hidden" name="id">
+                    <div class="form-group">
+                      <label for="usr">Full Name:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="usr"
+                        name="name"
+                      />
+                      @error('name')
+                          {{$message}}
+                      @enderror
+                    </div>
+                    <div class="form-group">
+                      <label for="Address">Position:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="Address"
+                        name="position"
+                      />
+                          @error('position')
+                              {{$message}}
+                          @enderror
+                    </div>
+                    <div class="form-group">
+                      <label for="Phone">Phone Number:</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="Phone"
+                        name="phone"
+                      />
+                      @error('phone')
+                      {{$message}}
+                      @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="Phone">Address:</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="Phone"
+                          name="address"
+                        />
+                        @error('address')
+                        {{$message}}
+                        @enderror
+                      </div>
+                      <div class="form-group">
+                        <label for="Phone">Facebook:</label>
+                        <input
+                          type="url"
+                          class="form-control"
+                          id="Phone"
+                          name="facebook"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="Phone">Instagram:</label>
+                        <input
+                          type="url"
+                          class="form-control"
+                          id="Phone"
+                          name="instagram"
+                        />
+                        <div class="form-group">
+                            <label for="Phone">Photo:</label>
+                            <input
+                              type="file"
+                              class="form-control"
+                              id="Phone"
+                              name="photo"
+                              accept="image/*"
+                              enctype="multipart/form-data"
+                            />
+                            @error('photo')
+                            {{$message}}
+                            @enderror
+                          </div>
+                      </div>
+                    <button type="submit" class="submit-btn">Add</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
     </section>
 @endsection
+
 
 @section('js')
     <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
