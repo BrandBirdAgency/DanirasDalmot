@@ -11,7 +11,9 @@
 @endsection
 @section('content')
     <!--Add Product button-->
-
+<div class="back-btn">
+  <a href="#/" class="btn ml-4 mb-3">Back</a>
+</div>
     <div class="nav-btns">
       <a href={{route('addproduct')}}  type="button" class="add"
         ><i class="fa fa-plus plus"></i>Add product</a
@@ -72,7 +74,9 @@
 </a>
         </div>
         @empty
-            {{"Products Unavailable"}}
+        <div class="no-content">
+            <h4>{{"Products Unavailable"}}</h4>
+</div>
         @endforelse
 
       </div>
