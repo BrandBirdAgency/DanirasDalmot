@@ -241,9 +241,9 @@
                             <hr />
                         </div>
                     @empty
-                        <div class="container">
-                            <h1>No Team</h1>
-                        </div>
+                         <div class="no-content">
+                    <h4>No Team</h4>
+                </div>
                     @endforelse
                 </div>
             </div>
