@@ -65,6 +65,7 @@ Route::prefix('admin')->group(function () {
 
         // Orders
         Route::get('/orders', [AdminController::class, 'orders'])->name('orders');
+        Route::get('orderstatus/{id}',[AdminController::class,'orderStatus'])->name('orderstatus');
 
         // Teams
         Route::get('/teams', [AdminController::class, 'teams'])->name('teams');

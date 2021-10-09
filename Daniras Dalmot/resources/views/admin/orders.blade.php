@@ -35,70 +35,34 @@
                   </tr>
                 </thead>
                 <tbody>
+                    @forelse($orders as $order)
                     <tr>
-                        <td>122</td>
+                        <td>{{$order->id}}</td>
                         <td class="d-flex justify-content-center align-items-center">
                             <label class="form-check-label" for="check1">
-                                <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" checked> 
+                                @if($order->status==1)
+                                <a href={{route("orderstatus",$order->id)}}>
+                                    <input type="checkbox" class="form-check-input" id="check1" name="status" value="{{$order->status}}" checked>
+                                </a>
+                                @else
+                                <a href={{route("orderstatus",$order->id)}}>
+                                    <input type="checkbox" class="form-check-input" id="check1" name="status" value="{{$order->status}}" >
+                                </a>
+                                @endif
                             </label>
                         </td>
-                        <td>Dalmot1</td>
-                        <td>Gautam Adhikari</td>
-                        <td>something@gmail.com</td>
-                        <td>Buspark</td>
-                        <td>988888888</td>
-                        <td>3</td>
-                        <td>Rs.400</td>
-                        <td>Rs.1200</td>
+                        <td>{{$order->productname}}</td>
+                        <td>{{$order->name}}</td>
+                        <td>{{$order->email}}</td>
+                        <td>{{$order->address}}</td>
+                        <td>{{$order->phone}}</td>
+                        <td>{{$order->quantity}}</td>
+                        <td>{{$order->price}}</td>
+                        <td>{{$order->quantity*$order->price}}</td>
                     </tr>
-                    <tr>
-                        <td>122</td>
-                        <td class="d-flex justify-content-center align-items-center">
-                            <label class="form-check-label" for="check1">
-                                <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" checked> 
-                            </label>
-                        </td>
-                        <td>Dalmot1</td>
-                        <td>Gautam Adhikari</td>
-                        <td>something@gmail.com</td>
-                        <td>Buspark</td>
-                        <td>988888888</td>
-                        <td>3</td>
-                        <td>Rs.400</td>
-                        <td>Rs.1200</td>
-                    </tr>
-                    <tr>
-                        <td>122</td>
-                        <td class="d-flex justify-content-center align-items-center">
-                            <label class="form-check-label" for="check1">
-                                <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" checked> 
-                            </label>
-                        </td>
-                        <td>Dalmot1</td>
-                        <td>Gautam Adhikari</td>
-                        <td>something@gmail.com</td>
-                        <td>Buspark</td>
-                        <td>988888888</td>
-                        <td>3</td>
-                        <td>Rs.400</td>
-                        <td>Rs.1200</td>
-                    </tr>
-                    <tr>
-                        <td>122</td>
-                        <td class="d-flex justify-content-center align-items-center">
-                            <label class="form-check-label" for="check1">
-                                <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" checked> 
-                            </label>
-                        </td>
-                        <td>Dalmot1</td>
-                        <td>Gautam Adhikari</td>
-                        <td>something@gmail.com</td>
-                        <td>Buspark</td>
-                        <td>988888888</td>
-                        <td>3</td>
-                        <td>Rs.400</td>
-                        <td>Rs.1200</td>
-                    </tr>
+                    @empty
+                    <tr><td colspan="10">Orders Empty</td></tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
