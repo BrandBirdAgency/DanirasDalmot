@@ -14,22 +14,26 @@
             </div>
             <div class="row">
                 <div class="col-md-3 col-12 col-sm-6 d-flex justify-content-center justify-content-sm-start mb-4">
-                    <div class="admin-box">
-                        <img src="{{asset('/assets/images/order.png')}}" alt="">
-                        <p>Orders </p>
-                    </div>
+                    <a href={{route('orders')}}>
+                        <div class="admin-box">
+                            <img src="{{asset('/assets/images/order.png')}}" alt="">
+                            <p>Orders </p>
+                        </div>
+                    </a>
                 </div>
                 <div class="col-md-3 col-12 col-sm-6 d-flex justify-content-center justify-content-sm-start mb-4">
-                    <div class="admin-box">
-                        <img src="{{asset('/assets/images/team.png')}}" alt="">
-                        <p>Teams </p>
-                    </div>
+                    <a href={{route('teams')}}>
+                        <div class="admin-box">
+                            <img src="{{asset('/assets/images/team.png')}}" alt="">
+                            <p>Teams </p>
+                        </div>
+                    </a>
                 </div>
                 <div class="col-md-3 col-12 col-sm-6 d-flex justify-content-center justify-content-sm-start mb-4">
                     <div class="admin-box">
                         <a href={{route('product.index')}}>
-                        <img src="{{asset('/assets/images/box.png')}}" alt="">
-                        <p>Products </p>
+                            <img src="{{asset('/assets/images/box.png')}}" alt="">
+                            <p>Products </p>
                         </a>
                     </div>
                 </div>
@@ -39,6 +43,5 @@
 @endsection
 
 @section('js')
-    <script src="script.js"></script>
     <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
 @endsection
