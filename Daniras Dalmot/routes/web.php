@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 
@@ -25,6 +26,8 @@ Route::get('/about', [PublicController::class, 'about'])->name('aboutpage');
 
 //Team page
 Route::get('/team', [PublicController::class, 'team'])->name('teampage');
+Route::post('/create',[TeamController::class,'createRecord'])->name('addrecord');
+Route::get('/delete',[TeamController::class,'deleteRecord'])->name('deleterecord');
 
 //Product Page
 Route::prefix('products')->group(
