@@ -13,6 +13,14 @@
     />
 @endsection
 @section('content')
+    <div class="alert alert-success alert-dismissible in">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Success!</strong> Product edited !!
+    </div>
+
+    <div class="back-btn">
+  <a href="#/" class="btn ml-4 mb-3">Back</a>
+</div>
     <!-- Add product -->
     <div class="container mb-5" id="add-product-container">
         <div class="card" id="add-product-card">
