@@ -29,8 +29,8 @@ Route::get('/team', [PublicController::class, 'team'])->name('teampage');
 //Product Page
 Route::prefix('products')->group(
     function () {
-        Route::get('/', [PublicController::class, 'product'])->name('productpage');
-        Route::post('/order', [MailController::class, 'productmail'])->name('productorder');
+        Route::get('/{id?}', [PublicController::class, 'product'])->name('productpage');
+        Route::post('/order', [MailController::class, 'productMail'])->name('productorder');
     }
 );
 
@@ -41,19 +41,40 @@ Route::get('/ordersuccess', [PublicController::class, 'orderSuccess'])->name('or
 Route::prefix('/contact')->group(
     function () {
         Route::get('/', [PublicController::class, 'contact'])->name('contactpage');
-        Route::post('/contactadmin', [MailController::class, 'contactmail'])->name('contactadmin');
+        Route::post('/contactadmin', [MailController::class, 'contactMail'])->name('contactadmin');
     }
 );
 
 
 // Admin
-Route::view('/admin-login', 'auth.login');
-Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [AdminController::class, 'dashboard']);
-    Route::view('/product-add', 'admin.addProduct')->name('addproduct');
-    Route::post('product/store',[ProductController::class,'store'])->name('product-store');
+Route::prefix('admin')->group(function () {
+    Route::view('/login', 'auth.login')->name('adminLogin');
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
-    // Company Info
-    Route::post('/companyInfoEdit', [AdminController::class, 'companyInfoEdit'])->name('companyInfoEdit');
+        //Products
+        Route::get('/product-index', [AdminController::class, 'product'])->name('product.index');
+        Route::view('/shubhadon', 'admin.productdetails');
+        Route::get('/product-add', [AdminController::class, 'productAdd'])->name('addproduct');
+        Route::post('product/store', [ProductController::class, 'store'])->name('product.store');
+        Route::get('/product-edit{id}', [ProductController::class, 'edit'])->name('product.edit');
+        Route::post('product-update/{id}', [ProductController::class, 'update'])->name('product.update');
+        Route::get('product-delete/{id}', [ProductController::class, 'destroy'])->name('product.delete');
+        Route::get('/qr-download/{id}', [ProductController::class, 'qrDownload'])->name('qrcode.download');
+
+        // Orders
+        Route::get('/orders', [AdminController::class, 'orders'])->name('orders');
+
+        // Teams
+        Route::get('/teams', [AdminController::class, 'teams'])->name('teams');
+
+
+        // Company Info
+        Route::post('/companyInfoEdit', [AdminController::class, 'companyInfoEdit'])->name('companyInfoEdit');
+
+        // Message CEO/Chairman
+        Route::post('/msg', [AdminController::class, 'msg'])->name('msg');
+    });
 });
+
 require __DIR__ . '/auth.php';
