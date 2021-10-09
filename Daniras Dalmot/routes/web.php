@@ -54,6 +54,7 @@ Route::prefix('admin')->group(function () {
 
     //Products
     Route::get('/product-index', [AdminController::class, 'product'])->name('product.index');
+    Route::view('/shubhadon','admin.productdetails');
     Route::get('/product-add', [AdminController::class, 'productAdd'])->name('addproduct');
     Route::post('product/store', [ProductController::class, 'store'])->name('product.store');
     Route::get('/product-edit{id}', [ProductController::class, 'edit'])->name('product.edit');
