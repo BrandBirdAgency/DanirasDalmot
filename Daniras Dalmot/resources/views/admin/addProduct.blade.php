@@ -51,6 +51,21 @@
                   {{$message}}
               @enderror
                 </div>
+
+                <div class="form-group">
+                  <label for="inp" class=""> Product Code </label>
+
+                  <input
+                    type="number"
+                    id="cod"
+                    class="form-control form-control-sm"
+                    name="code"
+                  />
+                  @error('code')
+                      {{$message}}
+                  @enderror
+                </div>
+
                 <div class="form-group">
                   <label for="inouttextarea">Category</label>
                   <select
@@ -65,6 +80,11 @@
 
                   </select>
                 </div>
+              
+
+
+              </div>
+              <div class="col-md-4 col-12">
                 <div class="form-group">
                   <label for="inouttextarea">Size</label>
                   <input
@@ -77,10 +97,7 @@
                   {{$message}}
               @enderror
                 </div>
-
-
-              </div>
-              <div class="col-md-4 col-12">
+                
                 <div class="form-group">
                   <label for="inp" class="">Brand Name</label>
 
