@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\About;
 use App\Models\Product;
 use App\Models\Service;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class PublicController extends Controller
@@ -23,13 +24,14 @@ class PublicController extends Controller
     public function team()
     {
         $about = About::first();
-        return view('team', compact('about'));
+        $teams = Team::all();
+        return view('team', compact('about', 'teams'));
     }
 
     public function product($id = 1)
     {
         $products = Product::all();
-        return view('products',compact('products','id'));
+        return view('products', compact('products', 'id'));
     }
 
     public function orderSuccess()
