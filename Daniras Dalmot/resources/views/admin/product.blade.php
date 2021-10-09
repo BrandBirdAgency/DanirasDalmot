@@ -72,6 +72,8 @@
           </div>
 </a>
         </div>
+
+        {!!$products->bar_code!!}
         <div class="col-lg-3 col-md-4 col-6  py-3">
            <a href="#/">
           <div class="card card-text-center" id="product-card">

@@ -13,10 +13,6 @@
     />
 @endsection
 @section('content')
-    <div class="alert alert-success alert-dismissible in">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      <strong>Success!</strong> Product edited !!
-    </div>
     <!-- Add product -->
     <div class="container mb-5" id="add-product-container">
         <div class="card" id="add-product-card">
@@ -28,22 +24,6 @@
               @csrf
             <div class="row">
               <div class="col-md-4 col-12">
-
-                
-                <div class="form-group">
-                  <label for="inp" class=""> Product Code </label>
-
-                  <input
-                    type="number"
-                    id="cod"
-                    class="form-control form-control-sm"
-                    name="code"
-                  />
-                  @error('code')
-                      {{$message}}
-                  @enderror
-                </div>
-                
                 <div class="form-group">
                   <label for="inp" class=""> Product Name </label>
 
@@ -71,8 +51,6 @@
                   {{$message}}
               @enderror
                 </div>
-
-
                 <div class="form-group">
                   <label for="inouttextarea">Category</label>
                   <select
@@ -87,11 +65,6 @@
 
                   </select>
                 </div>
-              
-
-
-              </div>
-              <div class="col-md-4 col-12">
                 <div class="form-group">
                   <label for="inouttextarea">Size</label>
                   <input
@@ -104,7 +77,10 @@
                   {{$message}}
               @enderror
                 </div>
-                
+
+
+              </div>
+              <div class="col-md-4 col-12">
                 <div class="form-group">
                   <label for="inp" class="">Brand Name</label>
 

@@ -47,6 +47,8 @@ class ProductController extends Controller
                 'size' => 'required'
             ]
         );
+        $latest=Product::orderBy('created_at', 'desc')->first();;
+        $latest=$latest->id+1;
         $product = new Product();
         $product->name = $req->name;
         $product->photo = $req->file('photo')->storeAs('public/images/products', $req->name);
@@ -60,21 +62,24 @@ class ProductController extends Controller
         $product->size = $req->size;
         $image = \QrCode::format('svg')
             ->size(200)->errorCorrection('H')
-            ->generate('www.test.com');
-        $output_file = 'qrcodes/Product_' . $req->code . '.svg';
+            ->generate("www.danirasdalmoth.com/product/$latest");
+        $output_file = 'qrcodes/Product_' . time() . '.svg';
         Storage::disk('local')->put($output_file, $image);
-        
         $product->qr_code=$image;
         $product->qr_path=$output_file; 
         // dd($product);
         // $product->save();
-        $redColor = [255, 0, 0];
-        $number='26724401'.$req->code;
-        $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
-        $product->bar_code= $generator->getBarcode('$number', $generator::TYPE_CODE_128);
-        $product->bar_number=$number;
+       $barnumber='272440'.$latest;
 
+        $generator = new Picqer\Barcode\BarcodeGeneratorSVG();
+        $barcode=$generator->getBarcode($barnumber, $generator::TYPE_CODE_128);
+        $output_file = 'barcode/Product_' . time() . '.svg';
+        Storage::disk('local')->put($output_file, $barcode);
+        $product->bar_code=$barcode;
+        $product->bar_number=$barnumber;
         $product->save();
+
+        
         
         return redirect()->route('product.index');
     }
