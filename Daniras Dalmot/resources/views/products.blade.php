@@ -305,6 +305,10 @@
 @endsection
 
 @section('js')
+<script src={{asset("vendor/js/aos.js")}}></script>
+<script src={{asset("vendor/js/jquery.waypoints.js")}}></script>
+<script src={{asset("vendor/js/jquery.counterup.js")}}></script>
+<script src={{asset("vendor/js/bootstrap.bundle.js")}}></script>
 <script>
     let count = document.querySelector(".count");
     let minus = document.querySelector(".minus");

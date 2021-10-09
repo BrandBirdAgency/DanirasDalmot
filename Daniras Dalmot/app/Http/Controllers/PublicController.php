@@ -28,9 +28,10 @@ class PublicController extends Controller
         return view('team', compact('about', 'teams'));
     }
 
-    public function product($id = 1)
+    public function product($id = null)
     {
         $products = Product::all();
+        $id = Product::first()->id;
         return view('products', compact('products', 'id'));
     }
 
