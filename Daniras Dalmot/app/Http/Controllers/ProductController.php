@@ -47,9 +47,9 @@ class ProductController extends Controller
                 'size' => 'required'
             ]
         );
+
         $latest=Product::orderBy('created_at', 'desc')->first();
         if($latest==NULL)
-        dd("heelo");
         $latest=10000;
         else
         $latest=$latest->id+1;
@@ -67,27 +67,49 @@ class ProductController extends Controller
         $product->size = $req->size;
 
         //For QR CODE
-        $image = \QrCode::format('svg')
+        if ($req->hasFile('qr')) {
+     
+
+            $extension = $req->file('qr')->getClientOriginalExtension();
+            $fileNameToStore = 'qrcodes/Product_' . $latest. '.' . $extension;
+            $req->file('qr')->storeAs('qrcodes', $fileNameToStore);
+            $product->qr_path=$fileNameToStore; 
+        } else {
+   
+
+            $image = \QrCode::format('svg')
             ->size(200)->errorCorrection('H')
             ->generate("www.danirasdalmoth.com/product/$latest");
-        $output_file = 'qrcodes/Product_' . time() . '.svg';
-        Storage::disk('local')->put($output_file, $image);
-        $product->qr_code=$image;
-        $product->qr_path=$output_file; 
+            $output_file = 'qrcodes/Product_' . $latest . '.svg';
+            Storage::disk('local')->put($output_file, $image);
+            $product->qr_code=$image;
+            $product->qr_path=$output_file; 
+        }
+     
         // dd($product);
         // $product->save();
        $barnumber='067244'.$latest.'1';
 
-        $generator = new Picqer\Barcode\BarcodeGeneratorSVG();
-        $barcode=$generator->getBarcode($barnumber, $generator::TYPE_CODE_128);
-        $output_file = 'barcode/Product_' . time() . '.svg';
-        Storage::disk('local')->put($output_file, $barcode);
-        $product->bar_path=$output_file; 
-        $product->bar_code=$barcode;
-        $product->bar_number=$barnumber;
-        $product->save();
+       if ($req->hasFile('bar')) {
+           dd("suc");
+            $extension = $req->file('bar')->getClientOriginalExtension();
+            $fileNameToStore = 'barcode/Product_' . $latest. '.' . $extension;
+            $req->file('bar')->storeAs('barcode', $fileNameToStore);
+            $product->bar_path=$fileNameToStore; 
+
+        } else {
+            dd('fuc');
+            $generator = new Picqer\Barcode\BarcodeGeneratorSVG();
+            $barcode=$generator->getBarcode($barnumber, $generator::TYPE_CODE_128);
+            $output_file = 'barcode/Product_' .$latest . '.svg';
+            Storage::disk('local')->put($output_file, $barcode);
+            $product->bar_path=$output_file; 
+            $product->bar_code=$barcode;
+            $product->bar_number=$barnumber;
+        }
 
         
+        $product->save();
         
         return redirect()->route('product.index');
     }
