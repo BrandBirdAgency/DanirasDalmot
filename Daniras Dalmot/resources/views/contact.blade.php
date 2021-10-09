@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('title','Contact')
 @section('css')
-    <link rel="stylesheet" href="./assets/css/contact.css">
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href={{asset("assets/css/contact.css")}}>
+    <link rel="stylesheet" href={{asset("assets/css/style.css")}} />
 
 @endsection
 @section('content')
@@ -22,7 +22,7 @@
             </div>
 
             <div class="image">
-                <img src="./assets/images/bg.jpg" alt="" />
+                <img src={{asset("assets/images/bg.jpg")}} alt="" />
             </div>
           <div class="image-overlay"></div>
           <div class="text">
@@ -32,9 +32,9 @@
             </div>
             <div class="bannernav">
               <li><i class="fas fa-home"></i></li>
-              <li><a href="./index.html">HOME</a></li>
+              <li><a href={{route('homepage')}}>HOME</a></li>
               <li><i class="fas fa-caret-right"></i></li>
-              <li><a href="./about.html">CONTACT</a></li>
+              <li><a href={{route('contactpage')}}>CONTACT</a></li>
             </div>
           </div>
         </div>
@@ -307,8 +307,8 @@
       </div>
 @endsection
 @section('js')
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
-    <script src="js/contact.js"></script>
+    <script src={{asset("js/jquery.min.js")}}></script>
+    <script src={{asset("js/popper.js")}}></script>
+    <script src={{asset("js/jquery.validate.min.js")}}></script>
+    <script src={{asset("js/contact.js")}}></script>
 @endsection

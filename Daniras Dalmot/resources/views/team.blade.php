@@ -7,7 +7,7 @@
     rel="stylesheet"
     href="https://unpkg.com/swiper/swiper-bundle.min.css"
     />
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href={{asset("assets/css/style.css")}} />
 @endsection
 
 @section('content')
@@ -27,7 +27,7 @@
                 @endif
             </div>
           <div class="image">
-            <img src="./assets/images/bg.jpg" alt="" />
+            <img src={{asset("assets/images/bg.jpg")}} alt="" />
           </div>
           <div class="image-overlay"></div>
           <div class="text">
@@ -37,9 +37,9 @@
             </div>
             <div class="bannernav">
               <li><i class="fas fa-home"></i></li>
-              <li><a href="./index.html">HOME</a></li>
+              <li><a href={{route('homepage')}}>HOME</a></li>
               <li><i class="fas fa-caret-right"></i></li>
-              <li><a href="./team.html">TEAM</a></li>
+              <li><a href={{route('teampage')}}>TEAM</a></li>
             </div>
           </div>
         </div>
