@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Product;
 use App\Models\Service;
 use Illuminate\Http\Request;
 
@@ -25,9 +26,10 @@ class PublicController extends Controller
         return view('team', compact('about'));
     }
 
-    public function product()
+    public function product($id = 1)
     {
-        return view('products');
+        $products = Product::all();
+        return view('products',compact('products','id'));
     }
 
     public function orderSuccess()
