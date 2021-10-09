@@ -101,11 +101,12 @@
             <div class="images codes">
                 <div class="bar-code">
                     <p class="det"><span>Bar-Code : </span></p>
-                <img src="../assets/images/team1.jpg" alt="">
+                    {!! $product->bar_code!!}
 </div>
 <div class="qr-code">
     <p class="det"><span>Qr-Code : </span></p>
-                <img src="../assets/images/team1.jpg" alt="">
+    {!! $product->qr_code!!}
+
 </div>
             </div>
 
