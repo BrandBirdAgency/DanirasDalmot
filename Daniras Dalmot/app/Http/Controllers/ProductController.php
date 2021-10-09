@@ -47,8 +47,13 @@ class ProductController extends Controller
                 'size' => 'required'
             ]
         );
-        $latest=Product::orderBy('created_at', 'desc')->first();;
+        $latest=Product::orderBy('created_at', 'desc')->first();
+        if($latest==NULL)
+        dd("heelo");
+        $latest=10000;
+        else
         $latest=$latest->id+1;
+
         $product = new Product();
         $product->name = $req->name;
         $product->photo = $req->file('photo')->storeAs('public/images/products', $req->name);
@@ -60,6 +65,8 @@ class ProductController extends Controller
         $product->category = $req->category;
         $product->brand_name = $req->brand_name;
         $product->size = $req->size;
+
+        //For QR CODE
         $image = \QrCode::format('svg')
             ->size(200)->errorCorrection('H')
             ->generate("www.danirasdalmoth.com/product/$latest");
@@ -69,12 +76,13 @@ class ProductController extends Controller
         $product->qr_path=$output_file; 
         // dd($product);
         // $product->save();
-       $barnumber='272440'.$latest;
+       $barnumber='067244'.$latest.'1';
 
         $generator = new Picqer\Barcode\BarcodeGeneratorSVG();
         $barcode=$generator->getBarcode($barnumber, $generator::TYPE_CODE_128);
         $output_file = 'barcode/Product_' . time() . '.svg';
         Storage::disk('local')->put($output_file, $barcode);
+        $product->bar_path=$output_file; 
         $product->bar_code=$barcode;
         $product->bar_number=$barnumber;
         $product->save();
