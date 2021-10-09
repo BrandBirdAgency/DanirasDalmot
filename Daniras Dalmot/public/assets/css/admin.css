@@ -14,6 +14,18 @@
 }
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 
+body{
+  position: relative;
+}
+.alert{
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  z-index: 99;
+}
+
 header {
     display: flex;
     justify-content: flex-end;
