@@ -25,6 +25,16 @@ class AdminController extends Controller
         return view('admin.addProduct');
     }
 
+    public function orders()
+    {
+        return view('admin.orders');
+    }
+
+    public function teams()
+    {
+        return view('admin.teams');
+    }
+
     public function companyInfoEdit(Request $req)
     {
         $this->validate($req, [
