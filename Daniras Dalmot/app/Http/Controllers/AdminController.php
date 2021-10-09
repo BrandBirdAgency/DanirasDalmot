@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\About;
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
