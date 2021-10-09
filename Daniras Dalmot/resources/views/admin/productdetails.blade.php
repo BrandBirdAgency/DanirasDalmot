@@ -11,7 +11,9 @@
     <link rel="stylesheet" href={{asset("assets/css/admin.css")}} />
 @endsection
 @section('content')
-
+<div class="back-btn">
+  <a href="#/" class="btn ml-4 mb-3">Back</a>
+</div>
 
     <!-- Modal for delete  -->
     <div

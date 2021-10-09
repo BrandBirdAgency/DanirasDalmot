@@ -21,12 +21,15 @@
             {!! Session::get('success') !!}
         </div>
     @endif
+    <div class="back-btn">
+  <a href="#/" class="btn ml-4 mb-3">Back</a>
+</div>
 
    <!-- TEAMS -->
    <section class="teamss member" id="tm">
 
     <div class="add-member my-3">
-        <button class="add-member-btn"  data-toggle="modal" data-target="#add"><strong> Add Member</button>
+        <button class="add-member-btn"  data-toggle="modal" data-target="#add"><i class="fa fa-plus plus"></i> Add Member </button>
         <!-- Modal for adding team members -->
         <div class="modal fade" id="add" aria-labelledby="Title">
             <div class="modal-dialog modal-dialog-centered">
@@ -124,19 +127,21 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="Phone">Photo:</label>
-                                <input
-                                type="file"
-                                class="form-control"
-                                id="Phone"
-                                name="photo"
+                  <label for="inputfile" class="">Photo :  </label>
+                  <div class="upload">
+                    <input type="file" id="real-file1" hidden="hidden" name="photo"
                                 accept="image/*"
-                                enctype="multipart/form-data"
-                                />
-                                @error('photo') {{$message}} @enderror
-                            </div>
-
+                                enctype="multipart/form-data"/>
+                    <button type="button" id="custom-button1" class="btn">
+                      Choose an image
+                    </button>
+                    <p id="custom-text1">No file chosen, yet.</p>
+                  </div>
+                    @error('photo') {{$message}} @enderror
+                </div>
+                        <div class="sub text-right">
                             <button type="submit" class="member-submit-btn">Add</button>
+</div>
                         </form>
                     </div>
                 </div>
@@ -161,7 +166,7 @@
                                 <button class="deletes" data-toggle="modal" data-target="#dlt{{$team->id}}"><i class="fas fa-trash"></i></button>
                                 <!-- DELETE-model  -->
                                 <div class="modal fade" id="dlt{{$team->id}}" aria-labelledby="models" >
-                                    <div class="modal-dialog" >
+                                    <div class="modal-dialog modal-dialog-centered" >
                                         <div class="modal-content ">
                                             <div class="modal-header">
                                             <h5 class="modal-title text-danger" id="models">Do you want to delete?</h5>
@@ -170,8 +175,8 @@
                                             </button>
                                             </div>
                                             <div class="modal-footer">
-                                                <a href="{{route('deleterecord', $team->id)}}"><button type="button" class="btn btn-secondary">Yes</button></a>
-                                                <button type="button" class="btn btn-danger"data-dismiss="modal">No</button>
+                                                <a href="{{route('deleterecord', $team->id)}}"><button type="button" class="btn">Yes</button></a>
+                                                <button type="button" class="btn"data-dismiss="modal">No</button>
                                             </div>
                                         </div>
                                     </div>
@@ -218,16 +223,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label for="pic">Photo:</label>
-                                                    <input
-                                                    type="file"
-                                                    class="form-control"
-                                                    id="pic"
-                                                    name="pic"
-                                                    accept="image/*"
-                                                    />
-                                                </div>
+                            
                                                 <div class="row">
                                                     <div class="col">
                                                         <div class="form-group">
@@ -242,7 +238,19 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                                                   <div class="form-group">
+                  <label for="pic" class="">Photo: </label>
+                  <div class="upload">
+                    <input type="file" id="real-file0" name="pic" hidden="hidden"  accept="image/*"/>
+                    <button type="button" id="custom-button0" class="btn">
+                      Choose an image
+                    </button>
+                    <p id="custom-text0">No file chosen, yet.</p>
+                  </div>
+                </div>
+                                                <div class="sub text-right">
                                                 <button type="submit" class="member-submit-btn">Edit</button>
+</div>
                                             </form>
                                         </div>
                                     </div>
@@ -257,8 +265,8 @@
                     <hr/>
                 </div>
             @empty
-                <div class="container">
-                    <h1>No Team</h1>
+                <div class="no-content">
+                    <h4>No Team</h4>
                 </div>
             @endforelse
         </div>
@@ -267,5 +275,44 @@
 <!-- END TEAMS -->
 </div>
 <!-- END TEAM  ENDSS-->
+
+ <script>
+      const realFileBtn0 = document.getElementById("real-file0");
+      const customBtn0 = document.getElementById("custom-button0");
+      const customTxt0 = document.getElementById("custom-text0");
+
+      customBtn0.addEventListener("click", function () {
+        console.log("shubha")
+        realFileBtn0.click();
+      });
+
+      realFileBtn0.addEventListener("change", function () {
+        if (realFileBtn0.value) {
+          customTxt0.innerHTML = realFileBtn0.value.match(
+            /[\/\\]([\w\d\s\.\-\(\)]+)$/
+          )[1];
+        } else {
+          customTxt0.innerHTML = "No file choosen, yet.";
+        }
+      });
+       const realFileBtn1 = document.getElementById("real-file1");
+      const customBtn1 = document.getElementById("custom-button1");
+      const customTxt1 = document.getElementById("custom-text1");
+
+      customBtn1.addEventListener("click", function () {
+        realFileBtn1.click();
+      });
+
+      realFileBtn1.addEventListener("change", function () {
+        if (realFileBtn1.value) {
+          customTxt1.innerHTML = realFileBtn1.value.match(
+            /[\/\\]([\w\d\s\.\-\(\)]+)$/
+          )[1];
+        } else {
+          customTxt1.innerHTML = "No file choosen, yet.";
+        }
+      });
+      
+    </script>
 
 @endsection
