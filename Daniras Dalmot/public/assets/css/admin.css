@@ -13,9 +13,24 @@
     display: none;
 }
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
-
+html {
+    padding: 0;
+    margin: 0;
+}
 body {
     position: relative;
+}
+.superdiv {
+    min-height: 80vh;
+    padding-bottom: 11rem;
+}
+body .no-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto auto;
+    min-height: 40vh;
 }
 .alert {
     position: absolute;
@@ -48,9 +63,19 @@ button {
     font-family: "Josefin Sans", sans-serif;
 }
 
-header img {
+header .logo img {
     width: 100px;
     height: auto;
+}
+.todashboard img {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    margin-left: 2rem;
+    object-fit: cover;
+}
+.todashboard img:hover {
+    cursor: pointer;
 }
 
 nav ul {
@@ -195,7 +220,6 @@ nav ul {
 #admin-dashboard,
 #orders {
     min-height: 63.6vh;
-    background: #fbfbfb;
     padding: 2rem 0;
 }
 #admin-dashboard h3 {
@@ -368,7 +392,7 @@ nav ul {
 
 /* TEAM-ADMIN-STARTS */
 section.teamss.member {
-    margin-top: 2%;
+    padding: 0 5rem;
 }
 .teamss p.short-desc {
     width: 400px;
@@ -400,7 +424,7 @@ section.teamss.member {
     margin-bottom: 0.5rem;
 }
 .teamss .infoo .name {
-    color: var(--red);
+    color: var(--orange);
     font-weight: 700;
 }
 .teamss .infoo .post {
@@ -422,7 +446,7 @@ section.teamss.member {
     border: none;
     padding: 6px;
     border-radius: 8px;
-    background-color: var(--red);
+    background-color: var(--orange);
     color: white;
     box-shadow: 0 0 2px whitesmoke;
 }
@@ -432,18 +456,14 @@ section.teamss.member {
     justify-content: center;
 }
 .add-member-btn {
-    padding: 8px;
-    border: none;
-    background-color: var(--red);
-    color: white;
-    border-radius: 10px;
+    text-decoration: none;
+    background-color: var(--orange);
+    font-weight: 600;
+    border: 1px solid var(--red);
+    color: var(--white);
+    padding: 0.2rem 1rem;
 }
-.add-member-btn:hover {
-    background-color: var(--white);
-    color: black;
-    box-shadow: 0 0 5px black;
-    transition: 0.2s;
-}
+
 .add-img {
     background-color: whitesmoke;
     border: 1px solid silver;
@@ -461,8 +481,9 @@ section.teamss.member {
     background-color: #e83225;
     padding: 10px 15px 10px 15px;
     color: var(--white);
-    border-radius: 10px;
+    border-radius: 3px;
     border: none;
+    text-align: right;
 }
 .team-model-body {
     font-family: "Josefin Sans", sans-serif;
@@ -505,6 +526,18 @@ a.add {
     }
     .nav-btns a {
         margin: 0 0.4rem;
+    }
+}
+@media only screen and (max-width: 992px) {
+    section.teamss.member {
+        margin-top: 2%;
+        padding: 0 2rem;
+    }
+}
+@media only screen and (max-width: 768px) {
+    section.teamss.member {
+        margin-top: 2%;
+        padding: 0 1rem;
     }
 }
 
@@ -678,6 +711,24 @@ a.add {
     color: var(--red);
     background-color: var(--white);
 }
+#display-product button.download {
+    padding: 0.1rem 1rem;
+    border-radius: 0px;
+    margin-bottom: 0px;
+    background: none;
+    border: 0px solid var(--orange);
+    color: var(--orange);
+    font-weight: 100;
+}
+#display-product button.download:hover {
+    padding: 0.1rem 1rem;
+    border-radius: 0px;
+    margin-bottom: 0px;
+    background: none;
+    border: 0px solid var(--orange);
+    color: var(--orange);
+    font-weight: 100;
+}
 
 #display-product .product-details .product-name {
     display: flex;
@@ -815,6 +866,8 @@ a.add {
 /* FOOTER */
 
 .footer-basic {
+    position: absolute;
+    bottom: -20px;
     width: 100%;
     padding: 24px 0 16px;
     background-color: var(--orange);

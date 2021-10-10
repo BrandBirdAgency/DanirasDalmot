@@ -11,6 +11,16 @@
     --grey: #b3b2b2;
     font-family: "Josefin Sans", sans-serif;
 }
+body .no-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto auto;
+}
+body .no-content h4 {
+    color: var(--black);
+}
 body {
     font-family: "Josefin Sans", sans-serif;
     position: relative;
@@ -95,11 +105,20 @@ header.scrollingheader .cta:hover {
     background: var(--white);
     color: var(--black);
 }
-header img {
+header .logo img {
     width: 100px;
     height: auto;
 }
-
+.todashboard img {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    margin-left: 2rem;
+    object-fit: cover;
+}
+.todashboard img:hover {
+    cursor: pointer;
+}
 nav ul {
     margin: 0;
 }
@@ -2446,3 +2465,5 @@ form .btn:hover {
     color: vaR(--white);
 }
 /* END CONTACT PAGE */
+
+/* NAVBAR ADMIN TO DASHBOARD */
