@@ -12,8 +12,17 @@ class PublicController extends Controller
 {
     public function index()
     {
+        $hot= array();
+        $products = Product::all();
         $about = About::first();
-        return view('index', compact('about'));
+        foreach($products as $pro)
+        {
+            if($pro->hot)
+            {
+                $hot[] = $pro;
+            }
+        }
+        return view('index', compact('about','hot'));
     }
 
     public function about()
