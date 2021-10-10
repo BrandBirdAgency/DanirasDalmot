@@ -13,12 +13,10 @@
     />
 @endsection
 @section('content')
-@if (Session::has('success'))
     <div class="alert alert-success alert-dismissible in">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
       <strong>Success!</strong> Product edited !!
     </div>
- @endif
 
     <div class="back-btn">
   <a href="#/" class="btn ml-4 mb-3">Back</a>
@@ -34,20 +32,6 @@
               @csrf
             <div class="row">
               <div class="col-md-4 col-12">
-
-                <div class="form-group">
-                  <label for="inp" class=""> Product Code </label>
-
-                  <input
-                    type="number"
-                    id="cod"
-                    class="form-control form-control-sm"
-                    name="code"
-                  />
-                  @error('code')
-                      {{$message}}
-                  @enderror
-                </div>
                 <div class="form-group">
                   <label for="inp" class=""> Product Name </label>
 
@@ -89,10 +73,6 @@
 
                   </select>
                 </div>
-
-
-              </div>
-              <div class="col-md-4 col-12">
                 <div class="form-group">
                   <label for="inouttextarea">Size</label>
                   <input
@@ -105,6 +85,7 @@
                   {{$message}}
               @enderror
                 </div>
+
 
               </div>
               <div class="col-md-4 col-12">
@@ -177,7 +158,7 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="inputfile" class="">Qr Code (Optional)</label>
+                  <label for="inputfile" class="">Qr Code </label>
                   <div class="upload">
                     <input type="file" name="qr" id="real-file2" hidden="hidden" />
                     <button type="button" id="custom-button2" class="btn">
@@ -188,7 +169,7 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="inputfile" class="">Bar Code (Optional)</label>
+                  <label for="inputfile" class="">Bar Code </label>
                   <div class="upload">
                     <input type="file" name="bar" id="real-file1" hidden="hidden" />
                     <button type="button" id="custom-button1" class="btn">
@@ -199,7 +180,7 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputtextarea">Bar Number (Optional)</label>
+                  <label for="inputtextarea">Bar Number</label>
                   <input
                     type="number"
                     id="inp"

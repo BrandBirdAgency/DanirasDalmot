@@ -110,7 +110,11 @@
       {!! $product->bar_code!!}
   @else
 
-  <img src="<?php echo asset("storage/brcode/$product->bar_path")?>" alt="no image found" class="img-fluid rounded mt-3">
+  <img
+  src="{{$product->bar_path}}"
+  alt="team"
+  class="img-fluid"
+/>
       @endif
 </div>
 <div class="qr-code">
@@ -122,7 +126,11 @@
         {!! $product->qr_code!!}
     @else
 
-    <img src="<?php echo asset("storage/qrcodes/$product->qr_path")?>" alt="no image found" class="img-fluid rounded mt-3">
+          <img
+              src="{{$product->qr_path}}"
+              alt="team"
+              class="img-fluid"
+          />
         @endif
 </div>
             </div>
