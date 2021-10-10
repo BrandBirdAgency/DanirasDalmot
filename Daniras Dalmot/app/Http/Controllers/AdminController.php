@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\Team;
 use Illuminate\Http\Request;
@@ -27,7 +28,15 @@ class AdminController extends Controller
 
     public function orders()
     {
-        return view('admin.orders');
+        $orders = Order::join('products','orders.product_id','=','products.id')->select('orders.*','products.name as productname')->get();
+        return view('admin.orders',compact('orders'));
+    }
+    public function orderStatus($id)
+    {
+        Order::find($id)->status = 1;
+
+        return redirect()->route('orders');
+
     }
 
     public function teams()

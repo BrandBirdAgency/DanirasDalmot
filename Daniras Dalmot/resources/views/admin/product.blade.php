@@ -64,7 +64,7 @@
           <a href={{route('product.show',['id'=>$p->id])}}>
           <div class="card card-text-center" id="product-card">
             <img
-              src={{Storage::url($p->photo)}}
+              src="{{Storage::url($p->photo)}}"
               class="card-img-top"
             />
             <div class="card-body product-body">

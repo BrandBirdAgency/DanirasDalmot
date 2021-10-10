@@ -36,22 +36,6 @@
               @csrf
             <div class="row">
               <div class="col-md-4 col-12">
-
-
-                <div class="form-group">
-                  <label for="inp" class=""> Product Code </label>
-
-                  <input
-                    type="number"
-                    id="cod"
-                    class="form-control form-control-sm"
-                    name="code"
-                  />
-                  @error('code')
-                      {{$message}}
-                  @enderror
-                </div>
-
                 <div class="form-group">
                   <label for="inp" class=""> Product Name </label>
 
@@ -79,8 +63,6 @@
                   {{$message}}
               @enderror
                 </div>
-
-
                 <div class="form-group">
                   <label for="inouttextarea">Category</label>
                   <select
@@ -95,11 +77,6 @@
 
                   </select>
                 </div>
-
-
-
-              </div>
-              <div class="col-md-4 col-12">
                 <div class="form-group">
                   <label for="inouttextarea">Size</label>
                   <input
@@ -113,6 +90,9 @@
               @enderror
                 </div>
 
+
+              </div>
+              <div class="col-md-4 col-12">
                 <div class="form-group">
                   <label for="inp" class="">Brand Name</label>
 
@@ -180,10 +160,22 @@
                     {{$message}}
                     @enderror
                 </div>
+
+                <div class="form-group">
+                  <label for="inputfile" class="">Qr Code </label>
+                  <div class="upload">
+                    <input type="file" name="qr" id="real-file2" hidden="hidden" />
+                    <button type="button" id="custom-button2" class="btn">
+                      Choose an image
+                    </button>
+                    <p id="custom-text2">No file chosen, yet.</p>
+                  </div>
+                </div>
+
                 <div class="form-group">
                   <label for="inputfile" class="">Bar Code </label>
                   <div class="upload">
-                    <input type="file"  id="real-file1" hidden="hidden" />
+                    <input type="file" name="bar" id="real-file1" hidden="hidden" />
                     <button type="button" id="custom-button1" class="btn">
                       Choose an image
                     </button>
@@ -192,15 +184,18 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputfile" class="">Qr Code </label>
-                  <div class="upload">
-                    <input type="file" id="real-file2" hidden="hidden" />
-                    <button type="button" id="custom-button2" class="btn">
-                      Choose an image
-                    </button>
-                    <p id="custom-text2">No file chosen, yet.</p>
-                  </div>
+                  <label for="inputtextarea">Bar Number</label>
+                  <input
+                    type="number"
+                    id="inp"
+                    class="form-control form-control-sm"
+                    name="b_num"
+                  />
+                  @error('price')
+                    {{$message}}
+                  @enderror
                 </div>
+
               </div>
             </div>
 

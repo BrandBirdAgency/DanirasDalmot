@@ -62,9 +62,12 @@ Route::prefix('admin')->group(function () {
         Route::post('product-update/{id}', [ProductController::class, 'update'])->name('product.update');
         Route::get('product-delete/{id}', [ProductController::class, 'destroy'])->name('product.delete');
         Route::get('/qr-download/{id}', [ProductController::class, 'qrDownload'])->name('qrcode.download');
+        Route::get('/br-download/{id}', [ProductController::class, 'brDownload'])->name('brcode.download');
+
 
         // Orders
         Route::get('/orders', [AdminController::class, 'orders'])->name('orders');
+        Route::get('orderstatus/{id}',[AdminController::class,'orderStatus'])->name('orderstatus');
 
         // Teams
         Route::get('/teams', [AdminController::class, 'teams'])->name('teams');

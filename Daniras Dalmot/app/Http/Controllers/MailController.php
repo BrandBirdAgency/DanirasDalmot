@@ -32,6 +32,7 @@ class MailController extends Controller
                 'username'=> 'required',
                 'address' => 'required',
                 'phone' => 'required|digits_between:10,10|numeric',
+                'email' => 'required|email',
             ]
             );
          // Storing In DB
@@ -39,6 +40,7 @@ class MailController extends Controller
          $order->name = $res->username;
          $order->phone = $res->phone;
          $order->address = $res ->address;
+         $order -> email = $res -> email;
          $order->product_id = $res -> product_id;
          $order->quantity = $res -> quantity;
          $order->price = $res -> price;

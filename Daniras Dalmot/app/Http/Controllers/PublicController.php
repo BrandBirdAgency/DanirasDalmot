@@ -31,8 +31,15 @@ class PublicController extends Controller
     public function product($id = null)
     {
         $products = Product::all();
+
+        if(Product::first())
+        {
         $id = Product::first()->id;
         return view('products', compact('products', 'id'));
+        }
+        else
+        return view('products',compact('products'));
+
     }
 
     public function orderSuccess()

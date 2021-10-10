@@ -13,6 +13,7 @@
     />
 @endsection
 @section('content')
+ @if (Session::has('sucess'))
 
 @if (Session::has('success'))
 <div class="alert alert-success alert-dismissible in">

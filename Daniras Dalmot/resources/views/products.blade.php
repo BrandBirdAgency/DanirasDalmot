@@ -42,7 +42,7 @@
         @if($p->id==$id)
       <div class="product-main">
         <div class="product-image" data-tilt>
-          <img src={{Storage::url($p->photo)}} alt="" />
+          <img src="{{Storage::url($p->photo)}}" alt="" />
         </div>
         <div class="product-details">
           <div class="product-name">
@@ -136,6 +136,18 @@
                     {{$message}}
                     @enderror
                   </div>
+                  <div class="form-group">
+                    <label for="Phone">Email:</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="Phone"
+                      name="email"
+                    />
+                    @error('email')
+                    {{$message}}
+                    @enderror
+                  </div>
                   <button type="submit" class="submit-btn">Proceed</button>
                 </form>
               </div>
@@ -164,7 +176,7 @@
             <div class="swiper-slide">
               <div class="image">
                 <img
-                  src={{Storage::url($p->photo)}}
+                  src="{{Storage::url($p->photo)}}"
                   alt=""
                   class="slider-image"
                 />
