@@ -1,11 +1,15 @@
 <!-- FOOTER -->
 
+@php
+    $about = App\Models\About::first();
+@endphp
+
 <div class="footer-basic">
     <footer>
         <div class="social">
-            <a href="#"><i class="icon ion-social-facebook"></i></a>
-            <a href="#"><i class="icon ion-social-instagram"></i></a>
-            <a href="#"><i class="icon ion-social-twitter"></i></a>
+            <a href="{{$about->facebook}}"><i class="icon ion-social-facebook"></i></a>
+            <a href="{{$about->instagram}}"><i class="icon ion-social-instagram"></i></a>
+            <a href="{{$about->twitter}}"><i class="icon ion-social-twitter"></i></a>
         </div>
         <ul class="list-inline">
             <li class="list-inline-item"><a href="{{ route('homepage') }}">Home</a></li>
@@ -15,7 +19,7 @@
             <li class="list-inline-item"><a href="{{ route('contactpage') }}">Contact</a></li>
         </ul>
 
-        <p class="copyright">{{App\Models\About::first()->name}} © {{ date('Y') }}</p>
+        <p class="copyright">{{$about->name}} © {{ date('Y') }}</p>
     </footer>
 </div>
 
