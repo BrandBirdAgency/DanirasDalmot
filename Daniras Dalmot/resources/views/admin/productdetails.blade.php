@@ -102,15 +102,15 @@
  <div class="line"></div>
             <div class="images codes">
                 <div class="bar-code">
-                    <p class="det"><span>Bar-Code : <button type="button" class="btn download" data-toggle="tooltip" data-placement="top" title="Download bar code">
+                    <p class="det"><span>Bar-Code : <a href="{{ route('qrcode.download', $product->id) }}" role="button"class="btn download" data-toggle="tooltip" data-placement="top" title="Download bar code">
                       <i class="fas fa-download"></i>
-</button></span></p>
+                    </a></span></p>
 {!! $product->bar_code!!}
 </div>
 <div class="qr-code">
-    <p class="det"><span>Qr-Code :  <button type="button" class="btn download" data-toggle="tooltip" data-placement="top" title="Download qr code">
+    <p class="det"><span>Qr-Code : <a href="{{ route('qrcode.download', $product->id) }}" role="button" data-toggle="tooltip" data-placement="top" title="Download qr code">
                       <i class="fas fa-download"></i>
-</button></span></p>
+    </a></span></p>
 {!! $product->qr_code!!}
 </div>
             </div>

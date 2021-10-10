@@ -118,7 +118,11 @@ class ProductController extends Controller
         $p=Product::find($id);
         return Storage::download( $p->qr_path);
     }
-
+    public function brDownload($id)
+    {
+        $p=Product::find($id);
+        return Storage::download( $p->bar_path);
+    }
     /**
      * Display the specified resource.
      */
