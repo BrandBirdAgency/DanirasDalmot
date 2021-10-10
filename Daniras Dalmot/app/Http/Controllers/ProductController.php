@@ -110,7 +110,7 @@ class ProductController extends Controller
         
         $product->save();
 
-        return redirect()->route('product.index');
+        return back()->with('sucess');
     }
 
     public function qrDownload($id)
@@ -174,7 +174,7 @@ class ProductController extends Controller
         $product->brand_name = $req->brand_name;
         $product->size = $req->size;
         $product->save();
-        return redirect()->route('product.index');
+        return back()->with('sucess');
     }
 
     /**

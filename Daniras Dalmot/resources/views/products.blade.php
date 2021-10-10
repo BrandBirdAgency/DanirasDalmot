@@ -136,6 +136,18 @@
                     {{$message}}
                     @enderror
                   </div>
+                  <div class="form-group">
+                    <label for="Phone">Email:</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="Phone"
+                      name="email"
+                    />
+                    @error('email')
+                    {{$message}}
+                    @enderror
+                  </div>
                   <button type="submit" class="submit-btn">Proceed</button>
                 </form>
               </div>
