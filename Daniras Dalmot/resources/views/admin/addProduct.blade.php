@@ -144,9 +144,24 @@
                   {{$message}}
               @enderror
                 </div>
+
               </div>
+        
 
               <div class="col-md-4 col-12 text-left">
+                 <div class="form-group">
+                  <label for="inputtextarea">Bar Number (Optional)</label>
+                  <input
+                    type="number"
+                    id="inp"
+                    class="form-control form-control-sm"
+                    name="b_num"
+                  />
+                  @error('price')
+                    {{$message}}
+                  @enderror
+                </div>
+
                 <div class="form-group">
                   <label for="inputfile" class="">Product Image </label>
                   <div class="upload">
@@ -183,19 +198,7 @@
 
                   </div>
                 </div>
-                <div class="form-group">
-                  <label for="inputtextarea">Bar Number</label>
-                  <input
-                    type="number"
-                    id="inp"
-                    class="form-control form-control-sm"
-                    name="b_num"
-                  />
-                  @error('price')
-                    {{$message}}
-                  @enderror
-                </div>
-
+               
               </div>
             </div>
 
