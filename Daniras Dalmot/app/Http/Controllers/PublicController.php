@@ -31,14 +31,14 @@ class PublicController extends Controller
     public function product($id = null)
     {
         $products = Product::all();
-
+        if($id == null)
+        {
         if(Product::first())
         {
         $id = Product::first()->id;
-        return view('products', compact('products', 'id'));
         }
-        else
-        return view('products',compact('products'));
+    }
+        return view('products', compact('products', 'id'));
 
     }
 
