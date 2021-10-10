@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 10, 2021 at 07:11 AM
+-- Generation Time: Oct 10, 2021 at 07:18 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -171,6 +171,7 @@ CREATE TABLE `products` (
   `photo` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `in_stock` int(1) NOT NULL DEFAULT 0,
+  `hot` int(1) NOT NULL DEFAULT 0,
   `retail_price` double(8,2) NOT NULL,
   `discount` int(2) NOT NULL,
   `price` int(11) NOT NULL,
