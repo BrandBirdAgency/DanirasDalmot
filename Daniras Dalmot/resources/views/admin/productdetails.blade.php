@@ -53,7 +53,7 @@
          <section id="display-product">
         <div class="product-main">
           <div class="product-image">
-            <img src={{Storage::url($product->photo)}} alt="" />
+            <img src="{{Storage::url($product->photo)}}" alt="" />
 
           </div>
           <div class="product-details">

@@ -42,7 +42,7 @@
         @if($p->id==$id)
       <div class="product-main">
         <div class="product-image" data-tilt>
-          <img src={{Storage::url($p->photo)}} alt="" />
+          <img src="{{Storage::url($p->photo)}}" alt="" />
         </div>
         <div class="product-details">
           <div class="product-name">
@@ -176,7 +176,7 @@
             <div class="swiper-slide">
               <div class="image">
                 <img
-                  src={{Storage::url($p->photo)}}
+                  src="{{Storage::url($p->photo)}}"
                   alt=""
                   class="slider-image"
                 />
