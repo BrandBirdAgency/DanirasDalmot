@@ -102,16 +102,28 @@
  <div class="line"></div>
             <div class="images codes">
                 <div class="bar-code">
-                    <p class="det"><span>Bar-Code : <button type="button" class="btn download" data-toggle="tooltip" data-placement="top" title="Download bar code">
+                    <p class="det"><span>Bar-Code : <a href="{{ route('qrcode.download', $product->id) }}" role="button"class="btn download" data-toggle="tooltip" data-placement="top" title="Download bar code">
                       <i class="fas fa-download"></i>
-</button></span></p>
-                <img src="../assets/images/team1.jpg" alt="">
+                    </a></span></p>
+  @if($product->bar_code!=NULL)
+
+      {!! $product->bar_code!!}
+  @else
+
+  <img src="<?php echo asset("storage/brcode/$product->bar_path")?>" alt="no image found" class="img-fluid rounded mt-3">
+      @endif
 </div>
 <div class="qr-code">
-    <p class="det"><span>Qr-Code :  <button type="button" class="btn download" data-toggle="tooltip" data-placement="top" title="Download qr code">
+    <p class="det"><span>Qr-Code : <a href="{{ route('qrcode.download', $product->id) }}" role="button" data-toggle="tooltip" data-placement="top" title="Download qr code">
                       <i class="fas fa-download"></i>
-</button></span></p>
-                <img src="../assets/images/team1.jpg" alt="">
+    </a></span></p>
+    @if($product->qr_code!=NULL)
+
+        {!! $product->qr_code!!}
+    @else
+
+    <img src="<?php echo asset("storage/qrcodes/$product->qr_path")?>" alt="no image found" class="img-fluid rounded mt-3">
+        @endif
 </div>
             </div>
 
