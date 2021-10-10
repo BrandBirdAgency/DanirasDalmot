@@ -14,7 +14,7 @@
 @endsection
 @section('content')
 <div class="back-btn">
-  <a href="#/" class="btn ml-4 mb-3">Back</a>
+  <a href="{{route('dashboard')}}" class="btn ml-4 mb-3">Back</a>
 </div>
     <section id="orders">
         <div class="container">
