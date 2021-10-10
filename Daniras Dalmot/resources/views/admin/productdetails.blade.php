@@ -105,13 +105,25 @@
                     <p class="det"><span>Bar-Code : <a href="{{ route('qrcode.download', $product->id) }}" role="button"class="btn download" data-toggle="tooltip" data-placement="top" title="Download bar code">
                       <i class="fas fa-download"></i>
                     </a></span></p>
-{!! $product->bar_code!!}
+  @if($product->bar_code!=NULL)
+
+      {!! $product->bar_code!!}
+  @else
+
+  <img src="<?php echo asset("storage/brcode/$product->bar_path")?>" alt="no image found" class="img-fluid rounded mt-3">
+      @endif
 </div>
 <div class="qr-code">
     <p class="det"><span>Qr-Code : <a href="{{ route('qrcode.download', $product->id) }}" role="button" data-toggle="tooltip" data-placement="top" title="Download qr code">
                       <i class="fas fa-download"></i>
     </a></span></p>
-{!! $product->qr_code!!}
+    @if($product->qr_code!=NULL)
+
+        {!! $product->qr_code!!}
+    @else
+
+    <img src="<?php echo asset("storage/qrcodes/$product->qr_path")?>" alt="no image found" class="img-fluid rounded mt-3">
+        @endif
 </div>
             </div>
 

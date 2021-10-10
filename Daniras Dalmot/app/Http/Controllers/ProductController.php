@@ -51,7 +51,7 @@ class ProductController extends Controller
 
         $latest=Product::orderBy('created_at', 'desc')->first();
         if($latest==NULL){
-        $product->id=1000;
+        $product->id=10000;
         $latest=10000;
         }
         else
@@ -73,14 +73,14 @@ class ProductController extends Controller
      
 
             $extension = $req->file('qr')->getClientOriginalExtension();
-            $fileNameToStore = 'qrcodes/Product_' . $latest. '.' . $extension;
+            $fileNameToStore = 'qrcodes/qrcodes/Qr_Product_' . $latest. '.' . $extension;
             $req->file('qr')->storeAs('qrcodes', $fileNameToStore);
             $product->qr_path=$fileNameToStore; 
         } else {
             $image = \QrCode::format('svg')
             ->size(200)->errorCorrection('H')
             ->generate("www.danirasdalmoth.com/product/$latest");
-            $output_file = 'qrcodes/Product_' . $latest . '.svg';
+            $output_file = 'qrcodes/QrCode_Product_' . $latest . '.svg';
             Storage::disk('local')->put($output_file, $image);
             $product->qr_code=$image;
             $product->qr_path=$output_file; 
@@ -91,7 +91,7 @@ class ProductController extends Controller
 
        if ($req->hasFile('bar')) { 
             $extension = $req->file('bar')->getClientOriginalExtension();
-            $fileNameToStore = 'barcode/Product_' . $latest. '.' . $extension;
+            $fileNameToStore = 'barcode/barcode/BarProduct_' . $latest. '.' . $extension;
             $req->file('bar')->storeAs('barcode', $fileNameToStore);
             $product->bar_path=$fileNameToStore; 
             $product->bar_number=$req->b_num;
@@ -100,7 +100,7 @@ class ProductController extends Controller
         } else {
             $generator = new Picqer\Barcode\BarcodeGeneratorSVG();
             $barcode=$generator->getBarcode($barnumber, $generator::TYPE_CODE_128);
-            $output_file = 'barcode/Product_' .$latest . '.svg';
+            $output_file = 'barcode/BarProduct_' .$latest . '.svg';
             Storage::disk('local')->put($output_file, $barcode);
             $product->bar_path=$output_file; 
             $product->bar_code=$barcode;

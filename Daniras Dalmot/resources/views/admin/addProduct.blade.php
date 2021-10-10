@@ -158,7 +158,7 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="inputfile" class="">Qr Code </label>
+                  <label for="inputfile" class="">Qr Code (Optional)</label>
                   <div class="upload">
                     <input type="file" name="qr" id="real-file2" hidden="hidden" />
                     <button type="button" id="custom-button2" class="btn">
@@ -169,7 +169,7 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="inputfile" class="">Bar Code </label>
+                  <label for="inputfile" class="">Bar Code (Optional)</label>
                   <div class="upload">
                     <input type="file" name="bar" id="real-file1" hidden="hidden" />
                     <button type="button" id="custom-button1" class="btn">
@@ -180,7 +180,7 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputtextarea">Bar Number</label>
+                  <label for="inputtextarea">Bar Number (Optional)</label>
                   <input
                     type="number"
                     id="inp"
