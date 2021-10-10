@@ -49,7 +49,6 @@ Route::prefix('/contact')->group(
 
 // Admin
 Route::prefix('admin')->group(function () {
-    Route::view('/login', 'auth.login')->name('adminLogin');
     Route::middleware(['auth'])->group(function () {
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
