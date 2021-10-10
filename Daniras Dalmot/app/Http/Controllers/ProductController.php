@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Picqer;
+use Illuminate\Support\Str;
+
 
 class ProductController extends Controller
 {
@@ -70,39 +72,41 @@ class ProductController extends Controller
 
         //For QR CODE
         if ($req->hasFile('qr')) {
-     
 
-            $extension = $req->file('qr')->getClientOriginalExtension();
-            $fileNameToStore = 'qrcodes/qrcodes/Qr_Product_' . $latest. '.' . $extension;
-            $req->file('qr')->storeAs('qrcodes', $fileNameToStore);
-            $product->qr_path=$fileNameToStore; 
+            $imageName = 'Qr_Product_' . $latest. '.' . $req->file('qr')->extension();
+            $req->file('qr')->storeAs('public/images/qrcode', $imageName);
+            $product->qr_path='/storage/images/qrcode/' . $imageName;
+           
+
+     
         } else {
             $image = \QrCode::format('svg')
             ->size(200)->errorCorrection('H')
             ->generate("www.danirasdalmoth.com/product/$latest");
-            $output_file = 'qrcodes/QrCode_Product_' . $latest . '.svg';
-            Storage::disk('local')->put($output_file, $image);
+            $output_file = 'QrCode_Product_' . $latest . '.svg';
+            Storage::put('public/images/qrcode/'.$output_file, $image);
+
             $product->qr_code=$image;
-            $product->qr_path=$output_file; 
+            $product->qr_path='storage/images/qrcode/' . $output_file; 
+
         }
      
 
        $barnumber='067244'.$latest.'1';
 
        if ($req->hasFile('bar')) { 
-            $extension = $req->file('bar')->getClientOriginalExtension();
-            $fileNameToStore = 'barcode/barcode/BarProduct_' . $latest. '.' . $extension;
-            $req->file('bar')->storeAs('barcode', $fileNameToStore);
-            $product->bar_path=$fileNameToStore; 
+            $imageName = 'Bar_Product_' . $latest. '.' . $req->file('bar')->extension();
+            $req->file('bar')->storeAs('public/images/barcode', $imageName);
+            $product->bar_path='storage/images/barcode/' . $imageName; 
             $product->bar_number=$req->b_num;
 
 
         } else {
             $generator = new Picqer\Barcode\BarcodeGeneratorSVG();
             $barcode=$generator->getBarcode($barnumber, $generator::TYPE_CODE_128);
-            $output_file = 'barcode/BarProduct_' .$latest . '.svg';
-            Storage::disk('local')->put($output_file, $barcode);
-            $product->bar_path=$output_file; 
+            $output_file = 'Bar_Product_' .$latest . '.svg';
+            Storage::put('public/images/barcode/'.$output_file, $barcode);
+            $product->bar_path='storage/images/barcode/' . $output_file; 
             $product->bar_code=$barcode;
             $product->bar_number=$barnumber;
         }
@@ -116,12 +120,16 @@ class ProductController extends Controller
     public function qrDownload($id)
     {
         $p=Product::find($id);
-        return Storage::download( $p->qr_path);
+        $file = Str::substr( $p->qr_path, 22, Str::length( $p->qr_path));
+        return Storage::download('/public/images/qrcode/' . $file);
     }
     public function brDownload($id)
     {
         $p=Product::find($id);
-        return Storage::download( $p->bar_path);
+     
+            $file = Str::substr( $p->bar_path, 23, Str::length( $p->bar_path));
+            return Storage::download('/public/images/barcode/' . $file);
+
     }
     /**
      * Display the specified resource.
