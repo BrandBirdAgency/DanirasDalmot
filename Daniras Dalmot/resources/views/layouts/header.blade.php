@@ -17,11 +17,11 @@
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
         </form>
+        <a href="{{route('dashboard')}}" class="todashboard"><img src="{{asset('/assets/images/team3.jpg')}}" alt=""></a>
     @else
         <a class="cta" href="{{ route('adminLogin') }}">Login</a>
         <a class="menu cta" href="{{ route('adminLogin') }}">Login</a>
     @endif
-    <a href="{{route('dashboard')}}" class="todashboard"><img src="{{asset('/assets/images/team3.jpg')}}" alt=""></a>
 </header>
 
 <div id="mobile__menu" class="overlay">
