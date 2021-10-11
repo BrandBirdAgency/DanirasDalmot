@@ -124,7 +124,7 @@
       @endif
 </div>
 <div class="qr-code">
-    <p class="det"><span>Qr-Code : <a href="{{ route('qrcode.download', $product->id) }}" role="button" data-toggle="tooltip" data-placement="top" title="Download qr code">
+    <p class="det"><span>Qr-Code : <a href="{{ route('qrcode.download', $product->id) }}" class="btn download" role="button" data-toggle="tooltip" data-placement="top" title="Download qr code">
                       <i class="fas fa-download"></i>
     </a></span></p>
     @if($product->qr_code!=NULL)

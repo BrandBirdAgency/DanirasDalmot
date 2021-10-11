@@ -20,6 +20,9 @@
         </ul>
 
         <p class="copyright">{{$about->name}} © {{ date('Y') }}</p>
+        <div class="ourcompany">
+        <p class="mb-0">POWERED BY <a href="https://101infotech.com.np/" >101INFOTECH</a></p>
+</div>
     </footer>
 </div>
 

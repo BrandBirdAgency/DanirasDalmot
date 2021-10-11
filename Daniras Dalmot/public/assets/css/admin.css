@@ -21,7 +21,7 @@ body {
     position: relative;
 }
 .superdiv {
-    min-height: 80vh;
+    min-height: 90vh;
     padding-bottom: 11rem;
 }
 body .no-content {
@@ -206,6 +206,18 @@ nav ul {
     .menu {
         display: initial;
     }
+    .cta {
+        margin: 0;
+        margin-left: 20px;
+
+        padding: 2px 15px;
+        background-color: var(--orange);
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+        color: var(--white);
+    }
 }
 /*admin form*/
 
@@ -219,7 +231,6 @@ nav ul {
 
 #admin-dashboard,
 #orders {
-    min-height: 63.6vh;
     padding: 2rem 0;
 }
 #admin-dashboard h3 {
@@ -711,7 +722,7 @@ a.add {
     color: var(--red);
     background-color: var(--white);
 }
-#display-product button.download {
+#display-product a.download {
     padding: 0.1rem 1rem;
     border-radius: 0px;
     margin-bottom: 0px;
@@ -720,7 +731,7 @@ a.add {
     color: var(--orange);
     font-weight: 100;
 }
-#display-product button.download:hover {
+#display-product a.download:hover {
     padding: 0.1rem 1rem;
     border-radius: 0px;
     margin-bottom: 0px;
@@ -869,7 +880,7 @@ a.add {
     position: absolute;
     bottom: -20px;
     width: 100%;
-    padding: 24px 0 16px;
+    padding: 24px 0 0 0;
     background-color: var(--orange);
     color: var(--white);
 }
@@ -926,5 +937,15 @@ a.add {
     font-size: 16px;
     color: #fff;
     margin-bottom: 0;
+}
+.footer-basic .ourcompany {
+    text-align: center;
+    background: #000;
+    padding: 0.4rem 0;
+    margin-top: 0.5rem;
+    font-size: 15px;
+}
+.footer-basic .ourcompany a {
+    color: var(--white);
 }
 /* FOOTER  Ends*/
