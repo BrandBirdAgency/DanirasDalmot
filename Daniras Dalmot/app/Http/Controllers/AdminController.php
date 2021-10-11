@@ -106,5 +106,18 @@ class AdminController extends Controller
 
         return redirect()->back()->with('success', 'Changes have been saved successfully!!');
     }
+    
+    public function orderUpdate(Request $req)
+    {
+        if ($req->ajax()) {
+            $data = $req->all();
+            if ($data['display'] == 1) {
+                $data['display'] = 0;
+            } else {
+                $data['display'] = 1;
+            }
+            Order::where('id', $data['orderId'])->update(['status' => $data['display']]);
+        }
+    }
 
 }
