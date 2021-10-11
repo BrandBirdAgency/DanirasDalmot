@@ -106,4 +106,5 @@ class AdminController extends Controller
 
         return redirect()->back()->with('success', 'Changes have been saved successfully!!');
     }
+
 }

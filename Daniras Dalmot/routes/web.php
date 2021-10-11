@@ -62,6 +62,10 @@ Route::prefix('admin')->group(function () {
         Route::get('product-delete/{id}', [ProductController::class, 'destroy'])->name('product.delete');
         Route::get('/qr-download/{id}', [ProductController::class, 'qrDownload'])->name('qrcode.download');
         Route::get('/br-download/{id}', [ProductController::class, 'brDownload'])->name('brcode.download');
+        Route::post('/update-Product', [ProductController::class, 'stockUpdate'])->name('updateProductStock');
+        Route::post('/update-Home', [ProductController::class, 'homeUpdate'])->name('updateHome');
+
+
 
 
         // Orders

@@ -78,11 +78,16 @@
               <p class="det"><span>Category :</span> {{$product->category}}</p>
               <p class="det"><span>Size : </span>{{$product->size}}</p>
               <p class="det"><span>Brand Name : </span>{{$product->brand_name}}</p>
-            <p>In Stock :  <label class="switch ml-2">
+            <p>In Stock : 
+              <label class="switch ml-2">
+                <input type="checkbox" name="stock" id="{{$product->id}}" product_id="{{$product->id}}" value="{{$product->in_stock}}" class="toggle__input" @if ($product->in_stock) checked @endif  />
+                <span class="slider round"></span>
+            </label>
 
-  <input type="checkbox" checked>
-  <span class="slider round"></span>
-</label> </p>
+              
+              
+       
+ </p>
 
 
 
@@ -93,10 +98,11 @@
               <p class="det"><span>Discount :</span> {{$product->discount}}%</p>
                             <p>Show In Home :  <label class="switch ml-2">
 
-  <input type="checkbox" checked>
-  <span class="slider round"></span>
-</label></p>
-</div>
+                              <input type="checkbox" id="{{$product->id}}" name="home" product_id="{{$product->id}}" value="{{$product->home}}" class="toggle__input" @if ($product->home) checked @endif  />
+
+                    <span class="slider round"></span>
+                  </label></p>
+                  </div>
 </div>
             </div>
  <div class="line"></div>
@@ -149,7 +155,49 @@
         </div>
       </section>
 
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+<script>
+   
+      $("input[name='stock']").change(function(){
+        var display = $(this).attr('value');
+        var productId = $(this).attr("product_id");
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            type: 'POST',
+            url: "{{route('updateProductStock')}}",
+            data: { "_token": "{{ csrf_token() }}",display:display, productId:productId},
+            success: function(resp){
+            },
+            error: function(){
+                alert("Error");
+            }
+        });
+    });
+
+    $("input[name='home']").change(function(){
+        var display = $(this).attr('value');
+        var productId = $(this).attr("product_id");
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            type: 'POST',
+            url: "{{route('updateHome')}}",
+            data: { "_token": "{{ csrf_token() }}",display:display, productId:productId},
+            success: function(resp){
+            },
+            error: function(){
+                alert("Error");
+            }
+        });
+    });
+</script>
 @endsection
+
+
 @section('js')
         <!-- Script Source Files -->
         <script src="script.js"></script>
