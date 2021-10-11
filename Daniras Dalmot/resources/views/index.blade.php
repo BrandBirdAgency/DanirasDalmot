@@ -89,7 +89,7 @@
               <div class="product-bottom-details">
                 <div class="product-price"><small>Rs.{{$product->retail_price}}</small>Rs.{{$product->price}}</div>
                 <div class="product-links">
-                  <a href=""><i class="fa fa-shopping-cart"></i></a>
+                  <a href="{{route('productpage' ,$product->id)}}"><i class="fa fa-shopping-cart"></i></a>
                 </div>
               </div>
             </div>
