@@ -71,6 +71,8 @@ Route::prefix('admin')->group(function () {
         // Orders
         Route::get('/orders', [AdminController::class, 'orders'])->name('orders');
         Route::get('orderstatus/{id}',[AdminController::class,'orderStatus'])->name('orderstatus');
+        Route::post('/update-Order', [AdminController::class, 'orderUpdate'])->name('orderUpdate');
+
 
         // Teams
         Route::get('/teams', [AdminController::class, 'teams'])->name('teams');

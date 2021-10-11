@@ -41,16 +41,9 @@
                     <tr>
                         <td>{{$order->id}}</td>
                         <td class="d-flex justify-content-center align-items-center">
-                            <label class="form-check-label" for="check1">
-                                @if($order->status==1)
-                                <a href={{route("orderstatus",$order->id)}}>
-                                    <input type="checkbox" class="form-check-input" id="check1" name="status" value="{{$order->status}}" checked>
-                                </a>
-                                @else
-                                <a href={{route("orderstatus",$order->id)}}>
-                                    <input type="checkbox" class="form-check-input" id="check1" name="status" value="{{$order->status}}" >
-                                </a>
-                                @endif
+                            <label class="form-check-label" for="{{$order->id}}">
+                              <input type="checkbox" id="{{$order->id}}" name="home" order_id="{{$order->id}}" value="{{$order->status}}" class="form-check-input" @if ($order->status) checked @endif  />
+
                             </label>
                         </td>
                         <td>{{$order->productname}}</td>
@@ -69,4 +62,27 @@
             </table>
         </div>
     </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+    $("input:checkbox").change(function (){
+        var display = $(this).attr('value');
+        var orderId = $(this).attr("order_id");
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            type: 'POST',
+            url: "{{route('updateOrder')}}",
+            data: { "_token": "{{ csrf_token() }}",display:display, productId:productId},
+            success: function(resp){
+            },
+            error: function(){
+                alert("Error");
+            }
+        });
+    });
+</script>
+
 @endsection
