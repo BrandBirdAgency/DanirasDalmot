@@ -167,7 +167,9 @@
                 </div>
                 </div>
               </div>
-            </div>
+            
+
+
 
             <div class="submitbtn">
               <button type="submit" class="btn upload">
@@ -175,8 +177,9 @@
               </button>
             </div>
           </form>
-        </div>
-      </div>
+          </div>
+</div>
+  
 @endsection
 @section('js')
 

@@ -37,7 +37,7 @@
 
   <!-- PRODUCT DETAILS -->
   <div class="maindiv">
-    <section id="display-product">
+    <section id="display-product"  style="width: 100%;">
         @foreach($products as $p)
         @if($p->id==$id)
       <div class="product-main">
@@ -166,7 +166,7 @@
 
     <section id="more-products" class="normalsec">
 
-      <div class="main">
+      <div class="main" >
         <div class="title">
           <h3>More Products</h3>
           <div class="line"></div>

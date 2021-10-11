@@ -21,6 +21,7 @@
             <div class="row justify-content-center">
                 <h3 class="mb-4">Orders</h3>
             </div>
+            <div class="table-responsive">
             <table class="table table-dark table-hover">
                 <thead>
                   <tr>
@@ -60,6 +61,7 @@
                     <tr><td>{{$orders->links()}}</td></tr>
                 </tbody>
             </table>
+</div>
         </div>
     </section>
 
