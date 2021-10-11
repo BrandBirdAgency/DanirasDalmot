@@ -38,25 +38,24 @@
                 </thead>
                 <tbody>
                     @forelse($orders as $order)
-                    <tr>
-                        <td>{{$order->id}}</td>
-                        <td class="d-flex justify-content-center align-items-center">
-                            <label class="form-check-label" for="{{$order->id}}">
-                              <input type="checkbox" id="{{$order->id}}" name="stat" order_id="{{$order->id}}" value="{{$order->status}}" class="form-check-input" @if ($order->status) checked @endif  />
-
-                            </label>
-                        </td>
-                        <td>{{$order->productname}}</td>
-                        <td>{{$order->name}}</td>
-                        <td>{{$order->email}}</td>
-                        <td>{{$order->address}}</td>
-                        <td>{{$order->phone}}</td>
-                        <td>{{$order->quantity}}</td>
-                        <td>{{$order->price}}</td>
-                        <td>{{$order->quantity*$order->price}}</td>
-                    </tr>
+                        <tr>
+                            <td>{{$order->id}}</td>
+                            <td class="d-flex justify-content-center align-items-center">
+                                <label class="form-check-label" for="{{$order->id}}">
+                                    <input type="checkbox" id="{{$order->id}}" name="stat" order_id="{{$order->id}}" value="{{$order->status}}" class="form-check-input" @if ($order->status) checked @endif  />
+                                </label>
+                            </td>
+                            <td>{{$order->productname}}</td>
+                            <td>{{$order->name}}</td>
+                            <td>{{$order->email}}</td>
+                            <td>{{$order->address}}</td>
+                            <td>{{$order->phone}}</td>
+                            <td>{{$order->quantity}}</td>
+                            <td>{{$order->price}}</td>
+                            <td>{{$order->quantity*$order->price}}</td>
+                        </tr>
                     @empty
-                    <tr><td colspan="10">Orders Empty</td></tr>
+                        <tr align="center"><td colspan="20">Orders Empty</td></tr>
                     @endforelse
                     <tr><td>{{$orders->links()}}</td></tr>
                 </tbody>
