@@ -42,7 +42,7 @@
                         <td>{{$order->id}}</td>
                         <td class="d-flex justify-content-center align-items-center">
                             <label class="form-check-label" for="{{$order->id}}">
-                              <input type="checkbox" id="{{$order->id}}" name="home" order_id="{{$order->id}}" value="{{$order->status}}" class="form-check-input" @if ($order->status) checked @endif  />
+                              <input type="checkbox" id="{{$order->id}}" name="stat" order_id="{{$order->id}}" value="{{$order->status}}" class="form-check-input" @if ($order->status) checked @endif  />
 
                             </label>
                         </td>
@@ -66,7 +66,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
     <script>
-    $("input:checkbox").change(function (){
+    $("input[name='stat']").change(function(){
         var display = $(this).attr('value');
         var orderId = $(this).attr("order_id");
         $.ajax({
@@ -75,7 +75,7 @@
             },
             type: 'POST',
             url: "{{route('updateOrder')}}",
-            data: { "_token": "{{ csrf_token() }}",display:display, productId:productId},
+            data: { "_token": "{{ csrf_token() }}",display:display, orderId:orderId},
             success: function(resp){
             },
             error: function(){
