@@ -12,11 +12,12 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/login', [AuthenticatedSessionController::class, 'create'])
+Route::get('admin/login', [AuthenticatedSessionController::class, 'create'])
                 ->middleware('guest')
-                ->name('login');
+                ->name('adminLogin');
 
-Route::post('/login', [AuthenticatedSessionController::class, 'store'])
+Route::post('admin/login', [AuthenticatedSessionController::class, 'store'])
+                ->name('adminLoginSubmit')
                 ->middleware('guest');
 Route::get('/confirm-password', [ConfirmablePasswordController::class, 'show'])
                 ->middleware('auth')

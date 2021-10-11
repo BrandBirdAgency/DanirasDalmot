@@ -13,14 +13,18 @@
     />
 @endsection
 @section('content')
-    <div class="alert alert-success alert-dismissible in">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      <strong>Success!</strong> Product edited !!
-    </div>
+
+    @if (Session::has('success'))
+        <div class="alert alert-success alert-dismissible in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            {!! Session::get('success') !!}
+        </div>
+    @endif
 
     <div class="back-btn">
-  <a href="#/" class="btn ml-4 mb-3">Back</a>
-</div>
+        <a href="{{route('product.index')}}" class="btn ml-4 mb-3">Back</a>
+    </div>
+
     <!-- Add product -->
     <div class="container mb-5" id="add-product-container">
         <div class="card" id="add-product-card">
@@ -140,9 +144,24 @@
                   {{$message}}
               @enderror
                 </div>
+
               </div>
+        
 
               <div class="col-md-4 col-12 text-left">
+                 <div class="form-group">
+                  <label for="inputtextarea">Bar Number (Optional)</label>
+                  <input
+                    type="number"
+                    id="inp"
+                    class="form-control form-control-sm"
+                    name="b_num"
+                  />
+                  @error('price')
+                    {{$message}}
+                  @enderror
+                </div>
+
                 <div class="form-group">
                   <label for="inputfile" class="">Product Image </label>
                   <div class="upload">
@@ -179,19 +198,7 @@
 
                   </div>
                 </div>
-                <div class="form-group">
-                  <label for="inputtextarea">Bar Number</label>
-                  <input
-                    type="number"
-                    id="inp"
-                    class="form-control form-control-sm"
-                    name="b_num"
-                  />
-                  @error('price')
-                    {{$message}}
-                  @enderror
-                </div>
-
+               
               </div>
             </div>
 

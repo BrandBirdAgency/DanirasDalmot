@@ -3,7 +3,7 @@
         <x-slot name="logo">
             <a href="/">
                 {{-- <x-application-logo class="w-20 h-20 fill-current text-gray-500" /> --}}
-                <img src="./assets/images/logo.jpg" alt="" style="width:20%; min-height:100px; position:relative; left:40%">
+                <img src={{asset("assets/images/logo.jpg")}} alt="" style="width:20%; min-height:100px; position:relative; left:40%">
             </a>
         </x-slot>
 
@@ -13,7 +13,7 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('adminLoginSubmit') }}">
             @csrf
 
             <!-- Email Address -->
