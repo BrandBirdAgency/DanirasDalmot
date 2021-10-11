@@ -28,7 +28,7 @@
     <div class="container" id="add-product-container">
         <div class="card" id="add-product-card">
           <div class="text-center add-product-heading">
-            <h3>Add Product</h3>
+            <h3>Edit Product</h3>
             <div class="line"></div>
           </div>
           <form class="card-body add-product-body" method="POST" action={{route('product.update',['id'=>$product->id])}} enctype="multipart/form-data">
@@ -80,7 +80,7 @@
                 <div class="form-group">
                   <label for="inouttextarea">Size</label>
                   <input
-                    type="number"
+                    type="text"
                     id="inp"
                     class="form-control form-control-sm"
                     name="size"

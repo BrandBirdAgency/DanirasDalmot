@@ -80,7 +80,7 @@
                 <div class="form-group">
                   <label for="inouttextarea">Size</label>
                   <input
-                    type="number"
+                    type="text"
                     id="inp"
                     class="form-control form-control-sm"
                     name="size"
@@ -146,7 +146,7 @@
                 </div>
 
               </div>
-        
+
 
               <div class="col-md-4 col-12 text-left">
                  <div class="form-group">
@@ -198,7 +198,7 @@
 
                   </div>
                 </div>
-               
+
               </div>
             </div>
 
