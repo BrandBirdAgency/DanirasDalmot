@@ -83,7 +83,7 @@
                             <div class="product-details">
                                 <span class="product-catagory">{{$product->category}}</span>
                                 <h4><a href={{route('productpage' ,$product->id)}}>{{$product->name}}</a></h4>
-                                <p>{{$product->description}}</p>
+                                <p>{{Str::substr($product->description, 0, 100)}} .....</p>
                                 <div class="product-bottom-details">
                                     <div class="product-price"><small>Rs.{{$product->retail_price}}</small>Rs.{{$product->price}}</div>
                                     <div class="product-links">
