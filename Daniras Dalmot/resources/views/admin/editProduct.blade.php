@@ -13,7 +13,6 @@
     />
 @endsection
 @section('content')
- @if (Session::has('sucess'))
 
 @if (Session::has('success'))
 <div class="alert alert-success alert-dismissible in">
@@ -23,7 +22,7 @@
 @endif
 
     <div class="back-btn">
-  <a href="{{route('product.show')}}" class="btn ml-4 mb-3">Back</a>
+  <a href="{{route('product.index')}}" class="btn ml-4 mb-3">Back</a>
 </div>
     <!-- Add product -->
     <div class="container" id="add-product-container">
@@ -44,7 +43,7 @@
                     id="inp"
                     class="form-control form-control-sm"
                     name="name"
-                    value={{$product->name}}
+                    value="{{$product->name}}"
                   />
                   @error('name')
                       {{$message}}
@@ -85,7 +84,7 @@
                     id="inp"
                     class="form-control form-control-sm"
                     name="size"
-                    value={{$product->size}}
+                    value="{{$product->size}}"
                   />
                   @error('size')
                   {{$message}}
@@ -103,7 +102,7 @@
                     id="inp"
                     class="form-control form-control-sm"
                     name="brand_name"
-                    value={{$product->brand_name}}
+                    value="{{$product->brand_name}}"
                   />
                   @error('brand_name')
                   {{$message}}
@@ -117,7 +116,7 @@
                     id="inp"
                     class="form-control form-control-sm"
                     name="retail_price"
-                    value={{$product->retail_price}}
+                    value="{{$product->retail_price}}"
                   />
                   @error('retail_price')
                   {{$message}}
@@ -130,7 +129,7 @@
                     id="inp"
                     class="form-control form-control-sm"
                     name="price"
-                    value={{$product->price}}
+                    value="{{$product->price}}"
                   />
                   @error('price')
                   {{$message}}
@@ -144,7 +143,7 @@
                     id="inp"
                     class="form-control form-control-sm"
                     name="discount"
-                    value={{$product->discount}}
+                    value="{{$product->discount}}"
                   />
                   @error('discount')
                   {{$message}}

@@ -75,18 +75,19 @@
           <div class="line"></div>
           </div>
       <div class="row justify-content-center justify-content-md-start">
+          @forelse($hot as $product)
         <div class="col-12 col-sm-8 col-md-6 col-lg-4">
           <div class="product-card " data-tilt data-tilt-max="7">
             <div class="badge">Hot</div>
             <div class="product-tumb ">
-              <img src={{asset("assets/images/0.png")}} alt="" >
+              <img src="{{Storage::url($product->photo)}}" alt="" >
             </div>
             <div class="product-details">
-              <span class="product-catagory">Dalmoth</span>
-              <h4><a href="">Special Dalmoth</a></h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
+              <span class="product-catagory">{{$product->category}}</span>
+              <h4><a href={{route('productpage' ,$product->id)}}>{{$product->name}}</a></h4>
+              <p>{{$product->description}}</p>
               <div class="product-bottom-details">
-                <div class="product-price"><small>Rs.420</small>Rs.300</div>
+                <div class="product-price"><small>Rs.{{$product->retail_price}}</small>Rs.{{$product->price}}</div>
                 <div class="product-links">
                   <a href=""><i class="fa fa-shopping-cart"></i></a>
                 </div>
@@ -94,47 +95,12 @@
             </div>
           </div>
         </div>
-
-        <div class="col-12 col-sm-8 col-md-6 col-lg-4">
-          <div class="product-card" data-tilt data-tilt-max="7">
-            <div class="badge">Hot</div>
-            <div class="product-tumb">
-              <img src={{asset("assets/images/2.png")}} alt="">
-            </div>
-            <div class="product-details">
-              <span class="product-catagory">Dalmoth</span>
-              <h4><a href="">Special Dalmoth</a></h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
-              <div class="product-bottom-details">
-                <div class="product-price"><small>Rs.420</small>Rs.300</div>
-                <div class="product-links">
-                  <a href=""><i class="fa fa-shopping-cart"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
+        @empty
+        <div class="no-content">
+            <h4>Hot Products Not Available</h4>
         </div>
-
-        <div class="col-12 col-sm-8 col-md-6 col-lg-4">
-          <div class="product-card" data-tilt data-tilt-max="7">
-            <div class="badge">Hot</div>
-            <div class="product-tumb">
-              <img src={{asset("assets/images/3.png")}} alt="">
-            </div>
-            <div class="product-details">
-              <span class="product-catagory">Dalmoth</span>
-              <h4><a href="">Special Dalmoth</a></h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
-              <div class="product-bottom-details">
-                <div class="product-price"><small>Rs.420</small>Rs.300</div>
-                <div class="product-links">
-                  <a href=""><i class="fa fa-shopping-cart"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        @endforelse
+    </div>
     </div>
   </section>
 

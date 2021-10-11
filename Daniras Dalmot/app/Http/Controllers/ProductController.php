@@ -62,7 +62,6 @@ class ProductController extends Controller
         $product->name = $req->name;
         $product->photo = $req->file('photo')->storeAs('public/images/products', $req->name);
         $product->description = $req->description;
-        $product->in_stock = $req->in_stock;
         $product->retail_price = $req->retail_price;
         $product->discount = $req->discount;
         $product->price = $req->price;
@@ -76,9 +75,9 @@ class ProductController extends Controller
             $imageName = 'Qr_Product_' . $latest. '.' . $req->file('qr')->extension();
             $req->file('qr')->storeAs('public/images/qrcode', $imageName);
             $product->qr_path='/storage/images/qrcode/' . $imageName;
-           
 
-     
+
+
         } else {
             $image = \QrCode::format('svg')
             ->size(200)->errorCorrection('H')
@@ -87,17 +86,17 @@ class ProductController extends Controller
             Storage::put('public/images/qrcode/'.$output_file, $image);
 
             $product->qr_code=$image;
-            $product->qr_path='storage/images/qrcode/' . $output_file; 
+            $product->qr_path='storage/images/qrcode/' . $output_file;
 
         }
-     
+
 
        $barnumber='067244'.$latest.'1';
 
-       if ($req->hasFile('bar')) { 
+       if ($req->hasFile('bar')) {
             $imageName = 'Bar_Product_' . $latest. '.' . $req->file('bar')->extension();
             $req->file('bar')->storeAs('public/images/barcode', $imageName);
-            $product->bar_path='storage/images/barcode/' . $imageName; 
+            $product->bar_path='storage/images/barcode/' . $imageName;
             $product->bar_number=$req->b_num;
 
 
@@ -106,15 +105,15 @@ class ProductController extends Controller
             $barcode=$generator->getBarcode($barnumber, $generator::TYPE_CODE_128);
             $output_file = 'Bar_Product_' .$latest . '.svg';
             Storage::put('public/images/barcode/'.$output_file, $barcode);
-            $product->bar_path='storage/images/barcode/' . $output_file; 
+            $product->bar_path='storage/images/barcode/' . $output_file;
             $product->bar_code=$barcode;
             $product->bar_number=$barnumber;
         }
 
-        
+
         $product->save();
 
-        return back()->with('sucess');
+        return redirect()->back()->with('success','Product Inserted !!!');
     }
 
     public function qrDownload($id)
@@ -126,7 +125,7 @@ class ProductController extends Controller
     public function brDownload($id)
     {
         $p=Product::find($id);
-     
+
             $file = Str::substr( $p->bar_path, 23, Str::length( $p->bar_path));
             return Storage::download('/public/images/barcode/' . $file);
 
@@ -174,7 +173,6 @@ class ProductController extends Controller
             $product->photo = $req->file('photo')->storeAs('public/images/products', $req->name);
         }
         $product->description = $req->description;
-        $product->in_stock = $req->in_stock;
         $product->retail_price = $req->retail_price;
         $product->discount = $req->discount;
         $product->price = $req->price;
@@ -182,7 +180,7 @@ class ProductController extends Controller
         $product->brand_name = $req->brand_name;
         $product->size = $req->size;
         $product->save();
-        return back()->with('sucess');
+        return redirect()->back()->with('success','Product Updated!!');
     }
 
     /**

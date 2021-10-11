@@ -12,8 +12,17 @@ class PublicController extends Controller
 {
     public function index()
     {
+        $hot= array();
+        $products = Product::all();
         $about = About::first();
-        return view('index', compact('about'));
+        foreach($products as $pro)
+        {
+            if($pro->hot)
+            {
+                $hot[] = $pro;
+            }
+        }
+        return view('index', compact('about','hot'));
     }
 
     public function about()
@@ -31,14 +40,14 @@ class PublicController extends Controller
     public function product($id = null)
     {
         $products = Product::all();
-
+        if($id == null)
+        {
         if(Product::first())
         {
         $id = Product::first()->id;
-        return view('products', compact('products', 'id'));
         }
-        else
-        return view('products',compact('products'));
+    }
+        return view('products', compact('products', 'id'));
 
     }
 
