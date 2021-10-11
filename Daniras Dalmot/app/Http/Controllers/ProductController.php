@@ -195,4 +195,32 @@ class ProductController extends Controller
         $product->delete();
         return redirect()->route('product.index');
     }
+
+    
+    public function stockUpdate(Request $req)
+    {
+        if ($req->ajax()) {
+            $data = $req->all();
+            if ($data['display'] == 1) {
+                $data['display'] = 0;
+            } else {
+                $data['display'] = 1;
+            }
+            Product::where('id', $data['productId'])->update(['in_stock' => $data['display']]);
+        }
+    }
+
+    public function homeUpdate(Request $req)
+    {
+        if ($req->ajax()) {
+            $data = $req->all();
+            if ($data['display'] == 1) {
+                $data['display'] = 0;
+            } else {
+                $data['display'] = 1;
+            }
+            Product::where('id', $data['productId'])->update(['home' => $data['display']]);
+        }
+    }
+
 }
