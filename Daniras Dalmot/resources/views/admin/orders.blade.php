@@ -58,6 +58,7 @@
                     @empty
                     <tr><td colspan="10">Orders Empty</td></tr>
                     @endforelse
+                    <tr><td>{{$orders->links()}}</td></tr>
                 </tbody>
             </table>
         </div>
