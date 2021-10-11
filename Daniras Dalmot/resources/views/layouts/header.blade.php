@@ -10,19 +10,18 @@
             <li><a href="{{ route('contactpage') }}">Contact</a></li>
         </ul>
     </nav>
+    <p class="menu cta">Menu</p>
     @if (Auth::guard('web')->check())
         <a class="cta" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+        <a class="menu cta" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
         </form>
-        <p class="menu cta">Menu</p>
-        <a class="menu cta" href="{{ route('logout') }}">Logout</a>
-        <a href="{{route('dashboard')}}" class="todashboard"><img src="{{asset('/assets/images/team3.jpg')}}" alt=""></a>
     @else
         <a class="cta" href="{{ route('adminLogin') }}">Login</a>
-        <p class="menu cta">Menu</p>
         <a class="menu cta" href="{{ route('adminLogin') }}">Login</a>
     @endif
+    <a href="{{route('dashboard')}}" class="todashboard"><img src="{{asset('/assets/images/team3.jpg')}}" alt=""></a>
 </header>
 
 <div id="mobile__menu" class="overlay">
