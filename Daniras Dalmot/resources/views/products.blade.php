@@ -47,7 +47,11 @@
         <div class="product-details">
           <div class="product-name">
             <p>{{$p->name}}</p>
-            <div class="status"></div>
+            @if ($p->in_stock)
+                <div class="status"></div>
+            @else
+                <div class="status" style="background-color: red !important"></div>
+            @endif
           </div>
           <div class="product-rating">
             <span><i class="fas fa-star"></i></span>
