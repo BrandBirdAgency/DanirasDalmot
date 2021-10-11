@@ -4,5 +4,4 @@
 <p><strong>Email : </strong>{{$data->email}}</p>
 <p><strong>Product Name:</strong>{{App\Models\Product::find($data->product_id)->name}}</p>
 <p><strong> Quantity : </strong>{{$data->quantity}}</p>
-<p><strong>Total Price:</strong>{{$data->quantity*$data->price}}</p>
 
