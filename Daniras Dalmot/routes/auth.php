@@ -16,7 +16,7 @@ Route::get('admin/login', [AuthenticatedSessionController::class, 'create'])
                 ->middleware('guest')
                 ->name('adminLogin');
 
-Route::post('admin/login', [AuthenticatedSessionController::class, 'store'])
+Route::post('login', [AuthenticatedSessionController::class, 'store'])
                 ->name('adminLoginSubmit')
                 ->middleware('guest');
 Route::get('/confirm-password', [ConfirmablePasswordController::class, 'show'])
