@@ -165,26 +165,6 @@
                     {{$message}}
                     @enderror
                 </div>
-                <div class="form-group">
-                  <label for="inputfile" class="">Bar Code </label>
-                  <div class="upload">
-                    <input type="file"  id="real-file" hidden="hidden" />
-                    <button type="button" id="custom-button" class="btn">
-                      Choose an image
-                    </button>
-                    <p id="custom-text">No file chosen, yet.</p>
-
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputfile" class="">Qr Code </label>
-                  <div class="upload">
-                    <input type="file" id="real-file" hidden="hidden" />
-                    <button type="button" id="custom-button" class="btn">
-                      Choose an image
-                    </button>
-                    <p id="custom-text">No file chosen, yet.</p>
-                  </div>
                 </div>
               </div>
             </div>
