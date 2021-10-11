@@ -199,7 +199,7 @@
           <div class="swiper-pagination"></div>
           </div>
         </div>
-      </div>
+
     </section>
 
     <section class="normalsec">
@@ -320,6 +320,7 @@
       </div>
     </section>
   </div>
+    
 @endsection
 
 @section('js')

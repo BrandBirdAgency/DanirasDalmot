@@ -21,7 +21,7 @@ body {
     position: relative;
 }
 .superdiv {
-    min-height: 80vh;
+    min-height: 90vh;
     padding-bottom: 11rem;
 }
 body .no-content {
@@ -219,7 +219,6 @@ nav ul {
 
 #admin-dashboard,
 #orders {
-    min-height: 63.6vh;
     padding: 2rem 0;
 }
 #admin-dashboard h3 {
