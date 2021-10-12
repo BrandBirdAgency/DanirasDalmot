@@ -52,8 +52,8 @@ class MailController extends Controller
 
         //Sending Email
         Mail::send('email.ordermail', ['data' => $res], function ($m) use ($res, $abt) {
-            $m->from($abt->email, $abt->name);
-            $m->to($res->email, $res->username);
+            $m->from($res->email, $res->name);
+            $m->to($abt->email, $abt->username);
             $m->subject("New Order Received");
         });
 
