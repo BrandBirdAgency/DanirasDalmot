@@ -186,7 +186,7 @@
                 <div class="image">
                   <img src="{{Storage::url($p->photo)}}" alt="" class="slider-image" />
                   <div class="overlay-image">
-                    <a href={{route('productpage',['id'=>$p->id])}}> <button class="view">View</button><a>
+                    <a href={{route('productpage',['id'=>$p->id])}}> <button class="view">View</button></a>
                   </div>
                 </div>
               </div>
