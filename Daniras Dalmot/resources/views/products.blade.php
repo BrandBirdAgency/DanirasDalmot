@@ -182,12 +182,15 @@
           <div class="swiper-wrapper">
             <!-- Slides -->
             @forelse ($products as $p)
-              <div class="swiper-slide">
-                <div class="image">
-                  <img src="{{Storage::url($p->photo)}}" alt="" class="slider-image" />
-                  <div class="overlay-image">
-                    <a href={{route('productpage',['id'=>$p->id])}}> <button class="view">View</button></a>
-                  </div>
+            <div class="swiper-slide">
+              <div class="image">
+                <img
+                  src="{{Storage::url($p->photo)}}"
+                  alt=""
+                  class="slider-image"
+                />
+                <div class="overlay-image">
+                 <a href={{route('productpage',['id'=>$p->id])}}> <button class="view">View</button></a>
                 </div>
               </div>
             @empty
@@ -324,9 +327,6 @@
 @endsection
 
 @section('js')
-<script src={{asset("vendor/js/aos.js")}}></script>
-<script src={{asset("vendor/js/jquery.waypoints.js")}}></script>
-<script src={{asset("vendor/js/jquery.counterup.js")}}></script>
 <script src={{asset("vendor/js/bootstrap.bundle.js")}}></script>
 <script>
     let count = document.querySelector(".count");
