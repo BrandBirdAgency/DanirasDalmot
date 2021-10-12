@@ -102,11 +102,8 @@ class ProductController extends Controller
             $product->bar_code = $barcode;
             $product->bar_number = $barnumber;
         }
-
-
         $product->save();
-
-        return redirect()->back()->with('success', 'Product Inserted !!!');
+        return redirect()->route('product.index')->with('success', 'Product Inserted !!!');
     }
 
     public function qrDownload($id)
@@ -172,7 +169,7 @@ class ProductController extends Controller
         $product->brand_name = $req->brand_name;
         $product->size = $req->size;
         $product->save();
-        return redirect()->back()->with('success', 'Product Updated!!');
+        return redirect()->route('product.show',$id)->with('success', 'Product Updated!!');
     }
 
     /**

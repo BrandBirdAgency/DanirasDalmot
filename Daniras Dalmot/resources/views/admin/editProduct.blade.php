@@ -13,14 +13,6 @@
     />
 @endsection
 @section('content')
-
-@if (Session::has('success'))
-<div class="alert alert-success alert-dismissible in">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    {!! Session::get('success') !!}
-</div>
-@endif
-
     <div class="back-btn">
   <a href="{{route('product.index')}}" class="btn ml-4 mb-3">Back</a>
 </div>
@@ -167,7 +159,7 @@
                 </div>
                 </div>
               </div>
-            
+
 
 
 
@@ -179,7 +171,7 @@
           </form>
           </div>
 </div>
-  
+
 @endsection
 @section('js')
 

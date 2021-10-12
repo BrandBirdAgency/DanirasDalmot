@@ -10,6 +10,12 @@
     <link rel="stylesheet" href="{{asset('/assets/css/admin.css')}}" />
 @endsection
 @section('content')
+@if (Session::has('success'))
+        <div class="alert alert-success alert-dismissible in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            {!! Session::get('success') !!}
+        </div>
+    @endif
     <!--Add Product button-->
     <div class="back-btn">
         <a href="{{route('dashboard')}}" class="btn ml-4 mb-3">Back</a>

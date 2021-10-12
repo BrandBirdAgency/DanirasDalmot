@@ -11,6 +11,14 @@
     <link rel="stylesheet" href={{asset("assets/css/admin.css")}} />
 @endsection
 @section('content')
+
+@if (Session::has('success'))
+<div class="alert alert-success alert-dismissible in">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    {!! Session::get('success') !!}
+</div>
+@endif
+
 <div class="back-btn">
   <a href="{{route('product.index')}}" class="btn ml-4 mb-3">Back</a>
 </div>
@@ -78,15 +86,15 @@
               <p class="det"><span>Category :</span> {{$product->category}}</p>
               <p class="det"><span>Size : </span>{{$product->size}}</p>
               <p class="det"><span>Brand Name : </span>{{$product->brand_name}}</p>
-            <p>In Stock : 
+            <p>In Stock :
               <label class="switch ml-2">
                 <input type="checkbox" name="stock" id="{{$product->id}}" product_id="{{$product->id}}" value="{{$product->in_stock}}" class="toggle__input" @if ($product->in_stock) checked @endif  />
                 <span class="slider round"></span>
             </label>
 
-              
-              
-       
+
+
+
  </p>
 
 
@@ -158,7 +166,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
 <script>
-   
+
       $("input[name='stock']").change(function(){
         var display = $(this).attr('value');
         var productId = $(this).attr("product_id");
