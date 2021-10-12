@@ -73,7 +73,13 @@
               <span class="plus"><i class="fas fa-plus"></i></span>
             </div>
           </div>
-          <button data-toggle="modal" data-target="#myModal">Buy</button>
+
+          @if ($p->in_stock)
+            <button data-toggle="modal" data-target="#myModal">Buy</button>
+          @else
+            <button disabled="disabled">Out of Stock</button>
+          @endif
+
           <div class="line"></div>
           <div class="share-product">
             <p>Share on</p>
@@ -163,14 +169,13 @@
     @endif
     @endforeach
     <!-- More Products -->
-
     <section id="more-products" class="normalsec">
-
       <div class="main" >
         <div class="title">
           <h3>More Products</h3>
           <div class="line"></div>
         </div>
+
         <!-- Slider main container -->
         <div class="swiper images">
           <!-- Additional required wrapper -->
@@ -188,18 +193,16 @@
                  <a href={{route('productpage',['id'=>$p->id])}}> <button class="view">View</button></a>
                 </div>
               </div>
-            </div>
             @empty
-                    <div class="no-content">
-            <h4>{{"Products Unavailable"}}</h4>
-</div>
-        @endforelse
-            </div>
-              <!-- If we need pagination -->
-          <div class="swiper-pagination"></div>
+              <div class="no-content">
+                <h4>Products Unavailable</h4>
+              </div>
+            @endforelse
           </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
         </div>
-
+      </div>
     </section>
 
     <section class="normalsec">
@@ -320,7 +323,7 @@
       </div>
     </section>
   </div>
-    
+
 @endsection
 
 @section('js')
