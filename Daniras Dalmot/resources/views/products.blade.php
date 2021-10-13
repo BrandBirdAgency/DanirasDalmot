@@ -12,6 +12,10 @@
 @endsection
 
 @section('content')
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v12.0" nonce="D7itjLeS"></script>
+
 <!-- MAIN BANNER -->
 <div class="teambanner">
     <div class="contain">
@@ -42,7 +46,7 @@
         @if($p->id==$id)
       <div class="product-main">
         <div class="product-image" data-tilt>
-          <img src="{{Storage::url($p->photo)}}" alt="" />
+          <img src="{{Storage::url($p->photo)}}" alt="product" />
         </div>
         <div class="product-details">
           <div class="product-name">
@@ -84,9 +88,11 @@
           <div class="share-product">
             <p>Share on</p>
             <div class="icons">
-              <span><i class="fab fa-facebook-f"></i></span>
-              <span><i class="fab fa-instagram"></i></span>
-              <span><i class="fab fa-twitter"></i></span>
+                {{-- <span><i class="fab fa-facebook-f"></i></span> --}}
+                {{-- <span><i class="fab fa-instagram"></i></span> --}}
+                {{-- <span><i class="fab fa-twitter"></i></span> --}}
+                <div class="fb-share-button" data-href="https://danirasdalmoth.com/products/{{$p->id}}" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdanirasdalmoth.com%2Fproducts%2F{{$p->id}}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                <a target="_blank" href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="{{$p->description}}" data-url="https://danirasdalmoth.com/products/{{$p->id}}" data-hashtags="danirasdalmoth" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
           </div>
         </div>
