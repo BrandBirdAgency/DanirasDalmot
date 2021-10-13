@@ -192,7 +192,7 @@
                     <div class="image">
                         <img
                         src="{{Storage::url($p->photo)}}"
-                        alt=""
+                        alt="product"
                         class="slider-image"
                         />
                         <div class="overlay-image">
