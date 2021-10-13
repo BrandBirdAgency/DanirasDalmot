@@ -188,21 +188,22 @@
           <div class="swiper-wrapper">
             <!-- Slides -->
             @forelse ($products as $p)
-            <div class="swiper-slide">
-              <div class="image">
-                <img
-                  src="{{Storage::url($p->photo)}}"
-                  alt=""
-                  class="slider-image"
-                />
-                <div class="overlay-image">
-                 <a href={{route('productpage',['id'=>$p->id])}}> <button class="view">View</button></a>
+                <div class="swiper-slide">
+                    <div class="image">
+                        <img
+                        src="{{Storage::url($p->photo)}}"
+                        alt=""
+                        class="slider-image"
+                        />
+                        <div class="overlay-image">
+                            <a href={{route('productpage',['id'=>$p->id])}}> <button class="view">View</button></a>
+                        </div>
+                    </div>
                 </div>
-              </div>
             @empty
-              <div class="no-content">
-                <h4>Products Unavailable</h4>
-              </div>
+                <div class="no-content">
+                    <h4>Products Unavailable</h4>
+                </div>
             @endforelse
           </div>
           <!-- If we need pagination -->
