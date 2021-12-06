@@ -24,7 +24,7 @@
   <section class="intro home normalsec">
     <div class="row mx-0 px-0">
       <div class="col-md-6 col-12 text-center d-block d-md-none d-lg-block">
-        <img src={{asset("/assets/images/3.png")}} alt="" class=" introimg">
+        <img src={{asset("/assets/images/4.png")}} alt="" class=" introimg">
       </div>
       <div class="col-md-12 col-lg-6 col-12 contents">
         <div class="heading">
@@ -89,11 +89,11 @@
               <img src="{{Storage::url($product->photo)}}" alt="">
             </div>
             <div class="product-details">
-              <span class="product-catagory">{{$product->category}}</span>
-              <h4><a href={{route('productpage' ,$product->id)}}>{{$product->name}}</a></h4>
-              <p>{{Str::substr($product->description, 0, 100)}} .....</p>
+              <h6><a href={{route('productpage' ,$product->id)}}>{{$product->name}}</a></h6>
+              <p class="text-justify">{{Str::substr($product->description, 0, 100)}} ...</p>
               <div class="product-bottom-details">
-                <div class="product-price"><small>Rs.{{$product->retail_price}}</small>Rs.{{$product->price}}</div>
+                <div class="product-price"><small
+                    class="text-muted">Rs.{{$product->retail_price}}</small>Rs.{{$product->price}}</div>
                 <div class="product-links">
                   <a href="{{route('productpage' ,$product->id)}}"><i class="fa fa-shopping-cart"></i></a>
                 </div>

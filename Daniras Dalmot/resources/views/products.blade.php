@@ -60,27 +60,31 @@
           <span><i class="fas fa-star"></i></span>
           <span><i class="fas fa-star"></i></span>
           <span><i class="fas fa-star"></i></span>
-          <p>(5 reviews)</p>
+          <p>(5.0)</p>
         </div>
         <div class="product-info">
           <p class="text-justify">
             {{$p->description}}
           </p>
         </div>
-        <div class="product-count">
-          <p>Quantity</p>
-          <div class="counter">
-            <span class="minus"><i class="fas fa-minus"></i></span>
-            <p class="count">1</p>
-            <span class="plus"><i class="fas fa-plus"></i></span>
+        <div class="product-count row">
+          <div class="counter col-12">
+            ✔ <p class="ml-1">Size:</p>
+            &nbsp;{{$p->size}} gram
+          </div>
+          <div class="counter col-12">
+            ✔ <p class="ml-1">Price:</p>
+            &nbsp;<del class="text-muted mr-1"> Rs.{{$p->retail_price}}</del>Rs.{{$p->price}}
           </div>
         </div>
 
-        @if ($p->in_stock)
-        <button data-toggle="modal" data-target="#myModal">Buy</button>
-        @else
-        <button disabled="disabled">Out of Stock</button>
-        @endif
+        <div class="text-right">
+          @if ($p->in_stock)
+          <button data-toggle="modal" data-target="#myModal">Buy</button>
+          @else
+          <button disabled="disabled">Out of Stock</button>
+          @endif
+        </div>
 
         <div class="line"></div>
         <div class="share-product">
@@ -99,8 +103,8 @@
       </div>
 
       <!-- The Modal -->
-      <div class="modal fade" id="myModal">
-        <div class="modal-dialog modal-dialog-centered">
+      <div class="modal fade " id="myModal">
+        <div class="modal-dialog modal-dialog-centered mt-5">
           <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
@@ -128,6 +132,13 @@
                   <label for="Address">Address:</label>
                   <input type="text" class="form-control" id="Address" name="address" />
                   @error('address ')
+                  {{$message}}
+                  @enderror
+                </div>
+                <div class="form-group">
+                  <label for="Quantity">Quantity:</label>
+                  <input type="number" class="form-control" id="Quantity" name="quantiy" />
+                  @error('quantiity')
                   {{$message}}
                   @enderror
                 </div>
@@ -208,16 +219,17 @@
               <div class="line"></div>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Facilis fuga fugit repudiandae! Vitae dolores debitis eos
-              fugiat repellat, atque eius odio earum nemo magnam libero,
-              illo ad consequuntur deserunt maiores ipsa commodi ab eaque.
+              <i><q>All that we humans have achieved until now be it our space
+                  outreach or the most advanced automation, it is due to the
+                  power of our minds,</q></i>
+              For each production facility to play its part in the automation
+              it has to demonstrate the highest possible degree
+              of automation, availability, and optimization.
               <br /><br />
-              Debitis commodi eos, ut ad sapiente dolor consectetur alias
-              saepe, doloribus labore ex numquam velit, harum qui corrupti
-              animi magnam veritatis eum nesciunt hic a perspiciatis. Lorem
-              ipsum dolor sit, amet consectetur adipisicing elit. Molestias,
-              nesciunt!
+              Here in Danir's We are equiped with fully automated parts and machineries.
+              We ensure the quality, healthy, trust worthy product for our customers. Even
+              though automated aren’t exactly a new sight in factories, there are constantly
+              new and innovative ways in which they are used which we take advantange of!
             </p>
           </div>
         </div>
@@ -234,16 +246,16 @@
             </div>
 
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Facilis fuga fugit repudiandae! Vitae dolores debitis eos
-              fugiat repellat, atque eius odio earum nemo magnam libero,
-              illo ad consequuntur deserunt maiores ipsa commodi ab eaque.
+              In-house logistics have become an essential ingredient in manufacturing –
+              integrating production processes
+              with the supply chain. We in danira's have a dedicated team of logistics
+              experts who are well versed in the logistics industry. In-house logistics
+              are a key part of our business
+              model.
               <br /><br />
-              Debitis commodi eos, ut ad sapiente dolor consectetur alias
-              saepe, doloribus labore ex numquam velit, harum qui corrupti
-              animi magnam veritatis eum nesciunt hic a perspiciatis. Lorem
-              ipsum dolor sit, amet consectetur adipisicing elit. Molestias,
-              nesciunt!
+              Our in-house logisics professionals can identify your true pain points
+              and then tailor logistics solutions to integrate with our
+              national level network. Maintaining the highest levels of quality.!
             </p>
           </div>
         </div>
@@ -263,16 +275,14 @@
             </div>
 
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Facilis fuga fugit repudiandae! Vitae dolores debitis eos
-              fugiat repellat, atque eius odio earum nemo magnam libero,
-              illo ad consequuntur deserunt maiores ipsa commodi ab eaque.
+              We have a dedicated team of printing and packaging experts who are well versed in the printing and
+              packaging industry.
               <br /><br />
-              Debitis commodi eos, ut ad sapiente dolor consectetur alias
-              saepe, doloribus labore ex numquam velit, harum qui corrupti
-              animi magnam veritatis eum nesciunt hic a perspiciatis. Lorem
-              ipsum dolor sit, amet consectetur adipisicing elit. Molestias,
-              nesciunt!
+              Printing & Packaging is an area of high growth, supported with investments in technology and equipment
+              from world class suppliers. We have a completely integrated solution for laminates from In-house Blown
+              Film, Cast film,
+              Specialty pouching and bag making. This is backed by in house cylinder
+              making and pre press support.
             </p>
           </div>
         </div>
@@ -289,16 +299,12 @@
             </div>
 
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Facilis fuga fugit repudiandae! Vitae dolores debitis eos
-              fugiat repellat, atque eius odio earum nemo magnam libero,
-              illo ad consequuntur deserunt maiores ipsa commodi ab eaque.
+              Global warming is becoming the topic of discussion in many forums and on social media platforms. That's
+              why we recycle waste and use it to make new products, use renewable energy and reduce our carbon
+              footprint, use smart manufacturing system ,all in a way that is sustainable.
               <br /><br />
-              Debitis commodi eos, ut ad sapiente dolor consectetur alias
-              saepe, doloribus labore ex numquam velit, harum qui corrupti
-              animi magnam veritatis eum nesciunt hic a perspiciatis. Lorem
-              ipsum dolor sit, amet consectetur adipisicing elit. Molestias,
-              nesciunt!
+              We are committed to reduce our carbon footprint and we are working hard to achieve this. We in danira's
+              are focused on delivering products that are environmentally friendly and healthy.
             </p>
           </div>
         </div>

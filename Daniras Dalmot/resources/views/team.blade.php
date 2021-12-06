@@ -199,8 +199,7 @@
       <div class="line"></div>
     </div>
     <p class="short-desc">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quo,
-      sequi sed asperiores recusandae veritatis
+      <q><i>To us, teamwork is the beauty of our sport, where you have five acting as one. You become selfless.</i></q>
     </p>
     <div class="contain">
       <div class="row mx-0 px-0">

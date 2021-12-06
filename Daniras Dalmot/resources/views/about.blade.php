@@ -45,12 +45,6 @@
         customers through open communication integrity, honesty abd
         accountability and are the core of our bussiness and growth.
       </p>
-      <div class="lines">
-        <div class="line l1"></div>
-        <div class="line l2"></div>
-        <div class="line l1"></div>
-      </div>
-
     </div>
   </section>
 
@@ -151,12 +145,22 @@
         <div class="whyus">
           <h2>Why Choose Us ?</h2>
           <div class="line"></div>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A perspiciatis distinctio quis repellendus
-            doloremque quisquam quasi quas architecto maiores. Sunt ipsa velit culpa aperiam! Dignissimos sed tempore
-            corrupti. Suscipit qui quasi consequatur temporibus.<br><br> Maxime iusto reprehenderit voluptatibus
-            adipisci ipsum libero porro laborum quo officia aliquid numquam modi quisquam rerum velit ipsa tempora,
-            eveniet totam eos, cum minus? Deserunt reprehenderit nihil voluptatum eaque saepe vitae aliquam? Reiciendis
-            eius beatae aliquid reprehenderit.</p>
+          <p>"Danira's" a brand of "Pushpanjali Spices and Food Products" is a premium manufacturer and supplier of
+            inovative quality
+            food products at competitive rates. We work together with our customer and collegues to achive the best
+            possible
+            outcome. <br>We build open and honest relationship with both customer and employees through open
+            communication
+            integrity,
+            honesty and accountability that are at the core of our buisness.
+            <br><br>
+            ➊ Best Quality Products
+            <br><br>
+            ➋ Healthly Products
+            <br><br>
+            ➌ On Time Deliveries
+          </p>
+
         </div>
       </div>
     </div>

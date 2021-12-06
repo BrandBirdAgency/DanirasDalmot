@@ -1212,6 +1212,16 @@ nav ul {
     transition: 0.3s;
 }
 
+#main-products .product-details h6 a {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    color: var(--red);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
 #main-products .product-details p {
     font-size: 15px;
     line-height: 22px;
