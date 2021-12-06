@@ -32,7 +32,7 @@ class MailController extends Controller
             [
                 'username' => 'required',
                 'address' => 'required',
-                'phone' => 'required|digits_between:10,10|numeric',
+                'phone' => 'required|min:10',
                 'email' => 'required|email',
             ]
         );

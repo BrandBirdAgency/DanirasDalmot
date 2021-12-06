@@ -150,8 +150,8 @@
                   @enderror
                 </div>
                 <div class="form-group">
-                  <label for="Phone">Email:</label>
-                  <input type="email" class="form-control" id="Phone" name="email" />
+                  <label for="Email">Email:</label>
+                  <input type="email" class="form-control" id="Email" name="email" />
                   @error('email')
                   {{$message}}
                   @enderror
