@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:web');
+    }
+
     public function dashboard()
     {
         return view('admin.dashboard');
@@ -28,15 +33,14 @@ class AdminController extends Controller
 
     public function orders()
     {
-        $orders = Order::join('products','orders.product_id','=','products.id')->select('orders.*','products.name as productname')->paginate(5);
-        return view('admin.orders',compact('orders'));
+        $orders = Order::join('products', 'orders.product_id', '=', 'products.id')->select('orders.*', 'products.name as productname')->paginate(5);
+        return view('admin.orders', compact('orders'));
     }
     public function orderStatus($id)
     {
         Order::find($id)->status = 1;
 
         return redirect()->route('orders');
-
     }
 
     public function teams()
@@ -72,6 +76,7 @@ class AdminController extends Controller
     // Message from CEO/Chairman
     public function msg(Request $req)
     {
+        // dd($req->ceoimg, $req->chairmainimg);
         $this->validate($req, [
             'ceoname' => 'string|required',
             'ceomsg' => 'string|required',
@@ -106,7 +111,7 @@ class AdminController extends Controller
 
         return redirect()->back()->with('success', 'Changes have been saved successfully!!');
     }
-    
+
     public function orderUpdate(Request $req)
     {
         if ($req->ajax()) {
@@ -119,5 +124,4 @@ class AdminController extends Controller
             Order::where('id', $data['orderId'])->update(['status' => $data['display']]);
         }
     }
-
 }

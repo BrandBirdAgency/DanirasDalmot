@@ -39,7 +39,6 @@
     </div>
   </div>
 </div>
-<!-- END MAIN BANNER -->
 
 <div id="team" class="maindiv">
   @if (Auth::guard('web')->check())
@@ -48,7 +47,6 @@
   <div class="modal fade" id="ceo">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <!-- Modal Header -->
         <div class="modal-header">
           <h4 class="modal-title">Messages</h4>
           <button type="button" class="close" data-dismiss="modal">
@@ -75,7 +73,7 @@
                 </div>
                 <div class="form-group">
                   <label for="ceoimg">Ceo Photo:</label>
-                  <input type="file" id="real-file1" hidden="hidden" />
+                  <input type="file" id="real-file1" hidden="hidden" name="ceoimg" />
                   <button type="button" id="custom-button1" class="btn">
                     Choose an image
                   </button>
@@ -99,7 +97,7 @@
                 </div>
                 <div class="form-group">
                   <label for="chairmanimg">Chairman Photo:</label>
-                  <input type="file" id="real-file2" hidden="hidden" />
+                  <input type="file" id="real-file2" hidden="hidden" class="chairmanimg" />
                   <button type="button" id="custom-button2" class="btn">
                     Choose an image
                   </button>
