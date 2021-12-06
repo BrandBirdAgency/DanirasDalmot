@@ -57,10 +57,7 @@ class ProductController extends Controller
             $latest = $latest->id + 1;
 
         $product->name = $req->name;
-
-        // Filter Name
-        $name = str_replace(' ', '-', trim($req->name));
-        $product->photo = $req->file('photo')->storeAs('public/images/products', $name . '.jpg');
+        $product->photo = $req->file('photo')->storeAs('public/images/products', $this->filterName($req->name) . '.jpg');
         $product->description = $req->description;
         $product->retail_price = $req->retail_price;
         $product->discount = $req->discount;
@@ -158,11 +155,9 @@ class ProductController extends Controller
 
         $product = Product::find($id);
         $product->name = $req->name;
-
-        $name = str_replace(' ', '-', trim($req->name));
         if ($req->photo != null) {
             Storage::delete($product->photo);
-            $product->photo = $req->file('photo')->storeAs('public/images/products', $name . '.jpg');
+            $product->photo = $req->file('photo')->storeAs('public/images/products', $this->filterName($req->name) . '.jpg');
         }
         $product->description = $req->description;
         $product->retail_price = $req->retail_price;
@@ -211,5 +206,11 @@ class ProductController extends Controller
             }
             Product::where('id', $data['productId'])->update(['home' => $data['display']]);
         }
+    }
+    private function filterName($name)
+    {
+        $name = preg_replace('/[^A-Za-z0-9\- ]/', '', $name);
+        $name = str_replace(' ', '-', strtolower(trim($name)));
+        return $name;
     }
 }
