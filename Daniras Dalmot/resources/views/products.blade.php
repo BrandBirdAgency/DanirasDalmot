@@ -383,9 +383,3 @@
     });
 </script>
 @endsection
-
-9845999137
-infodanirasdalmoth@gmail.com
-https://facebook.com/daniras.dalmoth
-https://instagram.com/danirasdalmoth
-Parwanipur-5, Bara, Nepal
