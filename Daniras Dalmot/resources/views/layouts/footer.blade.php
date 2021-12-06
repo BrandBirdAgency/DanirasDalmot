@@ -21,9 +21,6 @@ $about = App\Models\About::first();
         </ul>
 
         <p class="copyright">{{$about->name}} © {{ date('Y') }}</p>
-        <div class="ourcompany">
-            <p class="mb-0">DEVELOPED BY <a href="https://101infotech.com.np/">101INFOTECH</a></p>
-        </div>
         <div class="text-center dcma mt-3">
             <a href="//www.dmca.com/Protection/Status.aspx?ID=eed91a69-b75a-44ae-b6ae-e19ee3144ce5"
                 title="DMCA.com Protection Status" class="dmca-badge"> <img
@@ -31,7 +28,32 @@ $about = App\Models\About::first();
                     alt="DMCA.com Protection Status" /></a>
             <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
         </div>
+        <div class="ourcompany">
+            <p class="mb-0">DEVELOPED BY <a href="https://101infotech.com.np/">101INFOTECH</a></p>
+        </div>
     </footer>
 </div>
+<div id="fb-root"></div>
+<div id="fb-customer-chat" class="fb-customerchat">
+</div>
+<script>
+    var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "1015463985278748");
+      chatbox.setAttribute("attribution", "biz_inbox");
+
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v12.0'
+        });
+      };
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+</script>
 
 <!-- FOOTER END -->
