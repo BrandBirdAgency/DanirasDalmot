@@ -35,8 +35,6 @@ class ProductController extends Controller
      */
     public function store(Request $req)
     {
-
-
         $req->validate(
             [
                 'name' => 'string|required',
@@ -59,7 +57,10 @@ class ProductController extends Controller
             $latest = $latest->id + 1;
 
         $product->name = $req->name;
-        $product->photo = $req->file('photo')->storeAs('public/images/products', $req->name);
+
+        // Filter Name
+        $name = str_replace(' ', '-', trim($req->name));
+        $product->photo = $req->file('photo')->storeAs('public/images/products', $name . '.jpg');
         $product->description = $req->description;
         $product->retail_price = $req->retail_price;
         $product->discount = $req->discount;
@@ -157,9 +158,11 @@ class ProductController extends Controller
 
         $product = Product::find($id);
         $product->name = $req->name;
+
+        $name = str_replace(' ', '-', trim($req->name));
         if ($req->photo != null) {
             Storage::delete($product->photo);
-            $product->photo = $req->file('photo')->storeAs('public/images/products', $req->name);
+            $product->photo = $req->file('photo')->storeAs('public/images/products', $name . '.jpg');
         }
         $product->description = $req->description;
         $product->retail_price = $req->retail_price;
@@ -169,7 +172,7 @@ class ProductController extends Controller
         $product->brand_name = $req->brand_name;
         $product->size = $req->size;
         $product->save();
-        return redirect()->route('product.show',$id)->with('success', 'Product Updated!!');
+        return redirect()->route('product.show', $id)->with('success', 'Product Updated!!');
     }
 
     /**

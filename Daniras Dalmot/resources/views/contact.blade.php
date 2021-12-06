@@ -200,7 +200,7 @@
                     <span class="fa fa-map-marker"></span>
                   </div>
                   <div class="text pl-3">
-                    <p><span>Address:</span> {{$about->address}}</p>
+                    <p class="text-dark mt-2">{{$about->address}}</p>
                   </div>
                 </div>
                 <div class="dbox w-100 d-flex align-items-center">
@@ -214,8 +214,7 @@
                   </div>
                   <div class="text pl-3">
                     <p>
-                      <span>Phone:</span>
-                      <a href="tel://9845999137">{{$about->phone}}</a>
+                      <a href="tel:{{$about->phone}}" class="text-dark">{{$about->phone}}</a>
                     </p>
                   </div>
                 </div>
@@ -230,8 +229,7 @@
                   </div>
                   <div class="text pl-3">
                     <p>
-                      <span>Email:</span>
-                      <a href="mailto:infodanirasdalmoth@gmail.com">{{$about->email}}</a>
+                      <a href="mailto:{{$about->email}}" class="text-dark">{{$about->email}}</a>
                     </p>
                   </div>
                 </div>
@@ -246,8 +244,7 @@
                   </div>
                   <div class="text pl-3">
                     <p>
-                      <span>Website</span>
-                      <a href="www.danirasdalmoth.com">{{$about->website}}</a>
+                      <a target="_blank" href="{{$about->website}}" class="text-dark">{{$about->website}}</a>
                     </p>
                   </div>
                 </div>

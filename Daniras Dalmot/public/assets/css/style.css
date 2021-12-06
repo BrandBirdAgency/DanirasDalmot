@@ -6,6 +6,7 @@
 
 :root {
     --red: #e83225;
+    --red-alt: #f54134;
     --white: #fff;
     --black: #272822;
     --grey: #b3b2b2;
@@ -279,7 +280,7 @@ nav ul {
     right: -139px;
     opacity: 1;
     z-index: 99;
-    background: rgb(255 193 7 / 70%);
+    background: rgb(255 193 7 / 50%);
     transform: skewX(20deg);
 }
 
@@ -287,29 +288,29 @@ nav ul {
     display: block;
     font-style: oblique;
     font-family: fantasy;
-    color: var(--black);
+    color: var(--white);
     padding: 24px;
-    background: var(--yellow);
+    background: var(--red-alt);
     opacity: 1 !important;
 }
 
 #main-parallex .product-1,
 #main-parallex .product-2 {
     position: absolute;
-    width: 200px;
+    width: 260px;
     height: auto;
     object-fit: cover;
 }
 
 #main-parallex .product-1 {
-    top: 40%;
+    top: 35%;
     left: 20%;
     transform: rotate(-20deg);
     opacity: 0.9;
 }
 
 #main-parallex .product-2 {
-    top: 40%;
+    top: 36%;
     left: 30%;
     transform: rotate(10deg);
     opacity: 0.9;

@@ -22,7 +22,7 @@ $about = App\Models\About::first();
 
         <p class="copyright">{{$about->name}} © {{ date('Y') }}</p>
         <div class="ourcompany">
-            <p class="mb-0">POWERED BY <a href="https://101infotech.com.np/">101INFOTECH</a></p>
+            <p class="mb-0">DEVELOPED BY <a href="https://101infotech.com.np/">101INFOTECH</a></p>
         </div>
         <div class="text-center dcma mt-3">
             <a href="//www.dmca.com/Protection/Status.aspx?ID=eed91a69-b75a-44ae-b6ae-e19ee3144ce5"
