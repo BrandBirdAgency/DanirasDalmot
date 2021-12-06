@@ -7,9 +7,9 @@ $about = App\Models\About::first();
 <div class="footer-basic">
     <footer>
         <div class="social">
-            <a href="{{$about->facebook}}"><i class="fab fa-facebook-f"></i></a>
-            <a href="{{$about->instagram}}"><i class="fab fa-instagram"></i></a>
-            <a href="{{$about->twitter}}"><i class="fab fa-twitter"></i></a>
+            <a href="{{$about->facebook}}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="{{$about->instagram}}" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="{{$about->twitter}}" target="_blank"><i class="fab fa-twitter"></i></a>
         </div>
 
         <ul class="list-inline">
