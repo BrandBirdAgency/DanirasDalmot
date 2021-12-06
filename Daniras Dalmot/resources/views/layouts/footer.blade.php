@@ -1,7 +1,7 @@
 <!-- FOOTER -->
 
 @php
-    $about = App\Models\About::first();
+$about = App\Models\About::first();
 @endphp
 
 <div class="footer-basic">
@@ -22,7 +22,14 @@
 
         <p class="copyright">{{$about->name}} © {{ date('Y') }}</p>
         <div class="ourcompany">
-            <p class="mb-0">POWERED BY <a href="https://101infotech.com.np/" >101INFOTECH</a></p>
+            <p class="mb-0">POWERED BY <a href="https://101infotech.com.np/">101INFOTECH</a></p>
+        </div>
+        <div class="text-center dcma mt-3">
+            <a href="//www.dmca.com/Protection/Status.aspx?ID=eed91a69-b75a-44ae-b6ae-e19ee3144ce5"
+                title="DMCA.com Protection Status" class="dmca-badge"> <img
+                    src="https://images.dmca.com/Badges/dmca_protected_sml_120m.png?ID=eed91a69-b75a-44ae-b6ae-e19ee3144ce5"
+                    alt="DMCA.com Protection Status" /></a>
+            <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
         </div>
     </footer>
 </div>
