@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('title','Contact')
 @section('css')
-<link rel="stylesheet" href={{asset("assets/css/contact.css")}}>
-<link rel="stylesheet" href={{asset("assets/css/style.css")}} />
+<link rel="stylesheet" href={{asset("assets/css/contact.min.css")}}>
+<link rel="stylesheet" href={{asset("assets/css/style.min.css")}} />
 
 @endsection
 @section('content')
@@ -267,5 +267,5 @@
 <script src={{asset("js/jquery.min.js")}}></script>
 <script src={{asset("js/popper.js")}}></script>
 <script src={{asset("js/jquery.validate.min.js")}}></script>
-<script src={{asset("js/contact.js")}}></script>
+<script src={{asset("js/contact.min.js")}}></script>
 @endsection

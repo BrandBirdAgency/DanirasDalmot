@@ -5,7 +5,7 @@
 <!-- Swiper Js -->
 <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-<link rel="stylesheet" href={{asset('assets/css/style.css')}} />
+<link rel="stylesheet" href={{asset('assets/css/style.min.css')}} />
 @endsection
 
 @section('content')

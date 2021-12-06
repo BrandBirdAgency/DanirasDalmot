@@ -2,7 +2,7 @@
 
 @section('title','Home')
 @section('css')
-<link rel="stylesheet" href={{asset("assets/css/style.css")}} />
+<link rel="stylesheet" href={{asset("assets/css/style.min.css")}} />
 @endsection
 @section('content')
 <!-- Main Parallex -->
