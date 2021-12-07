@@ -36,6 +36,7 @@
                     id="inp"
                     class="form-control form-control-sm"
                     name="name"
+                    value="{{ old('name')}}"
                   />
                   @error('name')
                       {{$message}}
@@ -50,6 +51,7 @@
                     id="inputtextarea"
                     rows="3"
                     name="description"
+                    value="{{ old('description')}}"
                   ></textarea>
                   @error('description')
                   {{$message}}
@@ -61,6 +63,7 @@
                     id="inp"
                     class="form-control form-control-sm"
                     name="category"
+                    value="{{ old('category')}}"
                     >
                     <option >1</option>
                     <option >2</option>
@@ -76,6 +79,7 @@
                     id="inp"
                     class="form-control form-control-sm"
                     name="size"
+                    value="{{ old('size')}}"
                   />
                   @error('size')
                   {{$message}}
@@ -93,6 +97,7 @@
                     id="inp"
                     class="form-control form-control-sm"
                     name="brand_name"
+                    value="{{ old('brand_name')}}"
                   />
                   @error('brand_name')
                   {{$message}}
@@ -106,6 +111,7 @@
                     id="inp"
                     class="form-control form-control-sm"
                     name="retail_price"
+                    value="{{ old('retail_price')}}"
                   />
                   @error('retail_price')
                   {{$message}}
@@ -118,6 +124,7 @@
                     id="inp"
                     class="form-control form-control-sm"
                     name="price"
+                    value="{{ old('price')}}"
                   />
                   @error('price')
                   {{$message}}
@@ -131,6 +138,7 @@
                     id="inp"
                     class="form-control form-control-sm"
                     name="discount"
+                    value="{{ old('discount')}}"
                   />
                   @error('discount')
                   {{$message}}
@@ -148,6 +156,7 @@
                     id="inp"
                     class="form-control form-control-sm"
                     name="b_num"
+                    value="{{ old('b_num')}}"
                   />
                   @error('price')
                     {{$message}}
@@ -157,7 +166,7 @@
                 <div class="form-group">
                   <label for="inputfile" class="">Product Image </label>
                   <div class="upload">
-                    <input type="file" name='photo' accept="image/*" id="real-file0" hidden="hidden" />
+                    <input type="file" name='photo' value="{{ old('photo')}}" accept="image/*" id="real-file0" hidden="hidden" />
                     <button type="button" id="custom-button0" class="btn">
                       Choose an image
                     </button>
@@ -171,7 +180,7 @@
                 <div class="form-group">
                   <label for="inputfile" class="">Qr Code </label>
                   <div class="upload">
-                    <input type="file" name="qr" id="real-file2" hidden="hidden" />
+                    <input type="file" name="qr" value="{{ old('qr')}}" id="real-file2" hidden="hidden" />
                     <button type="button" id="custom-button2" class="btn">
                       Choose an image
                     </button>
@@ -182,7 +191,7 @@
                 <div class="form-group">
                   <label for="inputfile" class="">Bar Code </label>
                   <div class="upload">
-                    <input type="file" name="bar" id="real-file1" hidden="hidden" />
+                    <input type="file" name="bar" value="{{ old('bar')}}" id="real-file1" hidden="hidden" />
                     <button type="button" id="custom-button1" class="btn">
                       Choose an image
                     </button>
