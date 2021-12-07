@@ -19,13 +19,18 @@ class MailController extends Controller
                 'message' => 'required',
             ]
         );
-        Mail::send('email.contactmail', ['data' => $res], function ($m) use ($res) {
+
+        $abt = About::first();
+
+        Mail::send('email.contactmail', ['data' => $res], function ($m) use ($res, $abt) {
             $m->from($res->email, $res->name);;
-            $m->to('testmail9779@gmail.com', 'Test');
+            $m->to($abt->email, $abt->name);
             $m->subject($res->subject);
         });
-        return redirect('contact');
+
+        return redirect('contact')->with('success', 'Thank you! Your message has been sent successfully. We\'ll contact you soon.');
     }
+
     public function productMail(Request $res)
     {
         $res->validate(
@@ -53,7 +58,7 @@ class MailController extends Controller
         //Sending Email
         Mail::send('email.ordermail', ['data' => $res], function ($m) use ($res, $abt) {
             $m->from($res->email, $res->name);
-            $m->to($abt->email, $abt->username);
+            $m->to($abt->email, $abt->name);
             $m->subject("New Order Received");
         });
 
