@@ -1637,7 +1637,7 @@ h4 {
 .about .intro .heading h1 {
     font-size: 4rem;
 }
-.about .intro h1 span {
+.about .intro h2 span {
     color: var(--red);
     font-weight: 700;
 }

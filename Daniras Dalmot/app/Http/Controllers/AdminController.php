@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Team;
 use App\Models\About;
 use App\Models\Order;
 use App\Models\Product;
-use App\Models\Team;
 use Illuminate\Http\Request;
+use App\Http\Requests\CompanyRequest;
+use App\Http\Requests\CeoMessageRequest;
 
 class AdminController extends Controller
 {
@@ -49,16 +51,8 @@ class AdminController extends Controller
         return view('admin.teams', compact('teams'));
     }
 
-    public function companyInfoEdit(Request $req)
+    public function companyInfoEdit(CompanyRequest $req)
     {
-        $this->validate($req, [
-            'name' => 'required',
-            'address' => 'required',
-            'phone' => 'required',
-            'email' => 'required',
-            'website' => 'required',
-        ]);
-
         $company = About::first();
         $company->name = $req->name;
         $company->address = $req->address;
@@ -74,16 +68,8 @@ class AdminController extends Controller
     }
 
     // Message from CEO/Chairman
-    public function msg(Request $req)
+    public function msg(CeoMessageRequest $req)
     {
-        // dd($req->ceoimg, $req->chairmainimg);
-        $this->validate($req, [
-            'ceoname' => 'string|required',
-            'ceomsg' => 'string|required',
-            'chairmanname' => 'string|required',
-            'chairmanmsg' => 'string|required',
-        ]);
-
         $company = About::first();
         $company->ceo_name = $req->ceoname;
         $company->ceo_msg = $req->ceomsg;

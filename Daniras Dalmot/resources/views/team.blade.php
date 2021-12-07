@@ -5,6 +5,7 @@
 <!-- Link Swiper's CSS -->
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 <link rel="stylesheet" href={{asset("assets/css/style.min.css")}} />
+<link rel="canonical" href="{{url('')}}/team">
 @endsection
 
 @section('content')
@@ -27,7 +28,7 @@
     <div class="image-overlay"></div>
     <div class="text">
       <div class="headings">
-        <h1 class="">OUR TEAM</h1>
+        <h1 class="">OUR CORE TEAM MEMBERS</h1>
         <div class="bannerline"></div>
       </div>
       <div class="bannernav">
@@ -135,7 +136,7 @@
               <div class="message-contain">
                 <div class="cos">
                   <div class="cus-heading">
-                    <h3>Message From CEO</h3>
+                    <h2 class="h3">Message From CEO</h2>
                     <div class="line"></div>
                   </div>
                   <div class="edit-icon">
@@ -167,7 +168,7 @@
               <div class="message-contain">
                 <div class="cos">
                   <div class="cus-heading">
-                    <h3>Message From Chairman</h3>
+                    <h2 class="h3">Message From Chairman</h2>
                     <div class="line"></div>
                   </div>
                   <div class="edit-icon">
@@ -195,7 +196,7 @@
   <!-- TEAMS -->
   <section class="teams normalsec">
     <div class="heading text-center">
-      <h3>Our Team</h3>
+      <h2 class="h3">Our Team Members</h2>
       <div class="line"></div>
     </div>
     <p class="short-desc">

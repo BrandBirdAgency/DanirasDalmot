@@ -3,14 +3,15 @@
 @section('title','Home')
 @section('css')
 <link rel="stylesheet" href={{asset("assets/css/style.min.css")}} />
+<link rel="canonical" href="https://danirasdalmoth.com">
 @endsection
 @section('content')
-<!-- Main Parallex -->
+{{-- Main Parallex --}}
 
 <section id="main-parallex">
   <div class="box">
     <div class="skew-box">
-      <h3>Quality that You can Trust</h3>
+      <h3>Quality that You can Trust &nbsp;</h3>
     </div>
   </div>
   <img src={{asset("assets/images/banner1.jpg")}} alt="" class="banner-img">
@@ -28,7 +29,7 @@
       </div>
       <div class="col-md-12 col-lg-6 col-12 contents">
         <div class="heading">
-          <h1>Welcome To Danira's</h1>
+          <h1>Welcome To Danira's Dalmoth</h1>
           <div class="line"></div>
         </div>
         <p class="text-justify">"Danira's" a brand of "Pushpanjali Spices and Food Products" is a premium manufacturer
@@ -44,6 +45,7 @@
               <img src={{asset("/assets/images/like.png")}} alt="" class="img-1">
             </div>
             <div class="de">
+              <h2 class="d-none">Our Features</h2>
               <h3>Best Quality Products</h3>
               <p>Having hi-tech machineries enable us to produce best quality products! </p>
             </div>

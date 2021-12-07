@@ -3,7 +3,7 @@
 @section('css')
 <link rel="stylesheet" href={{asset("assets/css/contact.min.css")}}>
 <link rel="stylesheet" href={{asset("assets/css/style.min.css")}} />
-
+<link rel="canonical" href="{{url('')}}/about">
 @endsection
 @section('content')
 
@@ -27,7 +27,7 @@
     <div class="image-overlay"></div>
     <div class="text">
       <div class="headings">
-        <h1 class="">CONTACT</h1>
+        <h1 class="">CONTACT DANIRA'S 24/7</h1>
         <div class="bannerline"></div>
       </div>
       <div class="bannernav">
@@ -49,7 +49,7 @@
           <div class="row no-gutters">
             <div class="col-md-6">
               <div class="contact-wrap w-100 p-lg-5 p-4">
-                <h3 class="mb-4">Send us a message</h3>
+                <h2 class="mb-4 text-uppercase">Don't be Stranger.</h2>
                 <div id="form-message-warning" class="mb-4"></div>
                 <div id="form-message-success" class="mb-4">
                   Your message was sent, thank you!
