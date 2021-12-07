@@ -213,8 +213,8 @@
               <p class="name">{{$team->name}}</p>
               <p class="post">{{$team->position}}</p>
               <div class="socials">
-                <a href="{{$team->facebook}}"><i class="fab fa-instagram"></i></a>
-                <a href="{{$team->instagram}}"><i class="fab fa-facebook-f"></i></a>
+                <a href="{{$team->facebook}}"><i class="fab fa-facebook-f"></i></a>
+                <a href="{{$team->instagram}}"><i class="fab fa-instagram"></i></a>
               </div>
             </div>
           </div>
