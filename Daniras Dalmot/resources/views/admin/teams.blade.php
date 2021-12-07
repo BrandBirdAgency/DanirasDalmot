@@ -54,6 +54,7 @@
                                 class="form-control"
                                 id="usr"
                                 name="name"
+                                value="{{ old('name')}}"
                             />
                             @error('name')
                                 {{$message}}
@@ -66,6 +67,7 @@
                                 class="form-control"
                                 id="Address"
                                 name="position"
+                                value="{{ old('position')}}"
                             />
                                 @error('position')
                                     {{$message}}
@@ -80,6 +82,7 @@
                                             class="form-control"
                                             id="Phone"
                                             name="phone"
+                                            value="{{ old('phone')}}"
                                         />
                                         @error('phone')
                                         {{$message}}
@@ -94,6 +97,7 @@
                                         class="form-control"
                                         id="Phone"
                                         name="address"
+                                        value="{{ old('address')}}"
                                         />
                                         @error('address')
                                         {{$message}}
@@ -111,6 +115,7 @@
                                         class="form-control"
                                         id="Phone"
                                         name="facebook"
+                                        value="{{ old('facebook')}}"
                                         />
                                     </div>
                                 </div>
@@ -122,6 +127,7 @@
                                         class="form-control"
                                         id="Phone"
                                         name="instagram"
+                                        value="{{ old('instagram')}}"
                                         />
                                     </div>
                                 </div>
@@ -129,7 +135,7 @@
                             <div class="form-group">
                   <label for="inputfile" class="">Photo :  </label>
                   <div class="upload">
-                    <input type="file" id="real-file1" hidden="hidden" name="photo"
+                    <input type="file" id="real-file1" hidden="hidden" name="photo" value="{{ old('photo')}}"
                                 accept="image/*"
                                 enctype="multipart/form-data"/>
                     <button type="button" id="custom-button1" class="btn">
@@ -199,7 +205,7 @@
                                                 @csrf
                                                 <div class="form-group">
                                                     <label for="nme">Full Name:</label>
-                                                    <input type="text" class="form-control" id="nme" name="name" value="{{$team->name}}"/>
+                                                    <input type="text" class="form-control" id="nme" name="name"  value="{{$team->name}}"/>
                                                     @error('name') {{$message}} @enderror
                                                 </div>
                                                 <div class="form-group">
