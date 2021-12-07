@@ -123,7 +123,6 @@
                                         <form action={{ route('productorder') }} method="POST">
                                             @csrf
                                             <input type="hidden" name="product_id" value={{ $p->id }}>
-                                            <input type="hidden" name="quantity" id="quantity">
                                             <input type="hidden" name="price" value={{ $p->price }}>
                                             <div class="form-group">
                                                 <label for="usr">Full Name:</label>
@@ -141,7 +140,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="Quantity">Quantity:</label>
-                                                <input type="number" class="form-control" id="Quantity" name="quantiy" />
+                                                <input type="number" class="form-control" id="Quantity" name="quantity" />
                                                 @error('quantity')
                                                     {{ $message }}
                                                 @enderror
