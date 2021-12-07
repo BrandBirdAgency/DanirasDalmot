@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('title','Contact')
 @section('css')
-<link rel="stylesheet" href={{asset("assets/css/contact.css")}}>
-<link rel="stylesheet" href={{asset("assets/css/style.css")}} />
-
+<link rel="stylesheet" href={{asset("assets/css/contact.min.css")}}>
+<link rel="stylesheet" href={{asset("assets/css/style.min.css")}} />
+<link rel="canonical" href="{{url('')}}/about">
 @endsection
 @section('content')
 
@@ -27,7 +27,7 @@
     <div class="image-overlay"></div>
     <div class="text">
       <div class="headings">
-        <h1 class="">CONTACT</h1>
+        <h1 class="">CONTACT DANIRA'S 24/7</h1>
         <div class="bannerline"></div>
       </div>
       <div class="bannernav">
@@ -49,7 +49,7 @@
           <div class="row no-gutters">
             <div class="col-md-6">
               <div class="contact-wrap w-100 p-lg-5 p-4">
-                <h3 class="mb-4">Send us a message</h3>
+                <h2 class="mb-4 text-uppercase">Don't be Stranger.</h2>
                 <div id="form-message-warning" class="mb-4"></div>
                 <div id="form-message-success" class="mb-4">
                   Your message was sent, thank you!
@@ -200,7 +200,7 @@
                     <span class="fa fa-map-marker"></span>
                   </div>
                   <div class="text pl-3">
-                    <p><span>Address:</span> {{$about->address}}</p>
+                    <p class="text-dark mt-2">{{$about->address}}</p>
                   </div>
                 </div>
                 <div class="dbox w-100 d-flex align-items-center">
@@ -214,8 +214,7 @@
                   </div>
                   <div class="text pl-3">
                     <p>
-                      <span>Phone:</span>
-                      <a href="tel://9845999137">{{$about->phone}}</a>
+                      <a href="tel:{{$about->phone}}" class="text-dark">{{$about->phone}}</a>
                     </p>
                   </div>
                 </div>
@@ -230,8 +229,7 @@
                   </div>
                   <div class="text pl-3">
                     <p>
-                      <span>Email:</span>
-                      <a href="mailto:infodanirasdalmoth@gmail.com">{{$about->email}}</a>
+                      <a href="mailto:{{$about->email}}" class="text-dark">{{$about->email}}</a>
                     </p>
                   </div>
                 </div>
@@ -246,8 +244,7 @@
                   </div>
                   <div class="text pl-3">
                     <p>
-                      <span>Website</span>
-                      <a href="www.danirasdalmoth.com">{{$about->website}}</a>
+                      <a target="_blank" href="{{$about->website}}" class="text-dark">{{$about->website}}</a>
                     </p>
                   </div>
                 </div>
@@ -261,35 +258,14 @@
 </section>
 
 <div class="google-maps">
-  <iframe width="100%" height="500" style="border: 0" loading="lazy" allowfullscreen
-    src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJz7lIcjdVkzkRhj2x77WzDQk&key=AIzaSyB9rtq1F5EacmlMgt_1QuNsl9d0FEZ06DY"></iframe>
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3553.8693240452435!2d84.90640731485557!3d27.034294883075386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3993554b072649b3%3A0xb7fdfeee98289715!2sDanira&#39;s%20Dalmoth!5e0!3m2!1sen!2snp!4v1634834105799!5m2!1sen!2snp"
+    width="100%" height="500" style="border: 0" allowfullscreen loading="lazy"></iframe>
 </div>
 @endsection
 @section('js')
 <script src={{asset("js/jquery.min.js")}}></script>
 <script src={{asset("js/popper.js")}}></script>
 <script src={{asset("js/jquery.validate.min.js")}}></script>
-<script src={{asset("js/contact.js")}}></script>
+<script src={{asset("js/contact.min.js")}}></script>
 @endsection
-<div id="fb-root"></div>
-<div id="fb-customer-chat" class="fb-customerchat">
-</div>
-<script>
-  var chatbox = document.getElementById('fb-customer-chat');
-      chatbox.setAttribute("page_id", "1015463985278748");
-      chatbox.setAttribute("attribution", "biz_inbox");
-
-      window.fbAsyncInit = function() {
-        FB.init({
-          xfbml            : true,
-          version          : 'v12.0'
-        });
-      };
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-</script>

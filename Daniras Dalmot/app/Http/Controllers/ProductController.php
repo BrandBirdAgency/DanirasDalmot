@@ -12,6 +12,10 @@ use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:web');
+    }
     /**
      * Display a listing of the resource.
      */
@@ -35,8 +39,6 @@ class ProductController extends Controller
      */
     public function store(Request $req)
     {
-
-
         $req->validate(
             [
                 'name' => 'string|required',
@@ -59,7 +61,7 @@ class ProductController extends Controller
             $latest = $latest->id + 1;
 
         $product->name = $req->name;
-        $product->photo = $req->file('photo')->storeAs('public/images/products', $req->name);
+        $product->photo = $req->file('photo')->storeAs('public/images/products', $this->filterName($req->name) . '.jpg');
         $product->description = $req->description;
         $product->retail_price = $req->retail_price;
         $product->discount = $req->discount;
@@ -159,7 +161,7 @@ class ProductController extends Controller
         $product->name = $req->name;
         if ($req->photo != null) {
             Storage::delete($product->photo);
-            $product->photo = $req->file('photo')->storeAs('public/images/products', $req->name);
+            $product->photo = $req->file('photo')->storeAs('public/images/products', $this->filterName($req->name) . '.jpg');
         }
         $product->description = $req->description;
         $product->retail_price = $req->retail_price;
@@ -169,7 +171,7 @@ class ProductController extends Controller
         $product->brand_name = $req->brand_name;
         $product->size = $req->size;
         $product->save();
-        return redirect()->route('product.show',$id)->with('success', 'Product Updated!!');
+        return redirect()->route('product.show', $id)->with('success', 'Product Updated!!');
     }
 
     /**
@@ -208,5 +210,11 @@ class ProductController extends Controller
             }
             Product::where('id', $data['productId'])->update(['home' => $data['display']]);
         }
+    }
+    private function filterName($name)
+    {
+        $name = preg_replace('/[^A-Za-z0-9\- ]/', '', $name);
+        $name = str_replace(' ', '-', strtolower(trim($name)));
+        return $name;
     }
 }

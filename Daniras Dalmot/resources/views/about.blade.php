@@ -1,11 +1,13 @@
 @extends('layouts.app')
 @section('title', 'About')
+
 @section('css')
-<link rel="stylesheet" href={{asset("assets/css/style.css")}} />
+<link rel="stylesheet" href={{asset("assets/css/style.min.css")}} />
+<link rel="canonical" href="{{url('')}}/about">
 @endsection
+
 @section('content')
 <!-- ABOUT BEGIN -->
-
 <!-- MAIN BANNER -->
 <div class="teambanner">
   <div class="contain">
@@ -15,7 +17,7 @@
     <div class="image-overlay"></div>
     <div class="text">
       <div class="headings">
-        <h1 class="">ABOUT US</h1>
+        <h1 class="">ABOUT DANIRA'S DALMOTH</h1>
         <div class="bannerline"></div>
       </div>
       <div class="bannernav">
@@ -33,24 +35,18 @@
 <div class="maindiv about">
   <section class="intro  normalsec">
     <div class="headings">
-      <h1>
-        Welcome to <span>Danira's Namkeen</span>. We're glad and grateful
-        your're here .
-      </h1>
+      <h2>
+        Welcome to <span>{{config('app.name')}}</span>. We're glad and grateful
+        you're here .
+      </h2>
       <p>
-        Pushpanjali Spices and food products is a premium manufacturer and
+        <span class="text-capitalize"><q>Pushpanjali Spices and food products</q></span> is a premium manufacturer and
         supplier of innovative quality food products at competitive rates.
         We work together with our customers and colleagues to achieve the
         best possible outcomes. We build open and honest relationship with
         customers through open communication integrity, honesty abd
         accountability and are the core of our bussiness and growth.
       </p>
-      <div class="lines">
-        <div class="line l1"></div>
-        <div class="line l2"></div>
-        <div class="line l1"></div>
-      </div>
-
     </div>
   </section>
 
@@ -151,12 +147,21 @@
         <div class="whyus">
           <h2>Why Choose Us ?</h2>
           <div class="line"></div>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A perspiciatis distinctio quis repellendus
-            doloremque quisquam quasi quas architecto maiores. Sunt ipsa velit culpa aperiam! Dignissimos sed tempore
-            corrupti. Suscipit qui quasi consequatur temporibus.<br><br> Maxime iusto reprehenderit voluptatibus
-            adipisci ipsum libero porro laborum quo officia aliquid numquam modi quisquam rerum velit ipsa tempora,
-            eveniet totam eos, cum minus? Deserunt reprehenderit nihil voluptatum eaque saepe vitae aliquam? Reiciendis
-            eius beatae aliquid reprehenderit.</p>
+          <p>"Danira's" a brand of "Pushpanjali Spices and Food Products" is a premium manufacturer and supplier of
+            inovative quality
+            food products at competitive rates. We work together with our customer and collegues to achive the best
+            possible
+            outcome. <br>We build open and honest relationship with both customer and employees through open
+            communication
+            integrity,
+            honesty and accountability that are at the core of our buisness.
+            <br><br>
+            ➊ Best Quality Products
+            <br><br>
+            ➋ Healthly Products
+            <br><br>
+            ➌ On Time Deliveries
+          </p>
         </div>
       </div>
     </div>
@@ -185,26 +190,3 @@
 @section('js')
 <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
 @endsection
-
-<div id="fb-root"></div>
-<div id="fb-customer-chat" class="fb-customerchat">
-</div>
-<script>
-  var chatbox = document.getElementById('fb-customer-chat');
-      chatbox.setAttribute("page_id", "1015463985278748");
-      chatbox.setAttribute("attribution", "biz_inbox");
-
-      window.fbAsyncInit = function() {
-        FB.init({
-          xfbml            : true,
-          version          : 'v12.0'
-        });
-      };
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-</script>

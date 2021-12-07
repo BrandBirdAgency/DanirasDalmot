@@ -6,6 +6,7 @@
 
 :root {
     --red: #e83225;
+    --red-alt: #f54134;
     --white: #fff;
     --black: #272822;
     --grey: #b3b2b2;
@@ -279,7 +280,7 @@ nav ul {
     right: -139px;
     opacity: 1;
     z-index: 99;
-    background: rgb(255 193 7 / 70%);
+    background: rgb(255 193 7 / 50%);
     transform: skewX(20deg);
 }
 
@@ -287,29 +288,29 @@ nav ul {
     display: block;
     font-style: oblique;
     font-family: fantasy;
-    color: var(--black);
+    color: var(--white);
     padding: 24px;
-    background: var(--yellow);
+    background: var(--red-alt);
     opacity: 1 !important;
 }
 
 #main-parallex .product-1,
 #main-parallex .product-2 {
     position: absolute;
-    width: 200px;
+    width: 260px;
     height: auto;
     object-fit: cover;
 }
 
 #main-parallex .product-1 {
-    top: 40%;
+    top: 35%;
     left: 20%;
     transform: rotate(-20deg);
     opacity: 0.9;
 }
 
 #main-parallex .product-2 {
-    top: 40%;
+    top: 36%;
     left: 30%;
     transform: rotate(10deg);
     opacity: 0.9;
@@ -1211,6 +1212,16 @@ nav ul {
     transition: 0.3s;
 }
 
+#main-products .product-details h6 a {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    color: var(--red);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
 #main-products .product-details p {
     font-size: 15px;
     line-height: 22px;
@@ -1626,7 +1637,7 @@ h4 {
 .about .intro .heading h1 {
     font-size: 4rem;
 }
-.about .intro h1 span {
+.about .intro h2 span {
     color: var(--red);
     font-weight: 700;
 }
@@ -2233,11 +2244,11 @@ input.submit-btn:hover {
 /* ORDER SUCCESS */
 #online-payment {
     background-color: aliceblue;
-    position: absolute;
+    position: relative;
     bottom: 0;
     left: 0;
     width: 100%;
-    overflow: hidden;
+    height: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -2245,6 +2256,7 @@ input.submit-btn:hover {
     align-self: center;
     align-items: center;
     margin: auto auto;
+    margin-top: 84.68px;
 }
 
 #online-payment .payment-title {
@@ -2359,6 +2371,22 @@ input.submit-btn:hover {
     }
 }
 @media only screen and (max-width: 768px) {
+    /* ORDER SUCCESS */
+    #online-payment {
+        background-color: aliceblue;
+        position: relative;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        min-height: 63vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-self: center;
+        align-items: center;
+        margin: auto auto;
+        margin-top: 84.68px;
+    }
     #online-payment .payment-options {
         width: 80%;
         margin-bottom: 16px;
