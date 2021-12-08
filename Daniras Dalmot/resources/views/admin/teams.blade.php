@@ -1,30 +1,35 @@
 @extends('layouts.app')
 @section('title','Orders')
 @section('css')
-<!-- CSS -->
-<!-- Add icon library -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="{{asset('/assets/css/admin.css')}}" />
+    <!-- CSS -->
+    <!-- Add icon library -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{asset('/assets/css/admin.css')}}"
+    />
 @endsection
 @section('content')
 
 
-@if (Session::has('success'))
-<div class="alert alert-success alert-dismissible in">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    {!! Session::get('success') !!}
-</div>
-@endif
-<div class="back-btn">
-    <a href="{{route('dashboard')}}" class="btn ml-4 mb-3">Back</a>
+    @if (Session::has('success'))
+        <div class="alert alert-success alert-dismissible in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            {!! Session::get('success') !!}
+        </div>
+    @endif
+    <div class="back-btn">
+  <a href="{{route('dashboard')}}" class="btn ml-4 mb-3">Back</a>
 </div>
 
-<!-- TEAMS -->
-<section class="teamss member" id="tm">
+   <!-- TEAMS -->
+   <section class="teamss member" id="tm">
 
     <div class="add-member my-3">
-        <button class="add-member-btn" data-toggle="modal" data-target="#add"><i class="fa fa-plus plus"></i> Add Member
-        </button>
+        <button class="add-member-btn"  data-toggle="modal" data-target="#add"><i class="fa fa-plus plus"></i> Add Member </button>
         <!-- Modal for adding team members -->
         <div class="modal fade" id="add" aria-labelledby="Title">
             <div class="modal-dialog modal-dialog-centered">
@@ -43,24 +48,42 @@
                             @csrf
                             <input type="hidden" name="id">
                             <div class="form-group">
-                                <label for="usr">Full Name:</label>
-                                <input type="text" class="form-control" id="usr" name="name" />
-                                @error('name')
+                            <label for="usr">Full Name:</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="usr"
+                                name="name"
+                                value="{{ old('name')}}"
+                            />
+                            @error('name')
                                 {{$message}}
-                                @enderror
+                            @enderror
                             </div>
                             <div class="form-group">
-                                <label for="Address">Position:</label>
-                                <input type="text" class="form-control" id="Address" name="position" />
+                            <label for="Address">Position:</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="Address"
+                                name="position"
+                                value="{{ old('position')}}"
+                            />
                                 @error('position')
-                                {{$message}}
+                                    {{$message}}
                                 @enderror
                             </div>
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="Phone">Phone:</label>
-                                        <input type="text" class="form-control" id="Phone" name="phone" />
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            id="Phone"
+                                            name="phone"
+                                            value="{{ old('phone')}}"
+                                        />
                                         @error('phone')
                                         {{$message}}
                                         @enderror
@@ -69,7 +92,13 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="Phone">Address:</label>
-                                        <input type="text" class="form-control" id="Phone" name="address" />
+                                        <input
+                                        type="text"
+                                        class="form-control"
+                                        id="Phone"
+                                        name="address"
+                                        value="{{ old('address')}}"
+                                        />
                                         @error('address')
                                         {{$message}}
                                         @enderror
@@ -81,31 +110,44 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="Phone">Facebook:</label>
-                                        <input type="url" class="form-control" id="Phone" name="facebook" />
+                                        <input
+                                        type="url"
+                                        class="form-control"
+                                        id="Phone"
+                                        name="facebook"
+                                        value="{{ old('facebook')}}"
+                                        />
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="Phone">Instagram:</label>
-                                        <input type="url" class="form-control" id="Phone" name="instagram" />
+                                        <input
+                                        type="url"
+                                        class="form-control"
+                                        id="Phone"
+                                        name="instagram"
+                                        value="{{ old('instagram')}}"
+                                        />
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="input-group mt-3 mb-5">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                                </div>
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="inputGroupFile01"
-                                        aria-describedby="inputGroupFileAddon01" name="photo" accept="image/*">
-                                    <label class="custom-file-label" for="inputGroupFile01">Choose a image</label>
-                                </div>
-                                @error('photo') {{$message}} @enderror
-                            </div>
-                            <div class="sub text-right">
-                                <button type="submit" class="member-submit-btn">Add</button>
-                            </div>
+                            <div class="form-group">
+                  <label for="inputfile" class="">Photo :  </label>
+                  <div class="upload">
+                    <input type="file" id="real-file1" hidden="hidden" name="photo" value="{{ old('photo')}}"
+                                accept="image/*"
+                                enctype="multipart/form-data"/>
+                    <button type="button" id="custom-button1" class="btn">
+                      Choose an image
+                    </button>
+                    <p id="custom-text1">No file chosen, yet.</p>
+                  </div>
+                    @error('photo') {{$message}} @enderror
+                </div>
+                        <div class="sub text-right">
+                            <button type="submit" class="member-submit-btn">Add</button>
+</div>
                         </form>
                     </div>
                 </div>
@@ -116,77 +158,73 @@
     <div class="contains">
         <div class="row mx-0 px-0">
             @forelse ($teams as $team)
-            <div class="col-lg-4 col-md-6 col-12 member">
-                <div class="infoo">
-                    <div class="images">
-                        <img src="{{$team->photo}}" alt="team" class="img-fluid" />
-                    </div>
-                    <div class="details">
-                        <div class="del-edit-button">
-                            <button class="deletes" data-toggle="modal" data-target="#dlt{{$team->id}}"><i
-                                    class="fas fa-trash"></i></button>
-                            <!-- DELETE-model  -->
-                            <div class="modal fade" id="dlt{{$team->id}}" aria-labelledby="models">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content ">
-                                        <div class="modal-header">
+                <div class="col-lg-4 col-md-6 col-12 member">
+                    <div class="infoo">
+                        <div class="images">
+                            <img
+                                src="{{$team->photo}}"
+                                alt="team"
+                                class="img-fluid"
+                            />
+                        </div>
+                        <div class="details">
+                            <div class="del-edit-button">
+                                <button class="deletes" data-toggle="modal" data-target="#dlt{{$team->id}}"><i class="fas fa-trash"></i></button>
+                                <!-- DELETE-model  -->
+                                <div class="modal fade" id="dlt{{$team->id}}" aria-labelledby="models" >
+                                    <div class="modal-dialog modal-dialog-centered" >
+                                        <div class="modal-content ">
+                                            <div class="modal-header">
                                             <h5 class="modal-title text-danger" id="models">Do you want to delete?</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <a href="{{route('deleterecord', $team->id)}}"><button type="button"
-                                                    class="btn">Yes</button></a>
-                                            <button type="button" class="btn" data-dismiss="modal">No</button>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a href="{{route('deleterecord', $team->id)}}"><button type="button" class="btn">Yes</button></a>
+                                                <button type="button" class="btn"data-dismiss="modal">No</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- delete-model-ends  -->
+                                <!-- delete-model-ends  -->
 
-                            <button class="edits" data-toggle="modal" data-target="#edts{{$team->id}}"><i
-                                    class="fas fa-edit"></i></button>
-                            <!-- edit-model-->
-                            <div class="modal fade" id="edts{{$team->id}}" aria-labelledby="Title" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
+                                <button class="edits" data-toggle="modal" data-target="#edts{{$team->id}}"><i class="fas fa-edit"></i></button>
+                                <!-- edit-model-->
+                                <div class="modal fade" id="edts{{$team->id}}" aria-labelledby="Title" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" >
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h3 class="modal-title text-danger  text-center" id="Title">Edit Member</h3>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span class="cross" aria-hidden="true">&times;</span>
-                                            </button>
+                                        <h3 class="modal-title text-danger  text-center" id="Title">Edit Member</h3>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span class="cross" aria-hidden="true">&times;</span>
+                                        </button>
                                         </div>
                                         <div class="modal-body team-model-body">
-                                            <form method="POST" action="{{route('editrecord', $team->id)}}"
-                                                enctype="multipart/form-data">
+                                            <form method="POST" action="{{route('editrecord', $team->id)}}" enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="form-group">
                                                     <label for="nme">Full Name:</label>
-                                                    <input type="text" class="form-control" id="nme" name="name"
-                                                        value="{{$team->name}}" />
+                                                    <input type="text" class="form-control" id="nme" name="name"  value="{{$team->name}}"/>
                                                     @error('name') {{$message}} @enderror
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="pst">Position:</label>
-                                                    <input type="text" class="form-control" id="pst" name="pos"
-                                                        value="{{$team->position}}" />
+                                                    <input type="text"class="form-control" id="pst" name="pos" value="{{$team->position}}"/>
                                                     @error('pos') {{$message}} @enderror
                                                 </div>
                                                 <div class="row">
                                                     <div class="col">
                                                         <div class="form-group">
                                                             <label for="phn">Phone:</label>
-                                                            <input type="text" class="form-control" id="phn" name="phn"
-                                                                value="{{$team->phone}}" />
+                                                            <input type="text" class="form-control" id="phn" name="phn" value="{{$team->phone}}"/>
                                                             @error('phn') {{$message}} @enderror
                                                         </div>
                                                     </div>
                                                     <div class="col">
                                                         <div class="form-group">
                                                             <label for="add">Address:</label>
-                                                            <input type="text" class="form-control" id="add" name="add"
-                                                                value="{{$team->address}}" />
+                                                            <input type="text"class="form-control" id="add" name="add" value="{{$team->address}}"/>
                                                             @error('add') {{$message}} @enderror
                                                         </div>
                                                     </div>
@@ -196,53 +234,46 @@
                                                     <div class="col">
                                                         <div class="form-group">
                                                             <label for="fburl">Facebook:</label>
-                                                            <input type="text" class="form-control" id="fburl" name="fb"
-                                                                value="{{$team->facebook}}" />
+                                                            <input type="text" class="form-control" id="fburl" name="fb" value="{{$team->facebook}}"/>
                                                         </div>
                                                     </div>
                                                     <div class="col">
                                                         <div class="form-group">
                                                             <label for="instaurl">Instagram:</label>
-                                                            <input type="text" class="form-control" id="instaurl"
-                                                                name="insta" value="{{$team->instagram}}" />
+                                                            <input type="text" class="form-control" id="instaurl" name="insta" value="{{$team->instagram}}"/>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="input-group mt-3 mb-5">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text"
-                                                            id="inputGroupFileAddon01">Upload</span>
-                                                    </div>
-                                                    <div class="custom-file">
-                                                        <input type="file" class="custom-file-input"
-                                                            id="inputGroupFile01"
-                                                            aria-describedby="inputGroupFileAddon01" name="pic"
-                                                            accept="image/*">
-                                                        <label class="custom-file-label" for="inputGroupFile01">Choose a
-                                                            image</label>
-                                                    </div>
-                                                    @error('photo') {{$message}} @enderror
-                                                </div>
+                                                                                   <div class="form-group">
+                  <label for="pic" class="">Photo: </label>
+                  <div class="upload">
+                    <input type="file" id="real-file0" name="pic" hidden="hidden"  accept="image/*"/>
+                    <button type="button" id="custom-button0" class="btn">
+                      Choose an image
+                    </button>
+                    <p id="custom-text0">No file chosen, yet.</p>
+                  </div>
+                </div>
                                                 <div class="sub text-right">
-                                                    <button type="submit" class="member-submit-btn">Edit</button>
-                                                </div>
+                                                <button type="submit" class="member-submit-btn">Edit</button>
+</div>
                                             </form>
                                         </div>
                                     </div>
+                                    </div>
                                 </div>
+                                <!-- edit-modal ends  -->
                             </div>
-                            <!-- edit-modal ends  -->
+                            <p class="name">{{$team->name}}</p>
+                            <p class="post">{{$team->position}}</p>
                         </div>
-                        <p class="name">{{$team->name}}</p>
-                        <p class="post">{{$team->position}}</p>
                     </div>
+                    <hr/>
                 </div>
-                <hr />
-            </div>
             @empty
-            <div class="no-content">
-                <h4>No Team</h4>
-            </div>
+                <div class="no-content">
+                    <h4>No Team</h4>
+                </div>
             @endforelse
         </div>
     </div>
@@ -251,8 +282,8 @@
 </div>
 <!-- END TEAM  ENDSS-->
 
-<script>
-    const realFileBtn0 = document.getElementById("real-file0");
+ <script>
+      const realFileBtn0 = document.getElementById("real-file0");
       const customBtn0 = document.getElementById("custom-button0");
       const customTxt0 = document.getElementById("custom-text0");
 
@@ -288,6 +319,6 @@
         }
       });
 
-</script>
+    </script>
 
 @endsection
