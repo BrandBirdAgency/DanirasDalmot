@@ -46,7 +46,6 @@ Route::prefix('/contact')->group(
     }
 );
 
-
 // Admin
 Route::prefix('admin')->group(function () {
     Route::middleware(['auth'])->group(function () {

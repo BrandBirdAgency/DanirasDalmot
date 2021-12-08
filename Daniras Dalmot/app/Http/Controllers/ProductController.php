@@ -48,7 +48,6 @@ class ProductController extends Controller
             $latest = $latest;
         } else
             $latest = $latest + 1;
-        dd($latest);
 
         $product->name = $req->name;
         $product->photo = $req->file('photo')->storeAs('public/images/products', $this->filterName($req->name) . '.jpg');
