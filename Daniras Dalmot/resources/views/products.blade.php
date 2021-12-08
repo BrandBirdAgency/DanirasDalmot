@@ -345,65 +345,67 @@
 <script src={{ asset('vendor/js/bootstrap.bundle.js') }}></script>
 <script>
     let count = document.querySelector(".count");
-        let minus = document.querySelector(".minus");
-        let plus = document.querySelector(".plus");
-        let quantity = document.querySelector("#quantity");
-        let counter = 1;
-        quantity.value = 1;
+    let minus = document.querySelector(".minus");
+    let plus = document.querySelector(".plus");
+    let quantity = document.querySelector("#quantity");
+    let counter = 1;
+    quantity.value = 1;
 
-        minus.addEventListener("click", () => {
-            if (counter <= 0) {
-                count.innerHTML = 0;
-            } else {
-                counter--;
-                count.innerHTML = counter;
-                quantity.value = counter;
-            }
-        });
-
-        plus.addEventListener("click", () => {
-            counter++;
+    minus.addEventListener("click", () => {
+        if (counter <= 0) {
+            count.innerHTML = 0;
+        } else {
+            counter--;
             count.innerHTML = counter;
             quantity.value = counter;
-        });
+        }
+    });
 
-        var swiper = new Swiper("#more-products .swiper", {
-            slidesPerView: 4,
-            spaceBetween: 10,
-            // Optional parameters
-            grabCursor: true,
-            direction: "horizontal",
-            loop: true,
-            simulateTouch: true,
+    plus.addEventListener("click", () => {
+        counter++;
+        count.innerHTML = counter;
+        quantity.value = counter;
+    });
+</script>
 
-            // If we need pagination
-            pagination: {
-                el: ".swiper-pagination",
+<script>
+    var swiper = new Swiper("#more-products .swiper", {
+        slidesPerView: 4,
+        spaceBetween: 10,
+        // Optional parameters
+        grabCursor: true,
+        direction: "horizontal",
+        loop: true,
+        simulateTouch: true,
+
+        // If we need pagination
+        pagination: {
+            el: ".swiper-pagination",
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+
+        breakpoints: {
+            // when window width is >= 320px
+            200: {
+                slidesPerView: 2,
+                spaceBetween: 10,
             },
-
-            // Navigation arrows
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
+            // when window width is >= 480px
+            360: {
+                slidesPerView: 3,
+                spaceBetween: 30,
             },
-
-            breakpoints: {
-                // when window width is >= 320px
-                200: {
-                    slidesPerView: 2,
-                    spaceBetween: 10,
-                },
-                // when window width is >= 480px
-                360: {
-                    slidesPerView: 3,
-                    spaceBetween: 30,
-                },
-                // when window width is >= 640px
-                900: {
-                    slidesPerView: 4,
-                    spaceBetween: 40,
-                },
+            // when window width is >= 640px
+            900: {
+                slidesPerView: 4,
+                spaceBetween: 40,
             },
-        });
+        },
+    });
 </script>
 @endsection
