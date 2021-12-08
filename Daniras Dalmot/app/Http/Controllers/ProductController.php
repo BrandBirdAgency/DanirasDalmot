@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Picqer;
 use App\Models\Product;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Requests\ProductRequest;
 use Illuminate\Support\Facades\Storage;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
-use Picqer;
-use Illuminate\Support\Str;
 
 
 class ProductController extends Controller
@@ -37,28 +38,17 @@ class ProductController extends Controller
      * Store a newly created resource in storage.
 
      */
-    public function store(Request $req)
+    public function store(ProductRequest $req)
     {
-        $req->validate(
-            [
-                'name' => 'string|required',
-                'description' => 'string|required',
-                'photo' => 'required|max:5120',
-                'retail_price' => 'required',
-                'discount' => 'required',
-                'price' => 'required',
-                'brand_name' => 'string|required',
-                'size' => 'required'
-            ]
-        );
         $product = new Product();
 
-        $latest = Product::orderBy('created_at', 'desc')->first();
+        $latest = Product::orderBy('created_at', 'desc')->max('id');
         if ($latest == NULL) {
             $product->id = 10000;
-            $latest = 10000;
+            $latest = $latest;
         } else
-            $latest = $latest->id + 1;
+            $latest = $latest + 1;
+        dd($latest);
 
         $product->name = $req->name;
         $product->photo = $req->file('photo')->storeAs('public/images/products', $this->filterName($req->name) . '.jpg');
@@ -142,21 +132,8 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $req, $id)
+    public function update(ProductRequest $req, $id)
     {
-        $req->validate(
-            [
-                'name' => 'string|required',
-                'description' => 'string|required',
-                'photo' => 'max:5120',
-                'retail_price' => 'required',
-                'discount' => 'required',
-                'price' => 'required',
-                'brand_name' => 'string|required',
-                'size' => 'required'
-            ]
-        );
-
         $product = Product::find($id);
         $product->name = $req->name;
         if ($req->photo != null) {

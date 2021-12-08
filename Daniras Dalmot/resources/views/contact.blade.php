@@ -60,7 +60,8 @@
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        <input type="text" class="form-control" name="name" id="name"  value="{{ old('name')}}" placeholder="Name" />
+                        <input type="text" class="form-control" name="name" id="name" value="{{ old('name')}}"
+                          placeholder="Name" />
                         @error('name')
                         {{$message}}
                         @enderror
@@ -68,7 +69,8 @@
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
-                        <input type="email" class="form-control" name="email" value="{{ old('email')}}" id="email" placeholder="Email" />
+                        <input type="email" class="form-control" name="email" value="{{ old('email')}}" id="email"
+                          placeholder="Email" />
                       </div>
                       @error('email')
                       {{$message}}
@@ -76,7 +78,8 @@
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
-                        <input type="text" class="form-control" name="subject" id="subject" value="{{ old('subject')}}" placeholder="Subject" />
+                        <input type="text" class="form-control" name="subject" id="subject" value="{{ old('subject')}}"
+                          placeholder="Subject" />
                       </div>
                       @error('subject')
                       {{$message}}
@@ -84,8 +87,8 @@
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
-                        <textarea name="message" class="form-control" value="{{ old('message')}}" id="message" cols="30" rows="6"
-                          placeholder="Message"></textarea>
+                        <textarea name="message" class="form-control" id="message" cols="30" rows="6"
+                          placeholder="Message">{{ old('message')}}</textarea>
                       </div>
                       @error('message')
                       {{$message}}
