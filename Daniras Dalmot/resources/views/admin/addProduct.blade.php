@@ -21,12 +21,12 @@
     <form class="card-body add-product-body" method="POST" action={{route('product.store')}}
       enctype="multipart/form-data">
       @csrf
-      @csrf
       <div class="row">
         <div class="col-md-4 col-12">
           <div class="form-group">
             <label for="inp" class=""> Product Name </label>
-            <input type="text" id="inp" class="form-control form-control-sm" name="name" value="{{ old('name')}}" />
+            <input type="text" id="inp" class="form-control form-control-sm" name="name" value="{{ old('name')}}"
+              required />
             @error('name')
             {{$message}}
             @enderror
@@ -35,14 +35,14 @@
           <div class="form-group">
             <label for="inouttextarea"> Product Description</label>
             <textarea class="form-control" id="inputtextarea" rows="3" name="description"
-              value="{{ old('description')}}"></textarea>
+              required>{{ old('description')}}</textarea>
             @error('description')
             {{$message}}
             @enderror
           </div>
           <div class="form-group">
             <label for="inouttextarea">Category</label>
-            <select id="inp" class="form-control form-control-sm" name="category" value="{{ old('category')}}">
+            <select id="inp" class="form-control form-control-sm" name="category" value="{{ old('category')}}" required>
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -51,7 +51,8 @@
           </div>
           <div class="form-group">
             <label for="inouttextarea">Size</label>
-            <input type="text" id="inp" class="form-control form-control-sm" name="size" value="{{ old('size')}}" />
+            <input type="text" id="inp" class="form-control form-control-sm" name="size" value="{{ old('size')}}"
+              required />
             @error('size')
             {{$message}}
             @enderror
@@ -61,7 +62,7 @@
           <div class="form-group">
             <label for="inp" class="">Brand Name</label>
             <input type="text" id="inp" class="form-control form-control-sm" name="brand_name"
-              value="{{ old('brand_name')}}" />
+              value="{{ old('brand_name')}}" required />
             @error('brand_name')
             {{$message}}
             @enderror
@@ -70,14 +71,15 @@
             <label for="inp" class="">Retail Price</label>
 
             <input type="number" id="inp" class="form-control form-control-sm" name="retail_price"
-              value="{{ old('retail_price')}}" />
+              value="{{ old('retail_price')}}" required />
             @error('retail_price')
             {{$message}}
             @enderror
           </div>
           <div class="form-group">
             <label for="inouttextarea">Price</label>
-            <input type="number" id="inp" class="form-control form-control-sm" name="price" value="{{ old('price')}}" />
+            <input type="number" id="inp" class="form-control form-control-sm" name="price" value="{{ old('price')}}"
+              required />
             @error('price')
             {{$message}}
             @enderror
@@ -86,7 +88,7 @@
           <div class="form-group">
             <label for="inouttextarea">Discount</label>
             <input type="number" id="inp" class="form-control form-control-sm" name="discount"
-              value="{{ old('discount')}}" />
+              value="{{ old('discount')}}" required />
             @error('discount')
             {{$message}}
             @enderror
@@ -104,12 +106,12 @@
           <div class="form-group">
             <label for="inputfile" class="">Product Image </label>
             <div class="upload">
-              <input type="file" name='photo' value="{{ old('photo')}}" accept="image/*" id="real-file0"
-                hidden="hidden" />
+              <input type="file" name='photo' value="{{ old('photo')}}" accept="image/*" id="real-file0" hidden="hidden"
+                required />
               <button type="button" id="custom-button0" class="btn">
                 Choose an image
               </button>
-              <p id="custom-text0">No file chosen, yet.</p>
+              <p id="custom-text0">No file chosen.</p>
             </div>
             @error('image')
             {{$message}}
@@ -123,7 +125,7 @@
               <button type="button" id="custom-button2" class="btn">
                 Choose an image
               </button>
-              <p id="custom-text2">No file chosen, yet.</p>
+              <p id="custom-text2">No file chosen.</p>
             </div>
           </div>
 
@@ -134,10 +136,9 @@
               <button type="button" id="custom-button1" class="btn">
                 Choose an image
               </button>
-              <p id="custom-text1">No file chosen, yet.</p>
+              <p id="custom-text1">No file chosen.</p>
             </div>
           </div>
-
         </div>
       </div>
 
@@ -146,6 +147,7 @@
           <small> Add</small>
         </button>
       </div>
+
     </form>
   </div>
 </div>
