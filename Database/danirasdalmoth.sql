@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2021 at 07:28 PM
+-- Generation Time: Dec 09, 2021 at 05:00 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -52,7 +52,7 @@ CREATE TABLE `abouts` (
 --
 
 INSERT INTO `abouts` (`id`, `name`, `address`, `phone`, `email`, `website`, `facebook`, `instagram`, `twitter`, `ceo_name`, `ceo_msg`, `ceo_photo`, `chairman_name`, `chairman_msg`, `chairman_photo`, `created_at`, `updated_at`) VALUES
-(1, 'Danira\'s Dalmoth', 'Parwanipur-5, Bara, Nepal', '+977 9845999137', 'infodanirasdalmoth@gmail.com', 'https://danirasdalmoth.com', 'https://facebook.com/daniras.dalmoth', 'https://instagram.com/danirasdalmoth', NULL, 'Rahul Kalwar', 'In this kingdom of a rapid changing world, survival in business must never be taken for granted. Our vision of the future must be to let new opportunities.\r\n\r\nOur business is guided by ethics and transparency, and we aim to further win and maintain our customers by preparing packaged product that validate price, quality and of course the taste.\r\n\r\nDanira\'s has been selected with thoughtful precision and utmost care to provide the best meal options. Our product comes from extensive research and stricktly choosen top ingredients from around the world. And I would like to thank our customers for supporting us helping us in our growth. We appreciate your love, support and trust.', '/storage/images/ceo.jpg', 'Nirmal Pd Gupta', 'With the pride and experience of leading the domestic food industry, we are everyday discovering and exploring so as to progress with our customers and partners.  \r\n\r\nOur main goal is to make our customers happy for which we are committed to give them the best product and services. Thank you all for your patience and help while our organization is constructing and internal management is in process. We appreciate your efforts and loyalty.', '/storage/images/chairman.jpg', '2021-10-07 06:14:42', '2021-12-06 03:51:37');
+(1, 'Danira\'s Dalmoth', 'Parwanipur-5, Bara, Nepal', '+977 9845999137', 'slaure354@gmail.com', 'https://danirasdalmoth.com', 'https://facebook.com/daniras.dalmoth', 'https://instagram.com/danirasdalmoth', NULL, 'Rahul Kalwar', 'In this kingdom of a rapid changing world, survival in business must never be taken for granted. Our vision of the future must be to let new opportunities.\r\n\r\nOur business is guided by ethics and transparency, and we aim to further win and maintain our customers by preparing packaged product that validate price, quality and of course the taste.\r\n\r\nDanira\'s has been selected with thoughtful precision and utmost care to provide the best meal options. Our product comes from extensive research and stricktly choosen top ingredients from around the world. And I would like to thank our customers for supporting us helping us in our growth. We appreciate your love, support and trust.', '/storage/images/ceo.jpg', 'Nirmal Pd Gupta', 'With the pride and experience of leading the domestic food industry, we are everyday discovering and exploring so as to progress with our customers and partners.  \r\n\r\nOur main goal is to make our customers happy for which we are committed to give them the best product and services. Thank you all for your patience and help while our organization is constructing and internal management is in process. We appreciate your efforts and loyalty.', '/storage/images/chairman.jpg', '2021-10-07 06:14:42', '2021-12-06 03:51:37');
 
 -- --------------------------------------------------------
 
@@ -107,7 +107,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(5, '2021_10_05_162536_create_addproduct_table', 1);
+(5, '2021_10_05_162536_create_addproduct_table', 1),
+(6, '2021_12_08_055906_add_column_to_orders_table', 2),
+(7, '2021_12_09_150337_add_column_to_teams_table', 3);
 
 -- --------------------------------------------------------
 
@@ -126,7 +128,9 @@ CREATE TABLE `orders` (
   `price` double NOT NULL,
   `status` int(1) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `ward_no` int(11) NOT NULL,
+  `district` varchar(191) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -214,25 +218,29 @@ CREATE TABLE `teams` (
   `facebook` text NOT NULL,
   `instagram` text NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `team_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `teams`
 --
 
-INSERT INTO `teams` (`id`, `name`, `position`, `phone`, `address`, `photo`, `facebook`, `instagram`, `created_at`, `updated_at`) VALUES
-(4, 'Rahul Kalwar', 'CEO', '9845999137', 'Parwanipur-5, Bara, Nepal', '/storage/images/team/Rahul Kalwar1638810787.jpg', 'https://facebook.com/daniras.dalmoth', 'https://instagram.com/danirasdalmoth', '2021-12-06 11:25:19', '2021-12-06 11:28:07'),
-(5, 'Kabita Kumari Gupta', 'Co-Founder', '9845999137', 'Parwanipur-5, Bara, Nepal', '/storage/images/team/Kabita Kumari Gupta1638810821.jpg', 'https://facebook.com/daniras.dalmoth', 'https://instagram.com/danirasdalmoth', '2021-12-06 11:28:41', '2021-12-06 11:28:41'),
-(6, 'Pratistha Devkota', 'Marketing Team', '9845999137', 'Parwanipur-5, Bara, Nepal', '/storage/images/team/Pratistha Devkota1638810888.jpg', 'https://facebook.com/daniras.dalmoth', 'https://instagram.com/danirasdalmoth', '2021-12-06 11:29:48', '2021-12-06 11:29:48'),
-(7, 'Bikash Gupta', 'CTO', '9845999137', 'Parwanipur-5, Bara, Nepal', '/storage/images/team/Bikash Gupta1638810922.jpg', 'https://facebook.com/daniras.dalmoth', 'https://instagram.com/danirasdalmoth', '2021-12-06 11:30:22', '2021-12-06 11:30:22'),
-(8, 'Sarfaraaz Khan', 'Marketing Team', '9845999137', 'Parwanipur-5, Bara, Nepal', '/storage/images/team/Sarfaraaz Khan1638810969.jpg', 'https://facebook.com/daniras.dalmoth', 'https://instagram.com/danirasdalmoth', '2021-12-06 11:31:09', '2021-12-06 11:31:09'),
-(9, 'Mohan Chaudary', 'Marketing Team', '9845999137', 'Parwanipur-5, Bara, Nepal', '/storage/images/team/Mohan Chaudary1638811001.jpg', 'https://facebook.com/daniras.dalmoth', 'https://instagram.com/danirasdalmoth', '2021-12-06 11:31:41', '2021-12-06 11:31:41'),
-(10, 'Diwash karki', 'Marketing Team', '9845999137', 'Parwanipur-5, Bara, Nepal', '/storage/images/team/Diwash karki1638811202.jpg', 'https://facebook.com/daniras.dalmoth', 'https://instagram.com/danirasdalmoth', '2021-12-06 11:35:02', '2021-12-06 11:35:02'),
-(11, 'Muskan Khatun', 'Danira\'s Member', '9845999137', 'Parwanipur-5, Bara, Nepal', '/storage/images/team/Muskan Khatun1638811253.jpg', 'https://facebook.com/daniras.dalmoth', 'https://instagram.com/danirasdalmoth', '2021-12-06 11:35:53', '2021-12-06 11:35:53'),
-(12, 'Sailesh Hamal', 'Danira\'s Member', '9845999137', 'Parwanipur-5, Bara, Nepal', '/storage/images/team/Sailesh Hamal1638811288.jpg', 'https://facebook.com/daniras.dalmoth', 'https://instagram.com/danirasdalmoth', '2021-12-06 11:36:28', '2021-12-06 11:36:28'),
-(13, 'Aditya Patel', 'Danira\'s Member', '9845999137', 'Parwanipur-5, Bara, Nepal', '/storage/images/team/Aditya Patel1638811325.jpg', 'https://facebook.com/daniras.dalmoth', 'https://instagram.com/danirasdalmoth', '2021-12-06 11:37:05', '2021-12-06 11:37:05'),
-(14, 'Chandan Kalwar', 'Danira\'s Member', '9845999137', 'Parwanipur-5, Bara, Nepal', '/storage/images/team/Chandan Kalwar1638811412.jpg', 'https://facebook.com/daniras.dalmoth', 'https://instagram.com/danirasdalmoth', '2021-12-06 11:38:33', '2021-12-06 11:38:33');
+INSERT INTO `teams` (`id`, `name`, `position`, `phone`, `address`, `photo`, `facebook`, `instagram`, `created_at`, `updated_at`, `team_id`) VALUES
+(4, 'Rahul Kalwar', 'CEO', '9845999137', 'Parwanipur-5, Bara, Nepal', '/storage/images/team/Rahul Kalwar1638810787.jpg', 'https://facebook.com/daniras.dalmoth', 'https://instagram.com/danirasdalmoth', '2021-12-06 11:25:19', '2021-12-06 11:28:07', 0),
+(5, 'Kabita Kumari Gupta', 'Co-Founder', '9845999137', 'Parwanipur-5, Bara, Nepal', '/storage/images/team/Kabita Kumari Gupta1638810821.jpg', 'https://facebook.com/daniras.dalmoth', 'https://instagram.com/danirasdalmoth', '2021-12-06 11:28:41', '2021-12-06 11:28:41', 0),
+(6, 'Pratistha Devkota', 'Marketing Team', '9845999137', 'Parwanipur-5, Bara, Nepal', '/storage/images/team/Pratistha Devkota1638810888.jpg', 'https://facebook.com/daniras.dalmoth', 'https://instagram.com/danirasdalmoth', '2021-12-06 11:29:48', '2021-12-06 11:29:48', 0),
+(7, 'Bikash Gupta', 'CTO', '9845999137', 'Parwanipur-5, Bara, Nepal', '/storage/images/team/Bikash Gupta1638810922.jpg', 'https://facebook.com/daniras.dalmoth', 'https://instagram.com/danirasdalmoth', '2021-12-06 11:30:22', '2021-12-06 11:30:22', 0),
+(8, 'Sarfaraaz Khan', 'Marketing Team', '9845999137', 'Parwanipur-5, Bara, Nepal', '/storage/images/team/Sarfaraaz Khan1638810969.jpg', 'https://facebook.com/daniras.dalmoth', 'https://instagram.com/danirasdalmoth', '2021-12-06 11:31:09', '2021-12-06 11:31:09', 0),
+(9, 'Mohan Chaudary', 'Marketing Team', '9845999137', 'Parwanipur-5, Bara, Nepal', '/storage/images/team/Mohan Chaudary1638811001.jpg', 'https://facebook.com/daniras.dalmoth', 'https://instagram.com/danirasdalmoth', '2021-12-06 11:31:41', '2021-12-06 11:31:41', 0),
+(10, 'Diwash karki', 'Marketing Team', '9845999137', 'Parwanipur-5, Bara, Nepal', '/storage/images/team/Diwash karki1638811202.jpg', 'https://facebook.com/daniras.dalmoth', 'https://instagram.com/danirasdalmoth', '2021-12-06 11:35:02', '2021-12-06 11:35:02', 0),
+(11, 'Muskan Khatun', 'Danira\'s Member', '9845999137', 'Parwanipur-5, Bara, Nepal', '/storage/images/team/Muskan Khatun1638811253.jpg', 'https://facebook.com/daniras.dalmoth', 'https://instagram.com/danirasdalmoth', '2021-12-06 11:35:53', '2021-12-06 11:35:53', 0),
+(12, 'Sailesh Hamal', 'Danira\'s Member', '9845999137', 'Parwanipur-5, Bara, Nepal', '/storage/images/team/Sailesh Hamal1638811288.jpg', 'https://facebook.com/daniras.dalmoth', 'https://instagram.com/danirasdalmoth', '2021-12-06 11:36:28', '2021-12-06 11:36:28', 0),
+(13, 'Aditya Patel', 'Danira\'s Member', '9845999137', 'Parwanipur-5, Bara, Nepal', '/storage/images/team/Aditya Patel1638811325.jpg', 'https://facebook.com/daniras.dalmoth', 'https://instagram.com/danirasdalmoth', '2021-12-06 11:37:05', '2021-12-06 11:37:05', 0),
+(14, 'Chandan Kalwar', 'Danira\'s Member', '9845999137', 'Parwanipur-5, Bara, Nepal', '/storage/images/team/Chandan Kalwar1638811412.jpg', 'https://facebook.com/daniras.dalmoth', 'https://instagram.com/danirasdalmoth', '2021-12-06 11:38:33', '2021-12-06 11:38:33', 0),
+(15, 'Sagar  Chhetri', 'Digital Marketing', '9821812699', 'Mahalaxmi - 05, Lalitpur', '/storage/images/team/Sagar  Chhetri1639063455.jpg', 'https://facebook.com/101infotech.web', 'https://instagram.com/101infotech', '2021-12-09 09:39:15', '2021-12-09 09:39:15', 1),
+(16, 'Aarjan Singh', 'Graphic Designer', '9821812699', 'Mahalaxmi - 05,Lalitpur', '/storage/images/team/Aarjan Singh1639063878.jpg', 'https://facebook.com/101infotech.web', 'https://instagram.com/101infotech', '2021-12-09 09:46:18', '2021-12-09 09:46:18', 1),
+(17, 'Amgee Shrestha', 'Digital Marketing', '9821812699', 'Mahalaxmi-05,Lalitpur', '/storage/images/team/Amgee Shrestha1639063922.jpg', 'https://facebook.com/101infotech.web', 'https://instagram.com/101infotech', '2021-12-09 09:47:02', '2021-12-09 09:47:02', 1);
 
 -- --------------------------------------------------------
 
@@ -256,7 +264,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Sagar', 'slaure354@gmail.com', '2021-10-06 05:49:03', '$2y$10$eq27KzfGksIMdmMXYHg5.ukMIC30hiC.j/01if8sUp2ktFtJaSvj2', 'aAjHleTM3UJbJ6cvhQHZCzsd90HScLSSRk1xoXHX9Fac6hgnwucW5imzv1L7', '2021-10-06 05:49:03', '2021-10-06 05:49:03');
+(1, 'Sagar', 'slaure354@gmail.com', '2021-10-06 05:49:03', '$2y$10$eq27KzfGksIMdmMXYHg5.ukMIC30hiC.j/01if8sUp2ktFtJaSvj2', 'Y7eHCXvpCgsZWjCvoZUH9if3Tuz69WAHar6b6qBillFh9bvGIurmO9A1zkix', '2021-10-06 05:49:03', '2021-10-06 05:49:03');
 
 --
 -- Indexes for dumped tables
@@ -352,13 +360,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -376,7 +384,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `teams`
 --
 ALTER TABLE `teams`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `users`
