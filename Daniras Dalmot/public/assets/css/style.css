@@ -10,8 +10,18 @@
     --white: #fff;
     --black: #272822;
     --grey: #b3b2b2;
+    --blue: #2D0A5C;
+    --gold: #FDCE34;
     font-family: "Josefin Sans", sans-serif;
 }
+.color-blue{
+    color: var(--blue) !important;
+}
+
+.color-gold{
+    color: var(--gold) !important;
+}
+
 body .no-content {
     display: flex;
     justify-content: center;

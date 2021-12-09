@@ -205,6 +205,7 @@
     <div class="contain">
       <div class="row mx-0 px-0">
         @forelse ($teams as $team)
+        @if(!$team->team_id)
         <div class="col-lg-4 col-md-6 col-12 member">
           <div class="info">
             <div class="image">
@@ -221,6 +222,7 @@
           </div>
           <hr />
         </div>
+        @endif
         @empty
         <div class="no-content">
           <h4>No Team</h4>
@@ -237,48 +239,45 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-12 col-md-6 mb-4 mb-md-0">
-        <h5>101INFOTECH</h5>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque asperiores harum sit rem, dolorem dolore deserunt ipsa nulla hic accusamus.
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat eaque ad possimus quasi nisi amet praesentium accusamus quas doloremque quidem!
-          Lorem ipsum dolor sit amet.
+        <h5><span class="color-gold">101</span><span class="color-blue">INFOTECH</span></h5>
+        <p>101 INFOTECH is a full-service Web Development and Application Development team based in Nepal. We provide a
+          complete
+          Web and App solution by providing you the essential services including graphic design, UX/UI design, Web
+          Development,
+          Content Management, Social Media Integration, SEO. We are a team of experienced website designers, developers,
+          and
+          digital strategists.
         </p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ad vitae a odit ipsum? Incidunt aperiam neque culpa maxime repudiandae.</p>
+        <p>-We <span class="color-blue">Hear</span> We <span class="color-blue">Make</span> IT Happen.</p>
       </div>
       <div class="col-12 col-md-6">
-        <img class="company-logo" src="https://101infotech.com.np/assets/images/logo_curved.png" alt="Company Logo">
+        <img class="company-logo" src="{{asset('assets\images\101infotech.png')}}" alt="Company Logo">
       </div>
     </div>
     <div class="row mt-5">
       <div class="col-12">
         <h5 class="team-heading">Team Members</h5>
       </div>
+      @forelse ($teams as $team)
+      @if($team->team_id)
       <div class="col-12 col-sm-6 col-lg-4">
         <div class="team-card">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ-KGylXsgGD3_UPxbkMIuKzXsXSXG-0K6WUgCjZ6KjJI81eBO9iPzO5msC3ogPpIX7RY&usqp=CAU" alt="Team Member">
+          <img src="{{$team->photo}}" alt="{{$team->name}}">
           <div class="team-info d-flex flex-column justify-content-center">
-            <h5>Lionel Messi</h5>
-            <p>Founder</p>
+            <h5><a href="https://101infotech.com.np/teams" target="_blank"
+                class="text-decoration-none color-blue">{{$team->name}}</a>
+            </h5>
+            <p>{{$team->position}}</p>
           </div>
         </div>
       </div>
-      <div class="col-12 col-sm-6 col-lg-4">
-        <div class="team-card">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ-KGylXsgGD3_UPxbkMIuKzXsXSXG-0K6WUgCjZ6KjJI81eBO9iPzO5msC3ogPpIX7RY&usqp=CAU" alt="Team Member">
-          <div class="team-info d-flex flex-column justify-content-center">
-            <h5>Lionel Messi</h5>
-            <p>Founder</p>
-          </div>
-        </div>
+      @endif
+      @empty
+      <div class="no-content">
+        <h4>No Team</h4>
       </div>
-      <div class="col-12 col-sm-6 col-lg-4">
-        <div class="team-card">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ-KGylXsgGD3_UPxbkMIuKzXsXSXG-0K6WUgCjZ6KjJI81eBO9iPzO5msC3ogPpIX7RY&usqp=CAU" alt="Team Member">
-          <div class="team-info d-flex flex-column justify-content-center">
-            <h5>Lionel Messi</h5>
-            <p>Founder</p>
-          </div>
-        </div>
-      </div>
+      @endforelse
+
     </div>
   </section>
 

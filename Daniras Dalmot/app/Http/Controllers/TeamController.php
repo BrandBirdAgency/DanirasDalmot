@@ -38,6 +38,7 @@ class TeamController extends Controller
 
         $record->facebook = $request->facebook;
         $record->instagram = $request->instagram;
+        $record->team_id = $request->team;
         $record->save();
         return redirect()->back()->with('success', 'Team Member Added!!');
     }
@@ -70,6 +71,7 @@ class TeamController extends Controller
 
         $record->facebook = $request->fb;
         $record->instagram = $request->insta;
+        $record->team_id = $request->team;
 
         $record->save();
 
