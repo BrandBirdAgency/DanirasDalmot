@@ -229,6 +229,59 @@
       </div>
     </div>
   </section>
+
+  <section class="normalsec company-main">
+    <div class="heading text-center">
+      <h2 class="h3">Our Partner</h2>
+      <div class="line"></div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6 mb-4 mb-md-0">
+        <h5>101INFOTECH</h5>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque asperiores harum sit rem, dolorem dolore deserunt ipsa nulla hic accusamus.
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat eaque ad possimus quasi nisi amet praesentium accusamus quas doloremque quidem!
+          Lorem ipsum dolor sit amet.
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ad vitae a odit ipsum? Incidunt aperiam neque culpa maxime repudiandae.</p>
+      </div>
+      <div class="col-12 col-md-6">
+        <img class="company-logo" src="https://101infotech.com.np/assets/images/logo_curved.png" alt="Company Logo">
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-12">
+        <h5 class="team-heading">Team Members</h5>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="team-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ-KGylXsgGD3_UPxbkMIuKzXsXSXG-0K6WUgCjZ6KjJI81eBO9iPzO5msC3ogPpIX7RY&usqp=CAU" alt="Team Member">
+          <div class="team-info d-flex flex-column justify-content-center">
+            <h5>Lionel Messi</h5>
+            <p>Founder</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="team-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ-KGylXsgGD3_UPxbkMIuKzXsXSXG-0K6WUgCjZ6KjJI81eBO9iPzO5msC3ogPpIX7RY&usqp=CAU" alt="Team Member">
+          <div class="team-info d-flex flex-column justify-content-center">
+            <h5>Lionel Messi</h5>
+            <p>Founder</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="team-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ-KGylXsgGD3_UPxbkMIuKzXsXSXG-0K6WUgCjZ6KjJI81eBO9iPzO5msC3ogPpIX7RY&usqp=CAU" alt="Team Member">
+          <div class="team-info d-flex flex-column justify-content-center">
+            <h5>Lionel Messi</h5>
+            <p>Founder</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- END TEAMS -->
 </div>
 <!-- END TEAM -->

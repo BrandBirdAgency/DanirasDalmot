@@ -983,7 +983,7 @@ nav ul {
 }
 
 #more-products .main {
-    width: 60%;
+    width: 100%;
 }
 
 #more-products .main .title {
@@ -1134,6 +1134,44 @@ nav ul {
     #more-products .main .images img {
         max-height: 160px;
     }
+}
+
+.company-main{
+    background-color: #f7f7f7;
+    padding: 3.5rem;
+    margin-bottom: 5rem;
+}
+.company-main h5{
+    font-size: 20px;
+    font-weight: 700;
+}
+.company-main .company-logo{
+    width: 100%;
+    height: auto
+}
+.company-main .heading .line {
+    background: var(--red);
+    width: 8%;
+    height: 3px;
+    margin: -0.4rem auto 2rem;
+}
+.company-main .team-card{
+    display: flex;
+    background-color: #fff;
+    padding: 1.5rem;
+    margin-top: 1rem;
+}
+.company-main .team-card img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 16px;
+}
+.company-main .team-card p{
+    margin-bottom: 0;
+}
+.company-main .team-heading{
+    margin-bottom: 24px;
 }
 
 /* Products */
