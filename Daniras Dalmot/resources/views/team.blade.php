@@ -264,7 +264,7 @@
         <div class="team-card">
           <img src="{{$team->photo}}" alt="{{$team->name}}">
           <div class="team-info d-flex flex-column justify-content-center">
-            <h5><a href="https://101infotech.com.np/teams" target="_blank"
+            <h5><a href="https://101infotech.com.np/team" target="_blank"
                 class="text-decoration-none color-blue">{{$team->name}}</a>
             </h5>
             <p>{{$team->position}}</p>
