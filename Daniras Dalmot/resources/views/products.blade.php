@@ -370,7 +370,7 @@
 
 <script>
     var swiper = new Swiper("#more-products .swiper", {
-        slidesPerView: 4,
+        slidesPerView: 6,
         spaceBetween: 10,
         // Optional parameters
         grabCursor: true,
@@ -402,7 +402,11 @@
             },
             // when window width is >= 640px
             900: {
-                slidesPerView: 4,
+                slidesPerView: 5,
+                spaceBetween: 40,
+            },
+            1200: {
+                slidesPerView: 6,
                 spaceBetween: 40,
             },
         },
