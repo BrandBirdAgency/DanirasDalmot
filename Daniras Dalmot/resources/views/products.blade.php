@@ -141,6 +141,7 @@
                                         <input type="hidden" name="product_id" value={{ $p->id }}>
                                         <input type="hidden" name="product_name" value={{ $p->name }}>
                                         <input type="hidden" name="price" value={{ $p->price }}>
+                                        <input type="hidden" name="discount" value={{ $p->discount }}>
                                         <div class="form-group">
                                             <label for="usr">Full Name:</label>
                                             <input type="text" class="form-control" id="usr" name="name" required />

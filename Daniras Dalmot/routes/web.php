@@ -88,3 +88,16 @@ Route::prefix('admin')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
+
+// Order mail test
+Route::get('/mail', function () {
+    $data = [
+        'name' => 'Sunny Shakya',
+        'quantity' => 245,
+        'address' => 'Kathmandu, Nepal',
+        'phone' => 3535232332,
+        'email' => 'sunnyshakya@gmail.com',
+        'product_id' => '10008',
+    ];
+    return view('email.ordermail', compact('data'));
+});

@@ -154,8 +154,8 @@
                                                                         align="center">
 
                                                                         <img align="center" border="0"
-                                                                            src="https://danirasdalmoth.com/assets/images/logo.jpg"
-                                                                            alt="Image" title="Image"
+                                                                            src="{{ $abt->logo }}" alt="Image"
+                                                                            title="Image"
                                                                             style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 26%;max-width: 150.8px;"
                                                                             width="150.8" />
 
@@ -223,8 +223,8 @@
                                                                         </strong>{{ $data['email'] }}<br />
                                                                         <strong>Phone Number:
                                                                         </strong>{{ $data['phone'] }}<br /><br>
-                                                                        <p style="text-align: justify">
-                                                                            {{ $data['message'] }}</p><br />
+
+                                                                        {{ $data['message'] }}<br />
                                                                     </span>
                                                                 </p>
                                                             </div>
