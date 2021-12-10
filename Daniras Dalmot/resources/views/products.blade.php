@@ -228,7 +228,7 @@
             <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
                 <div class="product-display-card">
                     <div class="product-display-card-content">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ-KGylXsgGD3_UPxbkMIuKzXsXSXG-0K6WUgCjZ6KjJI81eBO9iPzO5msC3ogPpIX7RY&usqp=CAU" alt="Team Member">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ-KGylXsgGD3_UPxbkMIuKzXsXSXG-0K6WUgCjZ6KjJI81eBO9iPzO5msC3ogPpIX7RY&usqp=CAU" alt="Product Image">
                         <h5>Mix Dalmoth</h5>
                         <p>Size: 140gram</p>
                         <p>Price: <span class="main-price">Rs.180</span> Rs.155</p>
@@ -239,7 +239,7 @@
             <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
                 <div class="product-display-card">
                     <div class="product-display-card-content">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ-KGylXsgGD3_UPxbkMIuKzXsXSXG-0K6WUgCjZ6KjJI81eBO9iPzO5msC3ogPpIX7RY&usqp=CAU" alt="Team Member">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ-KGylXsgGD3_UPxbkMIuKzXsXSXG-0K6WUgCjZ6KjJI81eBO9iPzO5msC3ogPpIX7RY&usqp=CAU" alt="Product Image">
                         <h5>Mix Dalmoth</h5>
                         <p>Size: 140gram</p>
                         <p>Price: <span class="main-price">Rs.180</span> Rs.155</p>
@@ -250,7 +250,7 @@
             <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
                 <div class="product-display-card">
                     <div class="product-display-card-content">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ-KGylXsgGD3_UPxbkMIuKzXsXSXG-0K6WUgCjZ6KjJI81eBO9iPzO5msC3ogPpIX7RY&usqp=CAU" alt="Team Member">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ-KGylXsgGD3_UPxbkMIuKzXsXSXG-0K6WUgCjZ6KjJI81eBO9iPzO5msC3ogPpIX7RY&usqp=CAU" alt="Product Image">
                         <h5>Mix Dalmoth</h5>
                         <p>Size: 140gram</p>
                         <p>Price: <span class="main-price">Rs.180</span> Rs.155</p>
@@ -261,7 +261,7 @@
             <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
                 <div class="product-display-card">
                     <div class="product-display-card-content">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ-KGylXsgGD3_UPxbkMIuKzXsXSXG-0K6WUgCjZ6KjJI81eBO9iPzO5msC3ogPpIX7RY&usqp=CAU" alt="Team Member">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ-KGylXsgGD3_UPxbkMIuKzXsXSXG-0K6WUgCjZ6KjJI81eBO9iPzO5msC3ogPpIX7RY&usqp=CAU" alt="Product Image">
                         <h5>Mix Dalmoth</h5>
                         <p>Size: 140gram</p>
                         <p>Price: <span class="main-price">Rs.180</span> Rs.155</p>
