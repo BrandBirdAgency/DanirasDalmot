@@ -28,6 +28,7 @@ class ContactRequest extends FormRequest
             'email' => 'required|email',
             'subject' => 'required',
             'message' => 'required',
+            'phone' => 'required|min:10',
         ];
     }
 }

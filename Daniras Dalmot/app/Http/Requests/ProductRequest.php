@@ -46,7 +46,7 @@ class ProductRequest extends FormRequest
             'discount.required' => 'Product Discount is required',
             'price.required' => 'Product Price is required',
             'brand_name.required' => 'Product Brand name is required',
-            'size.required' => 'Prodcut Size is required'
+            'size.required' => 'Product Size is required'
         ];
     }
 }
