@@ -77,7 +77,7 @@ class AdminController extends Controller
 
     public function orders()
     {
-        $orders = Order::join('products', 'orders.product_id', '=', 'products.id')->select('orders.*', 'products.name as productname')->paginate(5);
+        $orders = Order::join('products', 'orders.product_id', '=', 'products.id')->select('orders.*', 'products.name as productname', 'products.price as productprice')->paginate(5);
         return view('admin.orders', compact('orders'));
     }
     public function orderStatus($id)

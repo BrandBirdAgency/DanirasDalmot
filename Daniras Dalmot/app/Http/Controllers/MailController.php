@@ -49,10 +49,11 @@ class MailController extends Controller
                 $m->to($abt->email, $abt->name);
                 $m->subject("New Order Received");
             });
+
             return true;
         });
 
-        return $status
+        return !$status
             ? redirect()->back()->with('error', 'Oops! Sorry a error has occured')
             : redirect()->route('ordersucess');
     }
