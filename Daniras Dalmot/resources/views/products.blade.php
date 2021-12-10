@@ -7,7 +7,7 @@
 <!-- Swiper Js -->
 <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-<link rel="stylesheet" href={{ asset('assets/css/style.min.css') }} />
+<link rel="stylesheet" href={{ asset('assets/css/style.css') }} />
 @if($id!= null)
 <link rel="canonical" href="{{url('')}}/products">
 @else
@@ -215,6 +215,59 @@
                 </div>
                 <!-- If we need pagination -->
                 <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="normalsec product-display">
+        <div class="title">
+            <h3>Similar Products</h3>
+            <div class="line"></div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="product-display-card">
+                    <div class="product-display-card-content">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ-KGylXsgGD3_UPxbkMIuKzXsXSXG-0K6WUgCjZ6KjJI81eBO9iPzO5msC3ogPpIX7RY&usqp=CAU" alt="Team Member">
+                        <h5>Mix Dalmoth</h5>
+                        <p>Size: 140gram</p>
+                        <p>Price: <span class="main-price">Rs.180</span> Rs.155</p>
+                    </div>
+                    <a href="#/">See More</a>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="product-display-card">
+                    <div class="product-display-card-content">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ-KGylXsgGD3_UPxbkMIuKzXsXSXG-0K6WUgCjZ6KjJI81eBO9iPzO5msC3ogPpIX7RY&usqp=CAU" alt="Team Member">
+                        <h5>Mix Dalmoth</h5>
+                        <p>Size: 140gram</p>
+                        <p>Price: <span class="main-price">Rs.180</span> Rs.155</p>
+                    </div>
+                    <a href="#/">See More</a>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="product-display-card">
+                    <div class="product-display-card-content">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ-KGylXsgGD3_UPxbkMIuKzXsXSXG-0K6WUgCjZ6KjJI81eBO9iPzO5msC3ogPpIX7RY&usqp=CAU" alt="Team Member">
+                        <h5>Mix Dalmoth</h5>
+                        <p>Size: 140gram</p>
+                        <p>Price: <span class="main-price">Rs.180</span> Rs.155</p>
+                    </div>
+                    <a href="#/">See More</a>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="product-display-card">
+                    <div class="product-display-card-content">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ-KGylXsgGD3_UPxbkMIuKzXsXSXG-0K6WUgCjZ6KjJI81eBO9iPzO5msC3ogPpIX7RY&usqp=CAU" alt="Team Member">
+                        <h5>Mix Dalmoth</h5>
+                        <p>Size: 140gram</p>
+                        <p>Price: <span class="main-price">Rs.180</span> Rs.155</p>
+                    </div>
+                    <a href="#/">See More</a>
+                </div>
             </div>
         </div>
     </section>
