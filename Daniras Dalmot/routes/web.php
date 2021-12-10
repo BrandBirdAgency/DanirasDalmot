@@ -51,9 +51,13 @@ Route::prefix('admin')->group(function () {
     Route::middleware(['auth'])->group(function () {
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
+        //Profile
+        Route::get('/profile', [AdminController::class, 'profile'])->name('profile');
+        Route::post('/profile/edit', [AdminController::class, 'profileEdit'])->name('profile.edit');
+
         //Products
         Route::get('/product-index', [AdminController::class, 'product'])->name('product.index');
-        Route::get('/product/show/{id}', [ProductController::class,'show'])->name('product.show');
+        Route::get('/product/show/{id}', [ProductController::class, 'show'])->name('product.show');
         Route::get('/product-add', [AdminController::class, 'productAdd'])->name('addproduct');
         Route::post('product/store', [ProductController::class, 'store'])->name('product.store');
         Route::get('/product-edit{id}', [ProductController::class, 'edit'])->name('product.edit');
@@ -64,14 +68,10 @@ Route::prefix('admin')->group(function () {
         Route::post('/update-Product', [ProductController::class, 'stockUpdate'])->name('updateProductStock');
         Route::post('/update-Home', [ProductController::class, 'homeUpdate'])->name('updateHome');
 
-
-
-
         // Orders
         Route::get('/orders', [AdminController::class, 'orders'])->name('orders');
-        Route::get('orderstatus/{id}',[AdminController::class,'orderStatus'])->name('orderstatus');
+        Route::get('orderstatus/{id}', [AdminController::class, 'orderStatus'])->name('orderstatus');
         Route::post('/update-Order', [AdminController::class, 'orderUpdate'])->name('updateOrder');
-
 
         // Teams
         Route::get('/teams', [AdminController::class, 'teams'])->name('teams');
