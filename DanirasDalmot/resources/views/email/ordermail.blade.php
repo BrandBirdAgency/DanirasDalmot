@@ -174,7 +174,7 @@
                                                                             title="Image"
                                                                             style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 26%;max-width: 150.8px;"
                                                                             width="150.8" />
-                                                                        @if ($flag)
+                                                                        @if ($data['flag'])
                                                                             <h1 style="color: white">Order Confirmed
                                                                             </h1>
                                                                         @endif
@@ -241,14 +241,6 @@
                                                                     <span
                                                                         style="font-size: 16px; line-height: 32px; text-align: justify;">
 
-                                                                        {{-- <strong>Name:
-                                                                        </strong>{{ $details['name'] }}<br />
-                                                                        <strong>Email:
-                                                                        </strong>{{ $details['email'] }}<br />
-                                                                        <strong>Phone-Number:
-                                                                        </strong>{{ $details['phone'] }}<br /><br>
-                                                                        {{ $details['message'] }}<br /> --}}
-
                                                                         <div id="prodDet" style="margin-left: 25%;">
                                                                             <strong>
                                                                                 Name: </strong>{{ $prod->name }}<br />
@@ -273,7 +265,7 @@
                                                                     style="font-size: 14px; line-height: 200%; float: right">
                                                                     <span
                                                                         style="font-size: 16px; line-height: 32px; text-align: justify;">
-                                                                        @if ($flag)
+                                                                        @if ($data['flag'])
                                                                             <h1 align="center">Thank You For Your Order
                                                                             </h1>
                                                                         @else
