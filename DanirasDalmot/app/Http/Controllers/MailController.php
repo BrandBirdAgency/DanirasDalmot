@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests\OrderRequest;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\ContactRequest;
+use App\Mail\QueueMail;
 
 class MailController extends Controller
 {
@@ -44,18 +45,44 @@ class MailController extends Controller
             $abt = About::first();
 
             // To Daniras
-            Mail::send('email.ordermail', ['data' => $res, 'flag' => 0], function ($m) use ($res, $abt) {
-                $m->from($res->email, $res->name);
-                $m->to($abt->email, $abt->name);
-                $m->subject("New Order Received");
-            });
+            $data = [
+                'subject' => 'New Order Received',
+                'name' => $res->name,
+                'email' => $res->email,
+                'address' => $res->address,
+                'phone' => $res->phone,
+                'district' => $res->district,
+                'ward_no' => $res->ward_no,
+                'quantity' => $res->quantity,
+                'product_id' => $res->product_id,
+                'flag' => 0,
+            ];
+
+            Mail::to($abt->email)->queue(new QueueMail($data));
+
+
+            // Mail::send('email.ordermail', ['data' => $res, 'flag' => 0], function ($m) use ($res, $abt) {
+            //     $m->from($res->email, $res->name);
+            //     $m->to($abt->email, $abt->name);
+            //     $m->subject("New Order Received");
+            // });
 
             // To Customer
-            Mail::send('email.ordermail', ['data' => $res, 'flag' => 1], function ($m) use ($res, $abt) {
-                $m->from($abt->email, $abt->name);
-                $m->to($res->email, $res->name);
-                $m->subject("Order Confirmed");
-            });
+            $data = [
+                'subject' => 'Order Confirmed',
+                'quantity' => $res->quantity,
+                'product_id' => $res->product_id,
+                'flag' => 1,
+            ];
+
+            Mail::to($res->email)->queue(new QueueMail($data));
+
+
+            // Mail::send('email.ordermail', ['data' => $res, 'flag' => 1], function ($m) use ($res, $abt) {
+            //     $m->from($abt->email, $abt->name);
+            //     $m->to($res->email, $res->name);
+            //     $m->subject("Order Confirmed");
+            // });
 
             return true;
         });

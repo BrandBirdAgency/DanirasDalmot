@@ -210,13 +210,6 @@
                                                                 <p style="font-size: 14px; line-height: 200%;"><span
                                                                         style="font-size: 16px; line-height: 32px; text-align: justify;">
 
-                                                                        {{-- <strong>Name:
-                                                                        </strong>{{ $details['name'] }}<br />
-                                                                        <strong>Email:
-                                                                        </strong>{{ $details['email'] }}<br />
-                                                                        <strong>Phone-Number:
-                                                                        </strong>{{ $details['phone'] }}<br /><br>
-                                                                        {{ $details['message'] }}<br /> --}}
                                                                         <strong>Name:
                                                                         </strong>{{ $data['name'] }}<br />
                                                                         <strong>Email:
