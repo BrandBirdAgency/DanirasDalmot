@@ -28,6 +28,9 @@ class QueueMail extends Mailable
      */
     public function build()
     {
-        return $this->view('email.ordermail')->subject($this->data['subject']);
+        if ($this->data['type'] == 'order')
+            return $this->view('email.ordermail')->subject($this->data['subject']);
+        elseif ($this->data['type'] == 'contact')
+            return $this->view('email.contactmail')->subject($this->data['subject']);
     }
 }

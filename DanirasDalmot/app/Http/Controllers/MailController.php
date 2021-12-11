@@ -17,11 +17,16 @@ class MailController extends Controller
     {
         $abt = About::first();
 
-        Mail::send('email.contactmail', ['data' => $res], function ($m) use ($res, $abt) {
-            $m->from($res->email, $res->name);;
-            $m->to($abt->email, $abt->name);
-            $m->subject($res->subject);
-        });
+        $data = [
+            'name' => $res->name,
+            'email' => $res->email,
+            'phone' => $res->phone,
+            'message' => $res->message,
+            'subject' => $res->subject,
+            'type' => 'contact',
+        ];
+
+        Mail::to($abt->email)->queue(new QueueMail($data));
 
         return redirect('contact')->with('success', 'Thank you! Your message has been sent successfully. We\'ll contact you soon.');
     }
@@ -56,16 +61,10 @@ class MailController extends Controller
                 'quantity' => $res->quantity,
                 'product_id' => $res->product_id,
                 'flag' => 0,
+                'type' => 'order',
             ];
 
             Mail::to($abt->email)->queue(new QueueMail($data));
-
-
-            // Mail::send('email.ordermail', ['data' => $res, 'flag' => 0], function ($m) use ($res, $abt) {
-            //     $m->from($res->email, $res->name);
-            //     $m->to($abt->email, $abt->name);
-            //     $m->subject("New Order Received");
-            // });
 
             // To Customer
             $data = [
@@ -73,16 +72,10 @@ class MailController extends Controller
                 'quantity' => $res->quantity,
                 'product_id' => $res->product_id,
                 'flag' => 1,
+                'type' => 'order',
             ];
 
             Mail::to($res->email)->queue(new QueueMail($data));
-
-
-            // Mail::send('email.ordermail', ['data' => $res, 'flag' => 1], function ($m) use ($res, $abt) {
-            //     $m->from($abt->email, $abt->name);
-            //     $m->to($res->email, $res->name);
-            //     $m->subject("Order Confirmed");
-            // });
 
             return true;
         });
