@@ -54,7 +54,7 @@ class AdminController extends Controller
             if (file_exists(ltrim($abt->logo, '/'))) {
                 unlink(ltrim($abt->logo, '/'));
             }
-            $imageName = $req->name . time() . '.' . $req->file('logo')->extension();
+            $imageName = 'logo' . time() . '.' . $req->file('logo')->extension();
             $req->file('logo')->storeAs('public/images/logo', $imageName);
             $abt->logo = '/storage/images/logo/' . $imageName;
         }
