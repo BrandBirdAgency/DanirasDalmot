@@ -9,6 +9,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\CompanyRequest;
 use App\Http\Requests\CeoMessageRequest;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -20,6 +21,47 @@ class AdminController extends Controller
     public function dashboard()
     {
         return view('admin.dashboard');
+    }
+
+    public function profile()
+    {
+        $abt = About::first();
+        return view('admin.profile', compact('abt'));
+    }
+
+    public function profileEdit(Request $req)
+    {
+        $this->validate($req, [
+            'name' => 'required',
+            'email' => 'required|email',
+            'address' => 'required',
+            'phone' => 'required|min:10',
+            'website' => 'required',
+        ]);
+
+        $abt = About::first();
+
+        $abt->name = $req->name;
+        $abt->email = $req->email;
+        $abt->phone = $req->phone;
+        $abt->address = $req->address;
+        $abt->website = $req->website;
+        $abt->facebook = $req->fb;
+        $abt->instagram = $req->insta;
+        $abt->twitter = $req->tw;
+
+        if ($req->hasFile('logo')) {
+            if (file_exists(ltrim($abt->logo, '/'))) {
+                unlink(ltrim($abt->logo, '/'));
+            }
+            $imageName = $req->name . time() . '.' . $req->file('logo')->extension();
+            $req->file('logo')->storeAs('public/images/logo', $imageName);
+            $abt->logo = '/storage/images/logo/' . $imageName;
+        }
+
+        $abt->save();
+
+        return redirect()->back()->with('success', "Company profile edited");
     }
 
     public function product()
@@ -35,7 +77,7 @@ class AdminController extends Controller
 
     public function orders()
     {
-        $orders = Order::join('products', 'orders.product_id', '=', 'products.id')->select('orders.*', 'products.name as productname')->paginate(5);
+        $orders = Order::join('products', 'orders.product_id', '=', 'products.id')->select('orders.*', 'products.name as productname', 'products.price as productprice')->paginate(5);
         return view('admin.orders', compact('orders'));
     }
     public function orderStatus($id)

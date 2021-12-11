@@ -103,6 +103,7 @@ class ProductController extends Controller
         $file = Str::substr($p->qr_path, 22, Str::length($p->qr_path));
         return Storage::download('/public/images/qrcode/' . $file);
     }
+
     public function brDownload($id)
     {
         $p = Product::find($id);

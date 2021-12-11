@@ -1,6 +1,6 @@
 <!-- HEADER -->
 <header>
-    <a class="logo" href="/"><img src="{{asset('/assets/images/logo.jpg')}}" alt="logo" /></a>
+    <a class="logo" href="/"><img src="{{ App\Models\About::first()->logo }}" alt="logo" /></a>
     <nav>
         <ul class="nav__links">
             <li><a href="{{ route('homepage') }}">Home</a></li>
@@ -12,16 +12,17 @@
     </nav>
     <p class="menu cta">Menu</p>
     @if (Auth::guard('web')->check())
-    <a class="cta" href="{{ route('logout') }}"
-        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-    <a class="menu cta" href="{{ route('logout') }}"
-        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-        @csrf
-    </form>
-    <a href="{{route('dashboard')}}" class="todashboard"><img src="{{asset('/assets/images/team3.jpg')}}" alt=""></a>
+        <a class="cta" href="{{ route('logout') }}"
+            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+        <a class="menu cta" href="{{ route('logout') }}"
+            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+        <a href="{{ route('dashboard') }}" class="todashboard"><img src="{{ asset('/assets/images/team3.jpg') }}"
+                alt=""></a>
     @else
-    {{-- <a class="cta" href="{{ route('adminLogin') }}">Login</a>
+        {{-- <a class="cta" href="{{ route('adminLogin') }}">Login</a>
     <a class="menu cta" href="{{ route('adminLogin') }}">Login</a> --}}
     @endif
 </header>
