@@ -43,11 +43,18 @@ class MailController extends Controller
 
             $abt = About::first();
 
-            //Sending Email
-            Mail::send('email.ordermail', ['data' => $res], function ($m) use ($res, $abt) {
+            // To Daniras
+            Mail::send('email.ordermail', ['data' => $res, 'flag' => 0], function ($m) use ($res, $abt) {
                 $m->from($res->email, $res->name);
                 $m->to($abt->email, $abt->name);
                 $m->subject("New Order Received");
+            });
+
+            // To Customer
+            Mail::send('email.ordermail', ['data' => $res, 'flag' => 1], function ($m) use ($res, $abt) {
+                $m->from($abt->email, $abt->name);
+                $m->to($res->email, $res->name);
+                $m->subject("Order Confirmed");
             });
 
             return true;

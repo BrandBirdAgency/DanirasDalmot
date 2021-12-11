@@ -94,6 +94,22 @@
             text-decoration: none !important;
         }
 
+
+        @media (max-width: 500px) {
+            #prodImg {
+                height: 150px !important;
+                width: 35% !important;
+            }
+
+            #prodDet {
+                font-size: .8em !important;
+            }
+
+            #orderBy {
+                margin-left: 10% !important;
+            }
+        }
+
     </style>
 
 
@@ -158,7 +174,10 @@
                                                                             title="Image"
                                                                             style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 26%;max-width: 150.8px;"
                                                                             width="150.8" />
-
+                                                                        @if ($flag)
+                                                                            <h1 style="color: white">Order Confirmed
+                                                                            </h1>
+                                                                        @endif
                                                                     </td>
                                                                 </tr>
                                                             </table>
@@ -210,10 +229,11 @@
                                                                 @php
                                                                     $prod = App\Models\Product::find($data['product_id']);
                                                                 @endphp
-                                                                <img align="center" border="0"
+
+                                                                <img align="center" border="0" id="prodImg"
                                                                     src="https://danirasdalmoth.com/{{ Storage::url($prod->photo) }}"
                                                                     {{-- src="{{ Storage::url($prod->photo) }}" --}} alt="Image" title="Image"
-                                                                    style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;
+                                                                    style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;
                                                                     width: 40%;max-width: 150.8px; float:left;" />
 
                                                                 <p
@@ -229,7 +249,7 @@
                                                                         </strong>{{ $details['phone'] }}<br /><br>
                                                                         {{ $details['message'] }}<br /> --}}
 
-                                                                        <div style="margin-left: 25%;">
+                                                                        <div id="prodDet" style="margin-left: 25%;">
                                                                             <strong>
                                                                                 Name: </strong>{{ $prod->name }}<br />
                                                                             <strong>Quantity:
@@ -253,17 +273,23 @@
                                                                     style="font-size: 14px; line-height: 200%; float: right">
                                                                     <span
                                                                         style="font-size: 16px; line-height: 32px; text-align: justify;">
-                                                                        <h1 align="center">Ordered By</h1>
-                                                                        <div style="margin-left: 25%;"><strong>
-                                                                                Name:
-                                                                            </strong>{{ $data['name'] }}<br />
-                                                                            <strong>Address: </strong>
-                                                                            {{ $data['address'] }}<br />
-                                                                            <strong>Phone Number:
-                                                                            </strong>{{ $data['phone'] }}<br />
-                                                                            <strong>Email:
-                                                                            </strong>{{ $data['email'] }}
-                                                                        </div>
+                                                                        @if ($flag)
+                                                                            <h1 align="center">Thank You For Your Order
+                                                                            </h1>
+                                                                        @else
+                                                                            <h1 align="center">Ordered By</h1>
+                                                                            <div id="orderBy" style="margin-left: 25%;">
+                                                                                <strong>
+                                                                                    Name:
+                                                                                </strong>{{ $data['name'] }}<br />
+                                                                                <strong>Address: </strong>
+                                                                                {{ $data['address'] }}<br />
+                                                                                <strong>Phone Number:
+                                                                                </strong>{{ $data['phone'] }}<br />
+                                                                                <strong>Email:
+                                                                                </strong>{{ $data['email'] }}
+                                                                            </div>
+                                                                        @endif
                                                                     </span>
                                                                 </p>
                                                             </div>

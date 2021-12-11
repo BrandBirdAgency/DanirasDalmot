@@ -99,5 +99,7 @@ Route::get('/mail', function () {
         'email' => 'sunnyshakya@gmail.com',
         'product_id' => '10008',
     ];
-    return view('email.ordermail', compact('data'));
+
+    $flag = 1; //0->daniras & 1->customer
+    return view('email.ordermail', compact('data', 'flag'));
 });
