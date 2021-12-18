@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@if (request()->is('products'))
+@if(request()->is('products'))
 @section('title', 'Products')
 @endif
 
@@ -7,11 +7,11 @@
 <!-- Swiper Js -->
 <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-<link rel="stylesheet" href={{ asset('assets/css/style.min.css') }} />
-@if ($id != null)
-<link rel="canonical" href="{{ url('') }}/products">
+<link rel="stylesheet" href={{ asset('assets/css/style.css') }} />
+@if($id!= null)
+<link rel="canonical" href="{{url('')}}/products">
 @else
-<link rel="canonical" href="{{ url('') }}/products/{{ $id }}">
+<link rel="canonical" href="{{url('')}}/products/{{$id}}">
 @endif
 @endsection
 
@@ -50,12 +50,12 @@
         @foreach ($products as $p)
         @if ($p->id == $id)
         {{-- Meta Tags --}}
-        @if (request()->is('products/*'))
+        @if(request()->is('products/*'))
         @section('title', $p->name)
         @endif
-        @section('meta_desc', Str::substr($p->description, 0, 160) . '...')
-        @section('meta_img', 'https://danirasdalmoth.com/storage' . substr($p->photo, 6))
-        @section('url', url()->current())
+        @section('meta_desc',Str::substr($p->description, 0, 160).'...')
+        @section('meta_img','https://danirasdalmoth.com/storage'.substr($p->photo,6))
+        @section('url',url()->current())
 
         {{-- Meta Tags ENd --}}
         <div class="product-main">
@@ -120,8 +120,8 @@
             </div>
 
             <!-- The Modal -->
-            <div class="modal fade mt-5" id="myModal">
-                <div class="modal-dialog modal-dialog-scrollable mt-5">
+            <div class="modal fade " id="myModal">
+                <div class="modal-dialog modal-dialog-centered mt-5">
                     <div class="modal-content">
                         <!-- Modal Header -->
                         <div class="modal-header">
@@ -136,65 +136,41 @@
                             <form action={{ route('productorder') }} method="POST">
                                 @csrf
                                 <input type="hidden" name="product_id" value={{ $p->id }}>
-                                <input type="hidden" name="product_name" value={{ $p->name }}>
                                 <input type="hidden" name="price" value={{ $p->price }}>
-                                <input type="hidden" name="discount" value={{ $p->discount }}>
                                 <div class="form-group">
                                     <label for="usr">Full Name:</label>
-                                    <input type="text" class="form-control" id="usr" name="name" required />
-                                    @error('name')
-                                    <div class="text-danger small">{{ $message }}</div>
+                                    <input type="text" class="form-control" id="usr" name="username" />
+                                    @error('username')
+                                    {{ $message }}
                                     @enderror
-                                </div>
-                                <div class="row">
-                                    <div class="form-group col-6">
-                                        <label for="District">District:</label>
-                                        <input type="text" class="form-control" id="District" name="district"
-                                            required />
-                                        @error('district')
-                                        <div class="text-danger small">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group col-6">
-                                        <label for="WardNo">Ward No:</label>
-                                        <input type="number" class="form-control" id="WardNo" name="ward_no" required />
-                                        @error('ward_no')
-                                        <div class="text-danger small">{{ $message }}</div>
-                                        @enderror
-                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="Address">Address:</label>
-                                    <input type="text" class="form-control" id="Address" name="address" required />
-                                    @error('address')
-                                    <div class="text-danger small">{{ $message }}</div>
+                                    <input type="text" class="form-control" id="Address" name="address" />
+                                    @error('address ')
+                                    {{ $message }}
                                     @enderror
                                 </div>
-                                <div class="row">
-                                    <div class="form-group col-6">
-                                        <label for="Quantity">Quantity:</label>
-                                        <input type="number" class="form-control" id="Quantity" name="quantity"
-                                            required />
-                                        @error('quantity')
-                                        <div class="text-danger small">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group col-6">
-                                        <label for="Phone">Mobile Number:</label>
-                                        <input type="text" class="form-control" id="Phone" name="phone" required />
-                                        @error('phone')
-                                        <div class="text-danger small">{{ $message }}</div> @enderror
-                                    </div>
+                                <div class="form-group">
+                                    <label for="Quantity">Quantity:</label>
+                                    <input type="number" class="form-control" id="Quantity" name="quantity" />
+                                    @error('quantity')
+                                    {{ $message }}
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="Phone">Phone Number:</label>
+                                    <input type="text" class="form-control" id="Phone" name="phone" />
+                                    @error('phone')
+                                    {{ $message }}
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="Email">Email:</label>
-                                    <input type="email" class="form-control" id="Email" name="email" required />
+                                    <input type="email" class="form-control" id="Email" name="email" />
                                     @error('email')
-                                    <div class="text-danger small">{{ $message }}</div>
+                                    {{ $message }}
                                     @enderror
-                                </div>
-                                <div class="form-group text-danger p-1 text-center mt-3 ">
-                                    <p>[Note: We only accepts bulk orders]</p>
                                 </div>
                                 <div class="d-flex justify-content-center">
                                     <button type="submit" class="submit-btn">Proceed</button>
@@ -212,7 +188,7 @@
     <section id="more-products" class="normalsec">
         <div class="main">
             <div class="title">
-                <h3>More Products</h3>
+                <h3>Similar Products</h3>
                 <div class="line"></div>
             </div>
 
@@ -222,7 +198,7 @@
                 <div class="swiper-wrapper">
                     <!-- Slides -->
                     @forelse ($products as $p)
-                    <div class="swiper-slide">
+                    @if($loop->iteration < 8) <div class="swiper-slide">
                         <div class="image">
                             <img src="{{ Storage::url($p->photo) }}" alt="product" class="slider-image" />
                             <div class="overlay-image">
@@ -230,137 +206,165 @@
                                         class="view">View</button></a>
                             </div>
                         </div>
-                    </div>
-                    @empty
-                    <div class="no-content">
-                        <h4>Products Unavailable</h4>
-                    </div>
-                    @endforelse
                 </div>
-                <!-- If we need pagination -->
-                <div class="swiper-pagination"></div>
+                @endif
+                @empty
+                <div class="no-content">
+                    <h4>Products Unavailable</h4>
+                </div>
+                @endforelse
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+</div>
+</section>
+
+<section class="normalsec product-display">
+    <div class="title">
+        <h3>Our Products</h3>
+        <div class="line"></div>
+    </div>
+    <div class="row">
+        {{-- dd products --}}
+        @forelse ($products as $p)
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+            <div class="product-display-card">
+                <div class="product-display-card-content">
+                    <img src="{{ Storage::url($p->photo) }}" alt="product" class="product-image" />
+                    <h5>{{$p->name}}</h5>
+                    <p>Size: {{$p->size}} gram</p>
+                    <p>Price: <span class="main-price">Rs.{{$p->retail_price}}</span> Rs.{{$p->price}}</p>
+                </div>
+                <a href="/products/{{$p->id}}">See More</a>
             </div>
         </div>
-    </section>
+        @empty
+        <div class="no-content">
+            <h4>Products Unavailable</h4>
+        </div>
+        @endforelse
+    </div>
+</section>
 
-    <section class="normalsec">
-        <div class="infrastructure">
-            <div class="title">
-                <h3>Our Infrastructures</h3>
-                <div class="line"></div>
+<section class="normalsec">
+    <div class="infrastructure">
+        <div class="title">
+            <h3>Our Infrastructures</h3>
+            <div class="line"></div>
+        </div>
+        <div class="row det">
+            <div class="col-md-6 col-12 d-md-block d-none">
+                <img src={{ asset('assets/images/infra1.jpg') }} alt="" class="img-fluid" />
             </div>
-            <div class="row det">
-                <div class="col-md-6 col-12 d-md-block d-none">
-                    <img src={{ asset('assets/images/infra1.jpg') }} alt="" class="img-fluid" />
-                </div>
-                <div class="col-md-6 col-12">
-                    <div class="content">
-                        <div class="heading">
-                            <h3>Fully Automated Plant</h3>
-                            <div class="line"></div>
-                        </div>
-                        <p>
-                            <i><q>All that we humans have achieved until now be it our space
-                                    outreach or the most advanced automation, it is due to the
-                                    power of our minds,</q></i>
-                            For each production facility to play its part in the automation
-                            it has to demonstrate the highest possible degree
-                            of automation, availability, and optimization.
-                            <br /><br />
-                            Here in Danir's We are equiped with fully automated parts and machineries.
-                            We ensure the quality, healthy, trust worthy product for our customers. Even
-                            though automated aren’t exactly a new sight in factories, there are constantly
-                            new and innovative ways in which they are used which we take advantange of!
-                        </p>
+            <div class="col-md-6 col-12">
+                <div class="content">
+                    <div class="heading">
+                        <h3>Fully Automated Plant</h3>
+                        <div class="line"></div>
                     </div>
-                </div>
-                <div class="col-md-6 col-12 d-md-none">
-                    <img src={{ asset('assets/images/infra1.jpg') }} alt="" class="img-fluid" />
-                </div>
-            </div>
-            <div class="row det">
-                <div class="col-md-6 col-12">
-                    <div class="content">
-                        <div class="heading">
-                            <h3>In - House Logistics</h3>
-                            <div class="line"></div>
-                        </div>
-
-                        <p>
-                            In-house logistics have become an essential ingredient in manufacturing –
-                            integrating production processes
-                            with the supply chain. We in danira's have a dedicated team of logistics
-                            experts who are well versed in the logistics industry. In-house logistics
-                            are a key part of our business
-                            model.
-                            <br /><br />
-                            Our in-house logisics professionals can identify your true pain points
-                            and then tailor logistics solutions to integrate with our
-                            national level network. Maintaining the highest levels of quality.!
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-12">
-                    <img src={{ asset('assets/images/infra2.jpg') }} alt="" class="img-fluid" />
+                    <p>
+                        <i><q>All that we humans have achieved until now be it our space
+                                outreach or the most advanced automation, it is due to the
+                                power of our minds,</q></i>
+                        For each production facility to play its part in the automation
+                        it has to demonstrate the highest possible degree
+                        of automation, availability, and optimization.
+                        <br /><br />
+                        Here in Danir's We are equiped with fully automated parts and machineries.
+                        We ensure the quality, healthy, trust worthy product for our customers. Even
+                        though automated aren’t exactly a new sight in factories, there are constantly
+                        new and innovative ways in which they are used which we take advantange of!
+                    </p>
                 </div>
             </div>
-            <div class="row det">
-                <div class="col-md-6 col-12 d-md-block d-none">
-                    <img src={{ asset('assets/images/infra3.jpg') }} alt="" class="img-fluid" />
-                </div>
-                <div class="col-md-6 col-12">
-                    <div class="content">
-                        <div class="heading">
-                            <h3>Print & Packaging Plant</h3>
-                            <div class="line"></div>
-                        </div>
-
-                        <p>
-                            We have a dedicated team of printing and packaging experts who are well versed in the
-                            printing and
-                            packaging industry.
-                            <br /><br />
-                            Printing & Packaging is an area of high growth, supported with investments in technology and
-                            equipment
-                            from world class suppliers. We have a completely integrated solution for laminates from
-                            In-house Blown
-                            Film, Cast film,
-                            Specialty pouching and bag making. This is backed by in house cylinder
-                            making and pre press support.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-12 d-md-none">
-                    <img src={{ asset('assets/images/infra3.jpg') }} alt="" class="img-fluid" />
-                </div>
-            </div>
-            <div class="row det">
-                <div class="col-md-6 col-12">
-                    <div class="content">
-                        <div class="heading">
-                            <h3>Environment Friendly</h3>
-                            <div class="line"></div>
-                        </div>
-
-                        <p>
-                            Global warming is becoming the topic of discussion in many forums and on social media
-                            platforms. That's
-                            why we recycle waste and use it to make new products, use renewable energy and reduce our
-                            carbon
-                            footprint, use smart manufacturing system ,all in a way that is sustainable.
-                            <br /><br />
-                            We are committed to reduce our carbon footprint and we are working hard to achieve this. We
-                            in danira's
-                            are focused on delivering products that are environmentally friendly and healthy.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-12">
-                    <img src={{ asset('assets/images/infra4.jpg') }} alt="" class="img-fluid" />
-                </div>
+            <div class="col-md-6 col-12 d-md-none">
+                <img src={{ asset('assets/images/infra1.jpg') }} alt="" class="img-fluid" />
             </div>
         </div>
-    </section>
+        <div class="row det">
+            <div class="col-md-6 col-12">
+                <div class="content">
+                    <div class="heading">
+                        <h3>In - House Logistics</h3>
+                        <div class="line"></div>
+                    </div>
+
+                    <p>
+                        In-house logistics have become an essential ingredient in manufacturing –
+                        integrating production processes
+                        with the supply chain. We in danira's have a dedicated team of logistics
+                        experts who are well versed in the logistics industry. In-house logistics
+                        are a key part of our business
+                        model.
+                        <br /><br />
+                        Our in-house logisics professionals can identify your true pain points
+                        and then tailor logistics solutions to integrate with our
+                        national level network. Maintaining the highest levels of quality.!
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 col-12">
+                <img src={{ asset('assets/images/infra2.jpg') }} alt="" class="img-fluid" />
+            </div>
+        </div>
+        <div class="row det">
+            <div class="col-md-6 col-12 d-md-block d-none">
+                <img src={{ asset('assets/images/infra3.jpg') }} alt="" class="img-fluid" />
+            </div>
+            <div class="col-md-6 col-12">
+                <div class="content">
+                    <div class="heading">
+                        <h3>Print & Packaging Plant</h3>
+                        <div class="line"></div>
+                    </div>
+
+                    <p>
+                        We have a dedicated team of printing and packaging experts who are well versed in the
+                        printing and
+                        packaging industry.
+                        <br /><br />
+                        Printing & Packaging is an area of high growth, supported with investments in technology and
+                        equipment
+                        from world class suppliers. We have a completely integrated solution for laminates from
+                        In-house Blown
+                        Film, Cast film,
+                        Specialty pouching and bag making. This is backed by in house cylinder
+                        making and pre press support.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 col-12 d-md-none">
+                <img src={{ asset('assets/images/infra3.jpg') }} alt="" class="img-fluid" />
+            </div>
+        </div>
+        <div class="row det">
+            <div class="col-md-6 col-12">
+                <div class="content">
+                    <div class="heading">
+                        <h3>Environment Friendly</h3>
+                        <div class="line"></div>
+                    </div>
+
+                    <p>
+                        Global warming is becoming the topic of discussion in many forums and on social media
+                        platforms. That's
+                        why we recycle waste and use it to make new products, use renewable energy and reduce our
+                        carbon
+                        footprint, use smart manufacturing system ,all in a way that is sustainable.
+                        <br /><br />
+                        We are committed to reduce our carbon footprint and we are working hard to achieve this. We
+                        in danira's
+                        are focused on delivering products that are environmentally friendly and healthy.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 col-12">
+                <img src={{ asset('assets/images/infra4.jpg') }} alt="" class="img-fluid" />
+            </div>
+        </div>
+    </div>
+</section>
 </div>
 
 @endsection
