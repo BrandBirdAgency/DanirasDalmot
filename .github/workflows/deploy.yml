@@ -18,6 +18,4 @@ jobs:
         ftp-username: ${{ secrets.FTP_USERNAME }}
         ftp-password: ${{ secrets.FTP_PASSWORD }}
     - name: Install dependencies
-      uses: php-actions/composer@v6
-      with:
-        command: install
+      uses: "ramsey/composer-install@v2"
