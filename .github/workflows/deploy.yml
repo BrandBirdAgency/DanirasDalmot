@@ -17,3 +17,7 @@ jobs:
         ftp-server: ${{ secrets.FTP_SERVER }}
         ftp-username: ${{ secrets.FTP_USERNAME }}
         ftp-password: ${{ secrets.FTP_PASSWORD }}
+    - name: Install dependencies
+      uses: php-actions/composer@v6
+      with:
+        command: composer install
