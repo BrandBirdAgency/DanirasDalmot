@@ -1,0 +1,40 @@
+<!-- HEADER -->
+<header>
+    <a class="logo" href="/"><img src="{{ App\Models\About::first()->logo }}" alt="logo" /></a>
+    <nav>
+        <ul class="nav__links">
+            <li><a href="{{ route('homepage') }}">Home</a></li>
+            <li><a href="{{ route('productpage') }}">Products</a></li>
+            <li><a href="{{ route('teampage') }}">Team</a></li>
+            <li><a href="{{ route('aboutpage') }}">About</a></li>
+            <li><a href="{{ route('contactpage') }}">Contact</a></li>
+        </ul>
+    </nav>
+    <p class="menu cta">Menu</p>
+    @if (Auth::guard('web')->check())
+        <a class="cta" href="{{ route('logout') }}"
+            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+        <a class="menu cta" href="{{ route('logout') }}"
+            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+        <a href="{{ route('dashboard') }}" class="todashboard"><img src="{{ asset('/assets/images/team3.jpg') }}"
+                alt=""></a>
+    @else
+        {{-- <a class="cta" href="{{ route('adminLogin') }}">Login</a>
+    <a class="menu cta" href="{{ route('adminLogin') }}">Login</a> --}}
+    @endif
+</header>
+
+<div id="mobile__menu" class="overlay">
+    <a class="close">&times;</a>
+    <div class="overlay__content">
+        <a href="{{ route('homepage') }}">Home</a>
+        <a href="{{ route('productpage') }}">Products</a>
+        <a href="{{ route('teampage') }}">Team</a>
+        <a href="{{ route('aboutpage') }}">About</a>
+        <a href="{{ route('contactpage') }}">Contact</a>
+    </div>
+</div>
+<!-- END HEADER -->
