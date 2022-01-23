@@ -11,7 +11,7 @@
 <section id="main-parallex">
   <div class="box">
     <div class="skew-box">
-      <h3>Quality that You can Trust &nbsp;</h3>
+      <h3>Quality that You can Trust</h3>
     </div>
   </div>
   <img src={{asset("assets/images/banner1.jpg")}} alt="" class="banner-img">
