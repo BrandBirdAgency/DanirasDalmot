@@ -67,11 +67,9 @@
           <div class="content">
             <p class="top">OUR ESSENCE</p>
             <p>
-              Danira's mission is to build an honest realtionship with our
-              customers and to make make the availability of authentic, tast and
-              quality food products that are 100% vegeterian possible and to
-              manfucature as per global standards with much love, passion and
-              reliablilty.
+              Danira's business is guided by ethics and transparency, and we aim to further win and maintain our
+              customers by preparing packaged product that validate price, quality and of course the taste with the
+              pride and experience of leading the domestic food industry.
             </p>
           </div>
         </div>
@@ -89,7 +87,7 @@
             <p class="top">OUR MISSION</p>
             <p>
               Danira's mission is to build an honest realtionship with our
-              customers and to make make the availability of authentic, tast and
+              customers and to make the availability of authentic, tast and
               quality food products that are 100% vegeterian possible and to
               manfucature as per global standards with much love, passion and
               reliablilty.
