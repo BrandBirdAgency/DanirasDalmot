@@ -17,5 +17,6 @@ jobs:
         ftp-server: ${{ secrets.SERVER }}
         ftp-username: ${{ secrets.USERNAME }}
         ftp-password: ${{ secrets.PASSWORD }}
+        port: 21
     - name: Install dependencies
       uses: "ramsey/composer-install@v2"
