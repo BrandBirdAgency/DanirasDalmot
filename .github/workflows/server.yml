@@ -17,5 +17,3 @@ jobs:
         ftp-server: 207.148.117.199
         ftp-username: infotech@danirasdalmoth.com
         ftp-password: Daniras@121321
-    - name: Install dependencies
-      uses: "ramsey/composer-install@v2"
