@@ -14,8 +14,8 @@ jobs:
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@3.1.1
       with:
-        ftp-server: ${{ secrets.SERVER }}
-        ftp-username: ${{ secrets.USERNAME }}
-        ftp-password: ${{ secrets.PASSWORD }}
+        ftp-server: 207.148.117.199
+        ftp-username: infotech@danirasdalmoth.com
+        ftp-password: Daniras@121321
     - name: Install dependencies
       uses: "ramsey/composer-install@v2"
