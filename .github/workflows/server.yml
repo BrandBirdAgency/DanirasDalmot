@@ -18,6 +18,3 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: 21
-
-      - name: Install dependencies
-        uses: "ramsey/composer-install@v2"
