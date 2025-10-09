@@ -27,7 +27,7 @@ class ProductFactory extends Factory
             '/storage/images/products/mixture-dalmoth.jpg',
             '/storage/images/products/moong-dal-namkeen.jpg',
         ];
-        
+
         return [
             'name' => $this->faker->words(3, true),
             'photo' => $this->faker->randomElement($productImages),

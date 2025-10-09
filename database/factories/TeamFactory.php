@@ -23,7 +23,7 @@ class TeamFactory extends Factory
             '/storage/images/team/team4.jpg',
             '/storage/images/team/Sagar Chettri1633783464.png',
         ];
-        
+
         return [
             'name' => $this->faker->name(),
             'position' => $this->faker->randomElement([
