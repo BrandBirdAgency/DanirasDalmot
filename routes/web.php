@@ -48,6 +48,11 @@ Route::prefix('/contact')->group(
 
 // Admin
 Route::prefix('admin')->group(function () {
+    // Redirect /admin/ to admin login
+    Route::get('/', function () {
+        return redirect()->route('adminLogin');
+    });
+    
     Route::middleware(['auth'])->group(function () {
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 

@@ -2,12 +2,23 @@
 
 namespace App\Models;
 
-use Facade\Ignition\Tabs\Tab;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Team extends Model
 {
     use HasFactory;
-    protected $table="teams";
+
+    protected $table = "teams";
+
+    protected $fillable = [
+        'name',
+        'position',
+        'phone',
+        'address',
+        'photo',
+        'facebook',
+        'instagram',
+        'team_id'
+    ];
 }

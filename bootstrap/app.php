@@ -2,6 +2,27 @@
 
 /*
 |--------------------------------------------------------------------------
+| Suppress Deprecation Warnings for PHP 8.4 Compatibility
+|--------------------------------------------------------------------------
+|
+| Laravel 8 was not designed for PHP 8.4, so we suppress deprecation
+| warnings that don't affect functionality but clutter the output.
+|
+*/
+
+if (env('APP_ENV') === 'local') {
+    // Completely suppress deprecation warnings for development
+    ini_set('error_reporting', E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
+    set_error_handler(function ($errno, $errstr, $errfile, $errline) {
+        if ($errno === E_DEPRECATED || $errno === E_USER_DEPRECATED) {
+            return true; // Suppress deprecation warnings
+        }
+        return false; // Let other errors be handled normally
+    });
+}
+
+/*
+|--------------------------------------------------------------------------
 | Create The Application
 |--------------------------------------------------------------------------
 |

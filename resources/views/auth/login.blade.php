@@ -41,10 +41,11 @@
                 </label>
             </div>
 
-            <div class="block mt-4">
+            {{-- Temporarily disabled for local development --}}
+            {{-- <div class="block mt-4">
                 {!! NoCaptcha::renderJs() !!}
                 {!! NoCaptcha::display() !!}
-            </div>
+            </div> --}}
 
             <div class="flex items-center justify-end mt-4">
                 <x-button class="ml-3">
