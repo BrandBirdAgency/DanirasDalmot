@@ -47,3 +47,16 @@ Then open http://localhost:3000 (or your chosen port).
 
 -   This does not modify or proxy the Laravel app; it only serves the static `frontend/` folder.
 -   If you later move these pages into Blade templates and use Vite, you can remove this server.
+
+## Team images
+
+Place the provided photos under `frontend/assets/images/` with the following filenames to match `team.html`:
+
+- `team-dhiraj.jpg` → Dhiraj Kalwar (COO)
+- `team-nitesh.jpg` → Nitesh Gupta (CTO)
+- `team-aashish.jpg` → Aashish Kushwaha (CMO)
+- `team-bhumi.jpg` → Bhumi Kalwar (CFO)
+- `team-arun.jpg` → Arun Kumar Gupta (Managing Director)
+- `team-rahul.jpg` → Rahul Kalwar (Chairman and Founder)
+
+You can use different extensions (e.g., `.png`) if you also update the `src` paths in `frontend/team.html` accordingly.
