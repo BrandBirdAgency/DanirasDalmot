@@ -1,0 +1,13 @@
+{
+  "name": "daniras-frontend-router",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Static router for the DanirasDalmot frontend without touching the Laravel app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "start:port": "PORT=5173 node server.js"
+  },
+  "author": "",
+  "license": "MIT"
+}
