@@ -239,8 +239,8 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-12 col-md-6 mb-4 mb-md-0">
-        <h5><span class="color-gold">101</span><span class="color-blue">INFOTECH</span></h5>
-        <p>101 INFOTECH is a full-service Web Development and Application Development team based in Nepal. We provide a
+        <h5><span class="color-gold">Brand</span><span class="color-blue"> Bird</span></h5>
+        <p>Brand Bird is a full-service creative and technology team. We provide a
           complete
           Web and App solution by providing you the essential services including graphic design, UX/UI design, Web
           Development,
@@ -251,7 +251,7 @@
         <p>-We <span class="color-blue">Hear</span> We <span class="color-blue">Make</span> IT Happen.</p>
       </div>
       <div class="col-12 col-md-6">
-        <img class="company-logo" src="{{asset('assets\images\101infotech.png')}}" alt="Company Logo">
+        <img class="company-logo" src="{{asset('assets/images/logo.jpg')}}" alt="Company Logo">
       </div>
     </div>
     <div class="row mt-5">
@@ -264,7 +264,7 @@
         <div class="team-card">
           <img src="{{$team->photo}}" alt="{{$team->name}}">
           <div class="team-info d-flex flex-column justify-content-center">
-            <h5><a href="https://101infotech.com.np/team" target="_blank"
+            <h5><a href="https://brandbirdagency.com" target="_blank"
                 class="text-decoration-none color-blue">{{$team->name}}</a>
             </h5>
             <p>{{$team->position}}</p>

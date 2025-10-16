@@ -102,7 +102,7 @@
                                     <select name="team" class="custom-select" required>
                                         <option selected disabled hidden>Select Team</option>
                                         <option value="0">Daniras</option>
-                                        <option value="1">101infotech</option>
+                                        <option value="1">Brand Bird</option>
                                     </select>
                                 </div>
                                 <div class="col-6">
@@ -231,7 +231,7 @@
                                                     <div class="col-6">
                                                         <select name="team" class="custom-select" required>
                                                             <option selected value="0">Daniras</option>
-                                                            <option value="1">101infotech</option>
+                                                            <option value="1">Brand Bird</option>
                                                         </select>
                                                     </div>
                                                     <div class="col-6">
@@ -261,7 +261,7 @@
                         </div>
                         <p class="name">{{$team->name}}</p>
                         <p class="post">{{$team->position}}</p>
-                        <p class="post text-muted">{{$team->team_id ? '101infotech' : 'Daniras'}}</p>
+                        <p class="post text-muted">{{$team->team_id ? 'Brand Bird' : 'Daniras'}}</p>
                     </div>
                 </div>
                 <hr />

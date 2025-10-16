@@ -29,7 +29,8 @@ $about = App\Models\About::first();
             <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
         </div>
         <div class="ourcompany">
-            <p class="mb-0">DEVELOPED BY <a href="https://101infotech.com.np/">101INFOTECH</a></p>
+            <p class="mb-0">DEVELOPED BY <a href="https://brandbirdagency.com" target="_blank" rel="noopener">Brand
+                    Bird</a></p>
         </div>
     </footer>
 </div>
