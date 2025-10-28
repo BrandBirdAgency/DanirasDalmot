@@ -279,42 +279,55 @@
 <!-- END TEAM  ENDSS-->
 
 <script>
-    const realFileBtn0 = document.getElementById("real-file0");
-      const customBtn0 = document.getElementById("custom-button0");
-      const customTxt0 = document.getElementById("custom-text0");
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Handle Add Member form (real-file1)
+        const realFileBtn1 = document.getElementById("real-file1");
+        const customBtn1 = document.getElementById("custom-button1");
+        const customTxt1 = document.getElementById("custom-text1");
 
-      customBtn0.addEventListener("click", function () {
-        console.log("shubha")
-        realFileBtn0.click();
-      });
+        if (customBtn1 && realFileBtn1) {
+            customBtn1.addEventListener("click", function () {
+                realFileBtn1.click();
+            });
 
-      realFileBtn0.addEventListener("change", function () {
-        if (realFileBtn0.value) {
-          customTxt0.innerHTML = realFileBtn0.value.match(
-            /[\/\\]([\w\d\s\.\-\(\)]+)$/
-          )[1];
-        } else {
-          customTxt0.innerHTML = "No file choosen, yet.";
+            realFileBtn1.addEventListener("change", function () {
+                if (realFileBtn1.value) {
+                    customTxt1.innerHTML = realFileBtn1.value.match(
+                        /[\/\\]([\w\d\s\.\-\(\)]+)$/
+                    )[1];
+                } else {
+                    customTxt1.innerHTML = "No file chosen, yet.";
+                }
+            });
         }
-      });
-       const realFileBtn1 = document.getElementById("real-file1");
-      const customBtn1 = document.getElementById("custom-button1");
-      const customTxt1 = document.getElementById("custom-text1");
 
-      customBtn1.addEventListener("click", function () {
-        realFileBtn1.click();
-      });
+        // Handle Edit Member forms (real-file0) - need to attach after modal opens
+        // Use event delegation for dynamically created modals
+        document.body.addEventListener('click', function(e) {
+            // Check if clicked element is a custom button for file upload
+            if (e.target && e.target.id === 'custom-button0') {
+                const realFileBtn0 = document.getElementById("real-file0");
+                if (realFileBtn0) {
+                    realFileBtn0.click();
+                }
+            }
+        });
 
-      realFileBtn1.addEventListener("change", function () {
-        if (realFileBtn1.value) {
-          customTxt1.innerHTML = realFileBtn1.value.match(
-            /[\/\\]([\w\d\s\.\-\(\)]+)$/
-          )[1];
-        } else {
-          customTxt1.innerHTML = "No file choosen, yet.";
-        }
-      });
-
+        // Handle file input change for edit modals
+        document.body.addEventListener('change', function(e) {
+            if (e.target && e.target.id === 'real-file0') {
+                const customTxt0 = document.getElementById("custom-text0");
+                if (e.target.value && customTxt0) {
+                    customTxt0.innerHTML = e.target.value.match(
+                        /[\/\\]([\w\d\s\.\-\(\)]+)$/
+                    )[1];
+                } else if (customTxt0) {
+                    customTxt0.innerHTML = "No file chosen, yet.";
+                }
+            }
+        });
+    });
 </script>
 
 @endsection
