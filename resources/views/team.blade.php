@@ -55,7 +55,7 @@ control team, leadership team Nepal')
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Messages</h4>
+          <h4 class="modal-title">Leadership Messages</h4>
           <button type="button" class="close" data-dismiss="modal">
             &times;
           </button>
@@ -68,18 +68,18 @@ control team, leadership team Nepal')
             <div class="row">
               <div class="col">
                 <div class="form-group">
-                  <label for="ceoname">Ceo Name:</label>
+                  <label for="ceoname">Managing Director Name:</label>
                   <input type="text" class="form-control" value="{{$about->ceo_name}}" id="ceoname" name="ceoname" />
                   @error('ceoname') {{$message}} @enderror
                 </div>
                 <div class="form-group">
-                  <label for="ceomsg">Ceo Message:</label>
+                  <label for="ceomsg">Managing Director Message:</label>
                   <textarea cols="30" rows="5" class="form-control" id="ceomsg"
                     name="ceomsg">{{$about->ceo_msg}}</textarea>
                   @error('ceomsg') {{$message}} @enderror
                 </div>
                 <div class="form-group">
-                  <label for="ceoimg">Ceo Photo:</label>
+                  <label for="ceoimg">Managing Director Photo:</label>
                   <input type="file" id="real-file1" hidden="hidden" name="ceoimg" />
                   <button type="button" id="custom-button1" class="btn">
                     Choose an image
@@ -142,7 +142,7 @@ control team, leadership team Nepal')
               <div class="message-contain">
                 <div class="cos">
                   <div class="cus-heading">
-                    <h2 class="h3">Message From CEO</h2>
+                    <h2 class="h3">Message From Managing Director</h2>
                     <div class="line"></div>
                   </div>
                   <div class="edit-icon">
@@ -154,7 +154,7 @@ control team, leadership team Nepal')
                 <p> {!!nl2br(e($about->ceo_msg))!!} </p>
                 <div class="name">
                   <span>Mr. {{$about->ceo_name}}</span><br />
-                  CEO, Pushpanjali Spices & Food Products
+                  Managing Director, Pushpanjali Spices & Food Products
                 </div>
               </div>
             </div>
