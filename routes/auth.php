@@ -14,7 +14,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('admin/login', [AuthenticatedSessionController::class, 'create'])
                 ->middleware('guest')
-                ->name('adminLogin');
+                ->name('login'); // Changed from 'adminLogin' to 'login' for Laravel auth compatibility
+
+Route::get('login', [AuthenticatedSessionController::class, 'create'])
+                ->middleware('guest')
+                ->name('adminLogin'); // Keep as alias
 
 Route::post('login', [AuthenticatedSessionController::class, 'store'])
                 ->name('adminLoginSubmit')
