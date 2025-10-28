@@ -82,7 +82,11 @@ class AdminController extends Controller
     }
     public function orderStatus($id)
     {
-        Order::find($id)->status = 1;
+        $order = Order::find($id);
+        if ($order) {
+            $order->status = 1;
+            $order->save();
+        }
 
         return redirect()->route('orders');
     }
