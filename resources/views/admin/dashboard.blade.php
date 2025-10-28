@@ -640,7 +640,7 @@
                         Contact us to discuss which features would benefit your business the most and get a customized
                         implementation plan.
                     </p>
-                    <a href="{{ route('contact') }}" class="btn btn-light btn-lg px-5 py-3">
+                    <a href="{{ route('contactpage') }}" class="btn btn-light btn-lg px-5 py-3">
                         <i class="fas fa-paper-plane me-2"></i> Get Started Today
                     </a>
                     <a href="mailto:info@danirasdalmot.com" class="btn btn-outline-light btn-lg px-5 py-3 ms-3">
