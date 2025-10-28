@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\CompanyRequest;
 use App\Http\Requests\CeoMessageRequest;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -20,7 +21,94 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-        return view('admin.dashboard');
+        // Fetch analytics data
+        $totalOrders = Order::count();
+        $totalProducts = Product::count();
+        
+        // Calculate total revenue from delivered orders (price * quantity)
+        $totalRevenue = Order::where('status', 'delivered')
+            ->selectRaw('SUM(COALESCE(total_price, price * quantity)) as total')
+            ->value('total') ?? 0;
+        
+        $pendingOrders = Order::where('status', 'pending')->count();
+        $processingOrders = Order::where('status', 'processing')->count();
+        $deliveredOrders = Order::where('status', 'delivered')->count();
+        
+        // Recent orders
+        $recentOrders = Order::with('product')
+            ->orderBy('created_at', 'desc')
+            ->limit(5)
+            ->get();
+        
+        // Monthly sales data for chart (last 10 months)
+        $monthlySales = [];
+        for ($i = 9; $i >= 0; $i--) {
+            $date = now()->subMonths($i);
+            $sales = Order::whereYear('created_at', $date->year)
+                ->whereMonth('created_at', $date->month)
+                ->where('status', 'delivered')
+                ->selectRaw('SUM(COALESCE(total_price, price * quantity)) as total')
+                ->value('total') ?? 0;
+            $monthlySales[] = [
+                'month' => $date->format('M'),
+                'sales' => $sales
+            ];
+        }
+        
+        // Product categories distribution
+        $productCategories = Product::select('category', DB::raw('count(*) as count'))
+            ->groupBy('category')
+            ->get();
+        
+        // If no categories, create a default
+        if ($productCategories->isEmpty()) {
+            $productCategories = collect([
+                (object)['category' => 'All Products', 'count' => $totalProducts]
+            ]);
+        }
+        
+        // Calculate growth percentages (comparing with previous month)
+        $currentMonthRevenue = Order::whereMonth('created_at', now()->month)
+            ->whereYear('created_at', now()->year)
+            ->where('status', 'delivered')
+            ->selectRaw('SUM(COALESCE(total_price, price * quantity)) as total')
+            ->value('total') ?? 0;
+        
+        $previousMonthRevenue = Order::whereMonth('created_at', now()->subMonth()->month)
+            ->whereYear('created_at', now()->subMonth()->year)
+            ->where('status', 'delivered')
+            ->selectRaw('SUM(COALESCE(total_price, price * quantity)) as total')
+            ->value('total') ?? 0;
+        
+        $revenueGrowth = $previousMonthRevenue > 0 
+            ? (($currentMonthRevenue - $previousMonthRevenue) / $previousMonthRevenue) * 100 
+            : 0;
+        
+        $currentMonthOrders = Order::whereMonth('created_at', now()->month)
+            ->whereYear('created_at', now()->year)
+            ->count();
+        
+        $previousMonthOrders = Order::whereMonth('created_at', now()->subMonth()->month)
+            ->whereYear('created_at', now()->subMonth()->year)
+            ->count();
+        
+        $ordersGrowth = $previousMonthOrders > 0 
+            ? (($currentMonthOrders - $previousMonthOrders) / $previousMonthOrders) * 100 
+            : 0;
+        
+        return view('admin.dashboard', compact(
+            'totalOrders',
+            'totalProducts',
+            'totalRevenue',
+            'pendingOrders',
+            'processingOrders',
+            'deliveredOrders',
+            'recentOrders',
+            'monthlySales',
+            'productCategories',
+            'revenueGrowth',
+            'ordersGrowth'
+        ));
     }
 
     public function profile()

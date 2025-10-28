@@ -192,7 +192,7 @@ public function orderStatus($id)
 -   Contact information
 -   Social media links
 
-### ✅ CEO/Chairman Messages
+### ✅ Managing Director/Chairman Messages
 
 **Route:** `POST /admin/msg`  
 **Controller:** `AdminController@msg`  
@@ -200,7 +200,7 @@ public function orderStatus($id)
 **Validation:** `CeoMessageRequest`  
 **Features:**
 
--   CEO name, message, photo
+-   Managing Director name, message, photo
 -   Chairman name, message, photo
 -   Image upload with replacement
 

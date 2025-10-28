@@ -44,7 +44,7 @@ After logging in, you can access:
 -   Upload company logo
 -   Edit contact details (email, phone, address, website)
 -   Update social media links (Facebook, Instagram, Twitter)
--   Add/edit CEO message and photo
+-   Add/edit Managing Director message and photo
 -   Add/edit Chairman message and photo
 
 ### 3️⃣ **Product Management** (`/admin/product-index`)
@@ -196,7 +196,7 @@ You will be automatically logged out after 120 minutes (2 hours) of inactivity. 
 -   **Product Images:** Max 5MB, JPG/PNG format
 -   **Team Photos:** Max 10MB, JPG/JPEG/PNG/BMP format
 -   **Logo:** JPG/JPEG/PNG format
--   **CEO/Chairman Photos:** JPG/JPEG/PNG format
+-   **Managing Director/Chairman Photos:** JPG/JPEG/PNG format
 
 ---
 

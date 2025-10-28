@@ -4,42 +4,216 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!-- BOOTSTRAP -->
-    <link rel="stylesheet" type="text/css" href="vendor/css/bootstrap.css" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="vendor/css/bootstrap.min.css"
-    />
-
+    <title>Admin Dashboard - Danira's Dalmot</title>
+    
+    <!-- BOOTSTRAP 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- FONTAWESOME 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    
+    <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- FONTAWESOME -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
-      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"
-    />
-    <!-- CSS -->
-    <!-- Add icon library -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- CHART.JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
+    <!-- CUSTOM CSS -->
     <link rel="stylesheet" href="./assets/css/admin.css" />
+    
+    <style>
+      :root {
+        --primary-color: #e63946;
+        --secondary-color: #f1faee;
+        --dark-color: #1d3557;
+        --light-color: #a8dadc;
+        --success-color: #06d6a0;
+        --warning-color: #ffd166;
+        --danger-color: #ef476f;
+      }
+      
+      body {
+        font-family: 'Inter', sans-serif;
+        background: #f8f9fa;
+      }
+      
+      .dashboard-header {
+        background: linear-gradient(135deg, var(--primary-color) 0%, #d62828 100%);
+        color: white;
+        padding: 2rem 0;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      }
+      
+      .stat-card {
+        background: white;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-left: 4px solid;
+        height: 100%;
+      }
+      
+      .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+      }
+      
+      .stat-card.revenue { border-left-color: var(--success-color); }
+      .stat-card.orders { border-left-color: var(--primary-color); }
+      .stat-card.customers { border-left-color: var(--warning-color); }
+      .stat-card.products { border-left-color: #457b9d; }
+      
+      .stat-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+      }
+      
+      .stat-card.revenue .stat-icon { background: rgba(6, 214, 160, 0.1); color: var(--success-color); }
+      .stat-card.orders .stat-icon { background: rgba(230, 57, 70, 0.1); color: var(--primary-color); }
+      .stat-card.customers .stat-icon { background: rgba(255, 209, 102, 0.1); color: var(--warning-color); }
+      .stat-card.products .stat-icon { background: rgba(69, 123, 157, 0.1); color: #457b9d; }
+      
+      .stat-number {
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 0.5rem 0;
+        color: var(--dark-color);
+      }
+      
+      .stat-label {
+        color: #6c757d;
+        font-size: 0.9rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      
+      .stat-change {
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-top: 0.5rem;
+      }
+      
+      .stat-change.positive { color: var(--success-color); }
+      .stat-change.negative { color: var(--danger-color); }
+      
+      .chart-card {
+        background: white;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        margin-bottom: 1.5rem;
+      }
+      
+      .admin-menu-card {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem 1.5rem;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        transition: all 0.3s ease;
+        height: 100%;
+        cursor: pointer;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+      }
+      
+      .admin-menu-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        text-decoration: none;
+        color: inherit;
+      }
+      
+      .admin-menu-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 1rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        background: linear-gradient(135deg, var(--primary-color), #d62828);
+        color: white;
+      }
+      
+      .future-plans-section {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 16px;
+        padding: 3rem 2rem;
+        margin: 2rem 0;
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+      }
+      
+      .feature-card {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border-radius: 12px;
+        padding: 2rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+      }
+      
+      .feature-card:hover {
+        background: rgba(255, 255, 255, 0.25);
+        transform: translateX(10px);
+      }
+      
+      .feature-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      .badge-new {
+        background: #06d6a0;
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin-left: 0.5rem;
+      }
+      
+      .table-card {
+        background: white;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        margin-bottom: 1.5rem;
+      }
+      
+      .table thead th {
+        border-bottom: 2px solid var(--primary-color);
+        color: var(--dark-color);
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+      }
+    </style>
   </head>
   <body>
+    
     <!-- HEADER -->
     <header>
       <a class="logo" href="/"
@@ -51,9 +225,15 @@
           <li><a href="./products.html">Products</a></li>
           <li><a href="./team.html">Team</a></li>
           <li><a href="./about.html">About</a></li>
+          <li><a href="./contact.html">Contact</a></li>
         </ul>
       </nav>
-      <a class="cta" href="./contact.html">Contact</a>
+      <a class="cta" href="#">
+        <i class="fas fa-user-circle"></i> Admin
+      </a>
+      <button class="btn btn-danger btn-sm ms-2" onclick="logout()">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </button>
       <p class="menu cta">Menu</p>
     </header>
     <div id="mobile__menu" class="overlay">
@@ -68,66 +248,618 @@
     </div>
     <!-- END HEADER -->
 
-    <section id="admin-dashboard">
-        <div class="container">
-            <div class="row justify-content-center">
-                <h3 class="mb-5">Admin Dashboard</h3>
+    <!-- DASHBOARD HEADER -->
+    <div class="dashboard-header">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-8">
+            <h1 class="mb-2"><i class="fas fa-tachometer-alt"></i> Admin Dashboard</h1>
+            <p class="mb-0 opacity-75">Welcome back! Here's what's happening with your store today.</p>
+          </div>
+          <div class="col-md-4 text-md-end mt-3 mt-md-0">
+            <div class="text-white">
+              <i class="far fa-calendar-alt"></i> <span id="currentDate"></span>
             </div>
-            <div class="row">
-                <div class="col-md-3 col-12 col-sm-6 d-flex justify-content-center justify-content-sm-start mb-4">
-                    <div class="admin-box">
-                        <img src="/DanirasDalmot(Front-End)/assets/images/order.png" alt="">
-                        <p>Orders </p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-12 col-sm-6 d-flex justify-content-center justify-content-sm-start mb-4">
-                    <div class="admin-box">
-                        <img src="/DanirasDalmot(Front-End)/assets/images/team.png" alt="">
-                        <p>Teams </p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-12 col-sm-6 d-flex justify-content-center justify-content-sm-start mb-4">
-                    <div class="admin-box">
-                        <img src="/DanirasDalmot(Front-End)/assets/images/box.png" alt="">
-                        <p>Products </p>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <section id="admin-dashboard" class="py-4">
+      <div class="container">
+        
+        <!-- ANALYTICS STATS -->
+        <div class="row g-4 mb-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="stat-card revenue">
+              <div class="stat-icon">
+                <i class="fas fa-dollar-sign"></i>
+              </div>
+              <div class="stat-label">Total Revenue</div>
+              <div class="stat-number" id="totalRevenue">NPR 2,45,680</div>
+              <div class="stat-change positive">
+                <i class="fas fa-arrow-up"></i> 12.5% from last month
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-6">
+            <div class="stat-card orders">
+              <div class="stat-icon">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+              <div class="stat-label">Total Orders</div>
+              <div class="stat-number" id="totalOrders">1,847</div>
+              <div class="stat-change positive">
+                <i class="fas fa-arrow-up"></i> 8.3% from last month
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-6">
+            <div class="stat-card customers">
+              <div class="stat-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="stat-label">Customers</div>
+              <div class="stat-number" id="totalCustomers">892</div>
+              <div class="stat-change positive">
+                <i class="fas fa-arrow-up"></i> 5.7% from last month
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-6">
+            <div class="stat-card products">
+              <div class="stat-icon">
+                <i class="fas fa-box"></i>
+              </div>
+              <div class="stat-label">Total Products</div>
+              <div class="stat-number" id="totalProducts">24</div>
+              <div class="stat-change negative">
+                <i class="fas fa-arrow-down"></i> 2 out of stock
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHARTS ROW -->
+        <div class="row g-4 mb-4">
+          <div class="col-lg-8">
+            <div class="chart-card">
+              <h5 class="mb-3"><i class="fas fa-chart-line"></i> Sales Overview</h5>
+              <canvas id="salesChart" height="80"></canvas>
+            </div>
+          </div>
+          
+          <div class="col-lg-4">
+            <div class="chart-card">
+              <h5 class="mb-3"><i class="fas fa-chart-pie"></i> Product Categories</h5>
+              <canvas id="categoryChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- QUICK ACTIONS -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <h4 class="mb-3"><i class="fas fa-bolt"></i> Quick Actions</h4>
+          </div>
+        </div>
+        
+        <div class="row g-4 mb-4">
+          <div class="col-lg-3 col-md-6">
+            <a href="./orders.html" class="admin-menu-card">
+              <div class="admin-menu-icon">
+                <i class="fas fa-clipboard-list"></i>
+              </div>
+              <h5 class="mb-2">Manage Orders</h5>
+              <p class="text-muted small mb-0">View and process customer orders</p>
+            </a>
+          </div>
+          
+          <div class="col-lg-3 col-md-6">
+            <a href="./admin-team.html" class="admin-menu-card">
+              <div class="admin-menu-icon" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                <i class="fas fa-user-friends"></i>
+              </div>
+              <h5 class="mb-2">Manage Team</h5>
+              <p class="text-muted small mb-0">Add or edit team members</p>
+            </a>
+          </div>
+          
+          <div class="col-lg-3 col-md-6">
+            <a href="./product-admin.html" class="admin-menu-card">
+              <div class="admin-menu-icon" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+                <i class="fas fa-boxes"></i>
+              </div>
+              <h5 class="mb-2">Manage Products</h5>
+              <p class="text-muted small mb-0">Add, edit, or delete products</p>
+            </a>
+          </div>
+          
+          <div class="col-lg-3 col-md-6">
+            <a href="#" class="admin-menu-card">
+              <div class="admin-menu-icon" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
+                <i class="fas fa-chart-bar"></i>
+              </div>
+              <h5 class="mb-2">Analytics</h5>
+              <p class="text-muted small mb-0">View detailed reports</p>
+            </a>
+          </div>
+        </div>
+
+        <!-- RECENT ORDERS TABLE -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="table-card">
+              <h5 class="mb-3"><i class="fas fa-history"></i> Recent Orders</h5>
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Order ID</th>
+                      <th>Customer</th>
+                      <th>Product</th>
+                      <th>Amount</th>
+                      <th>Status</th>
+                      <th>Date</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>#ORD-1847</strong></td>
+                      <td>Ramesh Kumar</td>
+                      <td>Masala Dalmot (500g)</td>
+                      <td>NPR 450</td>
+                      <td><span class="badge bg-success">Delivered</span></td>
+                      <td>Oct 27, 2025</td>
+                      <td><button class="btn btn-sm btn-outline-primary"><i class="fas fa-eye"></i></button></td>
+                    </tr>
+                    <tr>
+                      <td><strong>#ORD-1846</strong></td>
+                      <td>Sita Sharma</td>
+                      <td>Sweet Mix (1kg)</td>
+                      <td>NPR 850</td>
+                      <td><span class="badge bg-warning text-dark">Processing</span></td>
+                      <td>Oct 27, 2025</td>
+                      <td><button class="btn btn-sm btn-outline-primary"><i class="fas fa-eye"></i></button></td>
+                    </tr>
+                    <tr>
+                      <td><strong>#ORD-1845</strong></td>
+                      <td>Hari Prasad</td>
+                      <td>Chatpate Mix (250g)</td>
+                      <td>NPR 280</td>
+                      <td><span class="badge bg-info">Shipped</span></td>
+                      <td>Oct 26, 2025</td>
+                      <td><button class="btn btn-sm btn-outline-primary"><i class="fas fa-eye"></i></button></td>
+                    </tr>
+                    <tr>
+                      <td><strong>#ORD-1844</strong></td>
+                      <td>Maya Gurung</td>
+                      <td>Premium Dalmot (500g)</td>
+                      <td>NPR 550</td>
+                      <td><span class="badge bg-success">Delivered</span></td>
+                      <td>Oct 26, 2025</td>
+                      <td><button class="btn btn-sm btn-outline-primary"><i class="fas fa-eye"></i></button></td>
+                    </tr>
+                    <tr>
+                      <td><strong>#ORD-1843</strong></td>
+                      <td>Bijay Thapa</td>
+                      <td>Spicy Mix (1kg)</td>
+                      <td>NPR 920</td>
+                      <td><span class="badge bg-danger">Cancelled</span></td>
+                      <td>Oct 25, 2025</td>
+                      <td><button class="btn btn-sm btn-outline-primary"><i class="fas fa-eye"></i></button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="text-end mt-3">
+                <a href="./orders.html" class="btn btn-outline-primary">View All Orders <i class="fas fa-arrow-right ms-2"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FUTURE PLANS SECTION -->
+        <div class="future-plans-section">
+          <div class="row">
+            <div class="col-12 text-center mb-4">
+              <h2 class="mb-3">
+                <i class="fas fa-rocket"></i> Future Plans & Expansion Opportunities
+              </h2>
+              <p class="lead opacity-90">
+                Take your business to the next level with these powerful features and integrations
+              </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <i class="fas fa-store"></i>
+                </div>
+                <h5 class="mb-2">
+                  Vendor Management System
+                  <span class="badge-new">HIGH ROI</span>
+                </h5>
+                <p class="mb-3 opacity-90">
+                  Manage multiple suppliers, track inventory from different vendors, automated purchase orders, and vendor performance analytics.
+                </p>
+                <ul class="list-unstyled small opacity-75">
+                  <li><i class="fas fa-check me-2"></i>Supplier database & ratings</li>
+                  <li><i class="fas fa-check me-2"></i>Automated procurement</li>
+                  <li><i class="fas fa-check me-2"></i>Cost optimization tools</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <i class="fas fa-users-cog"></i>
+                </div>
+                <h5 class="mb-2">
+                  CRM System
+                  <span class="badge-new">RECOMMENDED</span>
+                </h5>
+                <p class="mb-3 opacity-90">
+                  Customer Relationship Management to track customer interactions, preferences, purchase history, and targeted marketing campaigns.
+                </p>
+                <ul class="list-unstyled small opacity-75">
+                  <li><i class="fas fa-check me-2"></i>Customer profiles & segmentation</li>
+                  <li><i class="fas fa-check me-2"></i>Email marketing automation</li>
+                  <li><i class="fas fa-check me-2"></i>Loyalty program management</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <i class="fas fa-cash-register"></i>
+                </div>
+                <h5 class="mb-2">
+                  Point of Sale (POS) System
+                  <span class="badge-new">TRENDING</span>
+                </h5>
+                <p class="mb-3 opacity-90">
+                  Integrated POS for retail locations, real-time inventory sync, payment processing, and offline capability.
+                </p>
+                <ul class="list-unstyled small opacity-75">
+                  <li><i class="fas fa-check me-2"></i>Multi-location support</li>
+                  <li><i class="fas fa-check me-2"></i>Real-time inventory sync</li>
+                  <li><i class="fas fa-check me-2"></i>Digital receipt & invoicing</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <i class="fas fa-warehouse"></i>
+                </div>
+                <h5 class="mb-2">Advanced Inventory Management</h5>
+                <p class="mb-3 opacity-90">
+                  Smart inventory tracking with low-stock alerts, batch tracking, expiry management, and predictive restocking.
+                </p>
+                <ul class="list-unstyled small opacity-75">
+                  <li><i class="fas fa-check me-2"></i>Barcode/QR scanning</li>
+                  <li><i class="fas fa-check me-2"></i>Automated reorder points</li>
+                  <li><i class="fas fa-check me-2"></i>Warehouse optimization</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h5 class="mb-2">Mobile App Development</h5>
+                <p class="mb-3 opacity-90">
+                  Native iOS and Android apps for customers with push notifications, mobile payments, and seamless ordering experience.
+                </p>
+                <ul class="list-unstyled small opacity-75">
+                  <li><i class="fas fa-check me-2"></i>Easy mobile ordering</li>
+                  <li><i class="fas fa-check me-2"></i>Push notifications</li>
+                  <li><i class="fas fa-check me-2"></i>In-app customer support</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <i class="fas fa-robot"></i>
+                </div>
+                <h5 class="mb-2">AI-Powered Analytics</h5>
+                <p class="mb-3 opacity-90">
+                  Machine learning for sales forecasting, customer behavior analysis, dynamic pricing, and business intelligence.
+                </p>
+                <ul class="list-unstyled small opacity-75">
+                  <li><i class="fas fa-check me-2"></i>Sales prediction models</li>
+                  <li><i class="fas fa-check me-2"></i>Customer churn analysis</li>
+                  <li><i class="fas fa-check me-2"></i>Automated insights & reports</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <i class="fas fa-shipping-fast"></i>
+                </div>
+                <h5 class="mb-2">Delivery Management System</h5>
+                <p class="mb-3 opacity-90">
+                  Route optimization, real-time tracking, delivery partner management, and automated dispatch system.
+                </p>
+                <ul class="list-unstyled small opacity-75">
+                  <li><i class="fas fa-check me-2"></i>GPS tracking & routing</li>
+                  <li><i class="fas fa-check me-2"></i>Delivery partner app</li>
+                  <li><i class="fas fa-check me-2"></i>Proof of delivery</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <i class="fas fa-comments"></i>
+                </div>
+                <h5 class="mb-2">Live Chat & Support System</h5>
+                <p class="mb-3 opacity-90">
+                  24/7 customer support with AI chatbot, ticket management, and multi-channel communication (WhatsApp, Facebook, etc.).
+                </p>
+                <ul class="list-unstyled small opacity-75">
+                  <li><i class="fas fa-check me-2"></i>AI-powered chatbot</li>
+                  <li><i class="fas fa-check me-2"></i>WhatsApp integration</li>
+                  <li><i class="fas fa-check me-2"></i>Support ticket system</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <i class="fas fa-chart-pie"></i>
+                </div>
+                <h5 class="mb-2">Financial Management Module</h5>
+                <p class="mb-3 opacity-90">
+                  Comprehensive accounting, expense tracking, profit/loss reports, tax management, and financial forecasting.
+                </p>
+                <ul class="list-unstyled small opacity-75">
+                  <li><i class="fas fa-check me-2"></i>Automated invoicing</li>
+                  <li><i class="fas fa-check me-2"></i>Expense categorization</li>
+                  <li><i class="fas fa-check me-2"></i>Financial dashboards</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-4">
+            <div class="col-12 text-center">
+              <h5 class="mb-3">Ready to transform your business?</h5>
+              <p class="mb-4 opacity-90">
+                Contact us to discuss which features would benefit your business the most and get a customized implementation plan.
+              </p>
+              <a href="./contact.html" class="btn btn-light btn-lg px-5 py-3">
+                <i class="fas fa-paper-plane me-2"></i> Get Started Today
+              </a>
+              <a href="#" class="btn btn-outline-light btn-lg px-5 py-3 ms-3">
+                <i class="fas fa-phone me-2"></i> Schedule a Demo
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </section>
 
     <!-- FOOTER -->
-
     <div class="footer-basic">
       <footer>
         <div class="social">
-          <a href="#"><i class="icon ion-social-instagram"></i></a
-          ><a href="#"><i class="icon ion-social-snapchat"></i></a
-          ><a href="#"><i class="icon ion-social-twitter"></i></a
-          ><a href="#"><i class="icon ion-social-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
         </div>
         <ul class="list-inline">
-          <li class="list-inline-item"><a href="#">Home</a></li>
-          <li class="list-inline-item"><a href="#">Products</a></li>
-          <li class="list-inline-item"><a href="#">Team</a></li>
-          <li class="list-inline-item"><a href="#">About</a></li>
-          <li class="list-inline-item"><a href="#">Contact</a></li>
+          <li class="list-inline-item"><a href="./index.html">Home</a></li>
+          <li class="list-inline-item"><a href="./products.html">Products</a></li>
+          <li class="list-inline-item"><a href="./team.html">Team</a></li>
+          <li class="list-inline-item"><a href="./about.html">About</a></li>
+          <li class="list-inline-item"><a href="./contact.html">Contact</a></li>
         </ul>
-        <p class="copyright">Company Name © 2018</p>
+        <p class="copyright">Daniras Dalmoth © 2025</p>
       </footer>
     </div>
-
     <!-- FOOTER END -->
-    <!-- Script Source Files -->
-    <script src="script.js"></script>
-    <script src="vendor/js/jquery-3.6.0.min.js"></script>
+
+    <!-- BOOTSTRAP 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- CUSTOM SCRIPTS -->
+    <script>
+      // Display current date
+      document.getElementById('currentDate').textContent = new Date().toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+
+      // Sales Chart
+      const salesCtx = document.getElementById('salesChart').getContext('2d');
+      new Chart(salesCtx, {
+        type: 'line',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+          datasets: [{
+            label: 'Sales (NPR)',
+            data: [15000, 18500, 17200, 22000, 21500, 25000, 28000, 24500, 26800, 30200],
+            borderColor: '#e63946',
+            backgroundColor: 'rgba(230, 57, 70, 0.1)',
+            tension: 0.4,
+            fill: true,
+            pointBackgroundColor: '#e63946',
+            pointBorderColor: '#fff',
+            pointBorderWidth: 2,
+            pointRadius: 5,
+            pointHoverRadius: 7
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
+          plugins: {
+            legend: {
+              display: true,
+              position: 'top'
+            },
+            tooltip: {
+              backgroundColor: 'rgba(0, 0, 0, 0.8)',
+              padding: 12,
+              titleFont: {
+                size: 14
+              },
+              bodyFont: {
+                size: 13
+              },
+              callbacks: {
+                label: function(context) {
+                  return 'Revenue: NPR ' + context.parsed.y.toLocaleString();
+                }
+              }
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              ticks: {
+                callback: function(value) {
+                  return 'NPR ' + value.toLocaleString();
+                }
+              },
+              grid: {
+                color: 'rgba(0, 0, 0, 0.05)'
+              }
+            },
+            x: {
+              grid: {
+                display: false
+              }
+            }
+          }
+        }
+      });
+
+      // Category Chart
+      const categoryCtx = document.getElementById('categoryChart').getContext('2d');
+      new Chart(categoryCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Masala Mix', 'Sweet Mix', 'Chatpate Mix', 'Premium Mix', 'Others'],
+          datasets: [{
+            data: [35, 25, 20, 15, 5],
+            backgroundColor: [
+              '#e63946',
+              '#f1faee',
+              '#a8dadc',
+              '#457b9d',
+              '#1d3557'
+            ],
+            borderWidth: 2,
+            borderColor: '#fff'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: {
+                padding: 15,
+                font: {
+                  size: 12
+                }
+              }
+            },
+            tooltip: {
+              backgroundColor: 'rgba(0, 0, 0, 0.8)',
+              padding: 12,
+              callbacks: {
+                label: function(context) {
+                  return context.label + ': ' + context.parsed + '%';
+                }
+              }
+            }
+          }
+        }
+      });
+
+      // Logout function
+      function logout() {
+        if (confirm('Are you sure you want to logout?')) {
+          window.location.href = './index.html';
+        }
+      }
+
+      // Mobile menu toggle
+      const mobile = document.querySelector('.menu');
+      const mobileLink = document.querySelector('.overlay');
+      const closeBtn = document.querySelector('.close');
+
+      if (mobile) {
+        mobile.addEventListener("click", function () {
+          mobileLink.classList.add('overlay--active');
+        });
+      }
+
+      if (closeBtn) {
+        closeBtn.addEventListener("click", function () {
+          mobileLink.classList.remove('overlay--active');
+        });
+      }
+
+      // Animate numbers on page load
+      function animateValue(id, start, end, duration) {
+        const obj = document.getElementById(id);
+        if (!obj) return;
+        
+        let startTimestamp = null;
+        const step = (timestamp) => {
+          if (!startTimestamp) startTimestamp = timestamp;
+          const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+          const value = Math.floor(progress * (end - start) + start);
+          
+          if (id === 'totalRevenue') {
+            obj.innerHTML = 'NPR ' + value.toLocaleString();
+          } else {
+            obj.innerHTML = value.toLocaleString();
+          }
+          
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          }
+        };
+        window.requestAnimationFrame(step);
+      }
+
+      // Trigger animations when page loads
+      window.addEventListener('load', () => {
+        animateValue('totalRevenue', 200000, 245680, 2000);
+        animateValue('totalOrders', 1500, 1847, 2000);
+        animateValue('totalCustomers', 700, 892, 2000);
+        animateValue('totalProducts', 0, 24, 1500);
+      });
+    </script>
+
+    <!-- Additional Scripts -->
     <script src="./assets/js/main.js"></script>
-    <script src="./vendor/js/aos.js"></script>
-    <script src="vendor/js/jquery.waypoints.js"></script>
-    <script src="vendor/js/jquery.counterup.js"></script>
-    <script src="vendor/js/bootstrap.min.js"></script>
-    <script src="vendor/js/bootstrap.bundle.js"></script>
-    <script src="vendor/js/popper.min.js"></script>
-    <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
   </body>
 </html>
