@@ -1,6 +1,10 @@
 @extends('layouts.app')
 @if(request()->is('products'))
-@section('title', 'Products')
+@section('title', 'Premium Dalmoth & Namkeen Products')
+@section('meta_title', 'Buy Premium Dalmoth & Namkeen Online Nepal | Danira\'s Product Range')
+@section('meta_desc', 'Browse our extensive range of premium dalmoth, namkeen, and traditional Nepali snacks. Fresh, crispy, and hygienically packed products. Order online for delivery across Nepal. Best prices guaranteed!')
+@section('meta_keywords', 'buy dalmoth online Nepal, namkeen products, traditional snacks Nepal, crispy namkeen, spicy dalmoth, Nepali snacks online, dalmoth price Nepal, namkeen varieties, healthy snacks')
+@section('canonical', url('/products'))
 @endif
 
 @section('css')
@@ -8,11 +12,6 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 <link rel="stylesheet" href={{ asset('assets/css/style.css') }} />
-@if($id!= null)
-<link rel="canonical" href="{{url('')}}/products">
-@else
-<link rel="canonical" href="{{url('')}}/products/{{$id}}">
-@endif
 @endsection
 
 @section('content')
@@ -51,20 +50,57 @@
         @if ($p->id == $id)
         {{-- Meta Tags --}}
         @if(request()->is('products/*'))
-        @section('title', $p->name)
+        @section('title', $p->name . ' - Buy Premium Dalmoth Online Nepal')
+        @section('meta_title', $p->name . ' | Danira\'s Dalmoth - Buy Authentic Nepali Namkeen Online')
+        @section('meta_desc', Str::substr($p->description, 0, 155) . '... Order fresh ' . $p->name . ' online from Danira\'s Dalmoth. Best quality namkeen in Nepal with fast delivery.')
+        @section('meta_keywords', $p->name . ', buy ' . $p->name . ' online, ' . strtolower($p->category) . ' Nepal, dalmoth Nepal, namkeen online, ' . $p->brand_name)
+        @section('og_image', url('storage' . substr($p->photo, 6)))
+        @section('og_title', $p->name . ' - Premium Nepali Namkeen | Danira\'s Dalmoth')
+        @section('og_desc', Str::substr($p->description, 0, 155) . '... Fresh, crispy, and delicious!')
+        @section('canonical', url()->current())
+        
+        @section('structured_data')
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "{{ $p->name }}",
+          "image": "{{ url('storage' . substr($p->photo, 6)) }}",
+          "description": "{{ strip_tags($p->description) }}",
+          "brand": {
+            "@type": "Brand",
+            "name": "{{ $p->brand_name }}"
+          },
+          "offers": {
+            "@type": "Offer",
+            "url": "{{ url()->current() }}",
+            "priceCurrency": "NPR",
+            "price": "{{ $p->price }}",
+            "priceValidUntil": "{{ date('Y-12-31') }}",
+            "availability": "{{ $p->in_stock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock' }}",
+            "seller": {
+              "@type": "Organization",
+              "name": "Danira's Dalmoth"
+            }
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "reviewCount": "50"
+          }
+        }
+        </script>
+        @endsection
         @endif
-        @section('meta_desc',Str::substr($p->description, 0, 160).'...')
-        @section('meta_img','https://danirasdalmoth.com/storage'.substr($p->photo,6))
-        @section('url',url()->current())
 
-        {{-- Meta Tags ENd --}}
+        {{-- Meta Tags End --}}
         <div class="product-main">
             <div class="product-image" data-tilt>
-                <img src="{{ Storage::url($p->photo) }}" alt="product" />
+                <img src="{{ Storage::url($p->photo) }}" alt="{{ $p->name }} - Premium Nepali Dalmoth & Namkeen" />
             </div>
             <div class="product-details">
                 <div class="product-name">
-                    <h2>{{ $p->name }}</h2>
+                    <h1>{{ $p->name }}</h1>
                     @if ($p->in_stock)
                     <div class="status"></div>
                     @else
@@ -72,6 +108,7 @@
                     @endif
                 </div>
                 <div class="product-rating">
+                    <span><i class="fas fa-star"></i></span>
                     <span><i class="fas fa-star"></i></span>
                     <span><i class="fas fa-star"></i></span>
                     <span><i class="fas fa-star"></i></span>

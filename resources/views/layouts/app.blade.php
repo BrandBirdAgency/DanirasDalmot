@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-NP">
 
 <head>
     @include('inc.meta')

@@ -1,5 +1,20 @@
 @extends('layouts.app')
-@section('title', 'Contact')
+@section('title', 'Contact Us - Order Dalmoth Online Nepal')
+@section('meta_title', 'Contact Danira\'s Dalmoth | Order Premium Namkeen Online | Bulk Orders Nepal')
+@section('meta_desc', 'Contact Danira\'s Dalmoth for bulk orders, wholesale inquiries, or product information. Order authentic Nepali dalmoth and namkeen online. Fast delivery across Nepal. Call us or send your inquiry today!')
+@section('meta_keywords', 'contact Danira\'s Dalmoth, order dalmoth online, bulk namkeen orders Nepal, wholesale dalmoth, buy namkeen Nepal, dalmoth delivery Nepal, namkeen supplier contact')
+@section('canonical', url('/contact'))
+
+@section('structured_data')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact Danira's Dalmoth",
+  "description": "Get in touch with Danira's Dalmoth for orders, inquiries, and customer support"
+}
+</script>
+@endsection
 @section('css')
     <link rel="stylesheet" href={{ asset('assets/css/contact.min.css') }}>
     <link rel="stylesheet" href={{ asset('assets/css/style.min.css') }} />

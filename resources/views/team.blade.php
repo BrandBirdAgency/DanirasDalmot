@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
-@section('title','Team')
+@section('title','Our Team - Meet Danira\'s Dalmoth Experts')
+@section('meta_title', 'Our Expert Team | Danira\'s Dalmoth - Dedicated to Quality Namkeen Production')
+@section('meta_desc', 'Meet the passionate team behind Danira\'s Dalmoth. Our experienced professionals ensure every batch of namkeen and dalmoth meets the highest quality standards. Learn about our leadership and production experts.')
+@section('meta_keywords', 'Danira\'s team, namkeen experts Nepal, food production team, dalmoth manufacturers, quality control team, leadership team Nepal')
+@section('canonical', url('/team'))
 @section('css')
 <!-- Link Swiper's CSS -->
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />

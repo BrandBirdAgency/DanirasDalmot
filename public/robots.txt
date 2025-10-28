@@ -1,2 +1,40 @@
+# Robots.txt for Danira's Dalmoth
+# https://www.danirasdalmoth.com/robots.txt
+
 User-agent: *
-Disallow:
+Allow: /
+Allow: /products
+Allow: /about
+Allow: /team
+Allow: /contact
+Allow: /storage/images/
+
+Disallow: /admin/
+Disallow: /login
+Disallow: /admin/*
+Disallow: /.env
+Disallow: /vendor/
+Disallow: /storage/logs/
+
+# Sitemap location
+Sitemap: https://www.danirasdalmoth.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Google specific
+User-agent: Googlebot
+Allow: /
+Allow: /storage/images/
+
+# Bing specific
+User-agent: Bingbot
+Allow: /
+Allow: /storage/images/
+
+# Social Media Bots
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
