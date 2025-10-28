@@ -31,7 +31,7 @@ class Order extends Model
         if (isset($this->attributes['total_price'])) {
             return $this->attributes['total_price'];
         }
-        
+
         // Otherwise calculate from price * quantity
         return ($this->attributes['price'] ?? 0) * ($this->attributes['quantity'] ?? 1);
     }
