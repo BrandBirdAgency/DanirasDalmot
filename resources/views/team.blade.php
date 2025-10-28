@@ -254,31 +254,6 @@
         <img class="company-logo" src="{{asset('assets/logo/brandbird.png')}}" alt="Brand Bird Logo">
       </div>
     </div>
-    <div class="row mt-5">
-      <div class="col-12">
-        <h5 class="team-heading">Team Members</h5>
-      </div>
-      @forelse ($teams as $team)
-      @if($team->team_id)
-      <div class="col-12 col-sm-6 col-lg-4">
-        <div class="team-card">
-          <img src="{{$team->photo}}" alt="{{$team->name}}">
-          <div class="team-info d-flex flex-column justify-content-center">
-            <h5><a href="https://brandbirdagency.com" target="_blank"
-                class="text-decoration-none color-blue">{{$team->name}}</a>
-            </h5>
-            <p>{{$team->position}}</p>
-          </div>
-        </div>
-      </div>
-      @endif
-      @empty
-      <div class="no-content">
-        <h4>No Team</h4>
-      </div>
-      @endforelse
-
-    </div>
   </section>
 
   <!-- END TEAMS -->
