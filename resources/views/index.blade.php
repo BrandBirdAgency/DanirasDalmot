@@ -2,13 +2,17 @@
 
 @section('title','Premium Dalmoth & Namkeen Manufacturer Nepal')
 @section('meta_title', 'Danira\'s Dalmoth - Best Quality Namkeen & Snacks in Nepal | Buy Online')
-@section('meta_desc', 'Danira\'s Dalmoth is Nepal\'s leading manufacturer of premium dalmoth, namkeen, and traditional snacks. Fresh, crispy, hygienically packed with authentic taste. Order authentic Nepali snacks online with guaranteed quality and on-time delivery.')
-@section('meta_keywords', 'dalmoth Nepal, namkeen manufacturer Nepal, buy dalmoth online, Nepali snacks, traditional namkeen, Danira\'s Dalmoth, crispy snacks, healthy namkeen Nepal, dalmoth online delivery, premium snacks Nepal, भुजिया नेपाल')
+@section('meta_desc', 'Danira\'s Dalmoth is Nepal\'s leading manufacturer of premium dalmoth, namkeen, and traditional
+snacks. Fresh, crispy, hygienically packed with authentic taste. Order authentic Nepali snacks online with guaranteed
+quality and on-time delivery.')
+@section('meta_keywords', 'dalmoth Nepal, namkeen manufacturer Nepal, buy dalmoth online, Nepali snacks, traditional
+namkeen, Danira\'s Dalmoth, crispy snacks, healthy namkeen Nepal, dalmoth online delivery, premium snacks Nepal, भुजिया
+नेपाल')
 @section('canonical', url('/'))
 
 @section('structured_data')
 <script type="application/ld+json">
-{
+  {
   "@context": "https://schema.org",
   "@type": "FoodEstablishment",
   "@id": "{{ url('/') }}",
@@ -31,7 +35,7 @@
 }
 </script>
 <script type="application/ld+json">
-{
+  {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Danira's Dalmoth",
@@ -57,7 +61,8 @@
       <h3>Quality that You can Trust &nbsp;</h3>
     </div>
   </div>
-  <img src={{asset("assets/images/banner1.jpg")}} alt="Danira's Dalmoth - Premium Quality Namkeen and Dalmoth Manufacturer Nepal" class="banner-img">
+  <img src={{asset("assets/images/banner1.jpg")}}
+    alt="Danira's Dalmoth - Premium Quality Namkeen and Dalmoth Manufacturer Nepal" class="banner-img">
   <img src={{asset("assets/images/3.png")}} alt="Fresh Dalmoth Namkeen Products Nepal" class="product-1">
   <img src={{asset("/assets/images/2.png")}} alt="Traditional Nepali Snacks - Dalmoth and Namkeen" class="product-2">
 </section>
@@ -75,12 +80,18 @@
           <h1>Welcome To Danira's Dalmoth - Nepal's Premier Namkeen Manufacturer</h1>
           <div class="line"></div>
         </div>
-        <p class="text-justify">"Danira's" - a premium brand of "Pushpanjali Spices and Food Products" is Nepal's leading 
-          manufacturer and supplier of authentic traditional dalmoth, namkeen, and crispy snacks. We specialize in producing 
-          high-quality, moisture-free, hygienically packed namkeen products that deliver the perfect blend of taste and crunch. 
-          Our commitment to excellence ensures that every bite of our dalmoth and namkeen meets international quality standards 
-          while preserving authentic Nepali flavors. We work closely with our customers and partners to deliver the best possible 
-          products at competitive prices. Our foundation is built on open communication, integrity, honesty, and accountability 
+        <p class="text-justify">"Danira's" - a premium brand of "Pushpanjali Spices and Food Products" is Nepal's
+          leading
+          manufacturer and supplier of authentic traditional dalmoth, namkeen, and crispy snacks. We specialize in
+          producing
+          high-quality, moisture-free, hygienically packed namkeen products that deliver the perfect blend of taste and
+          crunch.
+          Our commitment to excellence ensures that every bite of our dalmoth and namkeen meets international quality
+          standards
+          while preserving authentic Nepali flavors. We work closely with our customers and partners to deliver the best
+          possible
+          products at competitive prices. Our foundation is built on open communication, integrity, honesty, and
+          accountability
           with both customers and employees.</p>
 
         <div class="fea">
@@ -91,7 +102,8 @@
             <div class="de">
               <h2>Why Choose Danira's Dalmoth?</h2>
               <h3>Premium Quality Namkeen Products</h3>
-              <p>Our state-of-the-art machinery and strict quality control ensure every batch of dalmoth and namkeen meets 
+              <p>Our state-of-the-art machinery and strict quality control ensure every batch of dalmoth and namkeen
+                meets
                 the highest standards of crispiness, taste, and freshness!</p>
             </div>
           </div>
@@ -101,7 +113,7 @@
             </div>
             <div class="de">
               <h3>Health-Conscious Traditional Snacks</h3>
-              <p>We prioritize your health by using premium ingredients and maintaining hygiene standards in every step 
+              <p>We prioritize your health by using premium ingredients and maintaining hygiene standards in every step
                 of our dalmoth production. Enjoy guilt-free snacking with our nutritious namkeen range!</p>
             </div>
           </div>
@@ -111,7 +123,7 @@
             </div>
             <div class="de">
               <h3>Reliable On-Time Delivery Across Nepal</h3>
-              <p>We understand the importance of timely delivery. Order our premium dalmoth and namkeen products online 
+              <p>We understand the importance of timely delivery. Order our premium dalmoth and namkeen products online
                 and enjoy fast, reliable delivery to your doorstep anywhere in Nepal!</p>
             </div>
           </div>

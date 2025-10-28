@@ -2,8 +2,10 @@
 @if(request()->is('products'))
 @section('title', 'Premium Dalmoth & Namkeen Products')
 @section('meta_title', 'Buy Premium Dalmoth & Namkeen Online Nepal | Danira\'s Product Range')
-@section('meta_desc', 'Browse our extensive range of premium dalmoth, namkeen, and traditional Nepali snacks. Fresh, crispy, and hygienically packed products. Order online for delivery across Nepal. Best prices guaranteed!')
-@section('meta_keywords', 'buy dalmoth online Nepal, namkeen products, traditional snacks Nepal, crispy namkeen, spicy dalmoth, Nepali snacks online, dalmoth price Nepal, namkeen varieties, healthy snacks')
+@section('meta_desc', 'Browse our extensive range of premium dalmoth, namkeen, and traditional Nepali snacks. Fresh,
+crispy, and hygienically packed products. Order online for delivery across Nepal. Best prices guaranteed!')
+@section('meta_keywords', 'buy dalmoth online Nepal, namkeen products, traditional snacks Nepal, crispy namkeen, spicy
+dalmoth, Nepali snacks online, dalmoth price Nepal, namkeen varieties, healthy snacks')
 @section('canonical', url('/products'))
 @endif
 
@@ -52,16 +54,18 @@
         @if(request()->is('products/*'))
         @section('title', $p->name . ' - Buy Premium Dalmoth Online Nepal')
         @section('meta_title', $p->name . ' | Danira\'s Dalmoth - Buy Authentic Nepali Namkeen Online')
-        @section('meta_desc', Str::substr($p->description, 0, 155) . '... Order fresh ' . $p->name . ' online from Danira\'s Dalmoth. Best quality namkeen in Nepal with fast delivery.')
-        @section('meta_keywords', $p->name . ', buy ' . $p->name . ' online, ' . strtolower($p->category) . ' Nepal, dalmoth Nepal, namkeen online, ' . $p->brand_name)
+        @section('meta_desc', Str::substr($p->description, 0, 155) . '... Order fresh ' . $p->name . ' online from
+        Danira\'s Dalmoth. Best quality namkeen in Nepal with fast delivery.')
+        @section('meta_keywords', $p->name . ', buy ' . $p->name . ' online, ' . strtolower($p->category) . ' Nepal,
+        dalmoth Nepal, namkeen online, ' . $p->brand_name)
         @section('og_image', url('storage' . substr($p->photo, 6)))
         @section('og_title', $p->name . ' - Premium Nepali Namkeen | Danira\'s Dalmoth')
         @section('og_desc', Str::substr($p->description, 0, 155) . '... Fresh, crispy, and delicious!')
         @section('canonical', url()->current())
-        
+
         @section('structured_data')
         <script type="application/ld+json">
-        {
+            {
           "@context": "https://schema.org",
           "@type": "Product",
           "name": "{{ $p->name }}",

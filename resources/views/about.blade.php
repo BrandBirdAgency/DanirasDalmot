@@ -1,8 +1,10 @@
 @extends('layouts.app')
 @section('title', 'About Us - Leading Dalmoth Manufacturer Nepal')
 @section('meta_title', 'About Danira\'s Dalmoth - Nepal\'s Trusted Namkeen & Snacks Manufacturer Since 2000')
-@section('meta_desc', 'Learn about Danira\'s Dalmoth, Nepal\'s premier manufacturer of authentic dalmoth and namkeen. Discover our journey, quality standards, mission to deliver premium traditional snacks with modern hygiene practices.')
-@section('meta_keywords', 'about Danira\'s Dalmoth, namkeen manufacturer Nepal, dalmoth company Nepal, traditional snacks producer, food manufacturing Nepal, quality namkeen, Pushpanjali Spices')
+@section('meta_desc', 'Learn about Danira\'s Dalmoth, Nepal\'s premier manufacturer of authentic dalmoth and namkeen.
+Discover our journey, quality standards, mission to deliver premium traditional snacks with modern hygiene practices.')
+@section('meta_keywords', 'about Danira\'s Dalmoth, namkeen manufacturer Nepal, dalmoth company Nepal, traditional
+snacks producer, food manufacturing Nepal, quality namkeen, Pushpanjali Spices')
 @section('canonical', url('/about'))
 
 @section('css')
