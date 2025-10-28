@@ -2075,6 +2075,42 @@ h4 {
 .message .name span {
     font-weight: 700;
 }
+/* Fix: Constrain message section images (Chairman/CEO) for consistent sizing */
+.message .image-contain {
+    max-height: 520px;
+    overflow: hidden;
+}
+.message .image-contain img {
+    width: 100%;
+    height: auto;
+    max-height: 520px;
+    object-fit: cover;
+    display: block;
+}
+@media only screen and (max-width: 768px) {
+    .message .image-contain {
+        max-height: 380px;
+    }
+    .message .image-contain img {
+        max-height: 380px;
+    }
+    .message .backbox {
+        top: -10px;
+        left: -10px;
+        width: 95%;
+        height: 95%;
+    }
+}
+
+/* Partner section logo sizing/alignment */
+.company-main .company-logo {
+    max-width: 420px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin-left: auto; /* keep it aligned to the right column */
+}
 /* END MESSAGE FROM CHAIRMAN */
 
 /* TEAM */

@@ -251,7 +251,7 @@
         <p>-We <span class="color-blue">Hear</span> We <span class="color-blue">Make</span> IT Happen.</p>
       </div>
       <div class="col-12 col-md-6">
-        <img class="company-logo" src="{{asset('assets/images/logo.jpg')}}" alt="Company Logo">
+        <img class="company-logo" src="{{asset('assets/logo/brandbird.png')}}" alt="Brand Bird Logo">
       </div>
     </div>
     <div class="row mt-5">
