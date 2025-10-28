@@ -27,7 +27,7 @@ class AdminController extends Controller
 
         // Calculate total revenue from delivered orders (price * quantity)
         $totalRevenue = Order::where('status', 'delivered')
-            ->selectRaw('SUM(COALESCE(total_price, price * quantity)) as total')
+            ->selectRaw('SUM(price * quantity) as total')
             ->value('total') ?? 0;
 
         $pendingOrders = Order::where('status', 'pending')->count();
@@ -47,7 +47,7 @@ class AdminController extends Controller
             $sales = Order::whereYear('created_at', $date->year)
                 ->whereMonth('created_at', $date->month)
                 ->where('status', 'delivered')
-                ->selectRaw('SUM(COALESCE(total_price, price * quantity)) as total')
+                ->selectRaw('SUM(price * quantity) as total')
                 ->value('total') ?? 0;
             $monthlySales[] = [
                 'month' => $date->format('M'),
@@ -71,13 +71,13 @@ class AdminController extends Controller
         $currentMonthRevenue = Order::whereMonth('created_at', now()->month)
             ->whereYear('created_at', now()->year)
             ->where('status', 'delivered')
-            ->selectRaw('SUM(COALESCE(total_price, price * quantity)) as total')
+            ->selectRaw('SUM(price * quantity) as total')
             ->value('total') ?? 0;
 
         $previousMonthRevenue = Order::whereMonth('created_at', now()->subMonth()->month)
             ->whereYear('created_at', now()->subMonth()->year)
             ->where('status', 'delivered')
-            ->selectRaw('SUM(COALESCE(total_price, price * quantity)) as total')
+            ->selectRaw('SUM(price * quantity) as total')
             ->value('total') ?? 0;
 
         $revenueGrowth = $previousMonthRevenue > 0
