@@ -13,23 +13,23 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('admin/login', [AuthenticatedSessionController::class, 'create'])
-                ->middleware('guest')
-                ->name('login'); // Changed from 'adminLogin' to 'login' for Laravel auth compatibility
+    ->middleware('guest')
+    ->name('login'); // Changed from 'adminLogin' to 'login' for Laravel auth compatibility
 
 Route::get('login', [AuthenticatedSessionController::class, 'create'])
-                ->middleware('guest')
-                ->name('adminLogin'); // Keep as alias
+    ->middleware('guest')
+    ->name('adminLogin'); // Keep as alias
 
 Route::post('login', [AuthenticatedSessionController::class, 'store'])
-                ->name('adminLoginSubmit')
-                ->middleware('guest');
+    ->name('adminLoginSubmit')
+    ->middleware('guest');
 Route::get('/confirm-password', [ConfirmablePasswordController::class, 'show'])
-                ->middleware('auth')
-                ->name('password.confirm');
+    ->middleware('auth')
+    ->name('password.confirm');
 
 Route::post('/confirm-password', [ConfirmablePasswordController::class, 'store'])
-                ->middleware('auth');
+    ->middleware('auth');
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
-                ->middleware('auth')
-                ->name('logout');
+    ->middleware('auth')
+    ->name('logout');
